@@ -1,0 +1,439 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		077FF1D012490B0F00FC7D17 /* Timer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF1CF12490B0F00FC7D17 /* Timer.mm */; };
+		077FF21812490B9300FC7D17 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077FF21712490B9300FC7D17 /* OpenGLES.framework */; };
+		077FF21C12490BB500FC7D17 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077FF21B12490BB500FC7D17 /* QuartzCore.framework */; };
+		077FF25A1249184500FC7D17 /* Color.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF2581249184500FC7D17 /* Color.mm */; };
+		077FF2D81249265000FC7D17 /* GLTexture.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF2CE1249265000FC7D17 /* GLTexture.mm */; };
+		077FF2D91249265000FC7D17 /* GLTextureBank.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF2D01249265000FC7D17 /* GLTextureBank.mm */; };
+		077FF2DA1249265000FC7D17 /* GLTextureSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF2D21249265000FC7D17 /* GLTextureSprite.mm */; };
+		077FF2DB1249265000FC7D17 /* GLBasicTextureLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF2D51249265000FC7D17 /* GLBasicTextureLoader.mm */; };
+		077FF2DC1249265000FC7D17 /* GLPVRTextureLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF2D71249265000FC7D17 /* GLPVRTextureLoader.mm */; };
+		077FF302124929B400FC7D17 /* GLUIImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF301124929B400FC7D17 /* GLUIImage.mm */; };
+		077FF305124929D300FC7D17 /* GLUILabel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF304124929D300FC7D17 /* GLUILabel.mm */; };
+		077FF308124929E800FC7D17 /* GLUISprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 077FF307124929E800FC7D17 /* GLUISprite.m */; };
+		1D3623260D0F684500981E51 /* Electric3DAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* Electric3DAppDelegate.mm */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
+		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
+		28C286E10D94DF7D0034E888 /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.mm */; };
+		28F335F11007B36200424DE2 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F335F01007B36200424DE2 /* RootViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		077FF0E21248C53D00FC7D17 /* CGMaths.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = CGMaths.h; sourceTree = "<group>"; };
+		077FF0EC1248C5FF00FC7D17 /* CGMathsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGMathsConstants.h; sourceTree = "<group>"; };
+		077FF0ED1248C69500FC7D17 /* CGMathsUtilties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGMathsUtilties.h; sourceTree = "<group>"; };
+		077FF0EF1248C72700FC7D17 /* CGVector2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGVector2D.h; sourceTree = "<group>"; };
+		077FF0F11248C89D00FC7D17 /* CGVector3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGVector3D.h; sourceTree = "<group>"; };
+		077FF1621248D68700FC7D17 /* CGMatrix4x4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGMatrix4x4.h; sourceTree = "<group>"; };
+		077FF1631248D6B900FC7D17 /* CGVector4D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGVector4D.h; sourceTree = "<group>"; };
+		077FF17C1248DD4B00FC7D17 /* CGMatrix3x3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGMatrix3x3.h; sourceTree = "<group>"; };
+		077FF1CE12490B0F00FC7D17 /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
+		077FF1CF12490B0F00FC7D17 /* Timer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Timer.mm; sourceTree = "<group>"; };
+		077FF21712490B9300FC7D17 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		077FF21B12490BB500FC7D17 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		077FF2571249184500FC7D17 /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
+		077FF2581249184500FC7D17 /* Color.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Color.mm; sourceTree = "<group>"; };
+		077FF2591249184500FC7D17 /* Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
+		077FF2CD1249265000FC7D17 /* GLTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTexture.h; sourceTree = "<group>"; };
+		077FF2CE1249265000FC7D17 /* GLTexture.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLTexture.mm; sourceTree = "<group>"; };
+		077FF2CF1249265000FC7D17 /* GLTextureBank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTextureBank.h; sourceTree = "<group>"; };
+		077FF2D01249265000FC7D17 /* GLTextureBank.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLTextureBank.mm; sourceTree = "<group>"; };
+		077FF2D11249265000FC7D17 /* GLTextureSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTextureSprite.h; sourceTree = "<group>"; };
+		077FF2D21249265000FC7D17 /* GLTextureSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLTextureSprite.mm; sourceTree = "<group>"; };
+		077FF2D41249265000FC7D17 /* GLBasicTextureLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLBasicTextureLoader.h; sourceTree = "<group>"; };
+		077FF2D51249265000FC7D17 /* GLBasicTextureLoader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLBasicTextureLoader.mm; sourceTree = "<group>"; };
+		077FF2D61249265000FC7D17 /* GLPVRTextureLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLPVRTextureLoader.h; sourceTree = "<group>"; };
+		077FF2D71249265000FC7D17 /* GLPVRTextureLoader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLPVRTextureLoader.mm; sourceTree = "<group>"; };
+		077FF2FD1249299800FC7D17 /* GLUIObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLUIObject.h; sourceTree = "<group>"; };
+		077FF300124929B400FC7D17 /* GLUIImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLUIImage.h; sourceTree = "<group>"; };
+		077FF301124929B400FC7D17 /* GLUIImage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLUIImage.mm; sourceTree = "<group>"; };
+		077FF303124929D300FC7D17 /* GLUILabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLUILabel.h; sourceTree = "<group>"; };
+		077FF304124929D300FC7D17 /* GLUILabel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLUILabel.mm; sourceTree = "<group>"; };
+		077FF306124929E800FC7D17 /* GLUISprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLUISprite.h; sourceTree = "<group>"; };
+		077FF307124929E800FC7D17 /* GLUISprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLUISprite.m; sourceTree = "<group>"; };
+		077FF30912492A0900FC7D17 /* GLUITypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLUITypes.h; sourceTree = "<group>"; };
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D3623240D0F684500981E51 /* Electric3DAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Electric3DAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* Electric3DAppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Electric3DAppDelegate.mm; sourceTree = "<group>"; };
+		1D6058910D05DD3D006BFB54 /* Electric3D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Electric3D.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		28A0AAE50D9B0CCF005BE974 /* Electric3D_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Electric3D_Prefix.pch; sourceTree = "<group>"; };
+		28AD735F0D9D9599002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		28C286DF0D94DF7D0034E888 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		28C286E00D94DF7D0034E888 /* RootViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RootViewController.mm; sourceTree = "<group>"; };
+		28F335F01007B36200424DE2 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* Electric3D-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Electric3D-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
+				077FF21812490B9300FC7D17 /* OpenGLES.framework in Frameworks */,
+				077FF21C12490BB500FC7D17 /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		077FF0D71248B53A00FC7D17 /* Electic3D */ = {
+			isa = PBXGroup;
+			children = (
+				077FF0DA1248B57A00FC7D17 /* Utilities */,
+				077FF0D91248B57100FC7D17 /* Objects */,
+				077FF0D81248B54800FC7D17 /* Renders */,
+			);
+			path = Electic3D;
+			sourceTree = "<group>";
+		};
+		077FF0D81248B54800FC7D17 /* Renders */ = {
+			isa = PBXGroup;
+			children = (
+				077FF22C12490CA000FC7D17 /* ES1 */,
+			);
+			path = Renders;
+			sourceTree = "<group>";
+		};
+		077FF0D91248B57100FC7D17 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				077FF2C6124925A300FC7D17 /* UI */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		077FF0DA1248B57A00FC7D17 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				077FF2C7124925D700FC7D17 /* GLTextures */,
+				077FF2401249111200FC7D17 /* Colors */,
+				077FF0E11248C50F00FC7D17 /* Maths */,
+				077FF0E01248C4FA00FC7D17 /* Timers */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		077FF0E01248C4FA00FC7D17 /* Timers */ = {
+			isa = PBXGroup;
+			children = (
+				077FF1CE12490B0F00FC7D17 /* Timer.h */,
+				077FF1CF12490B0F00FC7D17 /* Timer.mm */,
+			);
+			path = Timers;
+			sourceTree = "<group>";
+		};
+		077FF0E11248C50F00FC7D17 /* Maths */ = {
+			isa = PBXGroup;
+			children = (
+				077FF0E21248C53D00FC7D17 /* CGMaths.h */,
+				077FF0EC1248C5FF00FC7D17 /* CGMathsConstants.h */,
+				077FF0ED1248C69500FC7D17 /* CGMathsUtilties.h */,
+				077FF0EF1248C72700FC7D17 /* CGVector2D.h */,
+				077FF0F11248C89D00FC7D17 /* CGVector3D.h */,
+				077FF1631248D6B900FC7D17 /* CGVector4D.h */,
+				077FF17C1248DD4B00FC7D17 /* CGMatrix3x3.h */,
+				077FF1621248D68700FC7D17 /* CGMatrix4x4.h */,
+			);
+			path = Maths;
+			sourceTree = "<group>";
+		};
+		077FF22C12490CA000FC7D17 /* ES1 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ES1;
+			sourceTree = "<group>";
+		};
+		077FF2401249111200FC7D17 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				077FF2591249184500FC7D17 /* Colors.h */,
+				077FF2571249184500FC7D17 /* Color.h */,
+				077FF2581249184500FC7D17 /* Color.mm */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
+		077FF2C6124925A300FC7D17 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				077FF30912492A0900FC7D17 /* GLUITypes.h */,
+				077FF2FD1249299800FC7D17 /* GLUIObject.h */,
+				077FF300124929B400FC7D17 /* GLUIImage.h */,
+				077FF301124929B400FC7D17 /* GLUIImage.mm */,
+				077FF306124929E800FC7D17 /* GLUISprite.h */,
+				077FF307124929E800FC7D17 /* GLUISprite.m */,
+				077FF303124929D300FC7D17 /* GLUILabel.h */,
+				077FF304124929D300FC7D17 /* GLUILabel.mm */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		077FF2C7124925D700FC7D17 /* GLTextures */ = {
+			isa = PBXGroup;
+			children = (
+				077FF2CD1249265000FC7D17 /* GLTexture.h */,
+				077FF2CE1249265000FC7D17 /* GLTexture.mm */,
+				077FF2CF1249265000FC7D17 /* GLTextureBank.h */,
+				077FF2D01249265000FC7D17 /* GLTextureBank.mm */,
+				077FF2D11249265000FC7D17 /* GLTextureSprite.h */,
+				077FF2D21249265000FC7D17 /* GLTextureSprite.mm */,
+				077FF2D31249265000FC7D17 /* Loaders */,
+			);
+			path = GLTextures;
+			sourceTree = "<group>";
+		};
+		077FF2D31249265000FC7D17 /* Loaders */ = {
+			isa = PBXGroup;
+			children = (
+				077FF2D41249265000FC7D17 /* GLBasicTextureLoader.h */,
+				077FF2D51249265000FC7D17 /* GLBasicTextureLoader.mm */,
+				077FF2D61249265000FC7D17 /* GLPVRTextureLoader.h */,
+				077FF2D71249265000FC7D17 /* GLPVRTextureLoader.mm */,
+			);
+			path = Loaders;
+			sourceTree = "<group>";
+		};
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				077FF0D71248B53A00FC7D17 /* Electic3D */,
+				28C286DF0D94DF7D0034E888 /* RootViewController.h */,
+				28C286E00D94DF7D0034E888 /* RootViewController.mm */,
+				1D3623240D0F684500981E51 /* Electric3DAppDelegate.h */,
+				1D3623250D0F684500981E51 /* Electric3DAppDelegate.mm */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* Electric3D.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				28A0AAE50D9B0CCF005BE974 /* Electric3D_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				28F335F01007B36200424DE2 /* RootViewController.xib */,
+				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
+				8D1107310486CEB800E47090 /* Electric3D-Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
+				077FF21712490B9300FC7D17 /* OpenGLES.framework */,
+				077FF21B12490BB500FC7D17 /* QuartzCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* Electric3D */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Electric3D" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Electric3D;
+			productName = Electric3D;
+			productReference = 1D6058910D05DD3D006BFB54 /* Electric3D.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Electric3D" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				en,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* Electric3D */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
+				28F335F11007B36200424DE2 /* RootViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				1D3623260D0F684500981E51 /* Electric3DAppDelegate.mm in Sources */,
+				28C286E10D94DF7D0034E888 /* RootViewController.mm in Sources */,
+				077FF1D012490B0F00FC7D17 /* Timer.mm in Sources */,
+				077FF25A1249184500FC7D17 /* Color.mm in Sources */,
+				077FF2D81249265000FC7D17 /* GLTexture.mm in Sources */,
+				077FF2D91249265000FC7D17 /* GLTextureBank.mm in Sources */,
+				077FF2DA1249265000FC7D17 /* GLTextureSprite.mm in Sources */,
+				077FF2DB1249265000FC7D17 /* GLBasicTextureLoader.mm in Sources */,
+				077FF2DC1249265000FC7D17 /* GLPVRTextureLoader.mm in Sources */,
+				077FF302124929B400FC7D17 /* GLUIImage.mm in Sources */,
+				077FF305124929D300FC7D17 /* GLUILabel.mm in Sources */,
+				077FF308124929E800FC7D17 /* GLUISprite.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Electric3D_Prefix.pch;
+				INFOPLIST_FILE = "Electric3D-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				PRODUCT_NAME = Electric3D;
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Electric3D_Prefix.pch;
+				INFOPLIST_FILE = "Electric3D-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				PRODUCT_NAME = Electric3D;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos4.1;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PREBINDING = NO;
+				SDKROOT = iphoneos4.1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Electric3D" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Electric3D" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
