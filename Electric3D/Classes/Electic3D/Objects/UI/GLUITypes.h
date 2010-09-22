@@ -14,9 +14,9 @@ namespace UI
 {
 	typedef enum 
 	{
-		eGLObjectImage = 0,
-		eGLObjectSprite,
-		eGLObjectLabel,
+		eGLUIImage = 0,
+		eGLUISprite,
+		eGLUILabel,
 		
 	} eGLUITypes;
 	

@@ -10,7 +10,6 @@
 #define __GLUIImage_h__
 
 #import <UIKit/UIKit.h>
-#import <OpenGLES/ES1/gl.h>
 #import "GLUIObject.h"
 #import "CGMaths.h"
 #import "Colors.h"
@@ -49,6 +48,8 @@ namespace UI
 	#pragma mark Public Functions
 	#pragma mark ---------------------------------------------------------
 	public:	// Functions
+		
+		inline eGLUITypes type() const { return eGLUIImage; };
 		
 		// set the texture object
 		inline void setTexture(const GLTextures::GLTexture * _texture) { m_texture = _texture; };

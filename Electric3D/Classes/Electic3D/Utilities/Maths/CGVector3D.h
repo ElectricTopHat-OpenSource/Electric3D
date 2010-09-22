@@ -30,6 +30,16 @@ namespace CGMaths
 #pragma mark ---------------------------------------------------------
 	
 #pragma mark ---------------------------------------------------------
+#pragma mark CGVector3D consts 
+#pragma mark ---------------------------------------------------------
+	
+	const CGVector3D CGVector3DZero = { 0, 0, 0 };
+	
+#pragma mark ---------------------------------------------------------
+#pragma mark End CGVector3D consts 
+#pragma mark ---------------------------------------------------------
+	
+#pragma mark ---------------------------------------------------------
 #pragma mark Utilty Functions
 #pragma mark ---------------------------------------------------------
 	
@@ -263,17 +273,6 @@ namespace CGMaths
 #pragma mark ---------------------------------------------------------
 #pragma mark End Math Utilty Functions : CGPoint
 #pragma mark ---------------------------------------------------------
-	
-#pragma mark ---------------------------------------------------------
-#pragma mark CGVector3D consts 
-#pragma mark ---------------------------------------------------------
-	
-	const CGVector3D CGVector3DZero = CGVector3DMake( 0, 0, 0 );
-	
-#pragma mark ---------------------------------------------------------
-#pragma mark End CGVector3D consts 
-#pragma mark ---------------------------------------------------------
-
 };
 	
 #endif

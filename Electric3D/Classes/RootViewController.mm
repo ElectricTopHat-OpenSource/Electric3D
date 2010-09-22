@@ -7,160 +7,217 @@
 //
 
 #import "RootViewController.h"
-#import "CGMaths.h"
-#import "UIColor-Extended.h"
+#import "GLTestGeneral.h"
+
+// -------------------------------------------------------------------
+// update time defines
+// -------------------------------------------------------------------
+#define kUpdateFPS				60.0f // Hz
+#define kUpdateSeconds			(1.0f / kUpdateFPS) // secs
+#define kSkipTicks				(1000 / kUpdateFPS)
+// -------------------------------------------------------------------
+
+@interface RootViewController (PrivateMethods)
+
+- (void) removeSubView;
+- (void) setSubView:(Class)_class;
+
+@end
+
 
 @implementation RootViewController
 
+#pragma mark ---------------------------------------------------------
+#pragma mark === Constructor / Destructor Functions  ===
+#pragma mark ---------------------------------------------------------
 
-#pragma mark -
-#pragma mark View lifecycle
-
-/*
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-*/
-
-/*
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-*/
-/*
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-*/
-/*
-- (void)viewWillDisappear:(BOOL)animated {
-	[super viewWillDisappear:animated];
-}
-*/
-/*
-- (void)viewDidDisappear:(BOOL)animated {
-	[super viewDidDisappear:animated];
-}
-*/
-
-/*
- // Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	// Return YES for supported orientations.
-	return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
- */
-
-
-#pragma mark -
-#pragma mark Table view data source
-
-// Customize the number of sections in the table view.
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+// ------------------------------------------
+// Initialization
+// ------------------------------------------
+- (id) initWithCoder:(NSCoder *)aDecoder
+{
+	if ( self = [super initWithCoder:aDecoder] )
+	{
+		tableData = [[NSMutableArray alloc] initWithCapacity:10];
+		
+		{
+			NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];
+			
+			[testInfo setObject:@"General GL Test" forKey:@"name"];
+			[testInfo setObject:[GLTestGeneral class] forKey:@"class"];
+			
+			[tableData addObject:testInfo];
+		}
+	}
+	return self;
 }
 
-
-// Customize the number of rows in the table view.
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
-}
-
-
-// Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
-    
-	// Configure the cell.
-
-    return cell;
-}
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source.
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }   
-}
-*/
-
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-
-#pragma mark -
-#pragma mark Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-	/*
-	 <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-	 [self.navigationController pushViewController:detailViewController animated:YES];
-	 [detailViewController release];
-	 */
-}
-
-
-#pragma mark -
-#pragma mark Memory management
-
-- (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Relinquish ownership any cached data, images, etc that aren't in use.
-}
-
-- (void)viewDidUnload {
-    // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
-    // For example: self.myOutlet = nil;
-}
-
-
-- (void)dealloc {
+// ------------------------------------------
+// dealloc
+// ------------------------------------------
+- (void)dealloc 
+{
+	SAFE_RELEASE( tableView );
+	SAFE_RELEASE( tableData );
+	SAFE_RELEASE( subView );
+	
+	[updateTimer invalidate];
+	updateTimer = nil;
+	
     [super dealloc];
 }
 
+#pragma mark ---------------------------------------------------------
+#pragma mark === End Constructor / Destructor Functions  ===
+#pragma mark ---------------------------------------------------------
+
+#pragma mark ---------------------------------------------------------
+#pragma mark === UIView Functions  ===
+#pragma mark ---------------------------------------------------------
+
+- (void) viewDidLoad
+{	
+	[tableView reloadData];
+}
+
+#pragma mark ---------------------------------------------------------
+#pragma mark === End UIView Functions  ===
+#pragma mark ---------------------------------------------------------
+
+#pragma mark ---------------------------------------------------------
+#pragma mark === Private Functions  ===
+#pragma mark ---------------------------------------------------------
+
+// ------------------------------------------
+// remove the subview
+// ------------------------------------------
+- (void) removeSubView
+{
+	if ( updateTimer )
+	{
+		[updateTimer invalidate];
+		updateTimer = nil;
+	}
+	
+	if ( subView )
+	{
+		[subView removeFromSuperview];
+		[subView release];
+		subView = nil;
+	}
+	
+	[tableView setHidden:FALSE];
+}
+
+// ------------------------------------------
+// add the subview
+// ------------------------------------------
+- (void) setSubView:(Class)_class
+{
+	if ( subView == nil )
+	{
+		CGRect frame = [[self view] bounds];
+		subView = [[_class alloc] initWithFrame:frame];
+		
+		if ( subView )
+		{
+			[[self view] addSubview:subView];
+		
+			// create the update timer
+			updateTimer = [NSTimer scheduledTimerWithTimeInterval:kUpdateSeconds target:subView selector:@selector(update) userInfo:nil repeats:YES];
+			
+			[tableView setHidden:TRUE];
+		}
+	}
+}
+
+#pragma mark ---------------------------------------------------------
+#pragma mark === End Private Functions  ===
+#pragma mark ---------------------------------------------------------
+
+#pragma mark ---------------------------------------------------------
+#pragma mark === UIResponder Functions  ===
+#pragma mark ---------------------------------------------------------
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+	[self removeSubView];
+}
+
+#pragma mark ---------------------------------------------------------
+#pragma mark === End UIResponder Functions  ===
+#pragma mark ---------------------------------------------------------
+
+#pragma mark ---------------------------------------------------------
+#pragma mark === UITableViewDelegate Functions  ===
+#pragma mark ---------------------------------------------------------
+
+// -------------------------------------------------------------------
+// did select row at IndexPath
+// -------------------------------------------------------------------
+- (void)tableView:(UITableView *)_tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{		
+	NSDictionary * entry = [tableData objectAtIndex:indexPath.row];
+		
+	[self removeSubView];
+	[self setSubView:[entry objectForKey:@"class"]];
+}
+
+#pragma mark ---------------------------------------------------------
+#pragma mark === End UITableViewDelegate Functions  ===
+#pragma mark ---------------------------------------------------------
+
+#pragma mark ---------------------------------------------------------
+#pragma mark === UITableViewDataSource Functions  ===
+#pragma mark ---------------------------------------------------------
+
+// -------------------------------------------------------------------
+// get the number of sections in the table
+// -------------------------------------------------------------------
+- (NSInteger) numberOfSectionsInTableView:(UITableView *)_tableView 
+{
+	return 1;
+}
+
+// -------------------------------------------------------------------
+// get the title for the section
+// -------------------------------------------------------------------
+- (NSString *)tableView:(UITableView *)_tableView titleForHeaderInSection:(NSInteger)section
+{
+	return @"OpenGL ES Tests";
+}
+
+// -------------------------------------------------------------------
+// get the bnumber of rows in the table section
+// -------------------------------------------------------------------
+- (NSInteger) tableView:(UITableView *)_tableView numberOfRowsInSection:(NSInteger)section 
+{
+    return [tableData count];
+}
+
+// -------------------------------------------------------------------
+// get the cell for the data
+// -------------------------------------------------------------------
+- (UITableViewCell *)tableView:(UITableView *)_tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	static NSString * cellIdentifier = @"FileListCell";
+	UITableViewCell * cell = [_tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+	if ( cell == nil )
+	{
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
+	}
+	
+	NSDictionary * entry = [tableData objectAtIndex:indexPath.row];
+	
+	[cell setAccessoryType:UITableViewCellAccessoryNone];
+	[[cell textLabel] setText:[entry objectForKey:@"name"]];
+	
+	return cell;
+}
+
+#pragma mark ---------------------------------------------------------
+#pragma mark === End UITableViewDataSource Functions  ===
+#pragma mark ---------------------------------------------------------
 
 @end
 

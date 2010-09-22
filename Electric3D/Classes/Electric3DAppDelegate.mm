@@ -13,7 +13,7 @@
 @implementation Electric3DAppDelegate
 
 @synthesize window;
-@synthesize navigationController;
+@synthesize controller;
 
 
 #pragma mark -
@@ -24,7 +24,7 @@
     // Override point for customization after application launch.
     
     // Add the navigation controller's view to the window and display.
-    [window addSubview:navigationController.view];
+    [window addSubview:controller.view];
     [window makeKeyAndVisible];
 
     return YES;
@@ -80,7 +80,7 @@
 
 
 - (void)dealloc {
-	[navigationController release];
+	[controller release];
 	[window release];
 	[super dealloc];
 }

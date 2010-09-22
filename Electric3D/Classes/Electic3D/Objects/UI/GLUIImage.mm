@@ -20,7 +20,6 @@ namespace UI
 	// Constructor
 	// --------------------------------------------------
 	GLUIImage::GLUIImage( const GLTextures::GLTexture * _texture, CGPoint _center, CGSize _size )
-	: GLUIObject( eGLObjectImage )
 	{
 		m_texture = _texture;
 		m_center = _center;

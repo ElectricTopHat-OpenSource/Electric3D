@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		077FF1D012490B0F00FC7D17 /* Timer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF1CF12490B0F00FC7D17 /* Timer.mm */; };
+		077FF1D012490B0F00FC7D17 /* RenderTimer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF1CF12490B0F00FC7D17 /* RenderTimer.mm */; };
 		077FF21812490B9300FC7D17 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077FF21712490B9300FC7D17 /* OpenGLES.framework */; };
 		077FF21C12490BB500FC7D17 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077FF21B12490BB500FC7D17 /* QuartzCore.framework */; };
 		077FF25A1249184500FC7D17 /* Color.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF2581249184500FC7D17 /* Color.mm */; };
@@ -18,7 +18,18 @@
 		077FF2DC1249265000FC7D17 /* GLPVRTextureLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF2D71249265000FC7D17 /* GLPVRTextureLoader.mm */; };
 		077FF302124929B400FC7D17 /* GLUIImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF301124929B400FC7D17 /* GLUIImage.mm */; };
 		077FF305124929D300FC7D17 /* GLUILabel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF304124929D300FC7D17 /* GLUILabel.mm */; };
-		077FF308124929E800FC7D17 /* GLUISprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 077FF307124929E800FC7D17 /* GLUISprite.m */; };
+		077FF308124929E800FC7D17 /* GLUISprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF307124929E800FC7D17 /* GLUISprite.mm */; };
+		077FF32D124A0AA300FC7D17 /* GLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF32C124A0AA300FC7D17 /* GLView.mm */; };
+		077FF331124A0D2700FC7D17 /* GLRenderEngineES1.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF330124A0D2700FC7D17 /* GLRenderEngineES1.mm */; };
+		077FF35F124A1DB500FC7D17 /* GLTestGeneral.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF35E124A1DB500FC7D17 /* GLTestGeneral.mm */; };
+		077FF48B124A42EE00FC7D17 /* GLUIRenderES1.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF48A124A42EE00FC7D17 /* GLUIRenderES1.mm */; };
+		077FF48E124A433E00FC7D17 /* GLRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF48D124A433E00FC7D17 /* GLRenderer.mm */; };
+		077FF514124A523800FC7D17 /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = 077FF50D124A523800FC7D17 /* error.c */; };
+		077FF515124A523800FC7D17 /* glue.c in Sources */ = {isa = PBXBuildFile; fileRef = 077FF50F124A523800FC7D17 /* glue.c */; };
+		077FF516124A523800FC7D17 /* project.c in Sources */ = {isa = PBXBuildFile; fileRef = 077FF512124A523800FC7D17 /* project.c */; };
+		077FF517124A523800FC7D17 /* registry.c in Sources */ = {isa = PBXBuildFile; fileRef = 077FF513124A523800FC7D17 /* registry.c */; };
+		077FF532124A564800FC7D17 /* GLModelMD2.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF531124A564800FC7D17 /* GLModelMD2.mm */; };
+		077FF557124A58B000FC7D17 /* Md2Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 077FF555124A58B000FC7D17 /* Md2Model.cpp */; };
 		1D3623260D0F684500981E51 /* Electric3DAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* Electric3DAppDelegate.mm */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -38,8 +49,8 @@
 		077FF1621248D68700FC7D17 /* CGMatrix4x4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGMatrix4x4.h; sourceTree = "<group>"; };
 		077FF1631248D6B900FC7D17 /* CGVector4D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGVector4D.h; sourceTree = "<group>"; };
 		077FF17C1248DD4B00FC7D17 /* CGMatrix3x3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGMatrix3x3.h; sourceTree = "<group>"; };
-		077FF1CE12490B0F00FC7D17 /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
-		077FF1CF12490B0F00FC7D17 /* Timer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Timer.mm; sourceTree = "<group>"; };
+		077FF1CE12490B0F00FC7D17 /* RenderTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderTimer.h; sourceTree = "<group>"; };
+		077FF1CF12490B0F00FC7D17 /* RenderTimer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RenderTimer.mm; sourceTree = "<group>"; };
 		077FF21712490B9300FC7D17 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		077FF21B12490BB500FC7D17 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		077FF2571249184500FC7D17 /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
@@ -61,8 +72,34 @@
 		077FF303124929D300FC7D17 /* GLUILabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLUILabel.h; sourceTree = "<group>"; };
 		077FF304124929D300FC7D17 /* GLUILabel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLUILabel.mm; sourceTree = "<group>"; };
 		077FF306124929E800FC7D17 /* GLUISprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLUISprite.h; sourceTree = "<group>"; };
-		077FF307124929E800FC7D17 /* GLUISprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLUISprite.m; sourceTree = "<group>"; };
+		077FF307124929E800FC7D17 /* GLUISprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLUISprite.mm; sourceTree = "<group>"; };
 		077FF30912492A0900FC7D17 /* GLUITypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLUITypes.h; sourceTree = "<group>"; };
+		077FF32B124A0AA300FC7D17 /* GLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLView.h; sourceTree = "<group>"; };
+		077FF32C124A0AA300FC7D17 /* GLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLView.mm; sourceTree = "<group>"; };
+		077FF32E124A0C0C00FC7D17 /* IRenderEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRenderEngine.h; sourceTree = "<group>"; };
+		077FF32F124A0D2700FC7D17 /* GLRenderEngineES1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLRenderEngineES1.h; sourceTree = "<group>"; };
+		077FF330124A0D2700FC7D17 /* GLRenderEngineES1.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLRenderEngineES1.mm; sourceTree = "<group>"; };
+		077FF35D124A1DB500FC7D17 /* GLTestGeneral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTestGeneral.h; sourceTree = "<group>"; };
+		077FF35E124A1DB500FC7D17 /* GLTestGeneral.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLTestGeneral.mm; sourceTree = "<group>"; };
+		077FF489124A42EE00FC7D17 /* GLUIRenderES1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLUIRenderES1.h; sourceTree = "<group>"; };
+		077FF48A124A42EE00FC7D17 /* GLUIRenderES1.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLUIRenderES1.mm; sourceTree = "<group>"; };
+		077FF48C124A433E00FC7D17 /* GLRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLRenderer.h; sourceTree = "<group>"; };
+		077FF48D124A433E00FC7D17 /* GLRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLRenderer.mm; sourceTree = "<group>"; };
+		077FF50D124A523800FC7D17 /* error.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = error.c; sourceTree = "<group>"; };
+		077FF50E124A523800FC7D17 /* glu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glu.h; sourceTree = "<group>"; };
+		077FF50F124A523800FC7D17 /* glue.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glue.c; sourceTree = "<group>"; };
+		077FF510124A523800FC7D17 /* gluint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gluint.h; sourceTree = "<group>"; };
+		077FF511124A523800FC7D17 /* gluos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gluos.h; sourceTree = "<group>"; };
+		077FF512124A523800FC7D17 /* project.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = project.c; sourceTree = "<group>"; };
+		077FF513124A523800FC7D17 /* registry.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = registry.c; sourceTree = "<group>"; };
+		077FF528124A54B000FC7D17 /* GLModelTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLModelTypes.h; sourceTree = "<group>"; };
+		077FF52D124A559E00FC7D17 /* GLModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLModel.h; sourceTree = "<group>"; };
+		077FF530124A564800FC7D17 /* GLModelMD2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLModelMD2.h; sourceTree = "<group>"; };
+		077FF531124A564800FC7D17 /* GLModelMD2.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLModelMD2.mm; sourceTree = "<group>"; };
+		077FF554124A58B000FC7D17 /* Anorms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Anorms.h; sourceTree = "<group>"; };
+		077FF555124A58B000FC7D17 /* Md2Model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Md2Model.cpp; sourceTree = "<group>"; };
+		077FF556124A58B000FC7D17 /* Md2Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Md2Model.h; sourceTree = "<group>"; };
+		077FF593124A612A00FC7D17 /* MD2Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD2Types.h; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* Electric3DAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Electric3DAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* Electric3DAppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Electric3DAppDelegate.mm; sourceTree = "<group>"; };
@@ -99,22 +136,29 @@
 			children = (
 				077FF0DA1248B57A00FC7D17 /* Utilities */,
 				077FF0D91248B57100FC7D17 /* Objects */,
-				077FF0D81248B54800FC7D17 /* Renders */,
+				077FF0D81248B54800FC7D17 /* Renderer */,
 			);
 			path = Electic3D;
 			sourceTree = "<group>";
 		};
-		077FF0D81248B54800FC7D17 /* Renders */ = {
+		077FF0D81248B54800FC7D17 /* Renderer */ = {
 			isa = PBXGroup;
 			children = (
+				077FF32B124A0AA300FC7D17 /* GLView.h */,
+				077FF32C124A0AA300FC7D17 /* GLView.mm */,
+				077FF48C124A433E00FC7D17 /* GLRenderer.h */,
+				077FF48D124A433E00FC7D17 /* GLRenderer.mm */,
+				077FF32E124A0C0C00FC7D17 /* IRenderEngine.h */,
+				077FF50C124A523800FC7D17 /* iGlu */,
 				077FF22C12490CA000FC7D17 /* ES1 */,
 			);
-			path = Renders;
+			path = Renderer;
 			sourceTree = "<group>";
 		};
 		077FF0D91248B57100FC7D17 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				077FF527124A548A00FC7D17 /* Models */,
 				077FF2C6124925A300FC7D17 /* UI */,
 			);
 			path = Objects;
@@ -134,8 +178,8 @@
 		077FF0E01248C4FA00FC7D17 /* Timers */ = {
 			isa = PBXGroup;
 			children = (
-				077FF1CE12490B0F00FC7D17 /* Timer.h */,
-				077FF1CF12490B0F00FC7D17 /* Timer.mm */,
+				077FF1CE12490B0F00FC7D17 /* RenderTimer.h */,
+				077FF1CF12490B0F00FC7D17 /* RenderTimer.mm */,
 			);
 			path = Timers;
 			sourceTree = "<group>";
@@ -158,6 +202,9 @@
 		077FF22C12490CA000FC7D17 /* ES1 */ = {
 			isa = PBXGroup;
 			children = (
+				077FF45E124A3CB000FC7D17 /* UI */,
+				077FF32F124A0D2700FC7D17 /* GLRenderEngineES1.h */,
+				077FF330124A0D2700FC7D17 /* GLRenderEngineES1.mm */,
 			);
 			path = ES1;
 			sourceTree = "<group>";
@@ -180,7 +227,7 @@
 				077FF300124929B400FC7D17 /* GLUIImage.h */,
 				077FF301124929B400FC7D17 /* GLUIImage.mm */,
 				077FF306124929E800FC7D17 /* GLUISprite.h */,
-				077FF307124929E800FC7D17 /* GLUISprite.m */,
+				077FF307124929E800FC7D17 /* GLUISprite.mm */,
 				077FF303124929D300FC7D17 /* GLUILabel.h */,
 				077FF304124929D300FC7D17 /* GLUILabel.mm */,
 			);
@@ -212,10 +259,82 @@
 			path = Loaders;
 			sourceTree = "<group>";
 		};
+		077FF35C124A1D8000FC7D17 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				077FF35D124A1DB500FC7D17 /* GLTestGeneral.h */,
+				077FF35E124A1DB500FC7D17 /* GLTestGeneral.mm */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		077FF45E124A3CB000FC7D17 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				077FF489124A42EE00FC7D17 /* GLUIRenderES1.h */,
+				077FF48A124A42EE00FC7D17 /* GLUIRenderES1.mm */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		077FF50C124A523800FC7D17 /* iGlu */ = {
+			isa = PBXGroup;
+			children = (
+				077FF50D124A523800FC7D17 /* error.c */,
+				077FF50E124A523800FC7D17 /* glu.h */,
+				077FF50F124A523800FC7D17 /* glue.c */,
+				077FF510124A523800FC7D17 /* gluint.h */,
+				077FF511124A523800FC7D17 /* gluos.h */,
+				077FF512124A523800FC7D17 /* project.c */,
+				077FF513124A523800FC7D17 /* registry.c */,
+			);
+			path = iGlu;
+			sourceTree = "<group>";
+		};
+		077FF527124A548A00FC7D17 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				077FF536124A585300FC7D17 /* Containers */,
+				077FF535124A574D00FC7D17 /* Loaders */,
+				077FF528124A54B000FC7D17 /* GLModelTypes.h */,
+				077FF52D124A559E00FC7D17 /* GLModel.h */,
+				077FF530124A564800FC7D17 /* GLModelMD2.h */,
+				077FF531124A564800FC7D17 /* GLModelMD2.mm */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		077FF535124A574D00FC7D17 /* Loaders */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Loaders;
+			sourceTree = "<group>";
+		};
+		077FF536124A585300FC7D17 /* Containers */ = {
+			isa = PBXGroup;
+			children = (
+				077FF552124A589800FC7D17 /* MD2 */,
+			);
+			path = Containers;
+			sourceTree = "<group>";
+		};
+		077FF552124A589800FC7D17 /* MD2 */ = {
+			isa = PBXGroup;
+			children = (
+				077FF554124A58B000FC7D17 /* Anorms.h */,
+				077FF556124A58B000FC7D17 /* Md2Model.h */,
+				077FF555124A58B000FC7D17 /* Md2Model.cpp */,
+				077FF593124A612A00FC7D17 /* MD2Types.h */,
+			);
+			path = MD2;
+			sourceTree = "<group>";
+		};
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
 				077FF0D71248B53A00FC7D17 /* Electic3D */,
+				077FF35C124A1D8000FC7D17 /* Test */,
 				28C286DF0D94DF7D0034E888 /* RootViewController.h */,
 				28C286E00D94DF7D0034E888 /* RootViewController.mm */,
 				1D3623240D0F684500981E51 /* Electric3DAppDelegate.h */,
@@ -340,7 +459,7 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* Electric3DAppDelegate.mm in Sources */,
 				28C286E10D94DF7D0034E888 /* RootViewController.mm in Sources */,
-				077FF1D012490B0F00FC7D17 /* Timer.mm in Sources */,
+				077FF1D012490B0F00FC7D17 /* RenderTimer.mm in Sources */,
 				077FF25A1249184500FC7D17 /* Color.mm in Sources */,
 				077FF2D81249265000FC7D17 /* GLTexture.mm in Sources */,
 				077FF2D91249265000FC7D17 /* GLTextureBank.mm in Sources */,
@@ -349,7 +468,18 @@
 				077FF2DC1249265000FC7D17 /* GLPVRTextureLoader.mm in Sources */,
 				077FF302124929B400FC7D17 /* GLUIImage.mm in Sources */,
 				077FF305124929D300FC7D17 /* GLUILabel.mm in Sources */,
-				077FF308124929E800FC7D17 /* GLUISprite.m in Sources */,
+				077FF308124929E800FC7D17 /* GLUISprite.mm in Sources */,
+				077FF32D124A0AA300FC7D17 /* GLView.mm in Sources */,
+				077FF331124A0D2700FC7D17 /* GLRenderEngineES1.mm in Sources */,
+				077FF35F124A1DB500FC7D17 /* GLTestGeneral.mm in Sources */,
+				077FF48B124A42EE00FC7D17 /* GLUIRenderES1.mm in Sources */,
+				077FF48E124A433E00FC7D17 /* GLRenderer.mm in Sources */,
+				077FF514124A523800FC7D17 /* error.c in Sources */,
+				077FF515124A523800FC7D17 /* glue.c in Sources */,
+				077FF516124A523800FC7D17 /* project.c in Sources */,
+				077FF517124A523800FC7D17 /* registry.c in Sources */,
+				077FF532124A564800FC7D17 /* GLModelMD2.mm in Sources */,
+				077FF557124A58B000FC7D17 /* Md2Model.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

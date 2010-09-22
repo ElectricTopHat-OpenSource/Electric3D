@@ -12,3 +12,30 @@
     #import <Foundation/Foundation.h>
     #import <UIKit/UIKit.h>
 #endif
+
+#pragma mark ---------------------------------------------------------
+#pragma mark === MACROS  ===
+#pragma mark ---------------------------------------------------------
+
+#define SAFE_DELETE( obj) { delete(obj); obj=nil; }
+#define SAFE_RELEASE( obj ) { [obj release]; obj=nil; }
+
+#ifdef DEBUG
+#define DPrint(format, ... )	NSLog(format, ##__VA_ARGS__);
+#define DLog(format, ...)		NSLog((@"%s [L%d] " format), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#define ALog(format, ...)		[[NSAssertionHandler currentHandler] handleFailureInFunction:[NSString stringWithCString:__PRETTY_FUNCTION__ encoding:NSUTF8StringEncoding] file:[NSString stringWithCString:__FILE__ encoding:NSUTF8StringEncoding] lineNumber:__LINE__ description:(@"%s [L%d] " format)];
+#else  
+#define DPrint(format, ... )
+#define DLog(...)  
+#define ALog(format, ...) NSLog((@"%s [L%d] " format), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#endif
+
+#ifdef FORCE_GREGORIAN_CALANDER
+#define LOCAL_NSCALENDAR [[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar] autorelease]
+#else
+#define LOCAL_NSCALENDAR [NSCalendar currentCalendar]
+#endif
+
+#pragma mark ---------------------------------------------------------
+#pragma mark === END MACROS  ===
+#pragma mark ---------------------------------------------------------

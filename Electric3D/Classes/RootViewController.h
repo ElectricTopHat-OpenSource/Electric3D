@@ -8,7 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RootViewController : UITableViewController {
+@interface RootViewController : UIViewController <UITableViewDelegate,
+												  UITableViewDataSource>
+{
+@private
+
+	IBOutlet UITableView *	tableView;
+	NSMutableArray *		tableData;
+	
+	NSTimer *				updateTimer;
+	UIView *				subView;	
 }
 
 @end
