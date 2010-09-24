@@ -17,6 +17,12 @@
 #pragma mark === MACROS  ===
 #pragma mark ---------------------------------------------------------
 
+#define ARC4RANDOM_MAX 0x100000000LL
+#define randomFloat() ((double)arc4random()/ARC4RANDOM_MAX)
+
+#define DOCUMENTS_PATH				[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES) objectAtIndex:0]
+#define DEFAULT_NOTIFICATION_CENTER [NSNotificationCenter defaultCenter]
+
 #define SAFE_DELETE( obj) { delete(obj); obj=nil; }
 #define SAFE_RELEASE( obj ) { [obj release]; obj=nil; }
 

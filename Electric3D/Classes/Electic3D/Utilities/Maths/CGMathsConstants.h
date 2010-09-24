@@ -18,10 +18,10 @@ namespace CGMaths
 	
 	// -------------------------------------------------------------------
 	
-	const double PI		= M_PI;
-	const double PI2	= M_PI_2;
-	const double PI_SQR = 9.86960440108935861883449099987615114f;
-	const double HalfPI = M_PI * 0.5f;
+	const double PI		 = M_PI;
+	const double PI2	 = M_PI_2;
+	const double PI_SQR  = 9.86960440108935861883449099987615114f;
+	const double PI_HALF = M_PI * 0.5f;
 	
 	// -------------------------------------------------------------------
 	
@@ -47,18 +47,6 @@ namespace CGMaths
 #pragma mark ---------------------------------------------------------
 #pragma mark End Math Constants
 #pragma mark ---------------------------------------------------------
-	
-#pragma mark ---------------------------------------------------------
-#pragma mark Math Macros
-#pragma mark ---------------------------------------------------------
-	
-	inline float Degrees2Radians( float _angle ) { return _angle * degreesToRadians; };
-	inline float Radians2Degrees( float _angle ) { return _angle * radiansToDegrees; };
-	
-#pragma mark ---------------------------------------------------------
-#pragma mark End Math Macros
-#pragma mark ---------------------------------------------------------
-	
 };
 
 #endif

@@ -16,7 +16,7 @@
 
 namespace GLTextures { class GLTexture; };
 
-namespace UI
+namespace GLObjects
 {
 	// -------------------------------------------------------------------
 	// GLImage is a simple image render object, 

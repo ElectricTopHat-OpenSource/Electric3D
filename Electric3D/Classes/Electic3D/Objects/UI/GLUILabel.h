@@ -13,7 +13,7 @@
 #import "Color.h"
 
 
-namespace UI
+namespace GLObjects
 {
 	typedef enum
 	{

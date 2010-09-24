@@ -1,34 +1,24 @@
 //
-//  GLView.m
+//  GLTestTextureFactory.m
 //  Electric3D
 //
-//  Created by Robert McDowell on 22/09/2010.
+//  Created by Robert McDowell on 23/09/2010.
 //  Copyright 2010 Electric TopHat Ltd. All rights reserved.
 //
 
-#import "GLView.h"
-#import "GLRenderer.h"
-#import <OpenGLES/EAGL.h>
-#import <OpenGLES/EAGLDrawable.h>
-#import <QuartzCore/QuartzCore.h>
+#import "GLTestTextureFactory.h"
+#import "GLTextureFactory.h"
 
-@implementation GLView
+@interface GLTestTextureFactory (PrivateMethods)
 
-#pragma mark ---------------------------------------------------------
-#pragma mark === Class Redifintion  ===
-#pragma mark ---------------------------------------------------------
+- (void) initialization;
+- (void) teardown;
 
-// ------------------------------------------
-// You must implement this method
-// ------------------------------------------
-+ (Class)layerClass 
-{
-    return [CAEAGLLayer class];
-}
+- (void) print:(NSString*)_text;
 
-#pragma mark ---------------------------------------------------------
-#pragma mark === End Class Redifintion  ===
-#pragma mark ---------------------------------------------------------
+@end
+
+@implementation GLTestTextureFactory
 
 #pragma mark ---------------------------------------------------------
 #pragma mark === Constructor / Destructor Functions  ===
@@ -42,8 +32,7 @@
 	if ((self = [super initWithCoder:coder])) 
 	{
 		// Initialization code
-		CAEAGLLayer * eaglLayer = (CAEAGLLayer*)super.layer;
-		m_renderer = [[GLRenderer alloc] initWithLayer:eaglLayer withClearColor:nil];
+		[self initialization];
 	}
 	return self;
 }
@@ -56,8 +45,7 @@
     if (self = [super initWithFrame:frame]) 
 	{
         // Initialization code
-		CAEAGLLayer * eaglLayer = (CAEAGLLayer*)super.layer;
-		m_renderer = [[GLRenderer alloc] initWithLayer:eaglLayer withClearColor:nil];
+		[self initialization];
     }
     return self;
 }
@@ -65,10 +53,11 @@
 // ------------------------------------------
 // dealloc
 // ------------------------------------------
-- (void) dealloc
-{
-	SAFE_RELEASE( m_renderer );
-	[super dealloc];
+- (void)dealloc 
+{	
+	[self teardown];
+	
+    [super dealloc];
 }
 
 #pragma mark ---------------------------------------------------------
@@ -76,42 +65,78 @@
 #pragma mark ---------------------------------------------------------
 
 #pragma mark ---------------------------------------------------------
-#pragma mark === UIView Functions  ===
-#pragma mark ---------------------------------------------------------
-
-// ------------------------------------------
-// 
-// ------------------------------------------
-- (void)layoutSubviews 
-{
-    [m_renderer rebindContext];
-}
-
-#pragma mark ---------------------------------------------------------
-#pragma mark === End UIView Functions  ===
-#pragma mark ---------------------------------------------------------
-
-#pragma mark ---------------------------------------------------------
 #pragma mark === Public Functions  ===
 #pragma mark ---------------------------------------------------------
 
 // ------------------------------------------
-// Draw the View
+// update Function
 // ------------------------------------------
-- (void) drawView:(id)_sender
+- (void) update
 {
-	[m_renderer render:_sender];
-}
-
-// ------------------------------------------
-// did View Rotate
-// ------------------------------------------
-- (void) didRotate:(NSNotification*)_notification
-{
+	NSString * text = nil;
+	/*
+	 if ( !factory->isLoaded( @"MD2Test", @"md2" ) )
+	 {
+	 if ( factory->load( @"MD2Test", @"md2" ) )
+	 {
+	 text = @"Loaded MD2Test.md2 model into memory";
+	 }
+	 }
+	 */
+	
+	if ( text )
+	{
+		NSString * currentText = [display text];
+		[display setText:[NSString stringWithFormat:@"%@%@\n",currentText, text]];
+	}
 }
 
 #pragma mark ---------------------------------------------------------
 #pragma mark === End Public Functions  ===
+#pragma mark ---------------------------------------------------------
+
+#pragma mark ---------------------------------------------------------
+#pragma mark === Private Functions  ===
+#pragma mark ---------------------------------------------------------
+
+// ------------------------------------------
+// Initialization
+// ------------------------------------------
+- (void) initialization
+{
+	display = [[UITextView alloc] initWithFrame:[self bounds]];
+	[display setUserInteractionEnabled:FALSE];
+	[self addSubview:display];
+	[self print:@"Running...."];
+	
+	factory = new GLTextures::GLTextureFactory();
+}
+
+// ------------------------------------------
+// Teardown
+// ------------------------------------------
+- (void) teardown
+{
+	SAFE_DELETE( factory );
+	
+	[display removeFromSuperview];
+	SAFE_RELEASE( display );
+}
+
+// ------------------------------------------
+// print text in the window
+// ------------------------------------------
+- (void) print:(NSString*)_text
+{
+	if ( _text)
+	{
+		NSString * currentText = [display text];
+		[display setText:[NSString stringWithFormat:@"%@%@\n",currentText, _text]];
+	}
+}
+
+#pragma mark ---------------------------------------------------------
+#pragma mark === End Private Functions  ===
 #pragma mark ---------------------------------------------------------
 
 @end

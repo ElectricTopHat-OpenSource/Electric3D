@@ -7,7 +7,10 @@
 //
 
 #import "RootViewController.h"
+#import "GLTestMeshFactory.h"
+#import "GLTestTextureFactory.h"
 #import "GLTestGeneral.h"
+
 
 // -------------------------------------------------------------------
 // update time defines
@@ -39,6 +42,24 @@
 	if ( self = [super initWithCoder:aDecoder] )
 	{
 		tableData = [[NSMutableArray alloc] initWithCapacity:10];
+		
+		{
+			NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];
+			
+			[testInfo setObject:@"GL Texture Factory" forKey:@"name"];
+			[testInfo setObject:[GLTestTextureFactory class] forKey:@"class"];
+			
+			[tableData addObject:testInfo];
+		}
+		
+		{
+			NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];
+			
+			[testInfo setObject:@"GL Mesh Factory" forKey:@"name"];
+			[testInfo setObject:[GLTestMeshFactory class] forKey:@"class"];
+			
+			[tableData addObject:testInfo];
+		}
 		
 		{
 			NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];

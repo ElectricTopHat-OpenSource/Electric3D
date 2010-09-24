@@ -11,11 +11,11 @@
 
 #import <UIKit/UIKit.h>
 #import "GLUIObject.h"
-#import "GLTextureSprite.h"
+#import "GLSprite.h"
 #import "CGMaths.h"
 #import "Color.h"
 
-namespace UI
+namespace GLObjects
 {
 	// -------------------------------------------------------------------
 	// GLImage is a simple image render object, 
@@ -32,7 +32,7 @@ namespace UI
 		// --------------------------------------------------
 		// Constructor
 		// --------------------------------------------------
-		GLUISprite( const GLTextures::GLTextureSprite * _texture = nil, CGPoint _center = CGPointZero, CGSize _size = CGSizeZero );
+		GLUISprite( const GLSprites::GLSprite * _sprite = nil, CGPoint _center = CGPointZero, CGSize _size = CGSizeZero );
 		
 		// --------------------------------------------------
 		// Destructor
@@ -51,11 +51,11 @@ namespace UI
 		inline eGLUITypes type() const { return eGLUISprite; };
 		
 		// set the texture object
-		inline void setTexture(const GLTextures::GLTextureSprite * _texture) { m_texture = _texture; };
+		inline void setSprite(const GLSprites::GLSprite * _sprite) { m_sprite = _sprite; };
 		// access the texture object
-		inline const GLTextures::GLTextureSprite * texture() const { return m_texture; };
+		inline const GLSprites::GLSprite * sprite() const { return m_sprite; };
 		// access the total number of frames
-		inline NSUInteger frameCount() const { return (m_texture != nil) ? m_texture->frameCount() : 0; };
+		inline NSUInteger frameCount() const { return (m_sprite != nil) ? m_sprite->numframes() : 0; };
 		// access the frame value
 		inline NSUInteger frame() const { return m_frame; };
 		// set the frame value
@@ -125,7 +125,7 @@ namespace UI
 #pragma mark ---------------------------------------------------------
 	private: // Data
 		
-		const GLTextures::GLTextureSprite * m_texture;
+		const GLSprites::GLSprite * m_sprite;
 		
 		eGLUICoordinatesLayout	m_textureCoordinatesLayout;
 		

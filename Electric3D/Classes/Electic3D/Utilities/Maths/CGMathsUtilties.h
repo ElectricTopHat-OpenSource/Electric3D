@@ -16,6 +16,9 @@ namespace CGMaths
 #pragma mark Utilty Functions : Float
 #pragma mark ---------------------------------------------------------
 	
+	inline float Degrees2Radians( float _angle ) { return _angle * degreesToRadians; };
+	inline float Radians2Degrees( float _angle ) { return _angle * radiansToDegrees; };
+	
 	// --------------------------------------------------
 	// Fast Sin Function
 	// --------------------------------------------------
@@ -107,7 +110,7 @@ namespace CGMaths
 	// ---------------------------------------------------
 	inline float fSinLerp( float _start, float _end, float _value )
 	{
-		float value = sin(_value * HalfPI);
+		float value = sin(_value * PI_HALF);
 		
 		return fLerp(_start,_end,value);
 	}

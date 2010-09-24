@@ -11,9 +11,6 @@
 		077FF21812490B9300FC7D17 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077FF21712490B9300FC7D17 /* OpenGLES.framework */; };
 		077FF21C12490BB500FC7D17 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077FF21B12490BB500FC7D17 /* QuartzCore.framework */; };
 		077FF25A1249184500FC7D17 /* Color.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF2581249184500FC7D17 /* Color.mm */; };
-		077FF2D81249265000FC7D17 /* GLTexture.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF2CE1249265000FC7D17 /* GLTexture.mm */; };
-		077FF2D91249265000FC7D17 /* GLTextureBank.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF2D01249265000FC7D17 /* GLTextureBank.mm */; };
-		077FF2DA1249265000FC7D17 /* GLTextureSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF2D21249265000FC7D17 /* GLTextureSprite.mm */; };
 		077FF2DB1249265000FC7D17 /* GLBasicTextureLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF2D51249265000FC7D17 /* GLBasicTextureLoader.mm */; };
 		077FF2DC1249265000FC7D17 /* GLPVRTextureLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF2D71249265000FC7D17 /* GLPVRTextureLoader.mm */; };
 		077FF302124929B400FC7D17 /* GLUIImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF301124929B400FC7D17 /* GLUIImage.mm */; };
@@ -28,8 +25,23 @@
 		077FF515124A523800FC7D17 /* glue.c in Sources */ = {isa = PBXBuildFile; fileRef = 077FF50F124A523800FC7D17 /* glue.c */; };
 		077FF516124A523800FC7D17 /* project.c in Sources */ = {isa = PBXBuildFile; fileRef = 077FF512124A523800FC7D17 /* project.c */; };
 		077FF517124A523800FC7D17 /* registry.c in Sources */ = {isa = PBXBuildFile; fileRef = 077FF513124A523800FC7D17 /* registry.c */; };
-		077FF532124A564800FC7D17 /* GLModelMD2.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF531124A564800FC7D17 /* GLModelMD2.mm */; };
-		077FF557124A58B000FC7D17 /* Md2Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 077FF555124A58B000FC7D17 /* Md2Model.cpp */; };
+		077FF532124A564800FC7D17 /* GLModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF531124A564800FC7D17 /* GLModel.mm */; };
+		077FF716124BBA9A00FC7D17 /* GLTestMeshFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF715124BBA9A00FC7D17 /* GLTestMeshFactory.mm */; };
+		077FF73B124BBE1900FC7D17 /* MD2AnimatedMeshTest.md2 in Resources */ = {isa = PBXBuildFile; fileRef = 077FF73A124BBE1900FC7D17 /* MD2AnimatedMeshTest.md2 */; };
+		077FF73D124BBE2600FC7D17 /* MD2Test.png in Resources */ = {isa = PBXBuildFile; fileRef = 077FF73C124BBE2600FC7D17 /* MD2Test.png */; };
+		077FF7C7124BC7AF00FC7D17 /* GLTestTextureFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF7C6124BC7AF00FC7D17 /* GLTestTextureFactory.mm */; };
+		077FF87F124BEB6300FC7D17 /* Compression.m in Sources */ = {isa = PBXBuildFile; fileRef = 077FF87E124BEB6300FC7D17 /* Compression.m */; };
+		077FF886124BEC6500FC7D17 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 077FF885124BEC6500FC7D17 /* libz.dylib */; };
+		077FF922124CB42200FC7D17 /* MD2Model.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF91E124CB42200FC7D17 /* MD2Model.mm */; };
+		077FF923124CB42200FC7D17 /* MD2ModelConvertor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF920124CB42200FC7D17 /* MD2ModelConvertor.mm */; };
+		077FF931124CB46500FC7D17 /* GLMeshFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF930124CB46500FC7D17 /* GLMeshFactory.mm */; };
+		077FF938124CB49600FC7D17 /* GLMeshStatic.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF934124CB49600FC7D17 /* GLMeshStatic.mm */; };
+		077FF939124CB49600FC7D17 /* GLMeshVertexAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF937124CB49600FC7D17 /* GLMeshVertexAnimation.mm */; };
+		077FF958124CB85D00FC7D17 /* MD2StaticMeshTest.md2 in Resources */ = {isa = PBXBuildFile; fileRef = 077FF957124CB85D00FC7D17 /* MD2StaticMeshTest.md2 */; };
+		077FFA10124CD26900FC7D17 /* GLTextureFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FFA0F124CD26900FC7D17 /* GLTextureFactory.mm */; };
+		077FFA18124CD70400FC7D17 /* GLTexture.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FFA17124CD70400FC7D17 /* GLTexture.mm */; };
+		077FFA95124CE96900FC7D17 /* GLSpriteFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FFA94124CE96900FC7D17 /* GLSpriteFactory.mm */; };
+		077FFA99124CEA7000FC7D17 /* GLSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FFA98124CEA7000FC7D17 /* GLSprite.mm */; };
 		1D3623260D0F684500981E51 /* Electric3DAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* Electric3DAppDelegate.mm */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -56,24 +68,16 @@
 		077FF2571249184500FC7D17 /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
 		077FF2581249184500FC7D17 /* Color.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Color.mm; sourceTree = "<group>"; };
 		077FF2591249184500FC7D17 /* Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
-		077FF2CD1249265000FC7D17 /* GLTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTexture.h; sourceTree = "<group>"; };
-		077FF2CE1249265000FC7D17 /* GLTexture.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLTexture.mm; sourceTree = "<group>"; };
-		077FF2CF1249265000FC7D17 /* GLTextureBank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTextureBank.h; sourceTree = "<group>"; };
-		077FF2D01249265000FC7D17 /* GLTextureBank.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLTextureBank.mm; sourceTree = "<group>"; };
-		077FF2D11249265000FC7D17 /* GLTextureSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTextureSprite.h; sourceTree = "<group>"; };
-		077FF2D21249265000FC7D17 /* GLTextureSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLTextureSprite.mm; sourceTree = "<group>"; };
 		077FF2D41249265000FC7D17 /* GLBasicTextureLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLBasicTextureLoader.h; sourceTree = "<group>"; };
 		077FF2D51249265000FC7D17 /* GLBasicTextureLoader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLBasicTextureLoader.mm; sourceTree = "<group>"; };
 		077FF2D61249265000FC7D17 /* GLPVRTextureLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLPVRTextureLoader.h; sourceTree = "<group>"; };
 		077FF2D71249265000FC7D17 /* GLPVRTextureLoader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLPVRTextureLoader.mm; sourceTree = "<group>"; };
-		077FF2FD1249299800FC7D17 /* GLUIObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLUIObject.h; sourceTree = "<group>"; };
 		077FF300124929B400FC7D17 /* GLUIImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLUIImage.h; sourceTree = "<group>"; };
 		077FF301124929B400FC7D17 /* GLUIImage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLUIImage.mm; sourceTree = "<group>"; };
 		077FF303124929D300FC7D17 /* GLUILabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLUILabel.h; sourceTree = "<group>"; };
 		077FF304124929D300FC7D17 /* GLUILabel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLUILabel.mm; sourceTree = "<group>"; };
 		077FF306124929E800FC7D17 /* GLUISprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLUISprite.h; sourceTree = "<group>"; };
 		077FF307124929E800FC7D17 /* GLUISprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLUISprite.mm; sourceTree = "<group>"; };
-		077FF30912492A0900FC7D17 /* GLUITypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLUITypes.h; sourceTree = "<group>"; };
 		077FF32B124A0AA300FC7D17 /* GLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLView.h; sourceTree = "<group>"; };
 		077FF32C124A0AA300FC7D17 /* GLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLView.mm; sourceTree = "<group>"; };
 		077FF32E124A0C0C00FC7D17 /* IRenderEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRenderEngine.h; sourceTree = "<group>"; };
@@ -92,14 +96,46 @@
 		077FF511124A523800FC7D17 /* gluos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gluos.h; sourceTree = "<group>"; };
 		077FF512124A523800FC7D17 /* project.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = project.c; sourceTree = "<group>"; };
 		077FF513124A523800FC7D17 /* registry.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = registry.c; sourceTree = "<group>"; };
-		077FF528124A54B000FC7D17 /* GLModelTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLModelTypes.h; sourceTree = "<group>"; };
 		077FF52D124A559E00FC7D17 /* GLModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLModel.h; sourceTree = "<group>"; };
-		077FF530124A564800FC7D17 /* GLModelMD2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLModelMD2.h; sourceTree = "<group>"; };
-		077FF531124A564800FC7D17 /* GLModelMD2.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLModelMD2.mm; sourceTree = "<group>"; };
-		077FF554124A58B000FC7D17 /* Anorms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Anorms.h; sourceTree = "<group>"; };
-		077FF555124A58B000FC7D17 /* Md2Model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Md2Model.cpp; sourceTree = "<group>"; };
-		077FF556124A58B000FC7D17 /* Md2Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Md2Model.h; sourceTree = "<group>"; };
-		077FF593124A612A00FC7D17 /* MD2Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD2Types.h; sourceTree = "<group>"; };
+		077FF531124A564800FC7D17 /* GLModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLModel.mm; sourceTree = "<group>"; };
+		077FF714124BBA9A00FC7D17 /* GLTestMeshFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTestMeshFactory.h; sourceTree = "<group>"; };
+		077FF715124BBA9A00FC7D17 /* GLTestMeshFactory.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLTestMeshFactory.mm; sourceTree = "<group>"; };
+		077FF73A124BBE1900FC7D17 /* MD2AnimatedMeshTest.md2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = MD2AnimatedMeshTest.md2; sourceTree = "<group>"; };
+		077FF73C124BBE2600FC7D17 /* MD2Test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MD2Test.png; sourceTree = "<group>"; };
+		077FF7C5124BC7AF00FC7D17 /* GLTestTextureFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTestTextureFactory.h; sourceTree = "<group>"; };
+		077FF7C6124BC7AF00FC7D17 /* GLTestTextureFactory.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLTestTextureFactory.mm; sourceTree = "<group>"; };
+		077FF87D124BEB6300FC7D17 /* Compression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Compression.h; sourceTree = "<group>"; };
+		077FF87E124BEB6300FC7D17 /* Compression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Compression.m; sourceTree = "<group>"; };
+		077FF885124BEC6500FC7D17 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		077FF913124CB28300FC7D17 /* GTVertexSubTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTVertexSubTypes.h; sourceTree = "<group>"; };
+		077FF914124CB32200FC7D17 /* GLVertexTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLVertexTypes.h; sourceTree = "<group>"; };
+		077FF91C124CB42200FC7D17 /* Anorms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Anorms.h; sourceTree = "<group>"; };
+		077FF91D124CB42200FC7D17 /* MD2Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD2Model.h; sourceTree = "<group>"; };
+		077FF91E124CB42200FC7D17 /* MD2Model.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MD2Model.mm; sourceTree = "<group>"; };
+		077FF91F124CB42200FC7D17 /* MD2ModelConvertor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD2ModelConvertor.h; sourceTree = "<group>"; };
+		077FF920124CB42200FC7D17 /* MD2ModelConvertor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MD2ModelConvertor.mm; sourceTree = "<group>"; };
+		077FF921124CB42200FC7D17 /* MD2Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD2Types.h; sourceTree = "<group>"; };
+		077FF92F124CB46500FC7D17 /* GLMeshFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMeshFactory.h; sourceTree = "<group>"; };
+		077FF930124CB46500FC7D17 /* GLMeshFactory.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLMeshFactory.mm; sourceTree = "<group>"; };
+		077FF932124CB49600FC7D17 /* GLMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMesh.h; sourceTree = "<group>"; };
+		077FF933124CB49600FC7D17 /* GLMeshStatic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMeshStatic.h; sourceTree = "<group>"; };
+		077FF934124CB49600FC7D17 /* GLMeshStatic.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLMeshStatic.mm; sourceTree = "<group>"; };
+		077FF935124CB49600FC7D17 /* GLMeshTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMeshTypes.h; sourceTree = "<group>"; };
+		077FF936124CB49600FC7D17 /* GLMeshVertexAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMeshVertexAnimation.h; sourceTree = "<group>"; };
+		077FF937124CB49600FC7D17 /* GLMeshVertexAnimation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLMeshVertexAnimation.mm; sourceTree = "<group>"; };
+		077FF957124CB85D00FC7D17 /* MD2StaticMeshTest.md2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = MD2StaticMeshTest.md2; sourceTree = "<group>"; };
+		077FF966124CBE6000FC7D17 /* CGAABB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGAABB.h; sourceTree = "<group>"; };
+		077FFA0E124CD26900FC7D17 /* GLTextureFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTextureFactory.h; sourceTree = "<group>"; };
+		077FFA0F124CD26900FC7D17 /* GLTextureFactory.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLTextureFactory.mm; sourceTree = "<group>"; };
+		077FFA16124CD70400FC7D17 /* GLTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTexture.h; sourceTree = "<group>"; };
+		077FFA17124CD70400FC7D17 /* GLTexture.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLTexture.mm; sourceTree = "<group>"; };
+		077FFA93124CE96900FC7D17 /* GLSpriteFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLSpriteFactory.h; sourceTree = "<group>"; };
+		077FFA94124CE96900FC7D17 /* GLSpriteFactory.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLSpriteFactory.mm; sourceTree = "<group>"; };
+		077FFA97124CEA7000FC7D17 /* GLSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLSprite.h; sourceTree = "<group>"; };
+		077FFA98124CEA7000FC7D17 /* GLSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLSprite.mm; sourceTree = "<group>"; };
+		077FFAE6124CF8AC00FC7D17 /* GLObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLObject.h; sourceTree = "<group>"; };
+		077FFAE7124CF8AC00FC7D17 /* GLObjectTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLObjectTypes.h; sourceTree = "<group>"; };
+		077FFAE8124CF8F400FC7D17 /* GLUIObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLUIObject.h; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* Electric3DAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Electric3DAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* Electric3DAppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Electric3DAppDelegate.mm; sourceTree = "<group>"; };
@@ -125,6 +161,7 @@
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
 				077FF21812490B9300FC7D17 /* OpenGLES.framework in Frameworks */,
 				077FF21C12490BB500FC7D17 /* QuartzCore.framework in Frameworks */,
+				077FF886124BEC6500FC7D17 /* libz.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +195,9 @@
 		077FF0D91248B57100FC7D17 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				077FFAE7124CF8AC00FC7D17 /* GLObjectTypes.h */,
+				077FFAE6124CF8AC00FC7D17 /* GLObject.h */,
+				077FFAE8124CF8F400FC7D17 /* GLUIObject.h */,
 				077FF527124A548A00FC7D17 /* Models */,
 				077FF2C6124925A300FC7D17 /* UI */,
 			);
@@ -167,7 +207,11 @@
 		077FF0DA1248B57A00FC7D17 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				077FF2C7124925D700FC7D17 /* GLTextures */,
+				077FF912124CB26000FC7D17 /* Vertex */,
+				077FF910124CB21100FC7D17 /* Mesh */,
+				077FF87C124BEB3300FC7D17 /* Compression */,
+				077FF2C7124925D700FC7D17 /* Textures */,
+				077FFA92124CE93200FC7D17 /* Sprites */,
 				077FF2401249111200FC7D17 /* Colors */,
 				077FF0E11248C50F00FC7D17 /* Maths */,
 				077FF0E01248C4FA00FC7D17 /* Timers */,
@@ -195,6 +239,7 @@
 				077FF1631248D6B900FC7D17 /* CGVector4D.h */,
 				077FF17C1248DD4B00FC7D17 /* CGMatrix3x3.h */,
 				077FF1621248D68700FC7D17 /* CGMatrix4x4.h */,
+				077FF966124CBE6000FC7D17 /* CGAABB.h */,
 			);
 			path = Maths;
 			sourceTree = "<group>";
@@ -222,8 +267,6 @@
 		077FF2C6124925A300FC7D17 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				077FF30912492A0900FC7D17 /* GLUITypes.h */,
-				077FF2FD1249299800FC7D17 /* GLUIObject.h */,
 				077FF300124929B400FC7D17 /* GLUIImage.h */,
 				077FF301124929B400FC7D17 /* GLUIImage.mm */,
 				077FF306124929E800FC7D17 /* GLUISprite.h */,
@@ -234,18 +277,15 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
-		077FF2C7124925D700FC7D17 /* GLTextures */ = {
+		077FF2C7124925D700FC7D17 /* Textures */ = {
 			isa = PBXGroup;
 			children = (
-				077FF2CD1249265000FC7D17 /* GLTexture.h */,
-				077FF2CE1249265000FC7D17 /* GLTexture.mm */,
-				077FF2CF1249265000FC7D17 /* GLTextureBank.h */,
-				077FF2D01249265000FC7D17 /* GLTextureBank.mm */,
-				077FF2D11249265000FC7D17 /* GLTextureSprite.h */,
-				077FF2D21249265000FC7D17 /* GLTextureSprite.mm */,
+				077FFA0E124CD26900FC7D17 /* GLTextureFactory.h */,
+				077FFA0F124CD26900FC7D17 /* GLTextureFactory.mm */,
+				077FFA11124CD5F000FC7D17 /* Containers */,
 				077FF2D31249265000FC7D17 /* Loaders */,
 			);
-			path = GLTextures;
+			path = Textures;
 			sourceTree = "<group>";
 		};
 		077FF2D31249265000FC7D17 /* Loaders */ = {
@@ -264,6 +304,10 @@
 			children = (
 				077FF35D124A1DB500FC7D17 /* GLTestGeneral.h */,
 				077FF35E124A1DB500FC7D17 /* GLTestGeneral.mm */,
+				077FF714124BBA9A00FC7D17 /* GLTestMeshFactory.h */,
+				077FF715124BBA9A00FC7D17 /* GLTestMeshFactory.mm */,
+				077FF7C5124BC7AF00FC7D17 /* GLTestTextureFactory.h */,
+				077FF7C6124BC7AF00FC7D17 /* GLTestTextureFactory.mm */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -294,40 +338,143 @@
 		077FF527124A548A00FC7D17 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				077FF536124A585300FC7D17 /* Containers */,
-				077FF535124A574D00FC7D17 /* Loaders */,
-				077FF528124A54B000FC7D17 /* GLModelTypes.h */,
 				077FF52D124A559E00FC7D17 /* GLModel.h */,
-				077FF530124A564800FC7D17 /* GLModelMD2.h */,
-				077FF531124A564800FC7D17 /* GLModelMD2.mm */,
+				077FF531124A564800FC7D17 /* GLModel.mm */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		077FF535124A574D00FC7D17 /* Loaders */ = {
+		077FF707124BB7E900FC7D17 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				077FF709124BB80F00FC7D17 /* Models */,
+				077FF708124BB7FD00FC7D17 /* Textures */,
 			);
-			path = Loaders;
+			path = Data;
 			sourceTree = "<group>";
 		};
-		077FF536124A585300FC7D17 /* Containers */ = {
+		077FF708124BB7FD00FC7D17 /* Textures */ = {
 			isa = PBXGroup;
 			children = (
-				077FF552124A589800FC7D17 /* MD2 */,
+				077FF70B124BB83300FC7D17 /* PNG */,
+			);
+			path = Textures;
+			sourceTree = "<group>";
+		};
+		077FF709124BB80F00FC7D17 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				077FF70A124BB82200FC7D17 /* MD2 */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		077FF70A124BB82200FC7D17 /* MD2 */ = {
+			isa = PBXGroup;
+			children = (
+				077FF73A124BBE1900FC7D17 /* MD2AnimatedMeshTest.md2 */,
+				077FF957124CB85D00FC7D17 /* MD2StaticMeshTest.md2 */,
+			);
+			path = MD2;
+			sourceTree = "<group>";
+		};
+		077FF70B124BB83300FC7D17 /* PNG */ = {
+			isa = PBXGroup;
+			children = (
+				077FF73C124BBE2600FC7D17 /* MD2Test.png */,
+			);
+			path = PNG;
+			sourceTree = "<group>";
+		};
+		077FF87C124BEB3300FC7D17 /* Compression */ = {
+			isa = PBXGroup;
+			children = (
+				077FF87D124BEB6300FC7D17 /* Compression.h */,
+				077FF87E124BEB6300FC7D17 /* Compression.m */,
+			);
+			path = Compression;
+			sourceTree = "<group>";
+		};
+		077FF910124CB21100FC7D17 /* Mesh */ = {
+			isa = PBXGroup;
+			children = (
+				077FF92F124CB46500FC7D17 /* GLMeshFactory.h */,
+				077FF930124CB46500FC7D17 /* GLMeshFactory.mm */,
+				077FF93A124CB4A400FC7D17 /* Containers */,
+				077FF915124CB3EA00FC7D17 /* Formats */,
+			);
+			path = Mesh;
+			sourceTree = "<group>";
+		};
+		077FF912124CB26000FC7D17 /* Vertex */ = {
+			isa = PBXGroup;
+			children = (
+				077FF914124CB32200FC7D17 /* GLVertexTypes.h */,
+				077FF913124CB28300FC7D17 /* GTVertexSubTypes.h */,
+			);
+			path = Vertex;
+			sourceTree = "<group>";
+		};
+		077FF915124CB3EA00FC7D17 /* Formats */ = {
+			isa = PBXGroup;
+			children = (
+				077FF916124CB40300FC7D17 /* MD2 */,
+			);
+			path = Formats;
+			sourceTree = "<group>";
+		};
+		077FF916124CB40300FC7D17 /* MD2 */ = {
+			isa = PBXGroup;
+			children = (
+				077FF91C124CB42200FC7D17 /* Anorms.h */,
+				077FF921124CB42200FC7D17 /* MD2Types.h */,
+				077FF91D124CB42200FC7D17 /* MD2Model.h */,
+				077FF91E124CB42200FC7D17 /* MD2Model.mm */,
+				077FF91F124CB42200FC7D17 /* MD2ModelConvertor.h */,
+				077FF920124CB42200FC7D17 /* MD2ModelConvertor.mm */,
+			);
+			path = MD2;
+			sourceTree = "<group>";
+		};
+		077FF93A124CB4A400FC7D17 /* Containers */ = {
+			isa = PBXGroup;
+			children = (
+				077FF935124CB49600FC7D17 /* GLMeshTypes.h */,
+				077FF932124CB49600FC7D17 /* GLMesh.h */,
+				077FF933124CB49600FC7D17 /* GLMeshStatic.h */,
+				077FF934124CB49600FC7D17 /* GLMeshStatic.mm */,
+				077FF936124CB49600FC7D17 /* GLMeshVertexAnimation.h */,
+				077FF937124CB49600FC7D17 /* GLMeshVertexAnimation.mm */,
 			);
 			path = Containers;
 			sourceTree = "<group>";
 		};
-		077FF552124A589800FC7D17 /* MD2 */ = {
+		077FFA11124CD5F000FC7D17 /* Containers */ = {
 			isa = PBXGroup;
 			children = (
-				077FF554124A58B000FC7D17 /* Anorms.h */,
-				077FF556124A58B000FC7D17 /* Md2Model.h */,
-				077FF555124A58B000FC7D17 /* Md2Model.cpp */,
-				077FF593124A612A00FC7D17 /* MD2Types.h */,
+				077FFA16124CD70400FC7D17 /* GLTexture.h */,
+				077FFA17124CD70400FC7D17 /* GLTexture.mm */,
 			);
-			path = MD2;
+			path = Containers;
+			sourceTree = "<group>";
+		};
+		077FFA92124CE93200FC7D17 /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+				077FFA93124CE96900FC7D17 /* GLSpriteFactory.h */,
+				077FFA94124CE96900FC7D17 /* GLSpriteFactory.mm */,
+				077FFA96124CEA4800FC7D17 /* Containers */,
+			);
+			path = Sprites;
+			sourceTree = "<group>";
+		};
+		077FFA96124CEA4800FC7D17 /* Containers */ = {
+			isa = PBXGroup;
+			children = (
+				077FFA97124CEA7000FC7D17 /* GLSprite.h */,
+				077FFA98124CEA7000FC7D17 /* GLSprite.mm */,
+			);
+			path = Containers;
 			sourceTree = "<group>";
 		};
 		080E96DDFE201D6D7F000001 /* Classes */ = {
@@ -354,6 +501,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				077FF707124BB7E900FC7D17 /* Data */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -390,6 +538,7 @@
 				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
 				077FF21712490B9300FC7D17 /* OpenGLES.framework */,
 				077FF21B12490BB500FC7D17 /* QuartzCore.framework */,
+				077FF885124BEC6500FC7D17 /* libz.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -446,6 +595,9 @@
 			files = (
 				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
 				28F335F11007B36200424DE2 /* RootViewController.xib in Resources */,
+				077FF73B124BBE1900FC7D17 /* MD2AnimatedMeshTest.md2 in Resources */,
+				077FF73D124BBE2600FC7D17 /* MD2Test.png in Resources */,
+				077FF958124CB85D00FC7D17 /* MD2StaticMeshTest.md2 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,9 +613,6 @@
 				28C286E10D94DF7D0034E888 /* RootViewController.mm in Sources */,
 				077FF1D012490B0F00FC7D17 /* RenderTimer.mm in Sources */,
 				077FF25A1249184500FC7D17 /* Color.mm in Sources */,
-				077FF2D81249265000FC7D17 /* GLTexture.mm in Sources */,
-				077FF2D91249265000FC7D17 /* GLTextureBank.mm in Sources */,
-				077FF2DA1249265000FC7D17 /* GLTextureSprite.mm in Sources */,
 				077FF2DB1249265000FC7D17 /* GLBasicTextureLoader.mm in Sources */,
 				077FF2DC1249265000FC7D17 /* GLPVRTextureLoader.mm in Sources */,
 				077FF302124929B400FC7D17 /* GLUIImage.mm in Sources */,
@@ -478,8 +627,19 @@
 				077FF515124A523800FC7D17 /* glue.c in Sources */,
 				077FF516124A523800FC7D17 /* project.c in Sources */,
 				077FF517124A523800FC7D17 /* registry.c in Sources */,
-				077FF532124A564800FC7D17 /* GLModelMD2.mm in Sources */,
-				077FF557124A58B000FC7D17 /* Md2Model.cpp in Sources */,
+				077FF532124A564800FC7D17 /* GLModel.mm in Sources */,
+				077FF716124BBA9A00FC7D17 /* GLTestMeshFactory.mm in Sources */,
+				077FF7C7124BC7AF00FC7D17 /* GLTestTextureFactory.mm in Sources */,
+				077FF87F124BEB6300FC7D17 /* Compression.m in Sources */,
+				077FF922124CB42200FC7D17 /* MD2Model.mm in Sources */,
+				077FF923124CB42200FC7D17 /* MD2ModelConvertor.mm in Sources */,
+				077FF931124CB46500FC7D17 /* GLMeshFactory.mm in Sources */,
+				077FF938124CB49600FC7D17 /* GLMeshStatic.mm in Sources */,
+				077FF939124CB49600FC7D17 /* GLMeshVertexAnimation.mm in Sources */,
+				077FFA10124CD26900FC7D17 /* GLTextureFactory.mm in Sources */,
+				077FFA18124CD70400FC7D17 /* GLTexture.mm in Sources */,
+				077FFA95124CE96900FC7D17 /* GLSpriteFactory.mm in Sources */,
+				077FFA99124CEA7000FC7D17 /* GLSprite.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,6 +655,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Electric3D_Prefix.pch;
+				GCC_UNROLL_LOOPS = YES;
 				INFOPLIST_FILE = "Electric3D-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PRODUCT_NAME = Electric3D;

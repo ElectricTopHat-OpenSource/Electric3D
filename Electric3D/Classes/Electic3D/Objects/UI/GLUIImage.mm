@@ -9,7 +9,7 @@
 #import "GLUIImage.h"
 #import "GLTexture.h"
 
-namespace UI
+namespace GLObjects
 {
 
 	#pragma mark ---------------------------------------------------------

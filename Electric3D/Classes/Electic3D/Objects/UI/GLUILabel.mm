@@ -8,7 +8,7 @@
 
 #import "GLUILabel.h"
 
-namespace UI 
+namespace GLObjects 
 {
 #pragma mark ---------------------------------------------------------
 #pragma mark Constructor / Destructor
