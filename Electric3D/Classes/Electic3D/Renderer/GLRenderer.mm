@@ -10,11 +10,28 @@
 #import <OpenGLES/EAGL.h>
 #import <OpenGLES/EAGLDrawable.h>
 #import <QuartzCore/QuartzCore.h>
-#import "GLRenderEngineES1.h"
+
+#import "GLES1RenderEngine.h"
 
 #import <OpenGLES/ES2/gl.h> // for GL_RENDERBUFFER only
 
+#import "GLMeshFactory.h"
+#import "GLTextureFactory.h"
+#import "GLSpriteFactory.h"
+
 @implementation GLRenderer
+
+#pragma mark ---------------------------------------------------------
+#pragma mark === Properties  ===
+#pragma mark ---------------------------------------------------------
+
+@synthesize meshes			= m_meshFactory;
+@synthesize textures		= m_textureFactory;
+@synthesize sprites			= m_spriteFactory;
+
+#pragma mark ---------------------------------------------------------
+#pragma mark === End Properties  ===
+#pragma mark ---------------------------------------------------------
 
 #pragma mark ---------------------------------------------------------
 #pragma mark === Constructor / Destructor Functions  ===
@@ -55,7 +72,7 @@
 		// --------------------------------------
 		// Create the Render
 		// --------------------------------------
-		m_renderer = new GLRenderEngineES1();
+		m_renderer = new GLRenderers::GLES1RenderEngine();
 		// --------------------------------------
 		
 		// --------------------------------------
@@ -83,6 +100,14 @@
 		// --------------------------------------
 		m_renderer->initialize();
 		// --------------------------------------
+		
+		// --------------------------------------
+		// Create the container objects
+		// --------------------------------------
+		m_meshFactory		= new GLMeshes::GLMeshFactory();
+		m_textureFactory	= new GLTextures::GLTextureFactory();
+		m_spriteFactory		= new GLSprites::GLSpriteFactory( m_textureFactory );
+		// --------------------------------------
 	}
 	
 	return self;
@@ -93,6 +118,23 @@
 // ------------------------------------------
 - (void) dealloc
 {
+	// --------------------------------------
+	// Teardown the container classes
+	// --------------------------------------
+	if ( m_spriteFactory )
+	{
+		SAFE_DELETE( m_spriteFactory );
+	}
+	if ( m_textureFactory )
+	{
+		SAFE_DELETE( m_textureFactory );
+	}
+	if ( m_meshFactory )
+	{
+		SAFE_DELETE( m_meshFactory );
+	}
+	// --------------------------------------
+	
 	// --------------------------------------
 	// Teardown the render and destroy it
 	// --------------------------------------
@@ -117,6 +159,12 @@
 	SAFE_RELEASE( m_context );
 	// --------------------------------------
 	
+	// --------------------------------------
+	// Release the layer
+	// --------------------------------------
+	SAFE_RELEASE( m_layer );
+	// --------------------------------------
+	
 	[super dealloc];
 }
 
@@ -133,6 +181,9 @@
 // ------------------------------------------
 - (void) rebindContext
 {
+	[EAGLContext setCurrentContext:m_context];
+	m_renderer->rebindBuffers();
+	[self render:nil];
 }
 
 // ------------------------------------------
@@ -140,8 +191,35 @@
 // ------------------------------------------
 - (void) render:(id)_sender
 {
-	m_renderer->Render();
+	[EAGLContext setCurrentContext:m_context];
+	
+	m_renderer->render();
+	
 	[m_context presentRenderbuffer:GL_RENDERBUFFER_OES];
+}
+
+// ------------------------------------------
+// does the render contain the scene
+// ------------------------------------------
+- (BOOL) containsScene:(GLObjects::GLScene*)_scene
+{
+	return m_renderer->contains( _scene );
+}
+
+// ------------------------------------------
+// add the Scene to the render
+// ------------------------------------------
+- (void) addScene:(GLObjects::GLScene*)_scene
+{
+	m_renderer->add( _scene );
+}
+
+// ------------------------------------------
+// remove the Scene from the render
+// ------------------------------------------
+- (void) removeScene:(GLObjects::GLScene*)_scene
+{
+	m_renderer->remove( _scene );
 }
 
 #pragma mark ---------------------------------------------------------

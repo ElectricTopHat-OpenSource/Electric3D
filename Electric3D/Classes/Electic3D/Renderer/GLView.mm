@@ -31,6 +31,29 @@
 #pragma mark ---------------------------------------------------------
 
 #pragma mark ---------------------------------------------------------
+#pragma mark === Properties  ===
+#pragma mark ---------------------------------------------------------
+
+-(GLMeshes::GLMeshFactory*) meshes
+{
+	return [m_renderer meshes];
+}
+
+-(GLTextures::GLTextureFactory*) textures
+{
+	return [m_renderer textures];
+}
+
+-(GLSprites::GLSpriteFactory*) sprites
+{
+	return [m_renderer sprites];
+}
+
+#pragma mark ---------------------------------------------------------
+#pragma mark === End Properties  ===
+#pragma mark ---------------------------------------------------------
+
+#pragma mark ---------------------------------------------------------
 #pragma mark === Constructor / Destructor Functions  ===
 #pragma mark ---------------------------------------------------------
 
@@ -68,6 +91,7 @@
 - (void) dealloc
 {
 	SAFE_RELEASE( m_renderer );
+	
 	[super dealloc];
 }
 
@@ -80,7 +104,7 @@
 #pragma mark ---------------------------------------------------------
 
 // ------------------------------------------
-// 
+// layout subview
 // ------------------------------------------
 - (void)layoutSubviews 
 {
@@ -108,6 +132,21 @@
 // ------------------------------------------
 - (void) didRotate:(NSNotification*)_notification
 {
+}
+
+- (BOOL) containsScene:(GLObjects::GLScene*)_scene
+{
+	return [m_renderer containsScene:_scene];
+}
+
+- (void) addScene:(GLObjects::GLScene*)_scene
+{
+	return [m_renderer addScene:_scene];
+}
+
+- (void) removeScene:(GLObjects::GLScene*)_scene
+{
+	return [m_renderer removeScene:_scene];
 }
 
 #pragma mark ---------------------------------------------------------

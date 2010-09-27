@@ -7,6 +7,9 @@
  *
  */
 
+#ifndef __MD2TYPES_H__
+#define __MD2TYPES_H__
+
 namespace MD2
 {
 	// OpenGL vector types
@@ -39,13 +42,11 @@ namespace MD2
 		int offset_end;     // offset to the end of the file
 	} Md2Header;
 
-
 	// Skin data
 	typedef struct 
 	{
 		char name[64];  // Texture's filename
 	} Md2Skin;
-
 
 	// Texture coords.
 	typedef struct Md2TexCoord_t
@@ -54,7 +55,6 @@ namespace MD2
 		short t;
 	} Md2TexCoord;
 
-
 	// Triangle data
 	typedef struct 
 	{
@@ -62,14 +62,12 @@ namespace MD2
 		unsigned short st[3];      // Texture coords. indices
 	} Md2Triangle;
 
-
 	// Vertex data
 	typedef struct 
 	{
 		unsigned char v[3];         // Compressed vertex position
 		unsigned char normalIndex;  // Normal vector index
 	} Md2Vertex;
-
 
 	// Frame data
 	typedef struct 
@@ -80,7 +78,6 @@ namespace MD2
 		Md2Vertex verts[1];  // Frames's vertex list
 	} Md2Frame;
 
-
 	// OpenGL command packet
 	typedef struct 
 	{
@@ -88,13 +85,6 @@ namespace MD2
 		float t;    // T texture coord.
 		int index;  // Vertex index
 	} Md2Glcmd;
-
-
-	// Animation infos
-	typedef struct 
-	{
-		int start;  // first frame index
-		int end;    // last frame index
-	} Md2Anim;
-
 };
+
+#endif

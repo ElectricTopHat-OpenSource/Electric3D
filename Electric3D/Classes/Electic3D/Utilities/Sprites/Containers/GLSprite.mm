@@ -24,6 +24,7 @@ namespace GLSprites
 	, m_name			( _name )
 	, m_frameCount		( _frameCount )
 	{	
+		m_hash = [_name hash];
 		
 		m_uvMin.reserve(_frameCount);
 		m_uvMax.reserve(_frameCount);

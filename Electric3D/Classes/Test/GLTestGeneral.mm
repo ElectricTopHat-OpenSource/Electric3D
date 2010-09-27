@@ -8,6 +8,16 @@
 
 #import "GLTestGeneral.h"
 
+#import "GLTextureFactory.h"
+#import "GLTexture.h"
+
+#import "GLMeshFactory.h"
+#import "GLMesh.h"
+
+#import "GLModel.h"
+
+#import "GLScene.h"
+
 @interface GLTestGeneral (PrivateMethods)
 
 - (void) initialization;
@@ -66,6 +76,14 @@
 #pragma mark ---------------------------------------------------------
 
 // ------------------------------------------
+// canRotate
+// ------------------------------------------
+- (BOOL) canRotate
+{
+	return FALSE;
+}
+
+// ------------------------------------------
 // update Function
 // ------------------------------------------
 - (void) update
@@ -86,6 +104,25 @@
 // ------------------------------------------
 - (void) initialization
 {	
+	//mesh = [self meshes]->load( @"MD2StaticMeshTest", @"md2" );
+	//mesh = [self meshes]->load( @"E3D_cube", @"md2" );
+	
+	//texture = [self textures]->load( @"MD2Test", @"png" );
+	//mesh = [self meshes]->load( @"MD2AnimatedMeshTest", @"md2" );
+	
+	texture = [self textures]->load( @"SL_bert", @"png" );
+	mesh	= [self meshes]->load( @"SL_bert", @"md2" );
+	if ( mesh )
+	{
+		model = new GLObjects::GLModel( @"TestObj" );
+		model->setMesh( mesh );
+		model->setTexture( texture );
+		
+		scene = new GLObjects::GLScene( @"Test" );
+		scene->add( model );
+		
+		[self addScene:scene];
+	}
 }
 
 // ------------------------------------------
@@ -93,6 +130,13 @@
 // ------------------------------------------
 - (void) teardown
 {
+	[self removeScene:scene];
+	
+	scene->remove( model );
+	
+	[self textures]->release( model->texture() );
+	[self meshes]->release( model->mesh() );
+	
 }
 
 #pragma mark ---------------------------------------------------------

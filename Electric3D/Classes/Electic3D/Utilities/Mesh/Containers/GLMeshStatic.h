@@ -59,12 +59,12 @@ namespace GLMeshes
 		BOOL read( NSString * _filePath );
 		BOOL write( NSString * _filePath ) const;
 		
-		inline const unsigned int			numverts() const					{ return m_header->numverts; };
+		inline const NSUInteger				numverts() const					{ return m_header->numverts; };
+	
 		inline const GLInterleavedVert3D *	verts() const						{ return m_verts; };
-		inline const GLInterleavedVert3D *	vert( unsigned int _index ) const	{ return &m_verts[_index]; };
+		inline GLInterleavedVert3D *		verts()								{ return m_verts; };
 		
-		// get a writeable version of the vert buffer
-		inline GLInterleavedVert3D *		verts() { return m_verts; };
+		inline const GLInterleavedVert3D *	vert( unsigned int _index ) const	{ return &m_verts[_index]; };
 		
 #pragma mark ---------------------------------------------------------
 #pragma mark === End Public Functions  ===

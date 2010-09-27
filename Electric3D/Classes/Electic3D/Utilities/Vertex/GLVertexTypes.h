@@ -34,7 +34,7 @@ typedef struct
 	_GLVert3D	vert;
 	_GLNormal	normal;
 #if GLInterleavedVert3D_color
-	_GLColor		color;
+	_GLColor	color;
 #endif
 	_GLUV		uv;
 	

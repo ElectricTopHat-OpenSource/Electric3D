@@ -101,7 +101,7 @@ namespace GLSprites
 			
 			if ( sprite )
 			{
-				m_sprites[[_filePath hash]] = sprite;
+				m_sprites[sprite->hash()] = sprite;
 			}
 		}
 		

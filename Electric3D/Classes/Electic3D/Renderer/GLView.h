@@ -10,6 +10,13 @@
 
 @class GLRenderer;
 
+namespace GLObjects		{ class GLSceneFactory; };
+namespace GLMeshes		{ class GLMeshFactory; };
+namespace GLTextures	{ class GLTextureFactory; };
+namespace GLSprites		{ class GLSpriteFactory; };
+
+namespace GLObjects		{ class GLScene; };
+
 // ----------------------------------
 // GLView 
 // ----------------------------------
@@ -20,7 +27,15 @@
 	GLRenderer *		m_renderer;
 }
 
+@property (nonatomic,readonly) GLMeshes::GLMeshFactory *		meshes;
+@property (nonatomic,readonly) GLTextures::GLTextureFactory *	textures;
+@property (nonatomic,readonly) GLSprites::GLSpriteFactory *		sprites;
+
 - (void) drawView:(id)_sender;
 - (void) didRotate:(NSNotification*)_notification;
+
+- (BOOL) containsScene:(GLObjects::GLScene*)_scene;
+- (void) addScene:(GLObjects::GLScene*)_scene;
+- (void) removeScene:(GLObjects::GLScene*)_scene;
 
 @end

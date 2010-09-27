@@ -9,6 +9,7 @@
 #import "GLTestMeshFactory.h"
 #import "GLMeshFactory.h"
 #import "GLMesh.h"
+#import "GLMeshWriter.h"
 
 @implementation GLTestMeshFactory_container
 
@@ -77,6 +78,14 @@
 #pragma mark ---------------------------------------------------------
 
 // ------------------------------------------
+// canRotate
+// ------------------------------------------
+- (BOOL) canRotate
+{
+	return FALSE;
+}
+
+// ------------------------------------------
 // update Function
 // ------------------------------------------
 - (void) update
@@ -127,6 +136,25 @@
 	md2static->complete			= FALSE;
 	
 	factory = new GLMeshes::GLMeshFactory();
+	
+	const GLMeshes::GLMesh * cone		= factory->load( @"E3D_cone", @"md2" );
+	const GLMeshes::GLMesh * cylinder = factory->load( @"E3D_cylinder", @"md2" );
+	const GLMeshes::GLMesh * cube		= factory->load( @"E3D_cube", @"md2" );
+	const GLMeshes::GLMesh * sphere	= factory->load( @"E3D_sphere", @"md2" );
+	
+	if ( GLMeshWriter::writeToHeader( [DOCUMENTS_PATH stringByAppendingPathComponent:@"GLMeshCone.h"],		@"cone",		cone->verts(), cone->numverts() ) )
+	{
+		[self print:@"Written GLMeshCone.h"];
+	}
+	
+	GLMeshWriter::writeToHeader( [DOCUMENTS_PATH stringByAppendingPathComponent:@"GLMeshCylinder.h"],	@"cylinder",	cylinder->verts(), cylinder->numverts() );
+	GLMeshWriter::writeToHeader( [DOCUMENTS_PATH stringByAppendingPathComponent:@"GLMeshCube.h"],		@"cube",		cube->verts(), cube->numverts() );
+	GLMeshWriter::writeToHeader( [DOCUMENTS_PATH stringByAppendingPathComponent:@"GLMeshSphere.h"],		@"sphere",		sphere->verts(), sphere->numverts() );
+	
+	factory->release( cone );
+	factory->release( cylinder );
+	factory->release( cube );
+	factory->release( sphere );
 }
 
 // ------------------------------------------

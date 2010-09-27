@@ -21,7 +21,8 @@ namespace GLObjects
 #pragma mark ---------------------------------------------------------
 	public: // Functions
 		
-		virtual ~GLObject();
+		GLObject( NSString * _name = nil ) { m_name = [_name copy]; static NSUInteger val=0; m_hash=val++; };
+		virtual ~GLObject() {};
 		
 #pragma mark ---------------------------------------------------------
 #pragma mark End Constructor / Destructor
@@ -34,8 +35,23 @@ namespace GLObjects
 		
 		virtual eGLObjectType type() const = 0;
 		
+		inline const NSString *	name() const { return m_name; };
+		inline const NSUInteger hash() const { return m_hash; };
+		
 #pragma mark ---------------------------------------------------------
 #pragma mark === End Public Functions  ===
+#pragma mark ---------------------------------------------------------
+		
+#pragma mark ---------------------------------------------------------
+#pragma mark Private Data
+#pragma mark ---------------------------------------------------------
+	private: // Data
+		
+		NSString *		m_name;
+		NSUInteger		m_hash;
+		
+#pragma mark ---------------------------------------------------------
+#pragma mark End Private Data
 #pragma mark ---------------------------------------------------------
 	};	
 };

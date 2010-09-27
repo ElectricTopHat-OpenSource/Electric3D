@@ -54,8 +54,8 @@ namespace GLSprites
 #pragma mark ---------------------------------------------------------
 	public:	// Functions
 		
-		inline const NSString *					name() const { return m_name; }
-		inline NSUInteger						hash() const { return [m_name hash]; };
+		inline const NSString *					name() const { return [m_name lastPathComponent]; }
+		inline NSUInteger						hash() const { return m_hash; };
 		
 		inline const GLTextures::GLTexture *	texture() const { return m_texture; };
 		
@@ -91,7 +91,8 @@ namespace GLSprites
 		
 		const GLTextures::GLTexture *	m_texture;
 		
-		const NSString *				m_name;
+		NSString *						m_name;
+		NSUInteger						m_hash;
 		
 		NSUInteger						m_frameCount;
 		NSInteger						m_referenceCount;

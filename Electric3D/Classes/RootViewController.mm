@@ -96,6 +96,27 @@
 #pragma mark === UIView Functions  ===
 #pragma mark ---------------------------------------------------------
 
+// -------------------------------------------------------------------
+// Override to allow orientations other than the default portrait orientation.
+// -------------------------------------------------------------------
+- (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
+{
+	if ( [subView respondsToSelector:@selector(canRotate)]  )
+	{
+		return [subView performSelector:@selector(canRotate)] != nil;
+	}
+    return YES;
+}
+
+// -------------------------------------------------------------------
+// fix the scale of the object when it's rotated
+// -------------------------------------------------------------------
+- (void) didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation 
+{
+	[subView setFrame:self.view.bounds];
+	[subView layoutSubviews];
+}
+
 - (void) viewDidLoad
 {	
 	[tableView reloadData];

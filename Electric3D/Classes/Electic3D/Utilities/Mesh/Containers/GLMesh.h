@@ -11,6 +11,7 @@
 #define __GLMesh_h__
 
 #import "GLMeshTypes.h"
+#import "GLVertexTypes.h"
 
 namespace GLMeshes { class GLMeshFactory; };
 
@@ -33,7 +34,12 @@ namespace GLMeshes
 #pragma mark ---------------------------------------------------------
 	public: // Functions
 		
-		GLMesh( NSString * _name = nil ) { m_name = [_name copy]; m_referenceCount=1; };
+		GLMesh( NSString * _name = nil ) 
+		{ 
+			m_name = [_name copy]; 
+			m_hash = [m_name hash]; 
+			m_referenceCount=1; 
+		};
 		virtual ~GLMesh() {};
 		
 #pragma mark ---------------------------------------------------------
@@ -47,10 +53,14 @@ namespace GLMeshes
 		
 		virtual eGLMeshType type() const = 0;
 		
-		inline const NSString *	name() const { return m_name; };
+		inline const NSString *	name() const { return [m_name lastPathComponent]; };
+		inline const NSUInteger hash() const { return m_hash; };
 		
 		virtual BOOL read( NSString * _filePath ) = 0;
 		virtual BOOL write( NSString * _filePath ) const = 0;
+		
+		virtual const NSUInteger			numverts() const = 0;
+		virtual const GLInterleavedVert3D *	verts() const = 0;
 		
 #pragma mark ---------------------------------------------------------
 #pragma mark === End Public Functions  ===
@@ -75,12 +85,12 @@ namespace GLMeshes
 	private: // Data
 		
 		NSString *		m_name;
+		NSUInteger		m_hash;
 		NSInteger		m_referenceCount;
 		
 #pragma mark ---------------------------------------------------------
 #pragma mark End Private Data
 #pragma mark ---------------------------------------------------------
-		
 	};
 };
 

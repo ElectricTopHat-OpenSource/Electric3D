@@ -151,7 +151,7 @@ namespace GLMeshes
 			
 			if ( mesh )
 			{
-				m_meshes[[_filePath hash]] = mesh;
+				m_meshes[mesh->hash()] = mesh;
 			}
 		}
 		
@@ -163,7 +163,7 @@ namespace GLMeshes
 	// --------------------------------------------------
 	void GLMeshFactory::release( const GLMesh * _mesh )
 	{
-		NSUInteger key = [_mesh->name() hash];
+		NSUInteger key = _mesh->hash();
 		std::map<NSUInteger,GLMesh*>::iterator lb = m_meshes.lower_bound(key);
 		if (lb != m_meshes.end() && !(m_meshes.key_comp()(key, lb->first)))
 		{
@@ -171,7 +171,11 @@ namespace GLMeshes
 			mesh->decrementReferenceCount();
 			
 			if ( mesh->referenceCount() <= 0 )
-			{				
+			{	
+				// remove the object reference
+				// from the map
+				m_meshes.erase( lb );			
+				
 				// delete the object
 				delete( mesh );
 			}
@@ -247,7 +251,7 @@ namespace GLMeshes
 			
 			if ( model.valid() )
 			{	
-				if ( ( model.numframes() == 1 ) || 
+				if ( ( model.numframes() == 2 ) || 
 					 ( model.numframes() == 20 ) ) // 20 is the default num frames in the QTip Exporter
 				{
 					GLMeshStatic * staticMesh = new GLMeshStatic( model.numverts(), _filePath );
@@ -264,7 +268,7 @@ namespace GLMeshes
 				{
 					GLMeshVertexAnimation * animatedMesh = new GLMeshVertexAnimation( model.numverts(), model.numframes(), _filePath );
 					
-					if ( MD2::convertFrameUVToVertsUV( &model, 0, animatedMesh->interpverts() ) )
+					if ( MD2::convertFrameToVerts( &model, 0, animatedMesh->interpverts() ) )
 					{
 						int i;
 						for ( i=0; i<model.numframes(); i++ )

@@ -58,21 +58,20 @@ namespace GLMeshes
 		BOOL read( NSString * _filePath );
 		BOOL write( NSString * _filePath ) const;
 		
-		inline const unsigned int			numframes() const											{ return m_header->numframes; };
-		inline const unsigned int			numverts() const											{ return m_header->numverts; };
-	
+		inline const NSUInteger			numverts() const		{ return m_header->numverts; };
+		inline const NSUInteger			numframes() const		{ return m_header->numframes; };
+		
+		inline const GLInterleavedVert3D *	verts() const		{ return m_iterpverts; };
+		
+		// get a vert buffer with the interped verts
+		const GLInterleavedVert3D *					interpverts( unsigned int _frame1, unsigned int _frame2, float _interp ) const;
+		inline GLInterleavedVert3D *				interpverts() { return m_iterpverts; };
+		
 		// get a writeable version of the vert buffer
 		inline GLInterleavedVertNormal3D *			frameverts( unsigned int _frame ) { return m_verts[_frame]; };
 		
 		inline const GLInterleavedVertNormal3D *	frameverts( unsigned int _frame ) const						{ return m_verts[_frame]; };
 		inline const GLInterleavedVertNormal3D *	framevert( unsigned int _frame, unsigned int _index ) const	{ return &m_verts[_frame][_index]; };
-		
-		
-		// get a vert buffer with the interped verts
-		const GLInterleavedVert3D *					interpverts( unsigned int _frame1, unsigned int _frame2, float _interp ) const;
-		inline const GLInterleavedVert3D *			interpverts() const { return m_iterpverts; };
-		inline GLInterleavedVert3D *				interpverts() { return m_iterpverts; };
-		
 		
 #pragma mark ---------------------------------------------------------
 #pragma mark === End Public Functions  ===

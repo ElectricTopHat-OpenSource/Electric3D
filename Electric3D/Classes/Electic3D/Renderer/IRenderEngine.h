@@ -7,41 +7,57 @@
  *
  */
 
+#if !defined(__IRenderEngine_h__)
+#define __IRenderEngine_h__
 
-// Physical orientation of a handheld device,
-// independent equivalent to UIDeviceOrientation
-typedef enum
-{
-	eDeviceOrientationUnknown,
-	eDeviceOrientationPortrait,
-	eDeviceOrientationPortraitUpsideDown,
-	eDeviceOrientationLandscapeLeft,
-	eDeviceOrientationLandscapeRight,
-	eDeviceOrientationFaceUp,
-	eDeviceOrientationFaceDown,
-	
-} eDeviceOrientation;
+namespace GLObjects { class GLScene; };
 
-class IRenderEngine
+namespace GLRenderers 
 {
-public:
-	virtual ~IRenderEngine() {};
+
+	// Physical orientation of a handheld device,
+	// independent equivalent to UIDeviceOrientation
+	typedef enum
+	{
+		eDeviceOrientationUnknown,
+		eDeviceOrientationPortrait,
+		eDeviceOrientationPortraitUpsideDown,
+		eDeviceOrientationLandscapeLeft,
+		eDeviceOrientationLandscapeRight,
+		eDeviceOrientationFaceUp,
+		eDeviceOrientationFaceDown,
+		
+	} eDeviceOrientation;
 	
-	virtual void createRenderBuffer() = 0;
-	virtual void createFrameBuffer() = 0;
-	virtual void createDepthBuffer() = 0;
+	class IRenderEngine
+	{
+	public:
+		virtual ~IRenderEngine() {};
+		
+		virtual void createRenderBuffer() = 0;
+		virtual void createFrameBuffer() = 0;
+		virtual void createDepthBuffer() = 0;
+		
+		virtual void destroyRenderBuffer() = 0;
+		virtual void destroyFrameBuffer() = 0;
+		virtual void destroyDepthBuffer() = 0;
+		
+		virtual void rebindBuffers() = 0;
+		
+		virtual void initialize() = 0;
+		virtual void teardown() = 0;
+		
+		virtual void setClearColor( float _red, float _green, float _blue ) = 0;
+		
+		virtual void update( float _timeStep ) = 0;
+		virtual void render() = 0;
+		virtual void onRotate( eDeviceOrientation _newOrientation ) = 0;
+		
+		virtual BOOL contains( GLObjects::GLScene * _scene ) = 0;
+		virtual void add( GLObjects::GLScene * _scene ) = 0;
+		virtual void remove( GLObjects::GLScene * _scene ) = 0;
+	};
 	
-	virtual void destroyRenderBuffer() = 0;
-	virtual void destroyFrameBuffer() = 0;
-	virtual void destroyDepthBuffer() = 0;
-	
-	virtual void initialize() = 0;
-	virtual void teardown() = 0;
-	
-	virtual void setClearColor( float _red, float _green, float _blue ) = 0;
-	
-	virtual void Update( float _timeStep ) = 0;
-	virtual void Render() = 0;
-	virtual void OnRotate( eDeviceOrientation _newOrientation ) = 0;
 };
 
+#endif 

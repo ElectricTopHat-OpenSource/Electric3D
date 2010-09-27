@@ -9,21 +9,22 @@
 #if !defined(__GLModel_h__)
 #define __GLModel_h__
 
-#include "GLObject.h"
+#import "GLObject.h"
+#import "GLVertexTypes.h"
 
 namespace GLMeshes		{ class GLMesh; };
 namespace GLTextures	{ class GLTexture; };
 
 namespace GLObjects
 {
-	class GLModel : GLObject
+	class GLModel : public GLObject
 	{
 #pragma mark ---------------------------------------------------------
 #pragma mark Constructor / Destructor
 #pragma mark ---------------------------------------------------------
 	public: // Functions
 		
-		GLModel();
+		GLModel( NSString * _name = nil );
 		virtual ~GLModel();
 		
 #pragma mark ---------------------------------------------------------
@@ -35,7 +36,7 @@ namespace GLObjects
 #pragma mark ---------------------------------------------------------
 	public: // Functions
 		
-		eGLObjectType type() const { return eGLObjectType_Model; };
+		virtual eGLObjectType type() const { return eGLObjectType_Model; };
 		
 		// set the texture object
 		inline void setTexture(const GLTextures::GLTexture * _texture) { m_texture = _texture; };
@@ -43,9 +44,12 @@ namespace GLObjects
 		inline const GLTextures::GLTexture * texture() const { return m_texture; };
 		
 		// set the mesh object
-		inline void setMesh(const GLMeshes::GLMesh * _mesh) { m_mesh = _mesh; };
+		void setMesh(const GLMeshes::GLMesh * _mesh) { m_mesh = _mesh; };
 		// access the mesh object
-		inline const GLMeshes::GLMesh * mesh() const { return m_mesh; };
+		const GLMeshes::GLMesh * mesh() const { return m_mesh; };
+		
+		virtual NSUInteger numverts() const;
+		virtual const GLInterleavedVert3D* verts() const;
 		
 #pragma mark ---------------------------------------------------------
 #pragma mark === End Public Functions  ===
@@ -58,7 +62,6 @@ namespace GLObjects
 		
 		const GLTextures::GLTexture *	m_texture;
 		const GLMeshes::GLMesh *		m_mesh;
-		
 		
 #pragma mark ---------------------------------------------------------
 #pragma mark === Private Data  ===

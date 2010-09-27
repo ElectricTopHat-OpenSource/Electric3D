@@ -223,10 +223,10 @@ namespace GLMeshes
 			//m_iterpverts[i].uv.y = v1[i].uv.y + value*(v2[i].uv.y - v1[i].uv.y);
 			
 #if GLInterleavedVert3D_color
-			m_iterpverts[i].color.red = v1[i].color.red + value*(v2[i].color.red- v1[i].color.red);
-			m_iterpverts[i].color.green = v1[i].color.green + value*(v2[i].color.green- v1[i].color.green);
-			m_iterpverts[i].color.blue = v1[i].color.blue + value*(v2[i].color.blue- v1[i].color.blue);
-			m_iterpverts[i].color.alpha = v1[i].color.alpha + value*(v2[i].color.alpha- v1[i].color.alpha);
+			//m_iterpverts[i].color.red = v1[i].color.red + value*(v2[i].color.red- v1[i].color.red);
+			//m_iterpverts[i].color.green = v1[i].color.green + value*(v2[i].color.green- v1[i].color.green);
+			//m_iterpverts[i].color.blue = v1[i].color.blue + value*(v2[i].color.blue- v1[i].color.blue);
+			//m_iterpverts[i].color.alpha = v1[i].color.alpha + value*(v2[i].color.alpha- v1[i].color.alpha);
 #endif
 		}
 		

@@ -9,11 +9,21 @@
 #import <UIKit/UIKit.h>
 #import "GLView.h"
 
+namespace GLTextures { class GLTexture; };
+namespace GLMeshes { class GLMesh; };
+namespace GLObjects { class GLModel; };
+namespace GLObjects { class GLScene; };
+
 @interface GLTestGeneral : GLView
 {
 @private
-	
+	const GLTextures::GLTexture	*	texture;
+	const GLMeshes::GLMesh *		mesh;
+	GLObjects::GLModel	*			model;
+	GLObjects::GLScene *				scene;
 }
+
+- (BOOL) canRotate;
 
 - (void) update;
 

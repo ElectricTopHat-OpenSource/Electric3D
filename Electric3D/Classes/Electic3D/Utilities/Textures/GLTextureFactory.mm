@@ -101,7 +101,7 @@ namespace GLTextures
 			
 			if ( texture )
 			{
-				m_textures[[_filePath hash]] = texture;
+				m_textures[texture->hash()] = texture;
 			}
 		}
 		
@@ -113,7 +113,7 @@ namespace GLTextures
 	// --------------------------------------------------
 	void GLTextureFactory::release( const GLTexture * _texture )
 	{	
-		NSUInteger key = [_texture->name() hash];
+		NSUInteger key = _texture->hash();
 		std::map<NSUInteger,GLTexture*>::iterator lb = m_textures.lower_bound(key);
 		if (lb != m_textures.end() && !(m_textures.key_comp()(key, lb->first)))
 		{

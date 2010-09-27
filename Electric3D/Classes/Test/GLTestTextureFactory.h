@@ -19,6 +19,8 @@ namespace GLTextures { class GLTextureFactory; };
 	GLTextures::GLTextureFactory * factory;
 }
 
+- (BOOL) canRotate;
+
 - (void) update;
 
 @end

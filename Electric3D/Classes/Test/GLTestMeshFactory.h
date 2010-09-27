@@ -35,6 +35,8 @@ namespace GLMeshes { class GLMesh; };
 	GLMeshes::GLMeshFactory *		factory;
 }
 
+- (BOOL) canRotate;
+
 - (void) update;
 
 @end

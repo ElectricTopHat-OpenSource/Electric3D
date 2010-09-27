@@ -13,7 +13,9 @@ namespace GLObjects
 {
 	typedef enum 
 	{
-		eGLObjectType_Model = 0,
+		eGLObjectType_Invalid = 0,
+		eGLObjectType_Scene,
+		eGLObjectType_Model,
 		
 	} eGLObjectType;
 	

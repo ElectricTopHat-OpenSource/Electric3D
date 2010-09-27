@@ -17,12 +17,13 @@ namespace GLTextures
 	// --------------------------------------------------
 	// Constructor
 	// --------------------------------------------------
-	GLTexture::GLTexture(const NSString * _name, GLint _bindID, CGSize _size)
+	GLTexture::GLTexture(NSString * _name, GLint _bindID, CGSize _size)
 	: m_referenceCount	( 1 )
-	, m_name			( _name )
+	, m_name			( [_name copy] )
 	, m_bindID			( _bindID )
 	, m_size			( _size )
 	{	
+		m_hash = [_name hash];
 	}
 	
 	// --------------------------------------------------

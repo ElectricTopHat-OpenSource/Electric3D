@@ -41,7 +41,7 @@ namespace MD2
 				// vert and normal
 				for ( v=0; v<3; v++ )
 				{
-					int vertIndex	= (i*3) + v;
+					int vertIndex	= (i*3) + (2-v);
 					int xyzIndex	= triangle->vertex[v];
 					int stIndex		= triangle->st[v];
 					
@@ -51,8 +51,9 @@ namespace MD2
 					// copy the frames vert information
 					const Md2Vertex * modelVert = &frame->verts[xyzIndex];
 					vert->vert.x =  (modelVert->v[0] * frame->scale[0] + frame->translate[0]);
-					vert->vert.y = -(modelVert->v[1] * frame->scale[1] + frame->translate[1]);
-					vert->vert.z =  (modelVert->v[2] * frame->scale[2] + frame->translate[2]);
+					vert->vert.z = -(modelVert->v[1] * frame->scale[1] + frame->translate[1]);
+					vert->vert.y =  (modelVert->v[2] * frame->scale[2] + frame->translate[2]);
+					
 					
 					// copy the normal information
 					int normIndex	= modelVert->normalIndex;
@@ -69,7 +70,7 @@ namespace MD2
 					vert->color.red		= 0;
 					vert->color.green	= 0;
 					vert->color.blue	= 0;
-					vert->color.alpha	= 1;
+					vert->color.alpha	= 255;
 #endif
 				}
 			}

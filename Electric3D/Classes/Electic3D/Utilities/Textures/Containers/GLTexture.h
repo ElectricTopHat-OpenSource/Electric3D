@@ -35,7 +35,7 @@ namespace GLTextures
 		// --------------------------------------------------
 		// Constructor
 		// --------------------------------------------------
-		GLTexture(const NSString * _name, GLint _bindID, CGSize _size);
+		GLTexture(NSString * _name, GLint _bindID, CGSize _size);
 		
 		// --------------------------------------------------
 		// Destructor
@@ -51,7 +51,7 @@ namespace GLTextures
 #pragma mark ---------------------------------------------------------
 	public:	// Functions
 				
-		inline const NSString * name() const { return m_name; }
+		inline const NSString * name() const { return [m_name lastPathComponent]; }
 		inline NSUInteger		hash() const { return [m_name hash]; };
 		
 		inline GLuint bindID() const { return m_bindID; }
@@ -81,7 +81,8 @@ namespace GLTextures
 #pragma mark ---------------------------------------------------------
 	private: // Data
 		
-		const NSString *		m_name;
+		NSString *				m_name;
+		NSUInteger				m_hash;
 		GLuint					m_bindID;
 		CGSize					m_size;
 		NSInteger				m_referenceCount;
