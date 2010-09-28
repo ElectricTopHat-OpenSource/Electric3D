@@ -57,14 +57,10 @@ namespace GLRenderers
 		glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 		
 		glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
-		//glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_ADD);
-		//glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
 		
 		//glFrontFace(GL_CW);
-		glEnable(GL_CULL_FACE);
-		//glDisable(GL_CULL_FACE);
-		glCullFace(GL_BACK);
-		//glCullFace(GL_FRONT);
+		//glEnable(GL_CULL_FACE);
+		//glCullFace(GL_BACK);
 		
 		glEnableClientState(GL_VERTEX_ARRAY);
 		glEnableClientState(GL_NORMAL_ARRAY);
@@ -153,8 +149,14 @@ namespace GLRenderers
 	// ------------------------------------------
 	void GLES1Renderer::render( GLObjects::GLModel * _object )
 	{
+		glPushMatrix();
+		
+		glMultMatrixf( _object->transform().m );
+		
 		bindTexture( _object->texture() );
 		renderVerts( _object->verts(), _object->numverts() );
+		
+		glPopMatrix();
 	}
 	
 	// ------------------------------------------

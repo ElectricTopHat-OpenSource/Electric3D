@@ -1,12 +1,12 @@
 //
-//  GLTestGeneral.m
+//  GLTestVertexAnimatedMesh.m
 //  Electric3D
 //
-//  Created by Robert McDowell on 22/09/2010.
+//  Created by Robert McDowell on 28/09/2010.
 //  Copyright 2010 Electric TopHat Ltd. All rights reserved.
 //
 
-#import "GLTestGeneral.h"
+#import "GLTestVertexAnimatedMesh.h"
 
 #import "GLTextureFactory.h"
 #import "GLTexture.h"
@@ -18,14 +18,14 @@
 
 #import "GLScene.h"
 
-@interface GLTestGeneral (PrivateMethods)
+@interface GLTestVertexAnimatedMesh (PrivateMethods)
 
 - (void) initialization;
 - (void) teardown;
 
 @end
 
-@implementation GLTestGeneral
+@implementation GLTestVertexAnimatedMesh
 
 #pragma mark ---------------------------------------------------------
 #pragma mark === Constructor / Destructor Functions  ===
@@ -88,9 +88,9 @@
 // ------------------------------------------
 - (void) update
 {
-	if ( model0->subtype() == GLObjects::eGLModelType_VertexAnimation )
+	if ( model->subtype() == GLObjects::eGLModelType_VertexAnimation )
 	{
-		GLObjects::GLModelVertexAnimation * animatedModel = (GLObjects::GLModelVertexAnimation*)model0;
+		GLObjects::GLModelVertexAnimation * animatedModel = (GLObjects::GLModelVertexAnimation*)model;
 		
 		float addValue = 0.2f;
 		float value = animatedModel->blendValue();
@@ -109,25 +109,13 @@
 				animatedModel->setStartFrame( 0 );
 				animatedModel->setTargetFrame( 1 );
 			}
-
+			
 			animatedModel->setBlendValue( 0.0f );
 		}
 		else
 		{
 			animatedModel->setBlendValue( value+addValue );
 		}
-	}
-	
-	if ( model1 )
-	{
-		CGMaths::CGMatrix4x4 mat = model1->transform();
-		CGMaths::CGMatrix4x4 rot1 = CGMaths::CGMatrix4x4MakeRotation( CGMaths::CGVector3DMake( 0.0f, 1.0f, 0.0f ), 5.0f * CGMaths::degreesToRadians );
-		CGMaths::CGMatrix4x4 rot2 = CGMaths::CGMatrix4x4MakeRotation( CGMaths::CGVector3DMake( 1.0f, 0.0f, 0.0f ), 5.0f * CGMaths::degreesToRadians );
-		CGMaths::CGMatrix4x4 rot = CGMaths::CGMatrix4x4Multiply( rot1, rot2 );
-		
-		CGMaths::CGMatrix4x4 newMat = CGMaths::CGMatrix4x4Multiply( mat, rot );
-		
-		model1->setTransform( newMat );
 	}
 	
 	[self drawView:nil];
@@ -148,30 +136,16 @@
 {	
 	scene = new GLObjects::GLScene( @"Test" );
 	
-	//mesh = [self meshes]->load( @"MD2StaticMeshTest", @"md2" );
-	//mesh = [self meshes]->load( @"E3D_cube", @"md2" );
-	//mesh = [self meshes]->load( @"E3D_cylinder", @"md2" );
-	//mesh = [self meshes]->load( @"E3D_sphere", @"md2" );
-	//mesh = [self meshes]->load( @"E3D_cone", @"md2" );
-	
-	texture0 = [self textures]->load( @"MD2Test", @"png" );
-	mesh0	= [self meshes]->load( @"MD2AnimatedMeshTest", @"md2" );
-	if ( mesh0 )
+	texture		= [self textures]->load( @"MD2Test", @"png" );
+	mesh		= [self meshes]->load( @"MD2AnimatedMeshTest", @"md2" );
+
+	if ( mesh )
 	{
-		model0 = new GLObjects::GLModelVertexAnimation( @"AnimatedTestObj" );
-		model0->setMesh( mesh0 );
-		model0->setTexture( texture0 );
-		scene->add( model0 );
-	}
-	
-	texture1	= nil;
-	mesh1		= [self meshes]->load( @"E3D_cube", @"md2" );
-	if ( mesh1 )
-	{
-		model1 = new GLObjects::GLModelStatic( @"StaticTestObj" );
-		model1->setMesh( mesh1 );
-		model1->setTexture( texture1 );
-		scene->add( model1 );
+		model = new GLObjects::GLModelVertexAnimation( @"TestObj" );
+		model->setMesh( mesh );
+		model->setTexture( texture );
+
+		scene->add( model );	
 	}
 	
 	[self addScene:scene];
@@ -184,17 +158,12 @@
 {
 	[self removeScene:scene];
 	
-	scene->remove( model0 );
-	scene->remove( model1 );
+	scene->remove( model );
 	
-	[self textures]->release( model0->texture() );
-	[self meshes]->release( model0->mesh() );
-	
-	[self textures]->release( model1->texture() );
-	[self meshes]->release( model1->mesh() );
-	
-	delete( model0 );
-	delete( model1 );
+	[self textures]->release( model->texture() );
+	[self meshes]->release( model->mesh() );
+
+	delete( model );
 	delete( scene );
 }
 

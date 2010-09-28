@@ -113,27 +113,30 @@ namespace GLSprites
 	// --------------------------------------------------
 	void GLSpriteFactory::release( const GLSprite * _sprite )
 	{	
-		NSUInteger key = _sprite->hash();
-		std::map<NSUInteger,GLSprite*>::iterator lb = m_sprites.lower_bound(key);
-		if (lb != m_sprites.end() && !(m_sprites.key_comp()(key, lb->first)))
+		if ( _sprite )
 		{
-			GLSprite * sprite = lb->second;
-			sprite->decrementReferenceCount();
-			
-			if ( sprite->referenceCount() <= 0 )
+			NSUInteger key = _sprite->hash();
+			std::map<NSUInteger,GLSprite*>::iterator lb = m_sprites.lower_bound(key);
+			if (lb != m_sprites.end() && !(m_sprites.key_comp()(key, lb->first)))
 			{
-				// remove the object reference
-				// from the map
-				m_sprites.erase( lb );
+				GLSprite * sprite = lb->second;
+				sprite->decrementReferenceCount();
 				
-				// release the texture
-				m_texturefactory->release( sprite->texture() );
-				
-				// idicate that the textures been removed
-				sprite->textureRemoved();
-				
-				// delete the object
-				delete( sprite );
+				if ( sprite->referenceCount() <= 0 )
+				{
+					// remove the object reference
+					// from the map
+					m_sprites.erase( lb );
+					
+					// release the texture
+					m_texturefactory->release( sprite->texture() );
+					
+					// idicate that the textures been removed
+					sprite->textureRemoved();
+					
+					// delete the object
+					delete( sprite );
+				}
 			}
 		}
 	}

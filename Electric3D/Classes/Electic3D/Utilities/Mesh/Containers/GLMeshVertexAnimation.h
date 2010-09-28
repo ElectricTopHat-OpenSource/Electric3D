@@ -64,6 +64,7 @@ namespace GLMeshes
 		inline const GLInterleavedVert3D *	verts() const		{ return m_iterpverts; };
 		
 		// get a vert buffer with the interped verts
+		const GLInterleavedVert3D *					interpverts( unsigned int _frame ) const;
 		const GLInterleavedVert3D *					interpverts( unsigned int _frame1, unsigned int _frame2, float _interp ) const;
 		inline GLInterleavedVert3D *				interpverts() { return m_iterpverts; };
 		

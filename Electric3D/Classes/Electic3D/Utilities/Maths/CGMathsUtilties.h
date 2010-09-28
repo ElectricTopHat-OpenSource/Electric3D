@@ -128,6 +128,31 @@ namespace CGMaths
 #pragma mark ---------------------------------------------------------
 #pragma mark End Utilty Functions : Float
 #pragma mark ---------------------------------------------------------
+	
+#pragma mark ---------------------------------------------------------
+#pragma mark Utilty Functions : NSInteger
+#pragma mark ---------------------------------------------------------
+	
+	// --------------------------------------------------
+	// Clamp a NSInteger between two values
+	// --------------------------------------------------
+	inline NSInteger iClamp( NSInteger _value, NSInteger _min, NSInteger _max )
+	{
+		return (_value > _min) ? (_value < _max ) ? _value : _max : _min;
+	}
+	
+	// --------------------------------------------------
+	// Loop the value
+	// --------------------------------------------------
+	inline NSInteger iLoop( NSInteger _value, NSInteger _min, NSInteger _max )
+	{
+		// TODO : Fix this function so that the value is looped correctly
+		return (_value > _min) ? (_value < _max ) ? _value : _min : _max;
+	}
+	
+#pragma mark ---------------------------------------------------------
+#pragma mark End Utilty Functions : NSInteger
+#pragma mark ---------------------------------------------------------
 };
 
 #endif

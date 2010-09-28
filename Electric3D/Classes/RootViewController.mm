@@ -9,8 +9,10 @@
 #import "RootViewController.h"
 #import "GLTestMeshFactory.h"
 #import "GLTestTextureFactory.h"
-#import "GLTestGeneral.h"
 
+#import "GLTestGeneral.h"
+#import "GLTestStaticMesh.h"
+#import "GLTestVertexAnimatedMesh.h"
 
 // -------------------------------------------------------------------
 // update time defines
@@ -41,33 +43,72 @@
 {
 	if ( self = [super initWithCoder:aDecoder] )
 	{
+		updateTimer = [[GameTimer alloc] init];
 		tableData = [[NSMutableArray alloc] initWithCapacity:10];
 		
 		{
-			NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];
+			NSMutableDictionary * data			= [NSMutableDictionary dictionaryWithCapacity:2];
+			NSString *			sectiontitle	= @"Load Tests";
+			NSMutableArray *	array			= [NSMutableArray arrayWithCapacity:16];
 			
-			[testInfo setObject:@"GL Texture Factory" forKey:@"name"];
-			[testInfo setObject:[GLTestTextureFactory class] forKey:@"class"];
+			{
+				NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];
+				
+				[testInfo setObject:@"GL Texture Factory" forKey:@"name"];
+				[testInfo setObject:[GLTestTextureFactory class] forKey:@"class"];
+				
+				[array addObject:testInfo];
+			}
 			
-			[tableData addObject:testInfo];
+			{
+				NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];
+				
+				[testInfo setObject:@"GL Mesh Factory" forKey:@"name"];
+				[testInfo setObject:[GLTestMeshFactory class] forKey:@"class"];
+				
+				[array addObject:testInfo];
+			}
+			
+			[data setObject:sectiontitle	forKey:@"sectiontitle"];
+			[data setObject:array			forKey:@"array"];
+			[tableData addObject:data];
 		}
 		
 		{
-			NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];
+			NSMutableDictionary * data			= [NSMutableDictionary dictionaryWithCapacity:2];
+			NSString *			sectiontitle	= @"OpenGL Tests";
+			NSMutableArray *	array			= [NSMutableArray arrayWithCapacity:16];
 			
-			[testInfo setObject:@"GL Mesh Factory" forKey:@"name"];
-			[testInfo setObject:[GLTestMeshFactory class] forKey:@"class"];
+			{
+				NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];
+				
+				[testInfo setObject:@"General Test" forKey:@"name"];
+				[testInfo setObject:[GLTestGeneral class] forKey:@"class"];
+				
+				[array addObject:testInfo];
+			}
 			
-			[tableData addObject:testInfo];
-		}
-		
-		{
-			NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];
+			{
+				NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];
+				
+				[testInfo setObject:@"Test Static Mesh" forKey:@"name"];
+				[testInfo setObject:[GLTestStaticMesh class] forKey:@"class"];
+				
+				[array addObject:testInfo];
+			}
 			
-			[testInfo setObject:@"General GL Test" forKey:@"name"];
-			[testInfo setObject:[GLTestGeneral class] forKey:@"class"];
+			{
+				NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];
+				
+				[testInfo setObject:@"Test Vertex Animated Mesh" forKey:@"name"];
+				[testInfo setObject:[GLTestVertexAnimatedMesh class] forKey:@"class"];
+				
+				[array addObject:testInfo];
+			}
 			
-			[tableData addObject:testInfo];
+			[data setObject:sectiontitle	forKey:@"sectiontitle"];
+			[data setObject:array			forKey:@"array"];
+			[tableData addObject:data];
 		}
 	}
 	return self;
@@ -78,12 +119,10 @@
 // ------------------------------------------
 - (void)dealloc 
 {
+	SAFE_RELEASE( updateTimer );
 	SAFE_RELEASE( tableView );
 	SAFE_RELEASE( tableData );
 	SAFE_RELEASE( subView );
-	
-	[updateTimer invalidate];
-	updateTimer = nil;
 	
     [super dealloc];
 }
@@ -135,10 +174,11 @@
 // ------------------------------------------
 - (void) removeSubView
 {
-	if ( updateTimer )
+	if ( [updateTimer running] )
 	{
-		[updateTimer invalidate];
-		updateTimer = nil;
+		[updateTimer stopTimer];
+		[updateTimer setDelegate:nil];
+		[updateTimer setSelector:nil];
 	}
 	
 	if ( subView )
@@ -166,7 +206,9 @@
 			[[self view] addSubview:subView];
 		
 			// create the update timer
-			updateTimer = [NSTimer scheduledTimerWithTimeInterval:kUpdateSeconds target:subView selector:@selector(update) userInfo:nil repeats:YES];
+			[updateTimer setDelegate:subView];
+			[updateTimer setSelector:@selector(update)];
+			[updateTimer startTimer];
 			
 			[tableView setHidden:TRUE];
 		}
@@ -183,7 +225,11 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	[self removeSubView];
+	UITouch *touch = [[event allTouches] anyObject];
+	if ( [touch tapCount] == 2 )
+	{
+		[self removeSubView];
+	}
 }
 
 #pragma mark ---------------------------------------------------------
@@ -199,7 +245,9 @@
 // -------------------------------------------------------------------
 - (void)tableView:(UITableView *)_tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {		
-	NSDictionary * entry = [tableData objectAtIndex:indexPath.row];
+	NSMutableDictionary *	section = [tableData objectAtIndex:indexPath.section];
+	NSMutableArray *		data	= [section objectForKey:@"array"];
+	NSDictionary *			entry	= [data objectAtIndex:indexPath.row];
 		
 	[self removeSubView];
 	[self setSubView:[entry objectForKey:@"class"]];
@@ -218,23 +266,26 @@
 // -------------------------------------------------------------------
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)_tableView 
 {
-	return 1;
+	return [tableData count];
 }
 
 // -------------------------------------------------------------------
 // get the title for the section
 // -------------------------------------------------------------------
-- (NSString *)tableView:(UITableView *)_tableView titleForHeaderInSection:(NSInteger)section
+- (NSString *)tableView:(UITableView *)_tableView titleForHeaderInSection:(NSInteger)_section
 {
-	return @"OpenGL ES Tests";
+	NSMutableDictionary * section = [tableData objectAtIndex:_section];
+	return [section objectForKey:@"sectiontitle"];
 }
 
 // -------------------------------------------------------------------
 // get the bnumber of rows in the table section
 // -------------------------------------------------------------------
-- (NSInteger) tableView:(UITableView *)_tableView numberOfRowsInSection:(NSInteger)section 
+- (NSInteger) tableView:(UITableView *)_tableView numberOfRowsInSection:(NSInteger)_section 
 {
-    return [tableData count];
+	NSMutableDictionary *	section = [tableData objectAtIndex:_section];
+	NSMutableArray *		data	= [section objectForKey:@"array"];
+    return [data count];
 }
 
 // -------------------------------------------------------------------
@@ -249,7 +300,9 @@
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
 	}
 	
-	NSDictionary * entry = [tableData objectAtIndex:indexPath.row];
+	NSMutableDictionary *	section	= [tableData objectAtIndex:indexPath.section];
+	NSMutableArray *		data	= [section objectForKey:@"array"];
+	NSDictionary *			entry	= [data objectAtIndex:indexPath.row];
 	
 	[cell setAccessoryType:UITableViewCellAccessoryNone];
 	[[cell textLabel] setText:[entry objectForKey:@"name"]];

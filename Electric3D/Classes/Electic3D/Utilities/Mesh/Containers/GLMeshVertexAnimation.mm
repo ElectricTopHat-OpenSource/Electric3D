@@ -203,9 +203,27 @@ namespace GLMeshes
 		return false;
 	}
 	
+	const GLInterleavedVert3D *	GLMeshVertexAnimation::interpverts( unsigned int _frame ) const
+	{
+		GLInterleavedVertNormal3D * v = m_verts[_frame];
+		int i;
+		for (i=0; i<m_header->numverts; i++)
+		{
+			m_iterpverts[i].vert.x = v[i].vert.x;
+			m_iterpverts[i].vert.y = v[i].vert.y;
+			m_iterpverts[i].vert.z = v[i].vert.z;
+			
+			m_iterpverts[i].normal.x = v[i].normal.x;
+			m_iterpverts[i].normal.y = v[i].normal.y;
+			m_iterpverts[i].normal.z = v[i].normal.z;
+		}
+		
+		return m_iterpverts;
+	}
+	
 	const GLInterleavedVert3D * GLMeshVertexAnimation::interpverts( unsigned int _frame1, unsigned int _frame2, float _interp ) const
 	{
-		float  value = MIN( MAX( _interp, 1.0f ), 0.0f );
+		float  value = MAX( MIN( _interp, 1.0f ), 0.0f );
 		GLInterleavedVertNormal3D * v1 = m_verts[_frame1];
 		GLInterleavedVertNormal3D * v2 = m_verts[_frame2];
 		int i;

@@ -163,21 +163,24 @@ namespace GLMeshes
 	// --------------------------------------------------
 	void GLMeshFactory::release( const GLMesh * _mesh )
 	{
-		NSUInteger key = _mesh->hash();
-		std::map<NSUInteger,GLMesh*>::iterator lb = m_meshes.lower_bound(key);
-		if (lb != m_meshes.end() && !(m_meshes.key_comp()(key, lb->first)))
+		if ( _mesh )
 		{
-			GLMesh * mesh = lb->second;
-			mesh->decrementReferenceCount();
-			
-			if ( mesh->referenceCount() <= 0 )
-			{	
-				// remove the object reference
-				// from the map
-				m_meshes.erase( lb );			
+			NSUInteger key = _mesh->hash();
+			std::map<NSUInteger,GLMesh*>::iterator lb = m_meshes.lower_bound(key);
+			if (lb != m_meshes.end() && !(m_meshes.key_comp()(key, lb->first)))
+			{
+				GLMesh * mesh = lb->second;
+				mesh->decrementReferenceCount();
 				
-				// delete the object
-				delete( mesh );
+				if ( mesh->referenceCount() <= 0 )
+				{	
+					// remove the object reference
+					// from the map
+					m_meshes.erase( lb );			
+					
+					// delete the object
+					delete( mesh );
+				}
 			}
 		}
 	}
@@ -251,7 +254,8 @@ namespace GLMeshes
 			
 			if ( model.valid() )
 			{	
-				if ( ( model.numframes() == 2 ) || 
+				if ( ( model.numframes() == 1 ) || 
+					 ( model.numframes() == 2 ) || // Start and end frame
 					 ( model.numframes() == 20 ) ) // 20 is the default num frames in the QTip Exporter
 				{
 					GLMeshStatic * staticMesh = new GLMeshStatic( model.numverts(), _filePath );

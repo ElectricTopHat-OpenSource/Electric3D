@@ -83,6 +83,14 @@ namespace CGMaths
 		return aabb;
 	}
 	
+	// ---------------------------------------------------
+	// Make a CGAABB
+	// ---------------------------------------------------
+	inline CGAABB CGAABBMake( const CGVector3D & _min, const CGVector3D & _max )
+	{
+		return CGAABBMake( _min.x, _min.y, _min.z, _max.x, _max.y, _max.z );
+	}
+	
 #pragma mark ---------------------------------------------------------
 #pragma mark End CGAABB Functions
 #pragma mark ---------------------------------------------------------

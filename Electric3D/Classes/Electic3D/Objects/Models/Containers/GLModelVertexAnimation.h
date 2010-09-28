@@ -1,33 +1,30 @@
 //
-//  GLModel.h
+//  GLModelVertexAnimation.h
 //  Electric3D
 //
-//  Created by Robert McDowell on 22/09/2010.
+//  Created by Robert McDowell on 27/09/2010.
 //  Copyright 2010 Electric TopHat Ltd. All rights reserved.
 //
 
-#if !defined(__GLModel_h__)
-#define __GLModel_h__
+#if !defined(__GLModelVertexAnimation_h__)
+#define __GLModelVertexAnimation_h__
 
-#import "GLObject.h"
-#import "GLVertexTypes.h"
 #import "GLModelTypes.h"
-#import "CGMaths.h"
+#import "GLModel.h"
 
-namespace GLMeshes		{ class GLMesh; };
-namespace GLTextures	{ class GLTexture; };
+namespace GLMeshes		{ class GLMeshVertexAnimation; };
 
 namespace GLObjects
 {
-	class GLModel : public GLObject
+	class GLModelVertexAnimation : public GLModel
 	{
 #pragma mark ---------------------------------------------------------
 #pragma mark Constructor / Destructor
 #pragma mark ---------------------------------------------------------
 	public: // Functions
 		
-		GLModel( NSString * _name = nil );
-		virtual ~GLModel();
+		GLModelVertexAnimation( NSString * _name = nil );
+		virtual ~GLModelVertexAnimation();
 		
 #pragma mark ---------------------------------------------------------
 #pragma mark End Constructor / Destructor
@@ -38,21 +35,22 @@ namespace GLObjects
 #pragma mark ---------------------------------------------------------
 	public: // Functions
 		
-		virtual eGLObjectType type() const { return eGLObjectType_Model; };
-		virtual eGLModelType  subtype() const = 0;
+		inline eGLModelType subtype() const { return eGLModelType_VertexAnimation; };
 		
-		inline void setTexture(const GLTextures::GLTexture * _texture) { m_texture = _texture; };
-		inline const GLTextures::GLTexture * texture() const { return m_texture; };
+		void setStartFrame( NSUInteger _startFrame );
+		void setTargetFrame( NSUInteger _targetFrame );
+		void setBlendValue( float _blend );
 		
-		virtual void setMesh(const GLMeshes::GLMesh * _mesh) = 0;
-		virtual const GLMeshes::GLMesh * mesh() const = 0;
+		NSUInteger numFrames() const;
+		inline NSUInteger startFrame() const		{ return m_startFrame; };
+		inline NSUInteger targetFrame() const		{ return m_targetFrame; };
+		inline float blendValue() const				{ return m_blend; };
 		
-		virtual NSUInteger numverts() const = 0;
-		virtual const GLInterleavedVert3D* verts() const = 0;
+		virtual void setMesh(const GLMeshes::GLMesh * _mesh);
+		virtual const GLMeshes::GLMesh * mesh() const;
 		
-		inline CGMaths::CGMatrix4x4 & transform()								{ return m_transform; };
-		inline const CGMaths::CGMatrix4x4 & transform() const					{ return m_transform; };
-		inline void setTransform( const CGMaths::CGMatrix4x4 & _transform )		{ m_transform = _transform; };
+		virtual NSUInteger numverts() const;
+		virtual const GLInterleavedVert3D* verts() const;
 		
 #pragma mark ---------------------------------------------------------
 #pragma mark === End Public Functions  ===
@@ -63,9 +61,11 @@ namespace GLObjects
 #pragma mark ---------------------------------------------------------
 	private: // Data
 		
-		const GLTextures::GLTexture *	m_texture;
+		const GLMeshes::GLMeshVertexAnimation *	m_mesh;
 		
-		CGMaths::CGMatrix4x4			m_transform;
+		NSUInteger								m_startFrame;
+		NSUInteger								m_targetFrame;
+		float									m_blend;
 		
 #pragma mark ---------------------------------------------------------
 #pragma mark === Private Data  ===

@@ -186,7 +186,7 @@ namespace GLRenderers
 		glLoadIdentity();
 		
 		float aspect = (float)m_width / (float)m_height;
-		gluPerspective(20, aspect, 1, 1000);
+		gluPerspective(70, aspect, 1, 1000);
 		
 		glMatrixMode(GL_MODELVIEW);	
 		glLoadIdentity();

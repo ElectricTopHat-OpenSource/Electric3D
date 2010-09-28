@@ -67,6 +67,10 @@
 		078B080D125104EB00227D49 /* E3D_cylinder.md2 in Resources */ = {isa = PBXBuildFile; fileRef = 078B0809125104EB00227D49 /* E3D_cylinder.md2 */; };
 		078B080E125104EB00227D49 /* E3D_sphere.md2 in Resources */ = {isa = PBXBuildFile; fileRef = 078B080A125104EB00227D49 /* E3D_sphere.md2 */; };
 		078B080F125104EB00227D49 /* E3D_cube.md2 in Resources */ = {isa = PBXBuildFile; fileRef = 078B080B125104EB00227D49 /* E3D_cube.md2 */; };
+		078B082B1251083600227D49 /* GLModelVertexAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 078B082A1251083600227D49 /* GLModelVertexAnimation.mm */; };
+		078B084B12510CAA00227D49 /* GLModelStatic.mm in Sources */ = {isa = PBXBuildFile; fileRef = 078B084A12510CAA00227D49 /* GLModelStatic.mm */; };
+		078B095A1251F51500227D49 /* GLTestStaticMesh.mm in Sources */ = {isa = PBXBuildFile; fileRef = 078B09591251F51500227D49 /* GLTestStaticMesh.mm */; };
+		078B097D1251F9C000227D49 /* GLTestVertexAnimatedMesh.mm in Sources */ = {isa = PBXBuildFile; fileRef = 078B097C1251F9C000227D49 /* GLTestVertexAnimatedMesh.mm */; };
 		1D3623260D0F684500981E51 /* Electric3DAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* Electric3DAppDelegate.mm */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -194,6 +198,16 @@
 		078B08181251056800227D49 /* GLMeshCube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMeshCube.h; sourceTree = "<group>"; };
 		078B08191251056800227D49 /* GLMeshCylinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMeshCylinder.h; sourceTree = "<group>"; };
 		078B081A1251056800227D49 /* GLMeshSphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMeshSphere.h; sourceTree = "<group>"; };
+		078B0828125107D700227D49 /* GLModelTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLModelTypes.h; sourceTree = "<group>"; };
+		078B08291251083600227D49 /* GLModelVertexAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLModelVertexAnimation.h; sourceTree = "<group>"; };
+		078B082A1251083600227D49 /* GLModelVertexAnimation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLModelVertexAnimation.mm; sourceTree = "<group>"; };
+		078B084912510CAA00227D49 /* GLModelStatic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLModelStatic.h; sourceTree = "<group>"; };
+		078B084A12510CAA00227D49 /* GLModelStatic.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLModelStatic.mm; sourceTree = "<group>"; };
+		078B086712510EDD00227D49 /* GLModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLModels.h; sourceTree = "<group>"; };
+		078B09581251F51500227D49 /* GLTestStaticMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTestStaticMesh.h; sourceTree = "<group>"; };
+		078B09591251F51500227D49 /* GLTestStaticMesh.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLTestStaticMesh.mm; sourceTree = "<group>"; };
+		078B097B1251F9C000227D49 /* GLTestVertexAnimatedMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTestVertexAnimatedMesh.h; sourceTree = "<group>"; };
+		078B097C1251F9C000227D49 /* GLTestVertexAnimatedMesh.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLTestVertexAnimatedMesh.mm; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* Electric3DAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Electric3DAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* Electric3DAppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Electric3DAppDelegate.mm; sourceTree = "<group>"; };
@@ -268,8 +282,8 @@
 			children = (
 				077FF912124CB26000FC7D17 /* Vertex */,
 				077FF910124CB21100FC7D17 /* Mesh */,
-				077FF87C124BEB3300FC7D17 /* Compression */,
 				077FF2C7124925D700FC7D17 /* Textures */,
+				077FF87C124BEB3300FC7D17 /* Compression */,
 				077FFA92124CE93200FC7D17 /* Sprites */,
 				077FF2401249111200FC7D17 /* Colors */,
 				077FF0E11248C50F00FC7D17 /* Maths */,
@@ -364,12 +378,14 @@
 		077FF35C124A1D8000FC7D17 /* Test */ = {
 			isa = PBXGroup;
 			children = (
-				077FF35D124A1DB500FC7D17 /* GLTestGeneral.h */,
-				077FF35E124A1DB500FC7D17 /* GLTestGeneral.mm */,
+				078B09731251F92E00227D49 /* MeshTests */,
+				078B09721251F90B00227D49 /* Loaders */,
 				077FF714124BBA9A00FC7D17 /* GLTestMeshFactory.h */,
 				077FF715124BBA9A00FC7D17 /* GLTestMeshFactory.mm */,
 				077FF7C5124BC7AF00FC7D17 /* GLTestTextureFactory.h */,
 				077FF7C6124BC7AF00FC7D17 /* GLTestTextureFactory.mm */,
+				077FF35D124A1DB500FC7D17 /* GLTestGeneral.h */,
+				077FF35E124A1DB500FC7D17 /* GLTestGeneral.mm */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -391,8 +407,11 @@
 		077FF527124A548A00FC7D17 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				078B086712510EDD00227D49 /* GLModels.h */,
+				078B0828125107D700227D49 /* GLModelTypes.h */,
 				077FF52D124A559E00FC7D17 /* GLModel.h */,
 				077FF531124A564800FC7D17 /* GLModel.mm */,
+				078B087D1251115100227D49 /* Containers */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -591,6 +610,35 @@
 			path = Writer;
 			sourceTree = "<group>";
 		};
+		078B087D1251115100227D49 /* Containers */ = {
+			isa = PBXGroup;
+			children = (
+				078B084912510CAA00227D49 /* GLModelStatic.h */,
+				078B084A12510CAA00227D49 /* GLModelStatic.mm */,
+				078B08291251083600227D49 /* GLModelVertexAnimation.h */,
+				078B082A1251083600227D49 /* GLModelVertexAnimation.mm */,
+			);
+			path = Containers;
+			sourceTree = "<group>";
+		};
+		078B09721251F90B00227D49 /* Loaders */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Loaders;
+			sourceTree = "<group>";
+		};
+		078B09731251F92E00227D49 /* MeshTests */ = {
+			isa = PBXGroup;
+			children = (
+				078B09581251F51500227D49 /* GLTestStaticMesh.h */,
+				078B09591251F51500227D49 /* GLTestStaticMesh.mm */,
+				078B097B1251F9C000227D49 /* GLTestVertexAnimatedMesh.h */,
+				078B097C1251F9C000227D49 /* GLTestVertexAnimatedMesh.mm */,
+			);
+			path = MeshTests;
+			sourceTree = "<group>";
+		};
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -780,6 +828,10 @@
 				077FFC7E124E3E6500FC7D17 /* GLES1Renderer.mm in Sources */,
 				078B03EE1250993E00227D49 /* GLMeshWriter.mm in Sources */,
 				078B05851250D57F00227D49 /* GLScene.mm in Sources */,
+				078B082B1251083600227D49 /* GLModelVertexAnimation.mm in Sources */,
+				078B084B12510CAA00227D49 /* GLModelStatic.mm in Sources */,
+				078B095A1251F51500227D49 /* GLTestStaticMesh.mm in Sources */,
+				078B097D1251F9C000227D49 /* GLTestVertexAnimatedMesh.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

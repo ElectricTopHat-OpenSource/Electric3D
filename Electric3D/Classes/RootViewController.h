@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GameTimer.h"
 
 @interface RootViewController : UIViewController <UITableViewDelegate,
 												  UITableViewDataSource>
@@ -16,7 +17,7 @@
 	IBOutlet UITableView *	tableView;
 	NSMutableArray *		tableData;
 	
-	NSTimer *				updateTimer;
+	GameTimer *				updateTimer;
 	UIView *				subView;	
 }
 

@@ -113,27 +113,30 @@ namespace GLTextures
 	// --------------------------------------------------
 	void GLTextureFactory::release( const GLTexture * _texture )
 	{	
-		NSUInteger key = _texture->hash();
-		std::map<NSUInteger,GLTexture*>::iterator lb = m_textures.lower_bound(key);
-		if (lb != m_textures.end() && !(m_textures.key_comp()(key, lb->first)))
+		if ( _texture )
 		{
-			GLTexture * texture = lb->second;
-			texture->decrementReferenceCount();
-			
-			if ( texture->referenceCount() <= 0 )
+			NSUInteger key = _texture->hash();
+			std::map<NSUInteger,GLTexture*>::iterator lb = m_textures.lower_bound(key);
+			if (lb != m_textures.end() && !(m_textures.key_comp()(key, lb->first)))
 			{
-				// remove the object reference
-				// from the map
-				m_textures.erase( lb );
+				GLTexture * texture = lb->second;
+				texture->decrementReferenceCount();
 				
-				// free the texture
-				freeTexture(texture->name(), texture->bindID());
-				
-				// indicate the texture has been released
-				texture->textureRemoved();
-				
-				// delete the object
-				delete( texture );
+				if ( texture->referenceCount() <= 0 )
+				{
+					// remove the object reference
+					// from the map
+					m_textures.erase( lb );
+					
+					// free the texture
+					freeTexture(texture->name(), texture->bindID());
+					
+					// indicate the texture has been released
+					texture->textureRemoved();
+					
+					// delete the object
+					delete( texture );
+				}
 			}
 		}
 	}
