@@ -15,6 +15,9 @@
 
 #import <OpenGLES/ES2/gl.h> // for GL_RENDERBUFFER only
 
+#import "GLCamera.h"
+#import "GLPerspective.h"
+
 #import "GLMeshFactory.h"
 #import "GLTextureFactory.h"
 #import "GLSpriteFactory.h"
@@ -24,6 +27,16 @@
 #pragma mark ---------------------------------------------------------
 #pragma mark === Properties  ===
 #pragma mark ---------------------------------------------------------
+
+- (GLCameras::GLCamera*) camera
+{
+	return m_renderer->camera();
+}
+
+- (GLCameras::GLPerspective*) perspective
+{
+	return m_renderer->perspective();
+}
 
 @synthesize meshes			= m_meshFactory;
 @synthesize textures		= m_textureFactory;
@@ -117,7 +130,7 @@
 // dealloc
 // ------------------------------------------
 - (void) dealloc
-{
+{	
 	// --------------------------------------
 	// Teardown the container classes
 	// --------------------------------------
@@ -192,7 +205,7 @@
 - (void) render:(id)_sender
 {
 	[EAGLContext setCurrentContext:m_context];
-	
+		
 	m_renderer->render();
 	
 	[m_context presentRenderbuffer:GL_RENDERBUFFER_OES];

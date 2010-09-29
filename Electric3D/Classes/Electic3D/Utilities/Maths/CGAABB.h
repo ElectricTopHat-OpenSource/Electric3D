@@ -34,7 +34,8 @@ namespace CGMaths
 #pragma mark CGAABB consts 
 #pragma mark ---------------------------------------------------------
 	
-	const CGAABB CGAABBZero = { 0, 0, 0, 0, 0, 0 };
+	const CGAABB CGAABBZero = {  0.0f,  0.0f,  0.0f, 0.0f, 0.0f, 0.0f };
+	const CGAABB CGAABBUnit = { -0.5f, -0.5f, -0.5f, 0.5f, 0.5f, 0.5f };
 	
 #pragma mark ---------------------------------------------------------
 #pragma mark End CGAABB consts 
@@ -91,8 +92,61 @@ namespace CGMaths
 		return CGAABBMake( _min.x, _min.y, _min.z, _max.x, _max.y, _max.z );
 	}
 	
+	// ---------------------------------------------------
+	// Add a point to an existing AABB
+	// ---------------------------------------------------
+	inline void CGAABBAddPoint( CGAABB & _aabb, const CGVector3D & _point )
+	{
+		_aabb.min.x = ( _aabb.min.x > _point.x ) ? _point.x : _aabb.min.x;
+		_aabb.min.y = ( _aabb.min.y > _point.y ) ? _point.y : _aabb.min.y;
+		_aabb.min.z = ( _aabb.min.z > _point.z ) ? _point.z : _aabb.min.z;
+		_aabb.max.x = ( _aabb.max.x < _point.x ) ? _point.x : _aabb.max.x;
+		_aabb.max.y = ( _aabb.max.y < _point.y ) ? _point.y : _aabb.max.y;
+		_aabb.max.z = ( _aabb.max.z < _point.z ) ? _point.z : _aabb.max.z;
+	}
+	
+	// ---------------------------------------------------
+	// Is point inside or on the AABB
+	// ---------------------------------------------------
+	inline BOOL CGAABBInsideOrOn( const CGAABB & _aabbA, const CGAABB & _aabbB )
+	{
+		return (_aabbA.min.x >= _aabbB.min.x && _aabbA.min.y >= _aabbB.min.y && _aabbA.min.z >= _aabbB.min.z &&
+				_aabbA.max.x <= _aabbB.max.x && _aabbA.max.y <= _aabbB.max.y && _aabbA.max.z <= _aabbB.max.z);
+	}
+	
+	// ---------------------------------------------------
+	// Is point inside or on the AABB
+	// ---------------------------------------------------
+	inline BOOL CGAABBInsideOrOn( const CGAABB & _aabb, const CGVector3D & _point )
+	{
+		return ( ( _point.x >= _aabb.min.x && _point.x <= _aabb.max.x ) &&
+				 ( _point.y >= _aabb.min.y && _point.y <= _aabb.max.y ) &&
+				 ( _point.z >= _aabb.min.z && _point.z <= _aabb.max.z ) );
+	}
+	
+	// ---------------------------------------------------
+	// Is point inside the AABB
+	// ---------------------------------------------------
+	inline BOOL CGAABBInside( const CGAABB & _aabbA, const CGAABB & _aabbB )
+	{
+		return (_aabbA.min.x > _aabbB.min.x && _aabbA.min.y > _aabbB.min.y && _aabbA.min.z > _aabbB.min.z &&
+				_aabbA.max.x < _aabbB.max.x && _aabbA.max.y < _aabbB.max.y && _aabbA.max.z < _aabbB.max.z);
+	}
+	
+	// ---------------------------------------------------
+	// Is point inside the AABB
+	// ---------------------------------------------------
+	inline BOOL CGAABBInside( const CGAABB & _aabb, const CGVector3D & _point )
+	{
+		return ( ( _point.x > _aabb.min.x && _point.x < _aabb.max.x ) &&
+				 ( _point.y > _aabb.min.y && _point.y < _aabb.max.y ) &&
+				 ( _point.z > _aabb.min.z && _point.z < _aabb.max.z ) );
+	}		
+	
 #pragma mark ---------------------------------------------------------
 #pragma mark End CGAABB Functions
 #pragma mark ---------------------------------------------------------
-	
+
+};
+
 #endif

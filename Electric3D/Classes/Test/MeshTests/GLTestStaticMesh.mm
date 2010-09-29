@@ -16,6 +16,7 @@
 
 #import "GLModels.h"
 
+#import "GLCamera.h"
 #import "GLScene.h"
 
 @interface GLTestStaticMesh (PrivateMethods)
@@ -87,7 +88,7 @@
 // ------------------------------------------
 // update Function
 // ------------------------------------------
-- (void) update
+- (void) update:(id)_sender
 {	
 	[self drawView:nil];
 }
@@ -120,6 +121,11 @@
 	}
 	
 	[self addScene:scene];
+	
+	CGMaths::CGVector3D eye		= CGMaths::CGVector3DMake( 70.0f, 0.0f, 0.0f );
+	CGMaths::CGVector3D target  = CGMaths::CGVector3DMake( 0.0f, 0.0f, 0.0f );
+	
+	[self camera]->setTransform( eye, target );
 }
 
 // ------------------------------------------

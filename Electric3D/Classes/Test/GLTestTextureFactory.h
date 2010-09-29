@@ -21,6 +21,6 @@ namespace GLTextures { class GLTextureFactory; };
 
 - (BOOL) canRotate;
 
-- (void) update;
+- (void) update:(id)_sender;
 
 @end

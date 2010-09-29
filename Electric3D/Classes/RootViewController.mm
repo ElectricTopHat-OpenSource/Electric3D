@@ -11,8 +11,14 @@
 #import "GLTestTextureFactory.h"
 
 #import "GLTestGeneral.h"
+#import "GLTestCameraGeneral.h"
+#import "GLTestCameraPerspective.h"
 #import "GLTestStaticMesh.h"
 #import "GLTestVertexAnimatedMesh.h"
+
+#import "GLTestColorScene.h"
+#import "GLTestColorModel.h"
+#import "GLTestColorSceneModel.h"
 
 // -------------------------------------------------------------------
 // update time defines
@@ -91,6 +97,24 @@
 			{
 				NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];
 				
+				[testInfo setObject:@"Camera Test" forKey:@"name"];
+				[testInfo setObject:[GLTestCameraGeneral class] forKey:@"class"];
+				
+				[array addObject:testInfo];
+			}
+			
+			{
+				NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];
+				
+				[testInfo setObject:@"Camera Perspective Test" forKey:@"name"];
+				[testInfo setObject:[GLTestCameraPerspective class] forKey:@"class"];
+				
+				[array addObject:testInfo];
+			}
+			
+			{
+				NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];
+				
 				[testInfo setObject:@"Test Static Mesh" forKey:@"name"];
 				[testInfo setObject:[GLTestStaticMesh class] forKey:@"class"];
 				
@@ -102,6 +126,33 @@
 				
 				[testInfo setObject:@"Test Vertex Animated Mesh" forKey:@"name"];
 				[testInfo setObject:[GLTestVertexAnimatedMesh class] forKey:@"class"];
+				
+				[array addObject:testInfo];
+			}
+			
+			{
+				NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];
+				
+				[testInfo setObject:@"Color Scene" forKey:@"name"];
+				[testInfo setObject:[GLTestColorScene class] forKey:@"class"];
+				
+				[array addObject:testInfo];
+			}
+			
+			{
+				NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];
+				
+				[testInfo setObject:@"Color Model" forKey:@"name"];
+				[testInfo setObject:[GLTestColorModel class] forKey:@"class"];
+				
+				[array addObject:testInfo];
+			}
+			
+			{
+				NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];
+				
+				[testInfo setObject:@"Color Scene and Model" forKey:@"name"];
+				[testInfo setObject:[GLTestColorSceneModel class] forKey:@"class"];
 				
 				[array addObject:testInfo];
 			}
@@ -207,7 +258,7 @@
 		
 			// create the update timer
 			[updateTimer setDelegate:subView];
-			[updateTimer setSelector:@selector(update)];
+			[updateTimer setSelector:@selector(update:)];
 			[updateTimer startTimer];
 			
 			[tableView setHidden:TRUE];

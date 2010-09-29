@@ -79,7 +79,7 @@
 // ------------------------------------------
 // update Function
 // ------------------------------------------
-- (void) update
+- (void) update:(id)_sender
 {
 	NSString * text = nil;
 	/*

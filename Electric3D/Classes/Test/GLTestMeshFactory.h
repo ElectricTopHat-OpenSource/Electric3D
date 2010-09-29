@@ -37,6 +37,6 @@ namespace GLMeshes { class GLMesh; };
 
 - (BOOL) canRotate;
 
-- (void) update;
+- (void) update:(id)_sender;
 
 @end

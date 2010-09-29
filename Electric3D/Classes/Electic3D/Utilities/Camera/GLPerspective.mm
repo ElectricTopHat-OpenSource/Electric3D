@@ -1,15 +1,14 @@
 //
-//  GLUIImage.mm
+//  GLPerspective.m
 //  Electric3D
 //
-//  Created by Robert McDowell on 21/09/2010.
+//  Created by Robert McDowell on 29/09/2010.
 //  Copyright 2010 Electric TopHat Ltd. All rights reserved.
 //
 
-#import "GLUIImage.h"
-#import "GLTexture.h"
+#import "GLPerspective.h"
 
-namespace GLObjects
+namespace GLCameras 
 {
 	
 #pragma mark ---------------------------------------------------------
@@ -19,29 +18,19 @@ namespace GLObjects
 	// --------------------------------------------------
 	// Constructor
 	// --------------------------------------------------
-	GLUIImage::GLUIImage( const GLTextures::GLTexture * _texture, CGPoint _center, CGSize _size )
+	GLPerspective::GLPerspective()
+	: m_fov		(45.0f)
+	, m_aspect	(1.33333f)
+	, m_near	(1.0f)
+	, m_far		(1000.0f)
+	, m_dirty	(FALSE)
 	{
-		m_texture = _texture;
-		m_center = _center;
-		m_rotation = 0.0f;
-		m_scale = CGSizeMake(1.0f, 1.0f);
-		m_coordinatesLayout = eGLUICoordinatesLayout_LeftToRight_TopToBottom;
-		
-		if (( CGSizeEqualToSize(_size, CGSizeZero) ) && 
-			( _texture != nil ))
-		{
-			m_size = _texture->size();
-		}
-		else
-		{
-			m_size = _size;
-		}
 	}
 	
 	// --------------------------------------------------
 	// Destructor
 	// --------------------------------------------------
-	GLUIImage::~GLUIImage()
+	GLPerspective::~GLPerspective()
 	{
 	}
 	
@@ -50,24 +39,37 @@ namespace GLObjects
 #pragma mark ---------------------------------------------------------
 	
 #pragma mark ---------------------------------------------------------
-#pragma mark Public Functions
+#pragma mark === Public Functions  ===
 #pragma mark ---------------------------------------------------------
 	
 	// --------------------------------------------------
-	// set the rect
+	// create the persepctive transform
 	// --------------------------------------------------
-	void GLUIImage::setRect( CGRect _rect )
-	{
-		m_scale	= CGSizeMake(1.0f, 1.0f);
-		m_size	= _rect.size;
+	BOOL GLPerspective::convertToMatrix( CGMaths::CGMatrix4x4 & _matrix )
+	{		
+		float deltaz = m_far - m_near;
+		float radians = CGMaths::Degrees2Radians( m_fov / 2.0f );
+		float sine = sinf(radians);
+		if ( (deltaz != 0) && (sine != 0) && (m_aspect != 0) ) 
+		{
+			_matrix = CGMaths::CGMatrix4x4Identity;
+			
+			float cotangent = cosf(radians) / sine;
+			_matrix.m[0]  = cotangent / m_aspect;
+			_matrix.m[5]  = cotangent;
+			_matrix.m[10] = -(m_far + m_near) / deltaz;
+			_matrix.m[11] = -1;
+			_matrix.m[14] = -2 * m_near * m_far / deltaz;
+			_matrix.m[15] = 0;
+			
+			return TRUE;
+		}
 		
-		m_center = _rect.origin;
-		m_center.x += m_size.width * 0.5f;
-		m_center.y += m_size.height * 0.5f;
+		return FALSE;
 	}
 	
 #pragma mark ---------------------------------------------------------
-#pragma mark End Public Functions
+#pragma mark === End Public Functions  ===
 #pragma mark ---------------------------------------------------------
-
+	
 };

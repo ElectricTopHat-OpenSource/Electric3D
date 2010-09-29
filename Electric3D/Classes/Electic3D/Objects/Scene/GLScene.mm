@@ -19,11 +19,10 @@ namespace GLObjects
 	// Constructor
 	// --------------------------------------------------
 	GLScene::GLScene( NSString * _name )
+	: GLObject		(_name) 
+	, m_transform	(CGMaths::CGMatrix4x4Identity)
 	{
-		m_name = [_name copy]; 
 		m_referenceCount=1; 
-		static NSUInteger val=0; 
-		m_hash=val++; 
 	}
 	
 	// --------------------------------------------------
@@ -55,13 +54,16 @@ namespace GLObjects
 	// --------------------------------------------------
 	// add an object into the scene
 	// --------------------------------------------------
-	void GLScene::add( GLObjects::GLObject * _object )
+	BOOL GLScene::add( GLObjects::GLObject * _object )
 	{
-		if ( !contains( _object ) )
+		if ( !contains( _object ) && !( _object == this ) )
 		{
 			// We don't have the object add it
 			m_objects[_object->hash()] = _object;
+			
+			return TRUE;
 		}
+		return FALSE;
 	}
 	
 	// --------------------------------------------------

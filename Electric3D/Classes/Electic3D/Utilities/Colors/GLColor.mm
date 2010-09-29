@@ -1,5 +1,5 @@
 /*
- *  Color.mm
+ *  GLColor.mm
  *  Electric3D
  *
  *  Created by robert on 22/04/2009.
@@ -7,9 +7,9 @@
  *
  */
 
-#import "Color.h"
+#import "GLColor.h"
 
-namespace Colors 
+namespace GLColors 
 {
 
 	#pragma mark ---------------------------------------------------------
@@ -57,7 +57,7 @@ namespace Colors
 	// --------------------------------------------------
 	// Constructor
 	// --------------------------------------------------
-	Color::Color(float _red, float _green, float _blue, float _alpha)
+	GLColor::GLColor(float _red, float _green, float _blue, float _alpha)
 	{
 		m_red = _red;
 		m_green = _green;
@@ -68,7 +68,7 @@ namespace Colors
 	// --------------------------------------------------
 	// Constructor
 	// --------------------------------------------------
-	Color::Color(UIColor * _color)
+	GLColor::GLColor(UIColor * _color)
 	{
 		getRGBAComponents( _color, &m_red, &m_green, &m_blue, &m_alpha );
 	}
@@ -76,7 +76,7 @@ namespace Colors
 	// --------------------------------------------------
 	// Destructor
 	// --------------------------------------------------
-	Color::~Color()
+	GLColor::~GLColor()
 	{
 	}
 
@@ -91,7 +91,7 @@ namespace Colors
 	// --------------------------------------------------
 	// operator
 	// --------------------------------------------------
-	Color & Color::operator=(const UIColor * _color)
+	GLColor & GLColor::operator=(const UIColor * _color)
 	{
 		getRGBAComponents( _color, &m_red, &m_green, &m_blue, &m_alpha );
 		return *this;
@@ -100,7 +100,7 @@ namespace Colors
 	// --------------------------------------------------
 	// Set the colors
 	// --------------------------------------------------
-	void Color::setColor(const UIColor * _color)
+	void GLColor::setColor(const UIColor * _color)
 	{
 		getRGBAComponents( _color, &m_red, &m_green, &m_blue, &m_alpha );
 	}

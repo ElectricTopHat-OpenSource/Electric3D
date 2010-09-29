@@ -87,7 +87,7 @@ namespace CGMaths
 	// ---------------------------------------------------
 	// Multiply 2 CGVectro4D's
 	// ---------------------------------------------------
-	inline CGVector4D CGVector4DMult( const CGVector4D & _vectorA, const CGVector4D & _vectorB )
+	inline CGVector4D CGVector4DMultiply( const CGVector4D & _vectorA, const CGVector4D & _vectorB )
 	{
 		return CGVector4DMake( _vectorA.x * _vectorB.x, _vectorA.y * _vectorB.y, _vectorA.z * _vectorB.z, _vectorA.w * _vectorB.w );
 	}
@@ -95,7 +95,7 @@ namespace CGMaths
 	// ---------------------------------------------------
 	// Divide 2 CGVectro4D's
 	// ---------------------------------------------------
-	inline CGVector4D CGVector4DDiv( const CGVector4D & _vectorA, const CGVector4D & _vectorB )
+	inline CGVector4D CGVector4DDivide( const CGVector4D & _vectorA, const CGVector4D & _vectorB )
 	{
 		return CGVector4DMake( _vectorA.x / _vectorB.x, _vectorA.y / _vectorB.y, _vectorA.z / _vectorB.z, _vectorA.w / _vectorB.w );
 	}

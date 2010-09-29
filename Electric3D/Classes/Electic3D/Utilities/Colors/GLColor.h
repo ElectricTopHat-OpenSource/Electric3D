@@ -1,5 +1,5 @@
 /*
- *  Color.h
+ *  GLColor.h
  *  Electric3D
  *
  *  Created by robert on 22/04/2009.
@@ -12,10 +12,10 @@
 
 #import <UIKit/UIKit.h>
 
-namespace Colors 
+namespace GLColors 
 {
 	
-	class Color
+	class GLColor
 	{
 	#pragma mark ---------------------------------------------------------
 	#pragma mark Constructor / Destructor
@@ -25,13 +25,13 @@ namespace Colors
 		// --------------------------------------------------
 		// Constructor
 		// --------------------------------------------------
-		Color(float _red=1.0f, float _green=1.0f, float _blue=1.0f, float _alpha=1.0f);
-		Color(UIColor * _color);
+		GLColor(float _red=1.0f, float _green=1.0f, float _blue=1.0f, float _alpha=1.0f);
+		GLColor(UIColor * _color);
 		
 		// --------------------------------------------------
 		// Destructor
 		// --------------------------------------------------
-		~Color();
+		virtual ~GLColor();
 		
 	#pragma mark ---------------------------------------------------------
 	#pragma mark End Constructor / Destructor
@@ -45,7 +45,7 @@ namespace Colors
 		// --------------------------------
 		// operators Overloading
 		// --------------------------------
-		Color & operator=(const Color& _color)
+		inline GLColor & operator=(const GLColor& _color)
 		{
 			m_red = _color.m_red;
 			m_green = _color.m_green;
@@ -54,17 +54,76 @@ namespace Colors
 			return *this;
 		}
 		
-		Color & operator+(const Color& _color)
+		inline GLColor operator+(const GLColor& _color) const
 		{
-			m_red += _color.m_red;
+			return GLColor( m_red   + _color.m_red, 
+						    m_green + _color.m_green, 
+						    m_blue  + _color.m_blue, 
+						    m_alpha + _color.m_alpha );
+		}
+		
+		inline GLColor operator-(const GLColor& _color) const
+		{
+			return GLColor( m_red   - _color.m_red, 
+						    m_green - _color.m_green, 
+						    m_blue  - _color.m_blue, 
+						    m_alpha - _color.m_alpha );
+		}
+		
+		inline GLColor operator*(const GLColor& _color) const
+		{
+			return GLColor( m_red   * _color.m_red, 
+						    m_green * _color.m_green, 
+						    m_blue  * _color.m_blue, 
+						    m_alpha * _color.m_alpha );		
+		}
+		
+		inline GLColor operator/(const GLColor& _color) const
+		{
+			return GLColor( m_red   / _color.m_red, 
+						    m_green / _color.m_green, 
+						    m_blue  / _color.m_blue, 
+						    m_alpha / _color.m_alpha );		
+		}
+		
+        inline GLColor & operator+=( const GLColor& _color )
+        {
+            m_red	+= _color.m_red;
 			m_green += _color.m_green;
-			m_blue += _color.m_blue;
+			m_blue	+= _color.m_blue;
 			m_alpha += _color.m_alpha;
 			return *this;		
-		}
+        }
+		
+		inline GLColor & operator-=( const GLColor& _color )
+        {
+            m_red	-= _color.m_red;
+			m_green -= _color.m_green;
+			m_blue	-= _color.m_blue;
+			m_alpha -= _color.m_alpha;
+			return *this;		
+        }
+		
+		inline GLColor & operator*=( const GLColor& _color )
+        {
+            m_red	*= _color.m_red;
+			m_green *= _color.m_green;
+			m_blue	*= _color.m_blue;
+			m_alpha *= _color.m_alpha;
+			return *this;		
+        }
+		
+		inline GLColor & operator/=( const GLColor& _color )
+        {
+            m_red	/= _color.m_red;
+			m_green /= _color.m_green;
+			m_blue	/= _color.m_blue;
+			m_alpha /= _color.m_alpha;
+			return *this;		
+        }
 		// --------------------------------
 		
-		Color & operator=(const UIColor * _color);
+		GLColor & operator=(const UIColor * _color);
 		
 	#pragma mark ---------------------------------------------------------
 	#pragma mark End Operator Functions
@@ -91,7 +150,7 @@ namespace Colors
 		inline void setAlpha(float _alpha)	{ m_alpha = _alpha; };
 		
 		inline void setColor(float _red, float _green, float _blue, float _alpha=1.0f) { m_red = _red; m_green = _green; m_blue = _blue; m_alpha = _alpha; };
-		inline void setColor(const Color & _color) { m_red = _color.m_red; m_green = _color.m_green; m_blue = _color.m_blue; m_alpha = _color.m_alpha; };
+		inline void setColor(const GLColor & _color) { m_red = _color.m_red; m_green = _color.m_green; m_blue = _color.m_blue; m_alpha = _color.m_alpha; };
 		
 		// set the color from a UIColor Object
 		void setColor(const UIColor * _color);

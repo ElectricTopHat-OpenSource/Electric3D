@@ -30,6 +30,6 @@ namespace GLObjects { class GLScene; };
 
 - (BOOL) canRotate;
 
-- (void) update;
+- (void) update:(id)_sender;
 
 @end

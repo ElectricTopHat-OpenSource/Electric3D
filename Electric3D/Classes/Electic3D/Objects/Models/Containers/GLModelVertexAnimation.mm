@@ -25,6 +25,7 @@ namespace GLObjects
 	// --------------------------------------------------
 	GLModelVertexAnimation::GLModelVertexAnimation( NSString * _name ) 
 	: GLModel		(_name) 
+	, m_mesh		( nil )
 	, m_startFrame	( 0 )
 	, m_targetFrame	( 1 )
 	, m_blend		( 0.5f )

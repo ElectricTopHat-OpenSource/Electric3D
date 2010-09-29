@@ -22,6 +22,7 @@ namespace GLObjects
 	GLModel::GLModel( NSString * _name ) 
 	: GLObject		(_name) 
 	, m_transform	(CGMaths::CGMatrix4x4Identity)
+	, m_texture		( nil )
 	{
 	}
 	

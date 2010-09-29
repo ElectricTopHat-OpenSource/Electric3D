@@ -34,6 +34,16 @@
 #pragma mark === Properties  ===
 #pragma mark ---------------------------------------------------------
 
+-(GLCameras::GLCamera*) camera
+{
+	return [m_renderer camera];
+}
+
+-(GLCameras::GLPerspective*) perspective
+{
+	return [m_renderer perspective];
+}
+
 -(GLMeshes::GLMeshFactory*) meshes
 {
 	return [m_renderer meshes];

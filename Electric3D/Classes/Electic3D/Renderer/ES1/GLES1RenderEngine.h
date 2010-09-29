@@ -13,6 +13,8 @@
 #import <OpenGLES/ES1/glext.h>
 
 #import "IRenderEngine.h"
+#import "GLCamera.h"
+#import "GLPerspective.h"
 #import "GLES1Renderer.h"
 
 namespace GLObjects { class GLScene; };
@@ -57,6 +59,9 @@ namespace GLRenderers
 		void render();
 		void onRotate( eDeviceOrientation _newOrientation );
 		
+		GLCameras::GLCamera *		camera()		{ return &m_camera; };
+		GLCameras::GLPerspective *	perspective()	{ return &m_perspective; };
+		
 		BOOL contains( GLObjects::GLScene * _scene );
 		void add( GLObjects::GLScene * _scene );
 		void remove( GLObjects::GLScene * _scene );
@@ -70,6 +75,8 @@ namespace GLRenderers
 #pragma mark ---------------------------------------------------------
 	private: // Data
 		
+		inline void updateCameraPersepctive();
+		inline void setupCamera();
 		
 #pragma mark ---------------------------------------------------------
 #pragma mark End Private Functions
@@ -80,8 +87,13 @@ namespace GLRenderers
 #pragma mark ---------------------------------------------------------
 	private: // Data
 		
+		// GL Cameras
+		GLCameras::GLPerspective	m_perspective;
+		GLCameras::GLCamera			m_camera;
+		
+		
 		// Renderer Pipelines
-		GLES1Renderer		m_Renderer;
+		GLES1Renderer			m_Renderer;
 		
 		// The pixel dimensions of the backbuffer
 		GLint m_width;

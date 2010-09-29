@@ -11,8 +11,10 @@
 
 namespace MD2
 {
+	typedef float _vect3_t[3];
+	
 	// Precomputed normal vector array (162 vectors)
-	static const vec3_t _kAnorms[] = 
+	static const _vect3_t _kAnorms[] = 
 	{
 	#include "Anorms.h"
 	};

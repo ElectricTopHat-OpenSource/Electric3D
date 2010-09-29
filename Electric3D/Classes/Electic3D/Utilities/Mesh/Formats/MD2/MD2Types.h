@@ -12,10 +12,6 @@
 
 namespace MD2
 {
-	// OpenGL vector types
-	typedef float vec2_t[2];
-	typedef float vec3_t[3];
-
 	// Md2 header
 	typedef struct 
 	{
@@ -72,9 +68,9 @@ namespace MD2
 	// Frame data
 	typedef struct 
 	{
-		vec3_t scale;        // Scale factors
-		vec3_t translate;    // Translation vector
-		char name[16];       // Frame name
+		float scale[3];        // Scale factors
+		float translate[3];    // Translation vector
+		char  name[16];       // Frame name
 		Md2Vertex verts[1];  // Frames's vertex list
 	} Md2Frame;
 

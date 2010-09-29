@@ -10,6 +10,10 @@
 #if !defined(__IRenderEngine_h__)
 #define __IRenderEngine_h__
 
+#import "CGMaths.h"
+
+namespace GLCameras { class GLCamera; };
+namespace GLCameras { class GLPerspective; };
 namespace GLObjects { class GLScene; };
 
 namespace GLRenderers 
@@ -52,6 +56,9 @@ namespace GLRenderers
 		virtual void update( float _timeStep ) = 0;
 		virtual void render() = 0;
 		virtual void onRotate( eDeviceOrientation _newOrientation ) = 0;
+		
+		virtual GLCameras::GLCamera * camera() = 0;
+		virtual GLCameras::GLPerspective * perspective() = 0;
 		
 		virtual BOOL contains( GLObjects::GLScene * _scene ) = 0;
 		virtual void add( GLObjects::GLScene * _scene ) = 0;

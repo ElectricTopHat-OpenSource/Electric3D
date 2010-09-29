@@ -88,7 +88,7 @@
 // ------------------------------------------
 // update Function
 // ------------------------------------------
-- (void) update
+- (void) update:(id)_sender
 {
 	if ( !md2animated->complete )
 	{

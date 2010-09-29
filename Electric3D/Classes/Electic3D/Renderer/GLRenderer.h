@@ -22,6 +22,9 @@ namespace GLMeshes		{ class GLMeshFactory; };
 namespace GLTextures	{ class GLTextureFactory; };
 namespace GLSprites		{ class GLSpriteFactory; };
 
+namespace GLCameras		{ class GLCamera; };
+namespace GLCameras		{ class GLPerspective; };
+
 namespace GLObjects		{ class GLScene; };
 
 #pragma mark ---------------------------------------------------------
@@ -46,6 +49,9 @@ namespace GLObjects		{ class GLScene; };
 	GLTextures::GLTextureFactory *	m_textureFactory;
 	GLSprites::GLSpriteFactory *	m_spriteFactory;
 }
+
+@property (nonatomic,readonly) GLCameras::GLCamera *			camera;
+@property (nonatomic,readonly) GLCameras::GLPerspective *		perspective;
 
 @property (nonatomic,readonly) GLMeshes::GLMeshFactory *		meshes;
 @property (nonatomic,readonly) GLTextures::GLTextureFactory *	textures;

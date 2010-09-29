@@ -1,12 +1,12 @@
 //
-//  GLTestVertexAnimatedMesh.m
+//  GLTestCameraGeneral.m
 //  Electric3D
 //
-//  Created by Robert McDowell on 28/09/2010.
+//  Created by Robert McDowell on 29/09/2010.
 //  Copyright 2010 Electric TopHat Ltd. All rights reserved.
 //
 
-#import "GLTestVertexAnimatedMesh.h"
+#import "GLTestCameraGeneral.h"
 
 #import "GLTextureFactory.h"
 #import "GLTexture.h"
@@ -18,14 +18,15 @@
 #import "GLScene.h"
 #import "GLModels.h"
 
-@interface GLTestVertexAnimatedMesh (PrivateMethods)
+
+@interface GLTestCameraGeneral (PrivateMethods)
 
 - (void) initialization;
 - (void) teardown;
 
 @end
 
-@implementation GLTestVertexAnimatedMesh
+@implementation GLTestCameraGeneral
 
 #pragma mark ---------------------------------------------------------
 #pragma mark === Constructor / Destructor Functions  ===
@@ -88,39 +89,40 @@
 // ------------------------------------------
 - (void) update:(id)_sender
 {
-	NSTimeInterval newTime = [[NSDate date] timeIntervalSinceReferenceDate];
-	NSTimeInterval delta   = ( newTime - lastTime );
-	lastTime = newTime;
-	
-	if ( model->subtype() == GLObjects::eGLModelType_VertexAnimation )
+	CGMaths::CGVector3D moveto = lookat->postion();
+	if ( CGMaths::CGVector3DEqual( moveto, target, 1.0f ) )
 	{
-		GLObjects::GLModelVertexAnimation * animatedModel = (GLObjects::GLModelVertexAnimation*)model;
-		
-		float addValue = 15.0f * delta;
-		float value = animatedModel->blendValue();
-		if ( value+addValue > 1.0f )
+		if ( lookat == objects[0] )
 		{
-			NSUInteger max		= animatedModel->numFrames();
-			NSUInteger current	= animatedModel->startFrame() + 1;
-			
-			if ( current < max )
-			{
-				animatedModel->setStartFrame( current );
-				animatedModel->setTargetFrame( current + 1 );
-			}
-			else 
-			{
-				animatedModel->setStartFrame( 0 );
-				animatedModel->setTargetFrame( 1 );
-			}
-			
-			animatedModel->setBlendValue( 0.0f );
+			lookat = objects[2];
 		}
-		else
+		else if ( lookat == objects[2] )
 		{
-			animatedModel->setBlendValue( value+addValue );
+			lookat = objects[1];
+		}
+		else if ( lookat == objects[1] )
+		{
+			lookat = objects[3];
+		}
+		else if ( lookat == objects[3] )
+		{
+			lookat = objects[0];
 		}
 	}
+	else 
+	{
+		target.x = target.x + ( ( moveto.x - target.x ) * 0.01f );
+		target.y = target.y + ( ( moveto.y - target.y ) * 0.01f );
+		target.z = target.z + ( ( moveto.z - target.z ) * 0.01f );
+	}
+
+	if ( eye.y < 50.0f )
+	{
+		eye.y += 0.01f;
+	}
+	
+	[self camera]->setTransform( eye, target );
+	
 	
 	[self drawView:nil];
 }
@@ -137,29 +139,47 @@
 // Initialization
 // ------------------------------------------
 - (void) initialization
-{	
-	scene = new GLObjects::GLScene( @"Test" );
+{		
+	scene = new GLObjects::GLScene( @"Test Scene" );
 	
-	texture		= [self textures]->load( @"MD2Test", @"png" );
-	mesh		= [self meshes]->load( @"MD2AnimatedMeshTest", @"md2" );
-
-	if ( mesh )
-	{
-		model = new GLObjects::GLModelVertexAnimation( @"TestObj" );
-		model->setMesh( mesh );
-		model->setTexture( texture );
-
-		scene->add( model );	
-	}
+	//mesh = [self meshes]->load( @"MD2StaticMeshTest", @"md2" );
+	const GLMeshes::GLMesh * meshA = [self meshes]->load( @"E3D_cube", @"md2" );
+	const GLMeshes::GLMesh * meshB = [self meshes]->load( @"E3D_cylinder", @"md2" );
+	const GLMeshes::GLMesh * meshC = [self meshes]->load( @"E3D_sphere", @"md2" );
+	const GLMeshes::GLMesh * meshD = [self meshes]->load( @"E3D_cone", @"md2" );
+	
+	GLObjects::GLModel * modelA = new GLObjects::GLModelStatic( @"Cube" );
+	GLObjects::GLModel * modelB = new GLObjects::GLModelStatic( @"Cylinder" );
+	GLObjects::GLModel * modelC = new GLObjects::GLModelStatic( @"Sphere" );
+	GLObjects::GLModel * modelD = new GLObjects::GLModelStatic( @"Cone" );
+	
+	modelA->setMesh( meshA ); 
+	modelB->setMesh( meshB );
+	modelC->setMesh( meshC );
+	modelD->setMesh( meshD );
+	
+	CGMaths::CGMatrix4x4SetTranslation( modelA->transform(),   0, 0,  5 );
+	CGMaths::CGMatrix4x4SetTranslation( modelB->transform(),   0, 0, -5 );
+	CGMaths::CGMatrix4x4SetTranslation( modelC->transform(),  5, 0,   0 );
+	CGMaths::CGMatrix4x4SetTranslation( modelD->transform(), -5, 0,   0 );
+	
+	scene->add( modelA );
+	scene->add( modelB );
+	scene->add( modelC );
+	scene->add( modelD );
+	
+	objects.push_back( modelA );
+	objects.push_back( modelB );
+	objects.push_back( modelC );
+	objects.push_back( modelD );
 	
 	[self addScene:scene];
 	
-	CGMaths::CGVector3D eye		= CGMaths::CGVector3DMake( 70.0f, 0.0f, 0.0f );
-	CGMaths::CGVector3D target  = CGMaths::CGVector3DMake( 0.0f, 0.0f, 0.0f );
+	eye		= CGMaths::CGVector3DMake( 0.0f, 0.0f, 0.0f );
+	target  = CGMaths::CGVector3DMake( 0.0f, 0.0f, 5.0f );
+	lookat	= modelA;
 	
 	[self camera]->setTransform( eye, target );
-	
-	lastTime = [[NSDate date] timeIntervalSinceReferenceDate];
 }
 
 // ------------------------------------------
@@ -169,12 +189,18 @@
 {
 	[self removeScene:scene];
 	
-	scene->remove( model );
-	
-	[self textures]->release( model->texture() );
-	[self meshes]->release( model->mesh() );
+	for ( int i=0; i<objects.size(); i++ )
+	{
+		GLObjects::GLModel * model = objects[i];
+		scene->remove( model );
+		
+		[self textures]->release( model->texture() );
+		[self meshes]->release( model->mesh() );
+		
+		delete( model );
+	}
+	objects.clear();
 
-	delete( model );
 	delete( scene );
 }
 

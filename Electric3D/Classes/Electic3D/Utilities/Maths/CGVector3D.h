@@ -33,7 +33,10 @@ namespace CGMaths
 #pragma mark CGVector3D consts 
 #pragma mark ---------------------------------------------------------
 	
-	const CGVector3D CGVector3DZero = { 0, 0, 0 };
+	const CGVector3D CGVector3DZero		= { 0, 0, 0 };
+	const CGVector3D CGVector3DXAxis	= { 1, 0, 0 };
+	const CGVector3D CGVector3DYAxis	= { 0, 1, 0 };
+	const CGVector3D CGVector3DZAxis	= { 0, 0, 1 };
 	
 #pragma mark ---------------------------------------------------------
 #pragma mark End CGVector3D consts 
@@ -79,45 +82,6 @@ namespace CGMaths
 		return vector;
 	}
 	
-	/*
-	// ---------------------------------------------------
-	// Make a Rotated CGVector2D (radians)
-	// ---------------------------------------------------
-	inline CGVector2D CGVector2DMakeRotation( float _angle )
-	{
-		float cosTheta = cos(_angle);
-		float sinTheta = sin(_angle);
-		
-		return CGPointMake(-sinTheta, cosTheta);
-	}
-	
-	// ---------------------------------------------------
-	// Rotate an existing CGVectro2D
-	// ---------------------------------------------------
-	inline CGVector2D CGVector2DRotate( float _x, float _y, float _angle)
-	{
-		// rotate a vector
-		// x' = cos(theta)*x - sin(theta)*y 
-		// y' = sin(theta)*x + cos(theta)*y
-		
-		float cosTheta = cos(_angle);
-		float sinTheta = sin(_angle);
-		
-		float x = cosTheta*_x - sinTheta*_y;
-		float y = sinTheta*_x + cosTheta*_y;
-		
-		return CGPointMake(x, y);		
-	}
-	
-	// ---------------------------------------------------
-	// Rotate an existing CGVectro2D
-	// ---------------------------------------------------
-	inline CGVector2D CGVector2DRotate( const CGVector2D & _vector, float _angle )
-	{
-		return CGVector2DRotate(_vector.x, _vector.y, _angle);
-	}
-	*/
-	
 	// ---------------------------------------------------
 	// Scale an existing CGVectro3D
 	// ---------------------------------------------------
@@ -145,7 +109,7 @@ namespace CGMaths
 	// ---------------------------------------------------
 	// Multiply 2 CGVectro3D's
 	// ---------------------------------------------------
-	inline CGVector3D CGVector3DMult( const CGVector3D & _vectorA, const CGVector3D & _vectorB )
+	inline CGVector3D CGVector3DMultiply( const CGVector3D & _vectorA, const CGVector3D & _vectorB )
 	{
 		return CGVector3DMake( _vectorA.x * _vectorB.x, _vectorA.y * _vectorB.y, _vectorA.z * _vectorB.z );
 	}
@@ -153,7 +117,7 @@ namespace CGMaths
 	// ---------------------------------------------------
 	// Divide 2 CGVectro3D's
 	// ---------------------------------------------------
-	inline CGVector3D CGVector3DDiv( const CGVector3D & _vectorA, const CGVector3D & _vectorB )
+	inline CGVector3D CGVector3DDivide( const CGVector3D & _vectorA, const CGVector3D & _vectorB )
 	{
 		return CGVector3DMake( _vectorA.x / _vectorB.x, _vectorA.y / _vectorB.y, _vectorA.z / _vectorB.z );
 	}
@@ -268,6 +232,16 @@ namespace CGMaths
 		float dotProduct = CGVector3DDotProduct( normA, normB );
 		float angleInRadians = acos(dotProduct);
 		return angleInRadians;
+	}
+	
+	// ---------------------------------------------------
+	// Are equal
+	// ---------------------------------------------------
+	inline BOOL CGVector3DEqual( const CGVector3D & _vectorA, const CGVector3D & _vectorB, float _tolerance = EPSILON )
+	{
+		return ( ( fabsf(_vectorA.x - _vectorB.x) < _tolerance ) &&
+				 ( fabsf(_vectorA.y - _vectorB.y) < _tolerance ) &&
+				 ( fabsf(_vectorA.z - _vectorB.z) < _tolerance ) );
 	}
 	
 #pragma mark ---------------------------------------------------------

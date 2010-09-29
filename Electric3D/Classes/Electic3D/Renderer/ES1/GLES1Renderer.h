@@ -13,11 +13,11 @@
 #import <OpenGLES/ES1/glext.h>
 #import <vector>
 #import "GLVertexTypes.h"
-#import "GLTexture.h"
+#import "GLColors.h"
 
 namespace GLObjects		{ class GLScene; };
-//namespace GLTextures	{ class GLTexture; };
 namespace GLObjects		{ class GLModel; };
+namespace GLTextures	{ class GLTexture; };
 
 namespace GLRenderers 
 {
@@ -70,9 +70,10 @@ namespace GLRenderers
 #pragma mark ---------------------------------------------------------
 	private: // Data
 		
-		inline void render( GLObjects::GLScene * _scene );
-		inline void render( GLObjects::GLModel * _object );
+		inline void render( GLObjects::GLScene * _scene, const GLColors::GLColor & _color );
+		inline void render( GLObjects::GLModel * _object, const GLColors::GLColor & _color );
 		
+		inline void bindColor( const GLColors::GLColor & _color );
 		inline void bindTexture( const GLTextures::GLTexture * _texture );
 		inline void renderVerts( const GLInterleavedVert3D * _verts, NSUInteger _numverts );
 		

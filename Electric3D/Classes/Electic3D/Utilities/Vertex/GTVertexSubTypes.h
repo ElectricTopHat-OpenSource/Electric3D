@@ -49,7 +49,7 @@ typedef struct {
 // --------------------------------
 
 // --------------------------------
-// GL Color
+// GL GLColor
 // --------------------------------
 typedef struct {
 	unsigned char red;

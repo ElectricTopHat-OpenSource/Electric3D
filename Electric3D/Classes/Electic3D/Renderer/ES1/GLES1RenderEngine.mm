@@ -10,6 +10,7 @@
 #import "GLVertexTypes.h"
 
 #import "GLScene.h"
+#import "GLCamera.h"
 
 #import "glu.h"
 
@@ -147,6 +148,8 @@ namespace GLRenderers
 		
 		glViewport(0, 0, m_width, m_height);
 		
+		m_perspective.setAspect( (float)m_width / (float)m_height );
+		
 		if ( m_depthbuffer )
 		{
 			glEnable(GL_DEPTH_TEST);
@@ -181,15 +184,6 @@ namespace GLRenderers
 		glShadeModel(GL_SMOOTH);
 		
 		m_Renderer.initialize();
-		
-		glMatrixMode(GL_PROJECTION);	
-		glLoadIdentity();
-		
-		float aspect = (float)m_width / (float)m_height;
-		gluPerspective(70, aspect, 1, 1000);
-		
-		glMatrixMode(GL_MODELVIEW);	
-		glLoadIdentity();
 	}
 	
 	// --------------------------------------------------
@@ -201,7 +195,7 @@ namespace GLRenderers
 	}
 	
 	// --------------------------------------------------
-	// set the Clear Color
+	// set the Clear GLColor
 	// --------------------------------------------------
 	void GLES1RenderEngine::setClearColor( float _red, float _green, float _blue )
 	{
@@ -222,12 +216,13 @@ namespace GLRenderers
 	{
 		//glBindFramebufferOES(GL_FRAMEBUFFER_OES, m_framebuffer);
 		
+		updateCameraPersepctive();
+		
 		glClear(m_clearValue);
 		
 		glMatrixMode(GL_MODELVIEW);	
-		glLoadIdentity();
 		
-		gluLookAt(100, 0, 0, 0, 0, 0, 0, 1, 0);
+		setupCamera();
 		
 		m_Renderer.render();
 		
@@ -246,7 +241,7 @@ namespace GLRenderers
 	// --------------------------------------------------
 	BOOL GLES1RenderEngine::contains( GLObjects::GLScene * _scene )
 	{
-		return FALSE;
+		return m_Renderer.contains( _scene );
 	}
 	
 	// --------------------------------------------------
@@ -262,6 +257,7 @@ namespace GLRenderers
 	// --------------------------------------------------
 	void GLES1RenderEngine::remove( GLObjects::GLScene * _scene )
 	{
+		m_Renderer.remove( _scene );
 	}
 	
 #pragma mark ---------------------------------------------------------
@@ -273,6 +269,63 @@ namespace GLRenderers
 #pragma mark Private Functions
 #pragma mark ---------------------------------------------------------
 	
+	// --------------------------------------------------
+	// Update the camera Perspective
+	// --------------------------------------------------
+	void GLES1RenderEngine::updateCameraPersepctive()
+	{
+		// --------------------------------------
+		// Update the camera perspective
+		// --------------------------------------
+		if ( m_perspective.isDirty() )
+		{
+			CGMaths::CGMatrix4x4 perspective;
+			m_perspective.resetFlags();
+			if ( m_perspective.convertToMatrix( perspective ) )
+			{
+				glMatrixMode(GL_PROJECTION);
+				glLoadMatrixf( perspective.m );
+			}
+		}
+		// --------------------------------------
+	}
+	
+	// --------------------------------------------------
+	// Setup the camera
+	// --------------------------------------------------
+	void GLES1RenderEngine::setupCamera()
+	{
+		// --------------------------------------
+		// Correct the camera and split to 
+		// be rotation and translation
+		// --------------------------------------
+		const CGMaths::CGMatrix4x4 & matrix = m_camera.transform();
+		
+		CGMaths::CGMatrix4x4 rotation		= CGMaths::CGMatrix4x4Identity;
+
+		// copy the right axis
+		rotation.m[0]  = matrix.m[0];
+		rotation.m[4]  = matrix.m[4];
+		rotation.m[8]  = matrix.m[8];
+		
+		// copy the up axis
+		rotation.m[1]  = matrix.m[1];
+		rotation.m[5]  = matrix.m[5];
+		rotation.m[9]  = matrix.m[9];
+		
+		// copy and flip the at
+		rotation.m[2]  = -matrix.m[2];
+		rotation.m[6]  = -matrix.m[6];
+		rotation.m[10] = -matrix.m[10];
+		// --------------------------------------
+		
+		// --------------------------------------
+		// Update the gl camera 
+		// --------------------------------------		
+		glLoadMatrixf( rotation.m );
+		glTranslatef( -matrix.m[12], -matrix.m[13], -matrix.m[14] );
+		// --------------------------------------
+	}
 	
 #pragma mark ---------------------------------------------------------
 #pragma mark End Private Functions

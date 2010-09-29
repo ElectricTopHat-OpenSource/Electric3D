@@ -11,6 +11,8 @@
 #define __GLScene_h__
 
 #import "GLObject.h"
+#import "CGMaths.h"
+#import "GLColors.h"
 #import <map>
 
 //namespace GLObjects	{ class GLSceneFactory; };
@@ -29,7 +31,7 @@ namespace GLObjects
 #pragma mark End Type Defines
 #pragma mark ---------------------------------------------------------
 	
-	class GLScene
+	class GLScene : public GLObject
 	{
 #pragma mark ---------------------------------------------------------
 #pragma mark Friend
@@ -60,14 +62,22 @@ namespace GLObjects
 		
 		inline eGLObjectType type() const { return eGLObjectType_Scene; }
 		
-		inline const NSString *	name() const { return m_name; };
-		inline const NSUInteger hash() const { return m_hash; };
-		
 		BOOL contains( const GLObjects::GLObject * _object ) const;
 		
-		void add( GLObjects::GLObject * _object );
+		BOOL add( GLObjects::GLObject * _object );
 		void remove( GLObjects::GLObject * _object );
 		void clear();
+		
+		inline GLColors::GLColor & color()										{ return m_color; };
+		inline const GLColors::GLColor & color() const							{ return m_color; };
+		inline void setColor( const GLColors::GLColor & _color )				{ return m_color.setColor(_color); };
+		
+		inline CGMaths::CGMatrix4x4 & transform()								{ return m_transform; };
+		inline const CGMaths::CGMatrix4x4 & transform() const					{ return m_transform; };
+		inline void setTransform( const CGMaths::CGMatrix4x4 & _transform )		{ m_transform = _transform; };
+		
+		inline CGMaths::CGVector3D postion() const								{ return CGMaths::CGMatrix4x4GetTranslation( m_transform ); };
+		inline void setPostion( const CGMaths::CGVector3D & _pos )				{ CGMaths::CGMatrix4x4SetTranslation( m_transform, _pos ); };
 		
 		inline const _SceneList & objects() const { return m_objects; };
 		
@@ -93,11 +103,12 @@ namespace GLObjects
 #pragma mark ---------------------------------------------------------
 	private: // Data
 		
-		NSString *		m_name;
-		NSUInteger		m_hash;
-		NSInteger		m_referenceCount;
+		NSInteger						m_referenceCount;
 		
-		_SceneList		m_objects;
+		GLColors::GLColor				m_color;
+		CGMaths::CGMatrix4x4			m_transform;
+		
+		_SceneList						m_objects;
 		
 #pragma mark ---------------------------------------------------------
 #pragma mark End Private Data

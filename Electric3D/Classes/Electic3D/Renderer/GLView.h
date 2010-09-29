@@ -15,6 +15,8 @@ namespace GLMeshes		{ class GLMeshFactory; };
 namespace GLTextures	{ class GLTextureFactory; };
 namespace GLSprites		{ class GLSpriteFactory; };
 
+namespace GLCameras		{ class GLCamera; };
+namespace GLCameras		{ class GLPerspective; };
 namespace GLObjects		{ class GLScene; };
 
 // ----------------------------------
@@ -26,6 +28,9 @@ namespace GLObjects		{ class GLScene; };
 	// GL Render
 	GLRenderer *		m_renderer;
 }
+
+@property (nonatomic,readonly) GLCameras::GLCamera *			camera;
+@property (nonatomic,readonly) GLCameras::GLPerspective *		perspective;
 
 @property (nonatomic,readonly) GLMeshes::GLMeshFactory *		meshes;
 @property (nonatomic,readonly) GLTextures::GLTextureFactory *	textures;

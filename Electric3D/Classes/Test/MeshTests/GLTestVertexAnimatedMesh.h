@@ -22,9 +22,11 @@ namespace GLObjects { class GLScene; };
 	const GLMeshes::GLMesh *		mesh;
 	GLObjects::GLModel	*			model;
 	GLObjects::GLScene *			scene;
+	
+	NSTimeInterval					lastTime;
 }
 
 - (BOOL) canRotate;
-- (void) update;
+- (void) update:(id)_sender;
 
 @end

@@ -123,7 +123,7 @@ namespace CGMaths
 	// ---------------------------------------------------
 	// Multiply 2 CGVectro2D's
 	// ---------------------------------------------------
-	inline CGVector2D CGVector2DMult( const CGVector2D & _vectorA, const CGVector2D & _vectorB )
+	inline CGVector2D CGVector2DMultiply( const CGVector2D & _vectorA, const CGVector2D & _vectorB )
 	{
 		return CGVector2DMake( _vectorA.x * _vectorB.x, _vectorA.y * _vectorB.y );
 	}
@@ -131,7 +131,7 @@ namespace CGMaths
 	// ---------------------------------------------------
 	// Divide 2 CGVectro2D's
 	// ---------------------------------------------------
-	inline CGVector2D CGVector2DDiv( const CGVector2D & _vectorA, const CGVector2D & _vectorB )
+	inline CGVector2D CGVector2DDivide( const CGVector2D & _vectorA, const CGVector2D & _vectorB )
 	{
 		return CGVector2DMake( _vectorA.x / _vectorB.x, _vectorA.y / _vectorB.y );
 	}

@@ -19,4 +19,7 @@
 #import "CGMatrix3x3.h"
 #import "CGMatrix4x4.h"
 
+#import "CGQuaternion.h"
+#import "CGAABB.h"
+
 #endif

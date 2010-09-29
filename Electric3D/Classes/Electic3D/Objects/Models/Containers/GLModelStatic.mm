@@ -20,7 +20,8 @@ namespace GLObjects
 	// Constructor
 	// --------------------------------------------------
 	GLModelStatic::GLModelStatic( NSString * _name ) 
-	:GLModel(_name) 
+	: GLModel	(_name) 
+	, m_mesh	( nil )
 	{
 	}
 	

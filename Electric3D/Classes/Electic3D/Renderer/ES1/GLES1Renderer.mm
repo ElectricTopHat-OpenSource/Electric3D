@@ -22,6 +22,8 @@
 #import "GLMesh.h"
 #import "GLMeshShapes.h"
 
+#import "GLTexture.h"
+
 namespace GLRenderers 
 {
 #pragma mark ---------------------------------------------------------
@@ -30,6 +32,7 @@ namespace GLRenderers
 	
 	GLES1Renderer::GLES1Renderer()
 	{
+		m_boundTexture	= 0;
 	}
 	
 	GLES1Renderer::~GLES1Renderer()
@@ -91,24 +94,18 @@ namespace GLRenderers
 	}
 	
 	void GLES1Renderer::render()
-	{
-		//static float alphavalue = 1.0f;
-		//glColor4f(1, 1, 1, alphavalue);
-		//alphavalue = ( alphavalue-0.01f < 0.0f ) ? 1.0f : alphavalue-0.01f;
-		//renderVerts( GLMeshes::cube(), GLMeshes::numcubeVerts() );
-		//renderVerts( GLMeshes::cylinder(), GLMeshes::numcylinderVerts() );
-		//renderVerts( GLMeshes::cone(), GLMeshes::numconeVerts() );
-		//renderVerts( GLMeshes::sphere(), GLMeshes::numsphereVerts() );
-		//return;
+	{	
+		// reset the bound texture and color
+		m_boundTexture	= 0;
+		
+		// set the base scene color to white
+		GLColors::GLColor color = GLColors::GLColorWhite;
 		
 		for ( _RenderScenesListIterator it = m_objects.begin(); it != m_objects.end(); it++ )
 		{
 			GLObjects::GLScene * obj = *it;
-			render( obj ); 
+			render( obj, color ); 
 		}
-		
-		// reset the bound texture
-		m_boundTexture = 0;
 	}
 	
 #pragma mark ---------------------------------------------------------
@@ -122,8 +119,13 @@ namespace GLRenderers
 	// ------------------------------------------
 	// render a scene
 	// ------------------------------------------
-	void GLES1Renderer::render( GLObjects::GLScene * _scene )
+	void GLES1Renderer::render( GLObjects::GLScene * _scene, const GLColors::GLColor & _color )
 	{
+		glPushMatrix();
+		glMultMatrixf( _scene->transform().m );
+		
+		GLColors::GLColor color = _color * _scene->color();
+		
 		const GLObjects::_SceneList & scene = _scene->objects();
 		for ( GLObjects::_SceneListConstIterator it = scene.begin(); it != scene.end(); it++ )
 		{
@@ -132,31 +134,44 @@ namespace GLRenderers
 			{
 				case GLObjects::eGLObjectType_Scene:
 				{
-					render( (GLObjects::GLScene*) obj );
+					render( (GLObjects::GLScene*) obj, color );
 					break;
 				}
 				case GLObjects::eGLObjectType_Model:
 				{
-					render( (GLObjects::GLModel*) obj );
+					render( (GLObjects::GLModel*) obj, color );
 					break;
 				}
 			};
 		}
+		
+		glPopMatrix();
 	}
 	
 	// ------------------------------------------
 	// render an object
 	// ------------------------------------------
-	void GLES1Renderer::render( GLObjects::GLModel * _object )
+	void GLES1Renderer::render( GLObjects::GLModel * _object, const GLColors::GLColor & _color )
 	{
 		glPushMatrix();
 		
 		glMultMatrixf( _object->transform().m );
 		
+		const GLColors::GLColor color = _color * _object->color();
+		
+		bindColor( color );
 		bindTexture( _object->texture() );
 		renderVerts( _object->verts(), _object->numverts() );
 		
 		glPopMatrix();
+	}
+	
+	// ------------------------------------------
+	// bind the GLColor
+	// ------------------------------------------
+	void GLES1Renderer::bindColor( const GLColors::GLColor & _color )
+	{
+		glColor4f(_color.red(), _color.green(), _color.blue(), _color.alpha());
 	}
 	
 	// ------------------------------------------
