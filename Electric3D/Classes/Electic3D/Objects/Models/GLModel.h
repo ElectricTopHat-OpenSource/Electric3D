@@ -51,6 +51,9 @@ namespace GLObjects
 		virtual NSUInteger numverts() const = 0;
 		virtual const GLInterleavedVert3D* verts() const = 0;
 		
+		inline BOOL isHidden() const { return m_hidden; };
+		inline void setHidden( BOOL _hidden ) { m_hidden = _hidden; };
+		
 		inline GLColors::GLColor & color()										{ return m_color; };
 		inline const GLColors::GLColor & color() const							{ return m_color; };
 		inline void setColor( const GLColors::GLColor & _color )				{ return m_color.setColor(_color); };
@@ -75,6 +78,8 @@ namespace GLObjects
 		CGMaths::CGMatrix4x4			m_transform;
 		
 		const GLTextures::GLTexture *	m_texture;
+		
+		BOOL							m_hidden;
 		
 #pragma mark ---------------------------------------------------------
 #pragma mark === Private Data  ===

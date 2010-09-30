@@ -62,11 +62,8 @@ namespace GLObjects
 		
 		inline eGLObjectType type() const { return eGLObjectType_Scene; }
 		
-		BOOL contains( const GLObjects::GLObject * _object ) const;
-		
-		BOOL add( GLObjects::GLObject * _object );
-		void remove( GLObjects::GLObject * _object );
-		void clear();
+		inline BOOL isHidden() const { return m_hidden; };
+		inline void setHidden( BOOL _hidden ) { m_hidden = _hidden; };
 		
 		inline GLColors::GLColor & color()										{ return m_color; };
 		inline const GLColors::GLColor & color() const							{ return m_color; };
@@ -78,6 +75,12 @@ namespace GLObjects
 		
 		inline CGMaths::CGVector3D postion() const								{ return CGMaths::CGMatrix4x4GetTranslation( m_transform ); };
 		inline void setPostion( const CGMaths::CGVector3D & _pos )				{ CGMaths::CGMatrix4x4SetTranslation( m_transform, _pos ); };
+		
+		BOOL contains( const GLObjects::GLObject * _object ) const;
+		
+		BOOL add( GLObjects::GLObject * _object );
+		void remove( GLObjects::GLObject * _object );
+		void clear();
 		
 		inline const _SceneList & objects() const { return m_objects; };
 		
@@ -109,6 +112,8 @@ namespace GLObjects
 		CGMaths::CGMatrix4x4			m_transform;
 		
 		_SceneList						m_objects;
+		
+		BOOL							m_hidden;
 		
 #pragma mark ---------------------------------------------------------
 #pragma mark End Private Data

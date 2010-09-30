@@ -121,31 +121,34 @@ namespace GLRenderers
 	// ------------------------------------------
 	void GLES1Renderer::render( GLObjects::GLScene * _scene, const GLColors::GLColor & _color )
 	{
-		glPushMatrix();
-		glMultMatrixf( _scene->transform().m );
-		
-		GLColors::GLColor color = _color * _scene->color();
-		
-		const GLObjects::_SceneList & scene = _scene->objects();
-		for ( GLObjects::_SceneListConstIterator it = scene.begin(); it != scene.end(); it++ )
+		if ( !_scene->isHidden() )
 		{
-			GLObjects::GLObject * obj = it->second;
-			switch ( obj->type() )
+			glPushMatrix();
+			glMultMatrixf( _scene->transform().m );
+			
+			GLColors::GLColor color = _color * _scene->color();
+			
+			const GLObjects::_SceneList & scene = _scene->objects();
+			for ( GLObjects::_SceneListConstIterator it = scene.begin(); it != scene.end(); it++ )
 			{
-				case GLObjects::eGLObjectType_Scene:
+				GLObjects::GLObject * obj = it->second;
+				switch ( obj->type() )
 				{
-					render( (GLObjects::GLScene*) obj, color );
-					break;
-				}
-				case GLObjects::eGLObjectType_Model:
-				{
-					render( (GLObjects::GLModel*) obj, color );
-					break;
-				}
-			};
+					case GLObjects::eGLObjectType_Scene:
+					{
+						render( (GLObjects::GLScene*) obj, color );
+						break;
+					}
+					case GLObjects::eGLObjectType_Model:
+					{
+						render( (GLObjects::GLModel*) obj, color );
+						break;
+					}
+				};
+			}
+			
+			glPopMatrix();
 		}
-		
-		glPopMatrix();
 	}
 	
 	// ------------------------------------------
@@ -153,17 +156,20 @@ namespace GLRenderers
 	// ------------------------------------------
 	void GLES1Renderer::render( GLObjects::GLModel * _object, const GLColors::GLColor & _color )
 	{
-		glPushMatrix();
-		
-		glMultMatrixf( _object->transform().m );
-		
-		const GLColors::GLColor color = _color * _object->color();
-		
-		bindColor( color );
-		bindTexture( _object->texture() );
-		renderVerts( _object->verts(), _object->numverts() );
-		
-		glPopMatrix();
+		if ( !_object->isHidden() )
+		{
+			glPushMatrix();
+			
+			glMultMatrixf( _object->transform().m );
+			
+			const GLColors::GLColor color = _color * _object->color();
+			
+			bindColor( color );
+			bindTexture( _object->texture() );
+			renderVerts( _object->verts(), _object->numverts() );
+			
+			glPopMatrix();
+		}
 	}
 	
 	// ------------------------------------------

@@ -10,6 +10,16 @@
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
 	<string>application_icon~iPhone.png</string>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string>application_icon~iPhone.png</string>
+		<string>application_icon~iPad.png</string>
+		<string>application_icon@2x~iPhone.png</string>
+		<string>application_icon~iPad.png</string>
+		<string>search_icon.png</string>
+		<string>settings_search_icon.png</string>
+		<string>settings_search_icon@2x.png</string>
+	</array>
 	<key>CFBundleIdentifier</key>
 	<string>com.company.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>

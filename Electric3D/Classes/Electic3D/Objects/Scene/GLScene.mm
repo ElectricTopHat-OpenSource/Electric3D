@@ -21,6 +21,7 @@ namespace GLObjects
 	GLScene::GLScene( NSString * _name )
 	: GLObject		(_name) 
 	, m_transform	(CGMaths::CGMatrix4x4Identity)
+	, m_hidden		(FALSE)
 	{
 		m_referenceCount=1; 
 	}

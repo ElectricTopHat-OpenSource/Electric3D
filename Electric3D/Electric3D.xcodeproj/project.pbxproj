@@ -41,7 +41,7 @@
 		077FFC20124E398A00FC7D17 /* GameTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 077FFC1F124E398A00FC7D17 /* GameTimer.m */; };
 		077FFC7E124E3E6500FC7D17 /* GLES1Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FFC7D124E3E6500FC7D17 /* GLES1Renderer.mm */; };
 		078B0128124E50FD00227D49 /* application_icon@2x~iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 078B0121124E50FC00227D49 /* application_icon@2x~iPhone.png */; };
-		078B0129124E50FD00227D49 /* application_icon~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 078B0122124E50FD00227D49 /* application_icon~ipad.png */; };
+		078B0129124E50FD00227D49 /* application_icon~iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 078B0122124E50FD00227D49 /* application_icon~iPad.png */; };
 		078B012A124E50FD00227D49 /* application_icon~iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 078B0123124E50FD00227D49 /* application_icon~iPhone.png */; };
 		078B012B124E50FD00227D49 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 078B0124124E50FD00227D49 /* iTunesArtwork */; };
 		078B012C124E50FD00227D49 /* search_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 078B0125124E50FD00227D49 /* search_icon.png */; };
@@ -166,7 +166,7 @@
 		077FFC7C124E3E6500FC7D17 /* GLES1Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLES1Renderer.h; sourceTree = "<group>"; };
 		077FFC7D124E3E6500FC7D17 /* GLES1Renderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLES1Renderer.mm; sourceTree = "<group>"; };
 		078B0121124E50FC00227D49 /* application_icon@2x~iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "application_icon@2x~iPhone.png"; sourceTree = "<group>"; };
-		078B0122124E50FD00227D49 /* application_icon~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "application_icon~ipad.png"; sourceTree = "<group>"; };
+		078B0122124E50FD00227D49 /* application_icon~iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "application_icon~iPad.png"; sourceTree = "<group>"; };
 		078B0123124E50FD00227D49 /* application_icon~iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "application_icon~iPhone.png"; sourceTree = "<group>"; };
 		078B0124124E50FD00227D49 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		078B0125124E50FD00227D49 /* search_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search_icon.png; sourceTree = "<group>"; };
@@ -580,7 +580,7 @@
 			isa = PBXGroup;
 			children = (
 				078B0121124E50FC00227D49 /* application_icon@2x~iPhone.png */,
-				078B0122124E50FD00227D49 /* application_icon~ipad.png */,
+				078B0122124E50FD00227D49 /* application_icon~iPad.png */,
 				078B0123124E50FD00227D49 /* application_icon~iPhone.png */,
 				078B0124124E50FD00227D49 /* iTunesArtwork */,
 				078B0125124E50FD00227D49 /* search_icon.png */,
@@ -819,7 +819,7 @@
 				077FF73D124BBE2600FC7D17 /* MD2Test.png in Resources */,
 				077FF958124CB85D00FC7D17 /* MD2StaticMeshTest.md2 in Resources */,
 				078B0128124E50FD00227D49 /* application_icon@2x~iPhone.png in Resources */,
-				078B0129124E50FD00227D49 /* application_icon~ipad.png in Resources */,
+				078B0129124E50FD00227D49 /* application_icon~iPad.png in Resources */,
 				078B012A124E50FD00227D49 /* application_icon~iPhone.png in Resources */,
 				078B012B124E50FD00227D49 /* iTunesArtwork in Resources */,
 				078B012C124E50FD00227D49 /* search_icon.png in Resources */,
@@ -913,6 +913,7 @@
 				INFOPLIST_FILE = "Electric3D-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PRODUCT_NAME = Electric3D;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -926,6 +927,7 @@
 				INFOPLIST_FILE = "Electric3D-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PRODUCT_NAME = Electric3D;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -940,6 +942,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
 				SDKROOT = iphoneos4.1;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
