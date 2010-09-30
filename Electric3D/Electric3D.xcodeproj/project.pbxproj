@@ -6,7 +6,124 @@
 	objectVersion = 45;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		071271121255283700C94F40 /* CreateSDK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 071271151255285600C94F40 /* Build configuration list for PBXAggregateTarget "CreateSDK" */;
+			buildPhases = (
+				071271111255283700C94F40 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = CreateSDK;
+			productName = CreateSDK;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
+		07126F601255196500C94F40 /* SDKSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07126F5D1255196500C94F40 /* SDKSettings.plist */; };
+		07126F611255196500C94F40 /* SDKSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07126F5F1255196500C94F40 /* SDKSettings.plist */; };
+		07126F641255198000C94F40 /* CreateSDK.sh in Resources */ = {isa = PBXBuildFile; fileRef = 07126F631255198000C94F40 /* CreateSDK.sh */; };
+		07126F6A1255199A00C94F40 /* Changes.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 07126F661255199900C94F40 /* Changes.rtf */; };
+		07126F6B1255199A00C94F40 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 07126F671255199A00C94F40 /* Credits.rtf */; };
+		07126F6C1255199A00C94F40 /* Install.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 07126F681255199A00C94F40 /* Install.rtf */; };
+		07126F6D1255199A00C94F40 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 07126F691255199A00C94F40 /* README */; };
+		07126F771255229400C94F40 /* Anorms.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF91C124CB42200FC7D17 /* Anorms.h */; };
+		07126F781255229400C94F40 /* CGAABB.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF966124CBE6000FC7D17 /* CGAABB.h */; };
+		07126F791255229400C94F40 /* CGMaths.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF0E21248C53D00FC7D17 /* CGMaths.h */; };
+		07126F7A1255229400C94F40 /* CGMathsConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF0EC1248C5FF00FC7D17 /* CGMathsConstants.h */; };
+		07126F7B1255229400C94F40 /* CGMathsUtilties.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF0ED1248C69500FC7D17 /* CGMathsUtilties.h */; };
+		07126F7C1255229400C94F40 /* CGMatrix3x3.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF17C1248DD4B00FC7D17 /* CGMatrix3x3.h */; };
+		07126F7D1255229400C94F40 /* CGMatrix4x4.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF1621248D68700FC7D17 /* CGMatrix4x4.h */; };
+		07126F7E1255229400C94F40 /* CGQuaternion.h in Headers */ = {isa = PBXBuildFile; fileRef = 078B0A9C12522D1E00227D49 /* CGQuaternion.h */; };
+		07126F7F1255229400C94F40 /* CGSphere.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A8F5E01254A489009E62A5 /* CGSphere.h */; };
+		07126F801255229400C94F40 /* CGVector2D.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF0EF1248C72700FC7D17 /* CGVector2D.h */; };
+		07126F811255229400C94F40 /* CGVector3D.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF0F11248C89D00FC7D17 /* CGVector3D.h */; };
+		07126F821255229400C94F40 /* CGVector4D.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF1631248D6B900FC7D17 /* CGVector4D.h */; };
+		07126F831255229400C94F40 /* Compression.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF87D124BEB6300FC7D17 /* Compression.h */; };
+		07127067125522A900C94F40 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		07127068125522A900C94F40 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		07127069125522A900C94F40 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
+		0712706A125522A900C94F40 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077FF21712490B9300FC7D17 /* OpenGLES.framework */; };
+		0712706B125522A900C94F40 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077FF21B12490BB500FC7D17 /* QuartzCore.framework */; };
+		0712706C125522A900C94F40 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 077FF885124BEC6500FC7D17 /* libz.dylib */; };
+		0712706D125522B500C94F40 /* RenderTimer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF1CF12490B0F00FC7D17 /* RenderTimer.mm */; };
+		0712706E125522B500C94F40 /* GameTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 077FFC1F124E398A00FC7D17 /* GameTimer.m */; };
+		0712706F125522D500C94F40 /* RenderTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF1CE12490B0F00FC7D17 /* RenderTimer.h */; };
+		07127070125522D500C94F40 /* GameTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FFC1E124E398A00FC7D17 /* GameTimer.h */; };
+		07127071125522DF00C94F40 /* Compression.m in Sources */ = {isa = PBXBuildFile; fileRef = 077FF87E124BEB6300FC7D17 /* Compression.m */; };
+		07127072125522E800C94F40 /* Electric3D.h in Headers */ = {isa = PBXBuildFile; fileRef = 07126F6E12551E3700C94F40 /* Electric3D.h */; };
+		07127073125522FD00C94F40 /* GLView.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF32B124A0AA300FC7D17 /* GLView.h */; };
+		07127074125522FD00C94F40 /* GLRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF48C124A433E00FC7D17 /* GLRenderer.h */; };
+		071270751255230200C94F40 /* IRenderEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF32E124A0C0C00FC7D17 /* IRenderEngine.h */; };
+		071270761255230800C94F40 /* GLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF32C124A0AA300FC7D17 /* GLView.mm */; };
+		071270771255230800C94F40 /* GLRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF48D124A433E00FC7D17 /* GLRenderer.mm */; };
+		071270781255231300C94F40 /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = 077FF50D124A523800FC7D17 /* error.c */; };
+		071270791255231300C94F40 /* project.c in Sources */ = {isa = PBXBuildFile; fileRef = 077FF512124A523800FC7D17 /* project.c */; };
+		0712707A1255231300C94F40 /* registry.c in Sources */ = {isa = PBXBuildFile; fileRef = 077FF513124A523800FC7D17 /* registry.c */; };
+		0712707B1255231C00C94F40 /* GLES1RenderEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF330124A0D2700FC7D17 /* GLES1RenderEngine.mm */; };
+		0712707C1255231C00C94F40 /* GLES1Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FFC7D124E3E6500FC7D17 /* GLES1Renderer.mm */; };
+		0712707D1255232200C94F40 /* GLES1RenderEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF32F124A0D2700FC7D17 /* GLES1RenderEngine.h */; };
+		0712707E1255232200C94F40 /* GLES1Renderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FFC7C124E3E6500FC7D17 /* GLES1Renderer.h */; };
+		0712707F1255232900C94F40 /* glue.c in Sources */ = {isa = PBXBuildFile; fileRef = 077FF50F124A523800FC7D17 /* glue.c */; };
+		071270801255233100C94F40 /* glu.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF50E124A523800FC7D17 /* glu.h */; };
+		071270811255233100C94F40 /* gluint.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF510124A523800FC7D17 /* gluint.h */; };
+		071270821255233100C94F40 /* gluos.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF511124A523800FC7D17 /* gluos.h */; };
+		071270831255233C00C94F40 /* GLObjectTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FFAE7124CF8AC00FC7D17 /* GLObjectTypes.h */; };
+		071270841255233C00C94F40 /* GLObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FFAE6124CF8AC00FC7D17 /* GLObject.h */; };
+		071270851255234400C94F40 /* GLScene.h in Headers */ = {isa = PBXBuildFile; fileRef = 078B05831250D57F00227D49 /* GLScene.h */; };
+		071270861255234900C94F40 /* GLScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 078B05841250D57F00227D49 /* GLScene.mm */; };
+		071270871255235200C94F40 /* GLModels.h in Headers */ = {isa = PBXBuildFile; fileRef = 078B086712510EDD00227D49 /* GLModels.h */; };
+		071270881255235200C94F40 /* GLModelTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 078B0828125107D700227D49 /* GLModelTypes.h */; };
+		071270891255235200C94F40 /* GLModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF52D124A559E00FC7D17 /* GLModel.h */; };
+		0712708A1255235600C94F40 /* GLModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF531124A564800FC7D17 /* GLModel.mm */; };
+		0712708B1255235B00C94F40 /* GLModelStatic.h in Headers */ = {isa = PBXBuildFile; fileRef = 078B084912510CAA00227D49 /* GLModelStatic.h */; };
+		0712708C1255235B00C94F40 /* GLModelVertexAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 078B08291251083600227D49 /* GLModelVertexAnimation.h */; };
+		0712708D1255236000C94F40 /* GLModelStatic.mm in Sources */ = {isa = PBXBuildFile; fileRef = 078B084A12510CAA00227D49 /* GLModelStatic.mm */; };
+		0712708E1255236000C94F40 /* GLModelVertexAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 078B082A1251083600227D49 /* GLModelVertexAnimation.mm */; };
+		0712708F1255238300C94F40 /* GLColors.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF2591249184500FC7D17 /* GLColors.h */; };
+		071270901255238300C94F40 /* GLColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF2571249184500FC7D17 /* GLColor.h */; };
+		071270911255238B00C94F40 /* GLColor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF2581249184500FC7D17 /* GLColor.mm */; };
+		071270921255239900C94F40 /* GLSpriteFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FFA93124CE96900FC7D17 /* GLSpriteFactory.h */; };
+		071270931255239D00C94F40 /* GLSpriteFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FFA94124CE96900FC7D17 /* GLSpriteFactory.mm */; };
+		07127094125523A600C94F40 /* GLSprite.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FFA97124CEA7000FC7D17 /* GLSprite.h */; };
+		07127095125523AA00C94F40 /* GLSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FFA98124CEA7000FC7D17 /* GLSprite.mm */; };
+		07127096125523C000C94F40 /* GLTextureFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FFA0E124CD26900FC7D17 /* GLTextureFactory.h */; };
+		07127097125523C500C94F40 /* GLTextureFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FFA0F124CD26900FC7D17 /* GLTextureFactory.mm */; };
+		07127098125523CB00C94F40 /* GLTexture.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FFA16124CD70400FC7D17 /* GLTexture.h */; };
+		07127099125523CF00C94F40 /* GLTexture.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FFA17124CD70400FC7D17 /* GLTexture.mm */; };
+		0712709A125523D800C94F40 /* GLBasicTextureLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF2D41249265000FC7D17 /* GLBasicTextureLoader.h */; };
+		0712709B125523D800C94F40 /* GLPVRTextureLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF2D61249265000FC7D17 /* GLPVRTextureLoader.h */; };
+		0712709C125523DD00C94F40 /* GLBasicTextureLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF2D51249265000FC7D17 /* GLBasicTextureLoader.mm */; };
+		0712709D125523DD00C94F40 /* GLPVRTextureLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF2D71249265000FC7D17 /* GLPVRTextureLoader.mm */; };
+		0712709E125523E700C94F40 /* MD3Types.h in Headers */ = {isa = PBXBuildFile; fileRef = 078B0B301252496700227D49 /* MD3Types.h */; };
+		0712709F125523EF00C94F40 /* MD2Types.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF921124CB42200FC7D17 /* MD2Types.h */; };
+		071270A0125523EF00C94F40 /* MD2Model.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF91D124CB42200FC7D17 /* MD2Model.h */; };
+		071270A1125523EF00C94F40 /* MD2ModelConvertor.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF91F124CB42200FC7D17 /* MD2ModelConvertor.h */; };
+		071270A2125523F500C94F40 /* MD2Model.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF91E124CB42200FC7D17 /* MD2Model.mm */; };
+		071270A3125523F500C94F40 /* MD2ModelConvertor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF920124CB42200FC7D17 /* MD2ModelConvertor.mm */; };
+		071270DF1255241C00C94F40 /* GLMeshShapes.h in Headers */ = {isa = PBXBuildFile; fileRef = 078B02E7124F985500227D49 /* GLMeshShapes.h */; };
+		071270E01255241C00C94F40 /* GLMeshCone.h in Headers */ = {isa = PBXBuildFile; fileRef = 078B08171251056800227D49 /* GLMeshCone.h */; };
+		071270E11255241C00C94F40 /* GLMeshCube.h in Headers */ = {isa = PBXBuildFile; fileRef = 078B08181251056800227D49 /* GLMeshCube.h */; };
+		071270E21255241C00C94F40 /* GLMeshCylinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 078B08191251056800227D49 /* GLMeshCylinder.h */; };
+		071270E31255241C00C94F40 /* GLMeshSphere.h in Headers */ = {isa = PBXBuildFile; fileRef = 078B081A1251056800227D49 /* GLMeshSphere.h */; };
+		071270E41255242500C94F40 /* GLMeshWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 078B03EC1250993E00227D49 /* GLMeshWriter.h */; };
+		071270E51255242900C94F40 /* GLMeshWriter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 078B03ED1250993E00227D49 /* GLMeshWriter.mm */; };
+		071270E61255243C00C94F40 /* GLMeshTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF935124CB49600FC7D17 /* GLMeshTypes.h */; };
+		071270E71255243C00C94F40 /* GLMesh.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF932124CB49600FC7D17 /* GLMesh.h */; };
+		071270E81255243C00C94F40 /* GLMeshStatic.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF933124CB49600FC7D17 /* GLMeshStatic.h */; };
+		071270E91255243C00C94F40 /* GLMeshVertexAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF936124CB49600FC7D17 /* GLMeshVertexAnimation.h */; };
+		071270EA1255244200C94F40 /* GLMeshStatic.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF934124CB49600FC7D17 /* GLMeshStatic.mm */; };
+		071270EB1255244200C94F40 /* GLMeshVertexAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF937124CB49600FC7D17 /* GLMeshVertexAnimation.mm */; };
+		071270EC1255244900C94F40 /* GLMeshFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF92F124CB46500FC7D17 /* GLMeshFactory.h */; };
+		071270ED1255244E00C94F40 /* GLMeshFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF930124CB46500FC7D17 /* GLMeshFactory.mm */; };
+		071270EE1255245A00C94F40 /* GLVertexTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF914124CB32200FC7D17 /* GLVertexTypes.h */; };
+		071270EF1255245A00C94F40 /* GTVertexSubTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF913124CB28300FC7D17 /* GTVertexSubTypes.h */; };
+		071270F01255246C00C94F40 /* GLCameras.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A8F4A512539F37009E62A5 /* GLCameras.h */; };
+		071270F11255246C00C94F40 /* GLCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 078B0A9A125220CB00227D49 /* GLCamera.h */; };
+		071270F21255246C00C94F40 /* GLPerspective.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A8F45512536F73009E62A5 /* GLPerspective.h */; };
+		071270F31255247100C94F40 /* GLCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 078B0A9B125220CB00227D49 /* GLCamera.mm */; };
+		071270F41255247100C94F40 /* GLPerspective.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A8F45612536F73009E62A5 /* GLPerspective.mm */; };
 		077FF1D012490B0F00FC7D17 /* RenderTimer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF1CF12490B0F00FC7D17 /* RenderTimer.mm */; };
 		077FF21812490B9300FC7D17 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077FF21712490B9300FC7D17 /* OpenGLES.framework */; };
 		077FF21C12490BB500FC7D17 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077FF21B12490BB500FC7D17 /* QuartzCore.framework */; };
@@ -87,6 +204,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07126F5D1255196500C94F40 /* SDKSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SDKSettings.plist; sourceTree = "<group>"; };
+		07126F5F1255196500C94F40 /* SDKSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SDKSettings.plist; sourceTree = "<group>"; };
+		07126F631255198000C94F40 /* CreateSDK.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = CreateSDK.sh; sourceTree = "<group>"; };
+		07126F661255199900C94F40 /* Changes.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Changes.rtf; sourceTree = "<group>"; };
+		07126F671255199A00C94F40 /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
+		07126F681255199A00C94F40 /* Install.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Install.rtf; sourceTree = "<group>"; };
+		07126F691255199A00C94F40 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		07126F6E12551E3700C94F40 /* Electric3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Electric3D.h; sourceTree = "<group>"; };
+		07126F7312551F0E00C94F40 /* libElectric3D.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libElectric3D.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		077FF0E21248C53D00FC7D17 /* CGMaths.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = CGMaths.h; sourceTree = "<group>"; };
 		077FF0EC1248C5FF00FC7D17 /* CGMathsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGMathsConstants.h; sourceTree = "<group>"; };
 		077FF0ED1248C69500FC7D17 /* CGMathsUtilties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGMathsUtilties.h; sourceTree = "<group>"; };
@@ -243,6 +369,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		07126F7112551F0E00C94F40 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07127067125522A900C94F40 /* UIKit.framework in Frameworks */,
+				07127068125522A900C94F40 /* Foundation.framework in Frameworks */,
+				07127069125522A900C94F40 /* CoreGraphics.framework in Frameworks */,
+				0712706A125522A900C94F40 /* OpenGLES.framework in Frameworks */,
+				0712706B125522A900C94F40 /* QuartzCore.framework in Frameworks */,
+				0712706C125522A900C94F40 /* libz.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -259,14 +398,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		077FF0D71248B53A00FC7D17 /* Electic3D */ = {
+		07126F5B1255196500C94F40 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				07126F5C1255196500C94F40 /* iphoneos.sdk */,
+				07126F5E1255196500C94F40 /* iphonesimulator.sdk */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		07126F5C1255196500C94F40 /* iphoneos.sdk */ = {
+			isa = PBXGroup;
+			children = (
+				07126F5D1255196500C94F40 /* SDKSettings.plist */,
+			);
+			path = iphoneos.sdk;
+			sourceTree = "<group>";
+		};
+		07126F5E1255196500C94F40 /* iphonesimulator.sdk */ = {
+			isa = PBXGroup;
+			children = (
+				07126F5F1255196500C94F40 /* SDKSettings.plist */,
+			);
+			path = iphonesimulator.sdk;
+			sourceTree = "<group>";
+		};
+		07126F621255197F00C94F40 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				07126F631255198000C94F40 /* CreateSDK.sh */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
+		07126F651255199900C94F40 /* Documents */ = {
+			isa = PBXGroup;
+			children = (
+				07126F661255199900C94F40 /* Changes.rtf */,
+				07126F671255199A00C94F40 /* Credits.rtf */,
+				07126F681255199A00C94F40 /* Install.rtf */,
+				07126F691255199A00C94F40 /* README */,
+			);
+			path = Documents;
+			sourceTree = "<group>";
+		};
+		077FF0D71248B53A00FC7D17 /* Electric3D */ = {
 			isa = PBXGroup;
 			children = (
 				077FF0DA1248B57A00FC7D17 /* Utilities */,
 				077FF0D91248B57100FC7D17 /* Objects */,
 				077FF0D81248B54800FC7D17 /* Renderer */,
+				07126F6E12551E3700C94F40 /* Electric3D.h */,
 			);
-			path = Electic3D;
+			path = Electric3D;
 			sourceTree = "<group>";
 		};
 		077FF0D81248B54800FC7D17 /* Renderer */ = {
@@ -699,7 +883,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				077FF0D71248B53A00FC7D17 /* Electic3D */,
+				077FF0D71248B53A00FC7D17 /* Electric3D */,
 				077FF35C124A1D8000FC7D17 /* Test */,
 				28C286DF0D94DF7D0034E888 /* RootViewController.h */,
 				28C286E00D94DF7D0034E888 /* RootViewController.mm */,
@@ -713,6 +897,7 @@
 			isa = PBXGroup;
 			children = (
 				1D6058910D05DD3D006BFB54 /* Electric3D.app */,
+				07126F7312551F0E00C94F40 /* libElectric3D.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -742,6 +927,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				07126F651255199900C94F40 /* Documents */,
+				07126F621255197F00C94F40 /* Scripts */,
+				07126F5B1255196500C94F40 /* Resources */,
 				078B0111124E50EE00227D49 /* Icons */,
 				28F335F01007B36200424DE2 /* RootViewController.xib */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
@@ -765,7 +953,94 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		07126F6F12551F0E00C94F40 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				071270F01255246C00C94F40 /* GLCameras.h in Headers */,
+				071270F11255246C00C94F40 /* GLCamera.h in Headers */,
+				071270F21255246C00C94F40 /* GLPerspective.h in Headers */,
+				071270EE1255245A00C94F40 /* GLVertexTypes.h in Headers */,
+				071270EF1255245A00C94F40 /* GTVertexSubTypes.h in Headers */,
+				071270EC1255244900C94F40 /* GLMeshFactory.h in Headers */,
+				071270E61255243C00C94F40 /* GLMeshTypes.h in Headers */,
+				071270E71255243C00C94F40 /* GLMesh.h in Headers */,
+				071270E81255243C00C94F40 /* GLMeshStatic.h in Headers */,
+				071270E91255243C00C94F40 /* GLMeshVertexAnimation.h in Headers */,
+				071270E41255242500C94F40 /* GLMeshWriter.h in Headers */,
+				071270DF1255241C00C94F40 /* GLMeshShapes.h in Headers */,
+				071270E01255241C00C94F40 /* GLMeshCone.h in Headers */,
+				071270E11255241C00C94F40 /* GLMeshCube.h in Headers */,
+				071270E21255241C00C94F40 /* GLMeshCylinder.h in Headers */,
+				071270E31255241C00C94F40 /* GLMeshSphere.h in Headers */,
+				07126F771255229400C94F40 /* Anorms.h in Headers */,
+				0712709F125523EF00C94F40 /* MD2Types.h in Headers */,
+				071270A0125523EF00C94F40 /* MD2Model.h in Headers */,
+				071270A1125523EF00C94F40 /* MD2ModelConvertor.h in Headers */,
+				0712709E125523E700C94F40 /* MD3Types.h in Headers */,
+				0712709A125523D800C94F40 /* GLBasicTextureLoader.h in Headers */,
+				0712709B125523D800C94F40 /* GLPVRTextureLoader.h in Headers */,
+				07127098125523CB00C94F40 /* GLTexture.h in Headers */,
+				07127096125523C000C94F40 /* GLTextureFactory.h in Headers */,
+				07127094125523A600C94F40 /* GLSprite.h in Headers */,
+				071270921255239900C94F40 /* GLSpriteFactory.h in Headers */,
+				0712708F1255238300C94F40 /* GLColors.h in Headers */,
+				071270901255238300C94F40 /* GLColor.h in Headers */,
+				07126F781255229400C94F40 /* CGAABB.h in Headers */,
+				07126F791255229400C94F40 /* CGMaths.h in Headers */,
+				07126F7A1255229400C94F40 /* CGMathsConstants.h in Headers */,
+				07126F7B1255229400C94F40 /* CGMathsUtilties.h in Headers */,
+				07126F7C1255229400C94F40 /* CGMatrix3x3.h in Headers */,
+				07126F7D1255229400C94F40 /* CGMatrix4x4.h in Headers */,
+				07126F7E1255229400C94F40 /* CGQuaternion.h in Headers */,
+				07126F7F1255229400C94F40 /* CGSphere.h in Headers */,
+				07126F801255229400C94F40 /* CGVector2D.h in Headers */,
+				07126F811255229400C94F40 /* CGVector3D.h in Headers */,
+				07126F821255229400C94F40 /* CGVector4D.h in Headers */,
+				0712708B1255235B00C94F40 /* GLModelStatic.h in Headers */,
+				0712708C1255235B00C94F40 /* GLModelVertexAnimation.h in Headers */,
+				071270871255235200C94F40 /* GLModels.h in Headers */,
+				071270881255235200C94F40 /* GLModelTypes.h in Headers */,
+				071270891255235200C94F40 /* GLModel.h in Headers */,
+				071270851255234400C94F40 /* GLScene.h in Headers */,
+				071270831255233C00C94F40 /* GLObjectTypes.h in Headers */,
+				071270841255233C00C94F40 /* GLObject.h in Headers */,
+				071270801255233100C94F40 /* glu.h in Headers */,
+				071270811255233100C94F40 /* gluint.h in Headers */,
+				071270821255233100C94F40 /* gluos.h in Headers */,
+				0712707D1255232200C94F40 /* GLES1RenderEngine.h in Headers */,
+				0712707E1255232200C94F40 /* GLES1Renderer.h in Headers */,
+				07127073125522FD00C94F40 /* GLView.h in Headers */,
+				07127074125522FD00C94F40 /* GLRenderer.h in Headers */,
+				071270751255230200C94F40 /* IRenderEngine.h in Headers */,
+				07127072125522E800C94F40 /* Electric3D.h in Headers */,
+				0712706F125522D500C94F40 /* RenderTimer.h in Headers */,
+				07127070125522D500C94F40 /* GameTimer.h in Headers */,
+				07126F831255229400C94F40 /* Compression.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		07126F7212551F0E00C94F40 /* libElectric3D */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07126F7612551F2D00C94F40 /* Build configuration list for PBXNativeTarget "libElectric3D" */;
+			buildPhases = (
+				07126F6F12551F0E00C94F40 /* Headers */,
+				07126F7012551F0E00C94F40 /* Sources */,
+				07126F7112551F0E00C94F40 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = libElectric3D;
+			productName = libElectric3D;
+			productReference = 07126F7312551F0E00C94F40 /* libElectric3D.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		1D6058900D05DD3D006BFB54 /* Electric3D */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Electric3D" */;
@@ -804,6 +1079,8 @@
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* Electric3D */,
+				07126F7212551F0E00C94F40 /* libElectric3D */,
+				071271121255283700C94F40 /* CreateSDK */,
 			);
 		};
 /* End PBXProject section */
@@ -840,12 +1117,72 @@
 				07A8F54E1253B1E3009E62A5 /* E3D_sphere.md2 in Resources */,
 				07A8F54F1253B1E3009E62A5 /* E3D_cylinder.md2 in Resources */,
 				07A8F5501253B1E3009E62A5 /* E3D_cube.md2 in Resources */,
+				07126F601255196500C94F40 /* SDKSettings.plist in Resources */,
+				07126F611255196500C94F40 /* SDKSettings.plist in Resources */,
+				07126F641255198000C94F40 /* CreateSDK.sh in Resources */,
+				07126F6A1255199A00C94F40 /* Changes.rtf in Resources */,
+				07126F6B1255199A00C94F40 /* Credits.rtf in Resources */,
+				07126F6C1255199A00C94F40 /* Install.rtf in Resources */,
+				07126F6D1255199A00C94F40 /* README in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		071271111255283700C94F40 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here\nexec $SOURCE_ROOT/Scripts/CreateSDK.sh";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		07126F7012551F0E00C94F40 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0712706D125522B500C94F40 /* RenderTimer.mm in Sources */,
+				0712706E125522B500C94F40 /* GameTimer.m in Sources */,
+				07127071125522DF00C94F40 /* Compression.m in Sources */,
+				071270761255230800C94F40 /* GLView.mm in Sources */,
+				071270771255230800C94F40 /* GLRenderer.mm in Sources */,
+				071270781255231300C94F40 /* error.c in Sources */,
+				071270791255231300C94F40 /* project.c in Sources */,
+				0712707A1255231300C94F40 /* registry.c in Sources */,
+				0712707B1255231C00C94F40 /* GLES1RenderEngine.mm in Sources */,
+				0712707C1255231C00C94F40 /* GLES1Renderer.mm in Sources */,
+				0712707F1255232900C94F40 /* glue.c in Sources */,
+				071270861255234900C94F40 /* GLScene.mm in Sources */,
+				0712708A1255235600C94F40 /* GLModel.mm in Sources */,
+				0712708D1255236000C94F40 /* GLModelStatic.mm in Sources */,
+				0712708E1255236000C94F40 /* GLModelVertexAnimation.mm in Sources */,
+				071270911255238B00C94F40 /* GLColor.mm in Sources */,
+				071270931255239D00C94F40 /* GLSpriteFactory.mm in Sources */,
+				07127095125523AA00C94F40 /* GLSprite.mm in Sources */,
+				07127097125523C500C94F40 /* GLTextureFactory.mm in Sources */,
+				07127099125523CF00C94F40 /* GLTexture.mm in Sources */,
+				0712709C125523DD00C94F40 /* GLBasicTextureLoader.mm in Sources */,
+				0712709D125523DD00C94F40 /* GLPVRTextureLoader.mm in Sources */,
+				071270A2125523F500C94F40 /* MD2Model.mm in Sources */,
+				071270A3125523F500C94F40 /* MD2ModelConvertor.mm in Sources */,
+				071270E51255242900C94F40 /* GLMeshWriter.mm in Sources */,
+				071270EA1255244200C94F40 /* GLMeshStatic.mm in Sources */,
+				071270EB1255244200C94F40 /* GLMeshVertexAnimation.mm in Sources */,
+				071270ED1255244E00C94F40 /* GLMeshFactory.mm in Sources */,
+				071270F31255247100C94F40 /* GLCamera.mm in Sources */,
+				071270F41255247100C94F40 /* GLPerspective.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1D60588E0D05DD3D006BFB54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -900,6 +1237,55 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		07126F7412551F0F00C94F40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = Electric3D_Prefix.pch;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				PREBINDING = NO;
+				PRODUCT_NAME = Electric3D;
+			};
+			name = Debug;
+		};
+		07126F7512551F0F00C94F40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_PREFIX_HEADER = Electric3D_Prefix.pch;
+				PREBINDING = NO;
+				PRODUCT_NAME = Electric3D;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		071271131255283800C94F40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = CreateSDK;
+			};
+			name = Debug;
+		};
+		071271141255283800C94F40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = CreateSDK;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -963,6 +1349,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		07126F7612551F2D00C94F40 /* Build configuration list for PBXNativeTarget "libElectric3D" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07126F7412551F0F00C94F40 /* Debug */,
+				07126F7512551F0F00C94F40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		071271151255285600C94F40 /* Build configuration list for PBXAggregateTarget "CreateSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				071271131255283800C94F40 /* Debug */,
+				071271141255283800C94F40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Electric3D" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
