@@ -21,5 +21,6 @@
 
 #import "CGQuaternion.h"
 #import "CGAABB.h"
+#import "CGSphere.h"
 
 #endif

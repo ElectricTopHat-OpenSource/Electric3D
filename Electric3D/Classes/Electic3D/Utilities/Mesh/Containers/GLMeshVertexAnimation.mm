@@ -222,20 +222,20 @@ namespace GLMeshes
 	}
 	
 	const GLInterleavedVert3D * GLMeshVertexAnimation::interpverts( unsigned int _frame1, unsigned int _frame2, float _interp ) const
-	{
+	{		
 		float  value = MAX( MIN( _interp, 1.0f ), 0.0f );
-		GLInterleavedVertNormal3D * v1 = m_verts[_frame1];
-		GLInterleavedVertNormal3D * v2 = m_verts[_frame2];
+		GLInterleavedVertNormal3D * v1 = m_verts[MIN(_frame1, m_header->numframes-1)];
+		GLInterleavedVertNormal3D * v2 = m_verts[MIN(_frame2, m_header->numframes-1)];
 		int i;
 		for (i=0; i<m_header->numverts; i++)
 		{
-			m_iterpverts[i].vert.x = v1[i].vert.x + value*(v2[i].vert.x - v1[i].vert.x);
-			m_iterpverts[i].vert.y = v1[i].vert.y + value*(v2[i].vert.y - v1[i].vert.y);
-			m_iterpverts[i].vert.z = v1[i].vert.z + value*(v2[i].vert.z - v1[i].vert.z);
+			m_iterpverts[i].vert.x = v1[i].vert.x + ( (v2[i].vert.x - v1[i].vert.x) * value );
+			m_iterpverts[i].vert.y = v1[i].vert.y + ( (v2[i].vert.y - v1[i].vert.y) * value );
+			m_iterpverts[i].vert.z = v1[i].vert.z + ( (v2[i].vert.z - v1[i].vert.z) * value );
 			
-			m_iterpverts[i].normal.x = v1[i].normal.x + value*(v2[i].normal.x - v1[i].normal.x);
-			m_iterpverts[i].normal.y = v1[i].normal.y + value*(v2[i].normal.y - v1[i].normal.y);
-			m_iterpverts[i].normal.z = v1[i].normal.z + value*(v2[i].normal.z - v1[i].normal.z);
+			m_iterpverts[i].normal.x = v1[i].normal.x + ( (v2[i].normal.x - v1[i].normal.x) * value );
+			m_iterpverts[i].normal.y = v1[i].normal.y + ( (v2[i].normal.y - v1[i].normal.y) * value );
+			m_iterpverts[i].normal.z = v1[i].normal.z + ( (v2[i].normal.z - v1[i].normal.z) * value );
 			
 			//m_iterpverts[i].uv.x = v1[i].uv.x + value*(v2[i].uv.x - v1[i].uv.x);
 			//m_iterpverts[i].uv.y = v1[i].uv.y + value*(v2[i].uv.y - v1[i].uv.y);

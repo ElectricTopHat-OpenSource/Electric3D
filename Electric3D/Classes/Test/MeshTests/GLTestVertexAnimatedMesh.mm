@@ -96,25 +96,25 @@
 	{
 		GLObjects::GLModelVertexAnimation * animatedModel = (GLObjects::GLModelVertexAnimation*)model;
 		
-		float addValue = 15.0f * delta;
+		float addValue = 5.0f * delta;
 		float value = animatedModel->blendValue();
 		if ( value+addValue > 1.0f )
 		{
 			NSUInteger max		= animatedModel->numFrames();
 			NSUInteger current	= animatedModel->startFrame() + 1;
 			
-			if ( current < max )
+			if ( current + 1 < max )
 			{
 				animatedModel->setStartFrame( current );
 				animatedModel->setTargetFrame( current + 1 );
 			}
-			else 
+			else
 			{
 				animatedModel->setStartFrame( 0 );
 				animatedModel->setTargetFrame( 1 );
 			}
 			
-			animatedModel->setBlendValue( 0.0f );
+			animatedModel->setBlendValue( addValue - value );
 		}
 		else
 		{

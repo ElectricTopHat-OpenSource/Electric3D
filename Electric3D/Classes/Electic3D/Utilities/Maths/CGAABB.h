@@ -93,6 +93,28 @@ namespace CGMaths
 	}
 	
 	// ---------------------------------------------------
+	// Scale a CGAABB
+	// ---------------------------------------------------
+	inline CGAABB CGAABBScale( const CGAABB & _aabb, float _scale )
+	{
+		return CGAABBMake( _aabb.min.x*_scale, _aabb.min.y*_scale, _aabb.min.z*_scale, 
+						   _aabb.max.x*_scale, _aabb.max.y*_scale, _aabb.max.z*_scale );
+	}
+	
+	// ---------------------------------------------------
+	// Make a CGAABB
+	// ---------------------------------------------------
+	inline CGAABB CGAABBMakeMerged( const CGAABB & _aabbA, const CGAABB & _aabbB )
+	{
+		return CGAABBMake( ( ( _aabbA.min.x > _aabbB.min.x ) ? _aabbB.min.x : _aabbA.min.x ),
+						   ( ( _aabbA.min.y > _aabbB.min.y ) ? _aabbB.min.y : _aabbA.min.y ),
+						   ( ( _aabbA.min.z > _aabbB.min.z ) ? _aabbB.min.z : _aabbA.min.z ),
+						   ( ( _aabbA.max.x > _aabbB.max.x ) ? _aabbB.max.x : _aabbA.max.x ),
+						   ( ( _aabbA.max.y > _aabbB.max.y ) ? _aabbB.max.y : _aabbA.max.y ),
+						   ( ( _aabbA.max.z > _aabbB.max.z ) ? _aabbB.max.z : _aabbA.max.z ) );
+	}
+	
+	// ---------------------------------------------------
 	// Add a point to an existing AABB
 	// ---------------------------------------------------
 	inline void CGAABBAddPoint( CGAABB & _aabb, const CGVector3D & _point )
@@ -106,18 +128,60 @@ namespace CGMaths
 	}
 	
 	// ---------------------------------------------------
-	// Is point inside or on the AABB
+	// Merge an AABB with another AABB
 	// ---------------------------------------------------
-	inline BOOL CGAABBInsideOrOn( const CGAABB & _aabbA, const CGAABB & _aabbB )
+	inline void CGAABBMerge( CGAABB & _aabbA, const CGAABB & _aabbB )
 	{
-		return (_aabbA.min.x >= _aabbB.min.x && _aabbA.min.y >= _aabbB.min.y && _aabbA.min.z >= _aabbB.min.z &&
-				_aabbA.max.x <= _aabbB.max.x && _aabbA.max.y <= _aabbB.max.y && _aabbA.max.z <= _aabbB.max.z);
+		_aabbA.min.x = ( _aabbA.min.x > _aabbB.min.x ) ? _aabbB.min.x : _aabbA.min.x;
+		_aabbA.min.y = ( _aabbA.min.y > _aabbB.min.y ) ? _aabbB.min.y : _aabbA.min.y;
+		_aabbA.min.z = ( _aabbA.min.z > _aabbB.min.z ) ? _aabbB.min.z : _aabbA.min.z;
+		_aabbA.max.x = ( _aabbA.max.x < _aabbB.max.x ) ? _aabbB.max.x : _aabbA.max.x;
+		_aabbA.max.y = ( _aabbA.max.y < _aabbB.max.y ) ? _aabbB.max.y : _aabbA.max.y;
+		_aabbA.max.z = ( _aabbA.max.z < _aabbB.max.z ) ? _aabbB.max.z : _aabbA.max.z;
+	}
+	
+	// ---------------------------------------------------
+	// Get the center of the AABB
+	// ---------------------------------------------------
+	inline CGVector3D CGAABBGetCenter( const CGAABB & _aabb )
+	{
+		return CGVector3DMake( ( (_aabb.max.x + _aabb.min.x) * 0.5f ),
+							   ( (_aabb.max.y + _aabb.min.y) * 0.5f ),
+							   ( (_aabb.max.z + _aabb.min.z) * 0.5f ) );
+	}
+	
+	// ---------------------------------------------------
+	// Get the volume of the AABB
+	// ---------------------------------------------------
+	inline CGVector3D CGAABBGetVolume( const CGAABB & _aabb )
+	{
+		return CGVector3DMake( (_aabb.max.x - _aabb.min.x),
+							   (_aabb.max.y - _aabb.min.y),
+							   (_aabb.max.z - _aabb.min.z) );
+	}
+	
+	// ---------------------------------------------------
+	// Is point inside the AABB
+	// ---------------------------------------------------
+	inline BOOL CGAABBContains( const CGAABB & _aabb, const CGVector3D & _point )
+	{
+		return ( ( _point.x > _aabb.min.x && _point.x < _aabb.max.x ) &&
+				 ( _point.y > _aabb.min.y && _point.y < _aabb.max.y ) &&
+				 ( _point.z > _aabb.min.z && _point.z < _aabb.max.z ) );
+	}
+		
+	// ---------------------------------------------------
+	// Is point inside the AABB
+	// ---------------------------------------------------
+	inline BOOL CGAABBContains( const CGAABB & _aabbA, const CGAABB & _aabbB )
+	{
+		return CGAABBContains( _aabbA, _aabbB.min ) && CGAABBContains( _aabbA, _aabbB.max );
 	}
 	
 	// ---------------------------------------------------
 	// Is point inside or on the AABB
 	// ---------------------------------------------------
-	inline BOOL CGAABBInsideOrOn( const CGAABB & _aabb, const CGVector3D & _point )
+	inline BOOL CGAABBContainsOrTouches( const CGAABB & _aabb, const CGVector3D & _point )
 	{
 		return ( ( _point.x >= _aabb.min.x && _point.x <= _aabb.max.x ) &&
 				 ( _point.y >= _aabb.min.y && _point.y <= _aabb.max.y ) &&
@@ -125,23 +189,31 @@ namespace CGMaths
 	}
 	
 	// ---------------------------------------------------
-	// Is point inside the AABB
+	// Does an AABB Intersect with the other AABB
 	// ---------------------------------------------------
-	inline BOOL CGAABBInside( const CGAABB & _aabbA, const CGAABB & _aabbB )
+	inline BOOL CGAABBIntersects( const CGAABB & _aabbA, const CGAABB & _aabbB )
 	{
-		return (_aabbA.min.x > _aabbB.min.x && _aabbA.min.y > _aabbB.min.y && _aabbA.min.z > _aabbB.min.z &&
-				_aabbA.max.x < _aabbB.max.x && _aabbA.max.y < _aabbB.max.y && _aabbA.max.z < _aabbB.max.z);
+		return CGAABBContainsOrTouches( _aabbA, _aabbB.min ) && CGAABBContainsOrTouches( _aabbA, _aabbB.max );
 	}
 	
 	// ---------------------------------------------------
-	// Is point inside the AABB
+	// Does the line intersect with the AABB
 	// ---------------------------------------------------
-	inline BOOL CGAABBInside( const CGAABB & _aabb, const CGVector3D & _point )
+	inline BOOL CGAABBIntersects( const CGAABB & _aabb, const CGVector3D & _start, const CGVector3D & _end )
 	{
-		return ( ( _point.x > _aabb.min.x && _point.x < _aabb.max.x ) &&
-				 ( _point.y > _aabb.min.y && _point.y < _aabb.max.y ) &&
-				 ( _point.z > _aabb.min.z && _point.z < _aabb.max.z ) );
-	}		
+		const CGVector3D center		= CGAABBGetCenter( _aabb );
+		CGVector3D lineA			= CGVector3DSub( _end, _start );
+		CGVector3D lineB			= CGVector3DSub( center, _start );
+		
+		float dotAA = CGMaths::CGVector3DDotProduct( lineA, lineA );
+		float dotAB = CGMaths::CGVector3DDotProduct( lineB, lineA );
+		float scale = CGMaths::fClamp( dotAB / dotAA, 0.0f, 1.0f );  
+		
+		CGVector3D shift = CGMaths::CGVector3DScale( lineA, scale );
+		CGVector3D point = CGMaths::CGVector3DAdd( _start, shift );
+		
+		return CGAABBContainsOrTouches( _aabb, point );
+	}
 	
 #pragma mark ---------------------------------------------------------
 #pragma mark End CGAABB Functions

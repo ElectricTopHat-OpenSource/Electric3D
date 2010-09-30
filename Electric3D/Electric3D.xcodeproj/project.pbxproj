@@ -75,6 +75,7 @@
 		07A8F5621253B2F1009E62A5 /* GLTestColorScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A8F5611253B2F1009E62A5 /* GLTestColorScene.mm */; };
 		07A8F5831253B47D009E62A5 /* GLTestColorModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A8F5821253B47D009E62A5 /* GLTestColorModel.mm */; };
 		07A8F59A1253B54B009E62A5 /* GLTestColorSceneModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A8F5991253B54B009E62A5 /* GLTestColorSceneModel.mm */; };
+		07A8F6251254D88A009E62A5 /* CGTestMathsAABB.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A8F6241254D88A009E62A5 /* CGTestMathsAABB.mm */; };
 		1D3623260D0F684500981E51 /* Electric3DAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* Electric3DAppDelegate.mm */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -222,6 +223,10 @@
 		07A8F5821253B47D009E62A5 /* GLTestColorModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLTestColorModel.mm; sourceTree = "<group>"; };
 		07A8F5981253B54B009E62A5 /* GLTestColorSceneModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTestColorSceneModel.h; sourceTree = "<group>"; };
 		07A8F5991253B54B009E62A5 /* GLTestColorSceneModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLTestColorSceneModel.mm; sourceTree = "<group>"; };
+		07A8F5E01254A489009E62A5 /* CGSphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSphere.h; sourceTree = "<group>"; };
+		07A8F6231254D88A009E62A5 /* CGTestMathsAABB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGTestMathsAABB.h; sourceTree = "<group>"; };
+		07A8F6241254D88A009E62A5 /* CGTestMathsAABB.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CGTestMathsAABB.mm; sourceTree = "<group>"; };
+		07A8F6261254DA17009E62A5 /* CGTextMaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGTextMaths.h; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* Electric3DAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Electric3DAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* Electric3DAppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Electric3DAppDelegate.mm; sourceTree = "<group>"; };
@@ -329,6 +334,7 @@
 				077FF1621248D68700FC7D17 /* CGMatrix4x4.h */,
 				078B0A9C12522D1E00227D49 /* CGQuaternion.h */,
 				077FF966124CBE6000FC7D17 /* CGAABB.h */,
+				07A8F5E01254A489009E62A5 /* CGSphere.h */,
 			);
 			path = Maths;
 			sourceTree = "<group>";
@@ -379,6 +385,7 @@
 		077FF35C124A1D8000FC7D17 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				07A8F6121254D42E009E62A5 /* Maths */,
 				07A8F5471253B1AC009E62A5 /* Color */,
 				07A8F2B312534FEE009E62A5 /* Camera */,
 				078B09731251F92E00227D49 /* MeshTests */,
@@ -679,6 +686,16 @@
 			path = Color;
 			sourceTree = "<group>";
 		};
+		07A8F6121254D42E009E62A5 /* Maths */ = {
+			isa = PBXGroup;
+			children = (
+				07A8F6261254DA17009E62A5 /* CGTextMaths.h */,
+				07A8F6231254D88A009E62A5 /* CGTestMathsAABB.h */,
+				07A8F6241254D88A009E62A5 /* CGTestMathsAABB.mm */,
+			);
+			path = Maths;
+			sourceTree = "<group>";
+		};
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -876,6 +893,7 @@
 				07A8F5621253B2F1009E62A5 /* GLTestColorScene.mm in Sources */,
 				07A8F5831253B47D009E62A5 /* GLTestColorModel.mm in Sources */,
 				07A8F59A1253B54B009E62A5 /* GLTestColorSceneModel.mm in Sources */,
+				07A8F6251254D88A009E62A5 /* CGTestMathsAABB.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

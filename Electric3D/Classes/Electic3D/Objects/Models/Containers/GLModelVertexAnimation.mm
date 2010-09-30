@@ -132,7 +132,7 @@ namespace GLObjects
 			}
 			else 
 			{
-				return m_mesh->interpverts( m_startFrame, m_startFrame, m_blend );
+				return m_mesh->interpverts( m_startFrame, m_targetFrame, m_blend );
 			}
 		}
 		return nil;

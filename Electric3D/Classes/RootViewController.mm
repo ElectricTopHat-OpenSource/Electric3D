@@ -7,6 +7,8 @@
 //
 
 #import "RootViewController.h"
+#import "CGTextMaths.h"
+
 #import "GLTestMeshFactory.h"
 #import "GLTestTextureFactory.h"
 
@@ -51,6 +53,8 @@
 	{
 		updateTimer = [[GameTimer alloc] init];
 		tableData = [[NSMutableArray alloc] initWithCapacity:10];
+		
+		MathsTests::AddSection( tableData );
 		
 		{
 			NSMutableDictionary * data			= [NSMutableDictionary dictionaryWithCapacity:2];

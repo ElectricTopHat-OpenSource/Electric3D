@@ -34,6 +34,7 @@ namespace CGMaths
 #pragma mark ---------------------------------------------------------
 	
 	const CGVector3D CGVector3DZero		= { 0, 0, 0 };
+	const CGVector3D CGVector3DUnit		= { 1, 1, 1 };
 	const CGVector3D CGVector3DXAxis	= { 1, 0, 0 };
 	const CGVector3D CGVector3DYAxis	= { 0, 1, 0 };
 	const CGVector3D CGVector3DZAxis	= { 0, 0, 1 };
@@ -169,7 +170,7 @@ namespace CGMaths
 	// ---------------------------------------------------
 	// Normalise a 3D Vector
 	// ---------------------------------------------------
-	inline void CGVector3DNormalise( CGVector3D & _vector )
+	inline float CGVector3DNormalise( CGVector3D & _vector )
 	{
 		float lenSq = CGVector3DLengthSquared(_vector);
 		if ( lenSq > EPSILON )
@@ -180,7 +181,10 @@ namespace CGMaths
 				_vector.x /= len;
 				_vector.y /= len;
 				_vector.z /= len;
+				
+				return len;
 			}
+			return 1.0f;
 		}
 		else
 		{
@@ -190,6 +194,7 @@ namespace CGMaths
 			_vector.y = 0.0f;
 			_vector.z = 0.0f;
 		}
+		return 0.0f;
 	}
 	
 	// ---------------------------------------------------
