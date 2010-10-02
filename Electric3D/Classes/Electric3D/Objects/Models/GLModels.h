@@ -7,7 +7,12 @@
  *
  */
 
+#if !defined(__GLModels_h__)
+#define __GLModels_h__
+
 #import "GLModelTypes.h"
 #import "GLModel.h"
 #import "GLModelStatic.h"
 #import "GLModelVertexAnimation.h"
+
+#endif

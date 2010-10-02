@@ -8,6 +8,7 @@
  */
 
 #import "GLColor.h"
+#import <UIKit/UIKit.h>
 
 namespace GLColors 
 {
@@ -53,7 +54,7 @@ namespace GLColors
 	#pragma mark ---------------------------------------------------------
 	#pragma mark Constructor / Destructor
 	#pragma mark ---------------------------------------------------------
-
+	
 	// --------------------------------------------------
 	// Constructor
 	// --------------------------------------------------

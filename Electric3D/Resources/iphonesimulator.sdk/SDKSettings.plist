@@ -9,7 +9,7 @@
 	<key>DefaultProperties</key>
 	<dict>
 		<key>GCC_PRODUCT_TYPE_PREPROCESSOR_DEFINITIONS</key>
-		<string> __IPHONE_OS_VERSION_MIN_REQUIRED=20000</string>
+		<string></string>
 		<key>GCC_VERSION</key>
 		<string>4.0</string>
 		<key>MACOSX_DEPLOYMENT_TARGET</key>
@@ -28,7 +28,7 @@
 	<key>DocSetFeedURL</key>
 	<string>http://developer.apple.com/rss/com.apple.adc.documentation.AppleiPhone.atom</string>
 	<key>MaximumDeploymentTarget</key>
-	<string>10.5</string>
+	<string>10.6</string>
 	<key>MinimalDisplayName</key>
 	<string>Simulator - %IPHONESIM_SDK%</string>
 	<key>MinimumSupportedToolsVersion</key>

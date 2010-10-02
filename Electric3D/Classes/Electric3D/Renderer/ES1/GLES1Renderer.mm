@@ -99,7 +99,7 @@ namespace GLRenderers
 		m_boundTexture	= 0;
 		
 		// set the base scene color to white
-		GLColors::GLColor color = GLColors::GLColorWhite;
+		GLColors::GLColor color;
 		
 		for ( _RenderScenesListIterator it = m_objects.begin(); it != m_objects.end(); it++ )
 		{

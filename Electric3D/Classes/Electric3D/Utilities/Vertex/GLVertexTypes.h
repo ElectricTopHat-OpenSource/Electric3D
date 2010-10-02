@@ -10,7 +10,7 @@
 #if !defined(__GLVertexTypes_h__)
 #define __GLVertexTypes_h__
 
-#import "GTVertexSubTypes.h"
+#import "GLVertexComponents.h"
 
 #define GLInterleavedVert3D_color 0
 

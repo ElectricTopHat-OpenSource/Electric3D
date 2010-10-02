@@ -16,8 +16,9 @@ VERS=`pl < $SOURCE_ROOT/Electric3D-Info.plist | grep CFBundleVersion | sed -e 's
 libName="libElectric3D"
 sdkName="Electric3D"
 
-IPHONE_SDK=4.1
-IPHONESIM_SDK=4.1
+IPHONE_SDK=3.2
+IPHONE_SDK_DEPLOYMENT=3.2
+IPHONESIM_SDK=3.2
 
 PROJECT_HEADERS_PATH=$SOURCE_ROOT/Classes/Electric3D
 
@@ -46,20 +47,22 @@ mkdir -p $DISK_IMAGE
 
 # Build the Release Version
 xcodebuild -target $libName -configuration Release -sdk iphoneos$IPHONE_SDK install \
-   ARCHS=armv6 SKIP_INSTALL=NO\
+   ARCHS="armv6 armv7" SKIP_INSTALL=NO\
    DSTROOT=$DISK_IMAGE/SDKs/$sdkName/iphoneos.sdk || exit 2
 sed -e "s/%PROJECT%/$PROJECT/g" \
     -e "s/%VERS%/$VERS/g" \
     -e "s/%IPHONE_SDK%/$IPHONE_SDK/g" \
+	-e "s/%IPHONE_SDK_DEPLOYMENT%/$IPHONE_SDK_DEPLOYMENT/g" \
     $SOURCE_ROOT/Resources/iphoneos.sdk/SDKSettings.plist > $DISK_IMAGE/SDKs/$sdkName/iphoneos.sdk/SDKSettings.plist || exit 3
    
 # Build the Debug Version
 xcodebuild -target $libName -configuration Debug -sdk iphoneos$IPHONE_SDK install \
-   ARCHS=armv6 SKIP_INSTALL=NO\
+   ARCHS="armv6 armv7" SKIP_INSTALL=NO\
    DSTROOT=$DISK_IMAGE/SDKs/${sdkName}_d/iphoneos.sdk || exit 4   
 sed -e "s/%PROJECT%/$PROJECT/g" \
     -e "s/%VERS%/$VERS/g" \
     -e "s/%IPHONE_SDK%/$IPHONE_SDK/g" \
+	-e "s/%IPHONE_SDK_DEPLOYMENT%/$IPHONE_SDK_DEPLOYMENT/g" \
     $SOURCE_ROOT/Resources/iphoneos.sdk/SDKSettings.plist > $DISK_IMAGE/SDKs/${sdkName}_d/iphoneos.sdk/SDKSettings.plist || exit 5
 	
 ##############################################

@@ -38,6 +38,9 @@ namespace GLCameras
 		inline float fov() const			{ return m_fov; };
 		inline void setFov( float _fov )	{ m_fov = _fov; };
 		
+		inline CGMaths::CGVector3D postion() const								{ return CGMaths::CGMatrix4x4GetTranslation( m_transform ); };
+		inline void setPostion( const CGMaths::CGVector3D & _pos )				{ CGMaths::CGMatrix4x4SetTranslation( m_transform, _pos ); };
+		
 		inline CGMaths::CGMatrix4x4 & transform()								{ return m_transform; };
 		inline const CGMaths::CGMatrix4x4 & transform() const					{ return m_transform; };
 		inline void setTransform( const CGMaths::CGMatrix4x4 & _transform )		{ m_transform = _transform; };

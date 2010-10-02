@@ -1,5 +1,5 @@
 /*
- *  GTVertexSubTypes.h
+ *  GLVertexComponents.h
  *  Electric3D
  *
  *  Created by Robert McDowell on 24/09/2010.
@@ -7,8 +7,8 @@
  *
  */
 
-#if !defined(__GTVertexSubTypes_h__)
-#define __GTVertexSubTypes_h__
+#if !defined(__GLVertexComponents_h__)
+#define __GLVertexComponents_h__
 
 // --------------------------------
 // GL Vert 2D

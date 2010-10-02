@@ -10,7 +10,7 @@
 #if !defined(__GLColor_h__)
 #define __GLColor_h__
 
-#import <UIKit/UIKit.h>
+@class UIColor;
 
 namespace GLColors 
 {

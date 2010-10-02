@@ -22,14 +22,16 @@
 		<string>YES</string>
 		<key>GCC_THUMB_SUPPORT</key>
 		<string>YES</string>
-		<key>GCC_VERSION</key>
-		<string>4.0</string>
-		<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-		<string>%IPHONE_SDK%</string>
 		<key>MACOSX_DEPLOYMENT_TARGET</key>
-		<string>10.5</string>
+		<string>10.6</string>
+		<key>GCC_VERSION</key>
+		<string>4.2</string>
+		<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+		<string>%IPHONE_SDK_DEPLOYMENT%</string>
 		<key>PLATFORM_NAME</key>
 		<string>iphoneos</string>
+		<key>SUPPORTED_DEVICE_FAMILIES</key>
+		<string>1,2</string>
 	</dict>
 	<key>DisplayName</key>
 	<string>Device - iPhone OS %IPHONE_SDK%</string>

@@ -29,8 +29,7 @@ namespace GLColors
 
 	const GLColor GLColorGrey		( 0.33f, 0.33f, 0.33f );
 	const GLColor GLColorLightGrey	( 0.8f, 0.8f, 0.8f );
-	// --------------------------------------------------
-	
+	// --------------------------------------------------	
 };
 
 #endif

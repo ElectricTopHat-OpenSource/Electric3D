@@ -56,7 +56,10 @@ namespace CGMaths
 	// ---------------------------------------------------
 	inline CGVector2D CGVector2DMake( float _x, float _y )
 	{
-		return CGPointMake(_x, _y);
+		CGVector2D vec;
+		vec.x = _x;
+		vec.y = _y;
+		return vec;
 	}
 	
 	// ---------------------------------------------------
