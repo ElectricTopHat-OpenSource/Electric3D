@@ -51,11 +51,15 @@ typedef struct {
 // --------------------------------
 // GL GLColor
 // --------------------------------
-typedef struct {
-	unsigned char red;
-	unsigned char green;
-	unsigned char blue;
-	unsigned char alpha;	
+typedef union {
+	int value;
+	struct 
+	{
+		unsigned char red;
+		unsigned char green;
+		unsigned char blue;
+		unsigned char alpha;
+	};
 } _GLColor;
 // --------------------------------
 

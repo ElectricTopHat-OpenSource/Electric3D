@@ -18,7 +18,7 @@ namespace PVRPOD
 		{
 			if ( _model->numUVW )
 			{
-				const PODData * mfaces		= &_model->faces;
+				//const PODData * mfaces		= &_model->faces;
 				const PODData * mverts		= &_model->vertices;
 				const PODData * mnormals	= &_model->normals;
 				const PODData * mvertColor	= &_model->vtxColours;

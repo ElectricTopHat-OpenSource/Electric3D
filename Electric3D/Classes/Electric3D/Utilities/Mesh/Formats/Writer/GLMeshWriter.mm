@@ -60,6 +60,7 @@ namespace GLMeshWriter
 		}
 		[fileString appendString:@"\r\n"];
 #else
+		
 		int i;
 		for ( i=0; i<_numverts; i++ )
 		{
@@ -70,9 +71,9 @@ namespace GLMeshWriter
 			
 			[fileString appendString:@"#if GLInterleavedVert3D_color\r\n"];
 #if GLInterleavedVert3D_color
-			[fileString appendFormat:@"\t\t%u, %u, %u, %u,\r\n", vert->color.red, vert->color.green, vert->color.blue, vert->color.alpha];
+			[fileString appendFormat:@"\t\t%d,\r\n", vert->color.value];
 #else
-			[fileString appendString:@"\t\t%u, %u, %u, %u,\r\n", 0, 0, 0, 255];
+			[fileString appendString:@"\t\t%d,\r\n", -1];
 #endif
 			[fileString appendString:@"#endif\r\n"];
 			

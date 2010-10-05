@@ -81,10 +81,6 @@
 		071270A0125523EF00C94F40 /* MD2Model.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF91D124CB42200FC7D17 /* MD2Model.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		071270A1125523EF00C94F40 /* MD2ModelConvertor.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF91F124CB42200FC7D17 /* MD2ModelConvertor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		071270DF1255241C00C94F40 /* GLMeshShapes.h in Headers */ = {isa = PBXBuildFile; fileRef = 078B02E7124F985500227D49 /* GLMeshShapes.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		071270E01255241C00C94F40 /* GLMeshCone.h in Headers */ = {isa = PBXBuildFile; fileRef = 078B08171251056800227D49 /* GLMeshCone.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		071270E11255241C00C94F40 /* GLMeshCube.h in Headers */ = {isa = PBXBuildFile; fileRef = 078B08181251056800227D49 /* GLMeshCube.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		071270E21255241C00C94F40 /* GLMeshCylinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 078B08191251056800227D49 /* GLMeshCylinder.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		071270E31255241C00C94F40 /* GLMeshSphere.h in Headers */ = {isa = PBXBuildFile; fileRef = 078B081A1251056800227D49 /* GLMeshSphere.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		071270E41255242500C94F40 /* GLMeshWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 078B03EC1250993E00227D49 /* GLMeshWriter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		071270E61255243C00C94F40 /* GLMeshTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF935124CB49600FC7D17 /* GLMeshTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		071270E71255243C00C94F40 /* GLMesh.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF932124CB49600FC7D17 /* GLMesh.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -189,6 +185,14 @@
 		078B097D1251F9C000227D49 /* GLTestVertexAnimatedMesh.mm in Sources */ = {isa = PBXBuildFile; fileRef = 078B097C1251F9C000227D49 /* GLTestVertexAnimatedMesh.mm */; };
 		078B0B95125259AF00227D49 /* GLCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 078B0A9B125220CB00227D49 /* GLCamera.mm */; };
 		079E42CA125BA66400AFC765 /* vertex_cube.POD in Resources */ = {isa = PBXBuildFile; fileRef = 079E42C9125BA66400AFC765 /* vertex_cube.POD */; };
+		079E42ED125BD15000AFC765 /* PVRPODModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07ECE4C8125A4BC60097D909 /* PVRPODModel.mm */; };
+		079E42EE125BD15000AFC765 /* PVRPODModelConvertor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07ECE4D7125A4DDC0097D909 /* PVRPODModelConvertor.mm */; };
+		079E42EF125BD15900AFC765 /* MAX3DSModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07ECE1821259E82E0097D909 /* MAX3DSModel.mm */; };
+		079E42F0125BD15900AFC765 /* MAX3DSModelConvertor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07ECE287125A0C040097D909 /* MAX3DSModelConvertor.mm */; };
+		079E438F125BDE1900AFC765 /* GLMeshCone.h in Headers */ = {isa = PBXBuildFile; fileRef = 079E438B125BDE1900AFC765 /* GLMeshCone.h */; };
+		079E4390125BDE1900AFC765 /* GLMeshCube.h in Headers */ = {isa = PBXBuildFile; fileRef = 079E438C125BDE1900AFC765 /* GLMeshCube.h */; };
+		079E4391125BDE1900AFC765 /* GLMeshCylinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 079E438D125BDE1900AFC765 /* GLMeshCylinder.h */; };
+		079E4392125BDE1900AFC765 /* GLMeshSphere.h in Headers */ = {isa = PBXBuildFile; fileRef = 079E438E125BDE1900AFC765 /* GLMeshSphere.h */; };
 		07A8F2B612535015009E62A5 /* GLTestCameraGeneral.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A8F2B512535015009E62A5 /* GLTestCameraGeneral.mm */; };
 		07A8F45712536F73009E62A5 /* GLPerspective.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A8F45612536F73009E62A5 /* GLPerspective.mm */; };
 		07A8F4A412539EE1009E62A5 /* GLTestCameraPerspective.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A8F4A312539EE1009E62A5 /* GLTestCameraPerspective.mm */; };
@@ -329,10 +333,6 @@
 		078B040C1250A1F000227D49 /* SL_pickles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SL_pickles.png; sourceTree = "<group>"; };
 		078B05831250D57F00227D49 /* GLScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLScene.h; sourceTree = "<group>"; };
 		078B05841250D57F00227D49 /* GLScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLScene.mm; sourceTree = "<group>"; };
-		078B08171251056800227D49 /* GLMeshCone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMeshCone.h; sourceTree = "<group>"; };
-		078B08181251056800227D49 /* GLMeshCube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMeshCube.h; sourceTree = "<group>"; };
-		078B08191251056800227D49 /* GLMeshCylinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMeshCylinder.h; sourceTree = "<group>"; };
-		078B081A1251056800227D49 /* GLMeshSphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMeshSphere.h; sourceTree = "<group>"; };
 		078B0828125107D700227D49 /* GLModelTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLModelTypes.h; sourceTree = "<group>"; };
 		078B08291251083600227D49 /* GLModelVertexAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLModelVertexAnimation.h; sourceTree = "<group>"; };
 		078B082A1251083600227D49 /* GLModelVertexAnimation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLModelVertexAnimation.mm; sourceTree = "<group>"; };
@@ -355,6 +355,10 @@
 		0799C10C125604E700846A9C /* Timers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timers.h; sourceTree = "<group>"; };
 		079E40D7125B809800AFC765 /* PVRPODUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVRPODUtility.h; sourceTree = "<group>"; };
 		079E42C9125BA66400AFC765 /* vertex_cube.POD */ = {isa = PBXFileReference; lastKnownFileType = file; path = vertex_cube.POD; sourceTree = "<group>"; };
+		079E438B125BDE1900AFC765 /* GLMeshCone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMeshCone.h; sourceTree = "<group>"; };
+		079E438C125BDE1900AFC765 /* GLMeshCube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMeshCube.h; sourceTree = "<group>"; };
+		079E438D125BDE1900AFC765 /* GLMeshCylinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMeshCylinder.h; sourceTree = "<group>"; };
+		079E438E125BDE1900AFC765 /* GLMeshSphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMeshSphere.h; sourceTree = "<group>"; };
 		07A8F2B412535015009E62A5 /* GLTestCameraGeneral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTestCameraGeneral.h; sourceTree = "<group>"; };
 		07A8F2B512535015009E62A5 /* GLTestCameraGeneral.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLTestCameraGeneral.mm; sourceTree = "<group>"; };
 		07A8F45512536F73009E62A5 /* GLPerspective.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLPerspective.h; sourceTree = "<group>"; };
@@ -826,10 +830,10 @@
 			isa = PBXGroup;
 			children = (
 				078B02E7124F985500227D49 /* GLMeshShapes.h */,
-				078B08171251056800227D49 /* GLMeshCone.h */,
-				078B08181251056800227D49 /* GLMeshCube.h */,
-				078B08191251056800227D49 /* GLMeshCylinder.h */,
-				078B081A1251056800227D49 /* GLMeshSphere.h */,
+				079E438B125BDE1900AFC765 /* GLMeshCone.h */,
+				079E438C125BDE1900AFC765 /* GLMeshCube.h */,
+				079E438D125BDE1900AFC765 /* GLMeshCylinder.h */,
+				079E438E125BDE1900AFC765 /* GLMeshSphere.h */,
 			);
 			path = Shapes;
 			sourceTree = "<group>";
@@ -1077,10 +1081,6 @@
 				071270E91255243C00C94F40 /* GLMeshVertexAnimation.h in Headers */,
 				071270E41255242500C94F40 /* GLMeshWriter.h in Headers */,
 				071270DF1255241C00C94F40 /* GLMeshShapes.h in Headers */,
-				071270E01255241C00C94F40 /* GLMeshCone.h in Headers */,
-				071270E11255241C00C94F40 /* GLMeshCube.h in Headers */,
-				071270E21255241C00C94F40 /* GLMeshCylinder.h in Headers */,
-				071270E31255241C00C94F40 /* GLMeshSphere.h in Headers */,
 				07126F771255229400C94F40 /* Anorms.h in Headers */,
 				0712709F125523EF00C94F40 /* MD2Types.h in Headers */,
 				071270A0125523EF00C94F40 /* MD2Model.h in Headers */,
@@ -1125,6 +1125,10 @@
 				0712706F125522D500C94F40 /* RenderTimer.h in Headers */,
 				07127070125522D500C94F40 /* GameTimer.h in Headers */,
 				07126F831255229400C94F40 /* Compression.h in Headers */,
+				079E438F125BDE1900AFC765 /* GLMeshCone.h in Headers */,
+				079E4390125BDE1900AFC765 /* GLMeshCube.h in Headers */,
+				079E4391125BDE1900AFC765 /* GLMeshCylinder.h in Headers */,
+				079E4392125BDE1900AFC765 /* GLMeshSphere.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1292,6 +1296,10 @@
 				0774F12F12561CA5006AC5BA /* MD2Model.mm in Sources */,
 				0774F13012561CA5006AC5BA /* MD2ModelConvertor.mm in Sources */,
 				0774F13112561CA5006AC5BA /* RenderTimer.mm in Sources */,
+				079E42ED125BD15000AFC765 /* PVRPODModel.mm in Sources */,
+				079E42EE125BD15000AFC765 /* PVRPODModelConvertor.mm in Sources */,
+				079E42EF125BD15900AFC765 /* MAX3DSModel.mm in Sources */,
+				079E42F0125BD15900AFC765 /* MAX3DSModelConvertor.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1364,7 +1372,7 @@
 				GCC_PREFIX_HEADER = Electric3D_Prefix.pch;
 				GCC_THUMB_SUPPORT = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
-				OTHER_CFLAGS = "-fvisibility=default";
+				OTHER_CFLAGS = "-fvisibility=hidden";
 				PREBINDING = NO;
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/Electric3D;
 				PRODUCT_NAME = Electric3D;
