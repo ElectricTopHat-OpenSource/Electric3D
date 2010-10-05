@@ -95,6 +95,9 @@ namespace GLRenderers
 	
 	void GLES1Renderer::render()
 	{	
+		//renderVerts( GLMeshes::cube(), GLMeshes::numcubeVerts() );
+		//return;
+		
 		// reset the bound texture and color
 		m_boundTexture	= 0;
 		
@@ -208,6 +211,8 @@ namespace GLRenderers
 #endif
 		glTexCoordPointer(2, GL_FLOAT,	sizeof(GLInterleavedVert3D), &_verts[0].uv.x);
 		glDrawArrays(GL_TRIANGLES, 0, _numverts);
+		//glDrawArrays(GL_TRIANGLE_STRIP, 0, _numverts);
+		//glDrawArrays(GL_TRIANGLE_FAN, 0, _numverts);
 	}
 	
 #pragma mark ---------------------------------------------------------

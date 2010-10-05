@@ -39,6 +39,27 @@ namespace GLMeshWriter
 		[fileString appendFormat:@"\tstatic const GLInterleavedVert3D _%@Verts[] =\r\n", _meshName];
 		[fileString appendString:@"\t{\r\n"];
 		
+#if 0
+		[fileString appendFormat:@"\t\t"];
+		
+		unsigned char * p = (unsigned char *)_verts;
+		int size = sizeof(GLInterleavedVert3D) * size;
+		int i;
+		for ( i=0; i<size; i++ )
+		{
+			[fileString appendFormat:@"0x%02x", p[i]];
+			if ( i<size-1 )
+			{
+				[fileString appendString:@","];
+				
+				if ( ( i > 0 ) && ( (i+1) % 10 ) == 0 )
+				{
+					[fileString appendFormat:@"\r\n\t\t"];
+				}
+			}
+		}
+		[fileString appendString:@"\r\n"];
+#else
 		int i;
 		for ( i=0; i<_numverts; i++ )
 		{
@@ -49,9 +70,9 @@ namespace GLMeshWriter
 			
 			[fileString appendString:@"#if GLInterleavedVert3D_color\r\n"];
 #if GLInterleavedVert3D_color
-			[fileString appendFormat:@"\t\t%d, %d, %d, %d,\r\n", vert->color.red, vert->color.green, vert->color.blue, vert->color.alpha];
+			[fileString appendFormat:@"\t\t%u, %u, %u, %u,\r\n", vert->color.red, vert->color.green, vert->color.blue, vert->color.alpha];
 #else
-			[fileString appendString:@"\t\t0, 0, 0, 256,\r\n"];
+			[fileString appendString:@"\t\t%u, %u, %u, %u,\r\n", 0, 0, 0, 255];
 #endif
 			[fileString appendString:@"#endif\r\n"];
 			
@@ -62,7 +83,7 @@ namespace GLMeshWriter
 			}
 			[fileString appendString:@"\r\n"];
 		}
-		
+#endif
 		[fileString appendString:@"\t};\r\n"];
 		
 		[fileString appendString:@"\r\n"];

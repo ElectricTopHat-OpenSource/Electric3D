@@ -90,6 +90,20 @@
 // ------------------------------------------
 - (void) update:(id)_sender
 {	
+	if ( model )
+	{
+		CGMaths::CGMatrix4x4 mat = model->transform();
+		CGMaths::CGMatrix4x4 rot = CGMaths::CGMatrix4x4MakeRotation( CGMaths::CGVector3DMake( 0.0f, 1.0f, 0.0f ), 10.0f * CGMaths::degreesToRadians );
+		//CGMaths::CGMatrix4x4 rot2 = CGMaths::CGMatrix4x4MakeRotation( CGMaths::CGVector3DMake( 1.0f, 0.0f, 0.0f ), 10.0f * CGMaths::degreesToRadians );
+		//CGMaths::CGMatrix4x4 rot = CGMaths::CGMatrix4x4Multiply( rot1, rot2 );
+		
+		CGMaths::CGMatrix4x4 newMat = CGMaths::CGMatrix4x4Multiply( mat, rot );
+		
+		//CGMaths::CGMatrix4x4SetTranslation( newMat, 0, 0, 10 );
+		
+		model->setTransform( newMat );
+	}
+	
 	[self drawView:nil];
 }
 
@@ -109,7 +123,9 @@
 	scene = new GLObjects::GLScene( @"Test" );
 	
 	texture = nil; 
-	mesh	= [self meshes]->load( @"MD2StaticMeshTest", @"md2" );
+	//mesh	= [self meshes]->load( @"MD2StaticMeshTest", @"md2" );
+	//mesh	= [self meshes]->load( @"E3D_cube", @"md2" );
+	mesh	= [self meshes]->load( @"vertex_cube", @"POD" );
 	
 	if ( mesh )
 	{
@@ -122,7 +138,7 @@
 	
 	[self addScene:scene];
 	
-	CGMaths::CGVector3D eye		= CGMaths::CGVector3DMake( 70.0f, 0.0f, 0.0f );
+	CGMaths::CGVector3D eye		= CGMaths::CGVector3DMake( 10.0f, 0.0f, 0.0f );
 	CGMaths::CGVector3D target  = CGMaths::CGVector3DMake( 0.0f, 0.0f, 0.0f );
 	
 	[self camera]->setTransform( eye, target );
@@ -135,10 +151,13 @@
 {
 	[self removeScene:scene];
 	
-	scene->remove( model );
+	if ( model )
+	{
+		scene->remove( model );
 	
-	[self textures]->release( model->texture() );
-	[self meshes]->release( model->mesh() );
+		[self textures]->release( model->texture() );
+		[self meshes]->release( model->mesh() );
+	}
 
 	delete( model );
 	delete( scene );

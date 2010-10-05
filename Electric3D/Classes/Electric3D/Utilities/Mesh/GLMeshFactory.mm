@@ -12,11 +12,28 @@
 #import "GLMeshVertexAnimation.h"
 
 #pragma mark ---------------------------------------------------------
-#pragma mark MD2Model includes
-#pragma mark ---------------------------------------------------------
+
+#pragma mark MAX3DSModel
+
+#import "MAX3DSModel.h"
+#import "MAX3DSModelConvertor.h"
+
+#pragma mark End MAX3DSModel
+
+
+#pragma mark MD2Model
 
 #import "MD2Model.h"
 #import "MD2ModelConvertor.h"
+
+#pragma mark End MD2Model
+
+#pragma mark PVRPODModel
+
+#import "PVRPODModel.h"
+#import "PVRPODModelConvertor.h"
+
+#pragma mark End PVRPODModel
 
 #pragma mark ---------------------------------------------------------
 
@@ -31,6 +48,8 @@ namespace GLMeshes
 		eMeshFileExt_MS = 0,
 		eMeshFileExt_MVA,
 		eMeshFileExt_MD2,
+		eMeshFileExt_3DS,
+		eMeshFileExt_POD,
 		
 	} eMeshFileExt;
 	
@@ -51,6 +70,8 @@ namespace GLMeshes
 					 [NSNumber numberWithInt:eMeshFileExt_MS], @"ms",
 					 [NSNumber numberWithInt:eMeshFileExt_MVA], @"mva",
 					 [NSNumber numberWithInt:eMeshFileExt_MD2], @"md2",
+					 [NSNumber numberWithInt:eMeshFileExt_3DS], @"3ds",
+					 [NSNumber numberWithInt:eMeshFileExt_POD], @"pod",
 					 nil];
 	}
 
@@ -142,6 +163,16 @@ namespace GLMeshes
 				case eMeshFileExt_MD2:
 				{
 					mesh = loadMD2( _filePath );
+					break;
+				}
+				case eMeshFileExt_3DS:
+				{
+					mesh = load3DS( _filePath );
+					break;
+				}
+				case eMeshFileExt_POD:
+				{
+					mesh = loadPOD( _filePath );
 					break;
 				}
 				default:
@@ -295,6 +326,76 @@ namespace GLMeshes
 				}
 			}
 		}
+		return nil;
+	}
+	
+	// --------------------------------------------------
+	// load an 3DS Mesh
+	// --------------------------------------------------
+	GLMesh * GLMeshFactory::load3DS( const NSString * _filePath )
+	{
+		NSFileHandle * file = [NSFileHandle fileHandleForReadingAtPath:_filePath];
+		if ( file )
+		{
+			NSData * data = [file readDataToEndOfFile];
+			
+			NSLog( @"load3DS file of size %d", [data length] );
+			
+			MAX3DS::MAX3DSModel model( data );
+			
+			if ( model.valid() && model.count() )
+			{
+				const MAX3DS::MAX3DS_OBJECT * mesh0 = model.objectAtIndex(0);
+				
+				GLMeshStatic * staticMesh = new GLMeshStatic( mesh0->header.numVerts, _filePath );
+				
+				if ( !MAX3DS::convertFrameToVerts( mesh0, staticMesh->verts() ) )
+				{
+					delete( staticMesh );
+					staticMesh = nil;
+				}
+				
+				return staticMesh;
+			}
+		}
+		
+		return nil;
+	}
+	
+	// --------------------------------------------------
+	// load an POD Mesh
+	// --------------------------------------------------
+	GLMesh * GLMeshFactory::loadPOD( const NSString * _filePath )
+	{
+		NSFileHandle * file = [NSFileHandle fileHandleForReadingAtPath:_filePath];
+		if ( file )
+		{
+			NSData * data = [file readDataToEndOfFile];
+			
+			NSLog( @"loadPOD file of size %d", [data length] );
+			
+			PVRPOD::PVRPODModel model( data );
+			
+			if ( model.valid() )
+			{
+				const PVRPOD::PODScene * scene = model.scene();
+				if ( scene->numMeshes )
+				{
+					const PVRPOD::PODMesh * mesh = &scene->meshes[0];
+					
+					GLMeshStatic * staticMesh = new GLMeshStatic( mesh->numVertices, _filePath );
+					
+					if ( !PVRPOD::convertFrameToVerts( mesh, staticMesh->verts() ) )
+					{
+						delete( staticMesh );
+						staticMesh = nil;
+					}
+					
+					return staticMesh;
+				}
+			}
+		}
+		
 		return nil;
 	}
 	

@@ -188,6 +188,7 @@
 		078B095A1251F51500227D49 /* GLTestStaticMesh.mm in Sources */ = {isa = PBXBuildFile; fileRef = 078B09591251F51500227D49 /* GLTestStaticMesh.mm */; };
 		078B097D1251F9C000227D49 /* GLTestVertexAnimatedMesh.mm in Sources */ = {isa = PBXBuildFile; fileRef = 078B097C1251F9C000227D49 /* GLTestVertexAnimatedMesh.mm */; };
 		078B0B95125259AF00227D49 /* GLCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 078B0A9B125220CB00227D49 /* GLCamera.mm */; };
+		079E42CA125BA66400AFC765 /* vertex_cube.POD in Resources */ = {isa = PBXBuildFile; fileRef = 079E42C9125BA66400AFC765 /* vertex_cube.POD */; };
 		07A8F2B612535015009E62A5 /* GLTestCameraGeneral.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A8F2B512535015009E62A5 /* GLTestCameraGeneral.mm */; };
 		07A8F45712536F73009E62A5 /* GLPerspective.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A8F45612536F73009E62A5 /* GLPerspective.mm */; };
 		07A8F4A412539EE1009E62A5 /* GLTestCameraPerspective.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A8F4A312539EE1009E62A5 /* GLTestCameraPerspective.mm */; };
@@ -199,6 +200,14 @@
 		07A8F5831253B47D009E62A5 /* GLTestColorModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A8F5821253B47D009E62A5 /* GLTestColorModel.mm */; };
 		07A8F59A1253B54B009E62A5 /* GLTestColorSceneModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A8F5991253B54B009E62A5 /* GLTestColorSceneModel.mm */; };
 		07A8F6251254D88A009E62A5 /* CGTestMathsAABB.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A8F6241254D88A009E62A5 /* CGTestMathsAABB.mm */; };
+		07ECE27F125A0AE10097D909 /* Box.3ds in Resources */ = {isa = PBXBuildFile; fileRef = 07ECE27E125A0AE10097D909 /* Box.3ds */; };
+		07ECE288125A0C040097D909 /* MAX3DSModelConvertor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07ECE287125A0C040097D909 /* MAX3DSModelConvertor.mm */; };
+		07ECE291125A0D050097D909 /* MAX3DSModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07ECE1821259E82E0097D909 /* MAX3DSModel.mm */; };
+		07ECE42C125A40720097D909 /* vertexpaintcube.3DS in Resources */ = {isa = PBXBuildFile; fileRef = 07ECE42B125A40720097D909 /* vertexpaintcube.3DS */; };
+		07ECE49B125A46B10097D909 /* 3DS_d.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 07ECE499125A46B10097D909 /* 3DS_d.rtf */; };
+		07ECE49C125A46B10097D909 /* 3ds.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 07ECE49A125A46B10097D909 /* 3ds.rtf */; };
+		07ECE4C9125A4BC60097D909 /* PVRPODModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07ECE4C8125A4BC60097D909 /* PVRPODModel.mm */; };
+		07ECE4D8125A4DDC0097D909 /* PVRPODModelConvertor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07ECE4D7125A4DDC0097D909 /* PVRPODModelConvertor.mm */; };
 		1D3623260D0F684500981E51 /* Electric3DAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* Electric3DAppDelegate.mm */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -344,6 +353,8 @@
 		0799C10A1256043800846A9C /* GLTextures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTextures.h; sourceTree = "<group>"; };
 		0799C10B1256046B00846A9C /* GLSprites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLSprites.h; sourceTree = "<group>"; };
 		0799C10C125604E700846A9C /* Timers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timers.h; sourceTree = "<group>"; };
+		079E40D7125B809800AFC765 /* PVRPODUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVRPODUtility.h; sourceTree = "<group>"; };
+		079E42C9125BA66400AFC765 /* vertex_cube.POD */ = {isa = PBXFileReference; lastKnownFileType = file; path = vertex_cube.POD; sourceTree = "<group>"; };
 		07A8F2B412535015009E62A5 /* GLTestCameraGeneral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTestCameraGeneral.h; sourceTree = "<group>"; };
 		07A8F2B512535015009E62A5 /* GLTestCameraGeneral.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLTestCameraGeneral.mm; sourceTree = "<group>"; };
 		07A8F45512536F73009E62A5 /* GLPerspective.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLPerspective.h; sourceTree = "<group>"; };
@@ -365,6 +376,21 @@
 		07A8F6231254D88A009E62A5 /* CGTestMathsAABB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGTestMathsAABB.h; sourceTree = "<group>"; };
 		07A8F6241254D88A009E62A5 /* CGTestMathsAABB.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CGTestMathsAABB.mm; sourceTree = "<group>"; };
 		07A8F6261254DA17009E62A5 /* CGTextMaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGTextMaths.h; sourceTree = "<group>"; };
+		07ECE17F1259E8100097D909 /* MAX3DSTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAX3DSTypes.h; sourceTree = "<group>"; };
+		07ECE1811259E82E0097D909 /* MAX3DSModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAX3DSModel.h; sourceTree = "<group>"; };
+		07ECE1821259E82E0097D909 /* MAX3DSModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MAX3DSModel.mm; sourceTree = "<group>"; };
+		07ECE27E125A0AE10097D909 /* Box.3ds */ = {isa = PBXFileReference; lastKnownFileType = file; path = Box.3ds; sourceTree = "<group>"; };
+		07ECE286125A0C040097D909 /* MAX3DSModelConvertor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAX3DSModelConvertor.h; sourceTree = "<group>"; };
+		07ECE287125A0C040097D909 /* MAX3DSModelConvertor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MAX3DSModelConvertor.mm; sourceTree = "<group>"; };
+		07ECE348125A1BC30097D909 /* MAX3DSUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAX3DSUtility.h; sourceTree = "<group>"; };
+		07ECE42B125A40720097D909 /* vertexpaintcube.3DS */ = {isa = PBXFileReference; lastKnownFileType = file; path = vertexpaintcube.3DS; sourceTree = "<group>"; };
+		07ECE499125A46B10097D909 /* 3DS_d.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = 3DS_d.rtf; sourceTree = "<group>"; };
+		07ECE49A125A46B10097D909 /* 3ds.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = 3ds.rtf; sourceTree = "<group>"; };
+		07ECE4C6125A4B800097D909 /* PVRPODTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVRPODTypes.h; sourceTree = "<group>"; };
+		07ECE4C7125A4BC60097D909 /* PVRPODModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVRPODModel.h; sourceTree = "<group>"; };
+		07ECE4C8125A4BC60097D909 /* PVRPODModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PVRPODModel.mm; sourceTree = "<group>"; };
+		07ECE4D6125A4DDC0097D909 /* PVRPODModelConvertor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVRPODModelConvertor.h; sourceTree = "<group>"; };
+		07ECE4D7125A4DDC0097D909 /* PVRPODModelConvertor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PVRPODModelConvertor.mm; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* Electric3DAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Electric3DAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* Electric3DAppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Electric3DAppDelegate.mm; sourceTree = "<group>"; };
@@ -644,6 +670,8 @@
 		077FF709124BB80F00FC7D17 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				07ECE4E8125A5BAD0097D909 /* POD */,
+				07ECE276125A0A5D0097D909 /* MAX3DS */,
 				077FF70A124BB82200FC7D17 /* MD2 */,
 			);
 			path = Models;
@@ -719,6 +747,8 @@
 				078B02E6124F982A00227D49 /* Shapes */,
 				077FF916124CB40300FC7D17 /* MD2 */,
 				078B0B2F1252494300227D49 /* MD3 */,
+				07ECE15B1259DA140097D909 /* MAX3DS */,
+				07ECE4C5125A4B4D0097D909 /* PVRPOD */,
 			);
 			path = Formats;
 			sourceTree = "<group>";
@@ -896,6 +926,59 @@
 				07A8F6241254D88A009E62A5 /* CGTestMathsAABB.mm */,
 			);
 			path = Maths;
+			sourceTree = "<group>";
+		};
+		07ECE15B1259DA140097D909 /* MAX3DS */ = {
+			isa = PBXGroup;
+			children = (
+				07ECE495125A46930097D909 /* info */,
+				07ECE348125A1BC30097D909 /* MAX3DSUtility.h */,
+				07ECE17F1259E8100097D909 /* MAX3DSTypes.h */,
+				07ECE1811259E82E0097D909 /* MAX3DSModel.h */,
+				07ECE1821259E82E0097D909 /* MAX3DSModel.mm */,
+				07ECE286125A0C040097D909 /* MAX3DSModelConvertor.h */,
+				07ECE287125A0C040097D909 /* MAX3DSModelConvertor.mm */,
+			);
+			path = MAX3DS;
+			sourceTree = "<group>";
+		};
+		07ECE276125A0A5D0097D909 /* MAX3DS */ = {
+			isa = PBXGroup;
+			children = (
+				07ECE42B125A40720097D909 /* vertexpaintcube.3DS */,
+				07ECE27E125A0AE10097D909 /* Box.3ds */,
+			);
+			path = MAX3DS;
+			sourceTree = "<group>";
+		};
+		07ECE495125A46930097D909 /* info */ = {
+			isa = PBXGroup;
+			children = (
+				07ECE499125A46B10097D909 /* 3DS_d.rtf */,
+				07ECE49A125A46B10097D909 /* 3ds.rtf */,
+			);
+			path = info;
+			sourceTree = "<group>";
+		};
+		07ECE4C5125A4B4D0097D909 /* PVRPOD */ = {
+			isa = PBXGroup;
+			children = (
+				079E40D7125B809800AFC765 /* PVRPODUtility.h */,
+				07ECE4C6125A4B800097D909 /* PVRPODTypes.h */,
+				07ECE4C7125A4BC60097D909 /* PVRPODModel.h */,
+				07ECE4C8125A4BC60097D909 /* PVRPODModel.mm */,
+				07ECE4D6125A4DDC0097D909 /* PVRPODModelConvertor.h */,
+				07ECE4D7125A4DDC0097D909 /* PVRPODModelConvertor.mm */,
+			);
+			path = PVRPOD;
+			sourceTree = "<group>";
+		};
+		07ECE4E8125A5BAD0097D909 /* POD */ = {
+			isa = PBXGroup;
+			children = (
+				079E42C9125BA66400AFC765 /* vertex_cube.POD */,
+			);
+			path = POD;
 			sourceTree = "<group>";
 		};
 		080E96DDFE201D6D7F000001 /* Classes */ = {
@@ -1148,6 +1231,11 @@
 				07126F6B1255199A00C94F40 /* Credits.rtf in Resources */,
 				07126F6C1255199A00C94F40 /* Install.rtf in Resources */,
 				07126F6D1255199A00C94F40 /* README in Resources */,
+				07ECE27F125A0AE10097D909 /* Box.3ds in Resources */,
+				07ECE42C125A40720097D909 /* vertexpaintcube.3DS in Resources */,
+				07ECE49B125A46B10097D909 /* 3DS_d.rtf in Resources */,
+				07ECE49C125A46B10097D909 /* 3ds.rtf in Resources */,
+				079E42CA125BA66400AFC765 /* vertex_cube.POD in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1255,6 +1343,10 @@
 				07A8F5831253B47D009E62A5 /* GLTestColorModel.mm in Sources */,
 				07A8F59A1253B54B009E62A5 /* GLTestColorSceneModel.mm in Sources */,
 				07A8F6251254D88A009E62A5 /* CGTestMathsAABB.mm in Sources */,
+				07ECE288125A0C040097D909 /* MAX3DSModelConvertor.mm in Sources */,
+				07ECE291125A0D050097D909 /* MAX3DSModel.mm in Sources */,
+				07ECE4C9125A4BC60097D909 /* PVRPODModel.mm in Sources */,
+				07ECE4D8125A4DDC0097D909 /* PVRPODModelConvertor.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

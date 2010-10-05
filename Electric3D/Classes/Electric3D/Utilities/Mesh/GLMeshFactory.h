@@ -58,6 +58,8 @@ namespace GLMeshes
 		GLMesh * loadMS( const NSString * _filePath );
 		GLMesh * loadMVA( const NSString * _filePath );
 		GLMesh * loadMD2( const NSString * _filePath );
+		GLMesh * load3DS( const NSString * _filePath );
+		GLMesh * loadPOD( const NSString * _filePath );
 		
 #pragma mark ---------------------------------------------------------
 #pragma mark === End Private Functions  ===

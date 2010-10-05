@@ -69,9 +69,9 @@ namespace MD2
 					
 #if GLInterleavedVert3D_color
 					// set the vertex colors
-					vert->color.red		= 0;
-					vert->color.green	= 0;
-					vert->color.blue	= 0;
+					vert->color.red		= 255;
+					vert->color.green	= 255;
+					vert->color.blue	= 255;
 					vert->color.alpha	= 255;
 #endif
 				}

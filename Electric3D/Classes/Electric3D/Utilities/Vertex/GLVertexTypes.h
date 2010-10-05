@@ -12,7 +12,7 @@
 
 #import "GLVertexComponents.h"
 
-#define GLInterleavedVert3D_color 0
+#define GLInterleavedVert3D_color 1
 
 typedef struct
 {

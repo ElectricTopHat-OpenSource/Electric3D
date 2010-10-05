@@ -31,6 +31,8 @@ namespace GLMeshes { class GLMesh; };
 	
 	GLTestMeshFactory_container *	md2animated;
 	GLTestMeshFactory_container *	md2static;
+	GLTestMeshFactory_container *	md2MAX3DS;
+	GLTestMeshFactory_container *	md2PVRPOD;
 	
 	GLMeshes::GLMeshFactory *		factory;
 }

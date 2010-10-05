@@ -98,6 +98,14 @@
 	{
 		[self updateContainerTest:md2static];
 	}
+	else if ( !md2MAX3DS->complete )
+	{
+		[self updateContainerTest:md2MAX3DS];
+	}
+	else if ( !md2PVRPOD->complete )
+	{
+		[self updateContainerTest:md2PVRPOD];
+	}
 }
 
 #pragma mark ---------------------------------------------------------
@@ -135,6 +143,22 @@
 	md2static->deleted			= FALSE;
 	md2static->complete			= FALSE;
 	
+	md2MAX3DS = [[GLTestMeshFactory_container alloc] init];
+	md2MAX3DS->bundleMesh		= @"vertexpaintcube.3DS";//@"Box.3ds";
+	md2MAX3DS->localfileMesh	= [[DOCUMENTS_PATH stringByAppendingPathComponent:@"MSBox.ms"] copy];
+	md2MAX3DS->meshA			= nil;
+	md2MAX3DS->meshB			= nil;
+	md2MAX3DS->deleted			= FALSE;
+	md2MAX3DS->complete			= FALSE;
+	
+	md2PVRPOD = [[GLTestMeshFactory_container alloc] init];
+	md2PVRPOD->bundleMesh		= @"vertex_cube.POD";
+	md2PVRPOD->localfileMesh	= [[DOCUMENTS_PATH stringByAppendingPathComponent:@"MSCube.ms"] copy];
+	md2PVRPOD->meshA			= nil;
+	md2PVRPOD->meshB			= nil;
+	md2PVRPOD->deleted			= FALSE;
+	md2PVRPOD->complete			= FALSE;
+	
 	factory = new GLMeshes::GLMeshFactory();
 	
 	const GLMeshes::GLMesh * cone		= factory->load( @"E3D_cone", @"md2" );
@@ -166,6 +190,8 @@
 	
 	SAFE_RELEASE( md2animated );
 	SAFE_RELEASE( md2static );
+	SAFE_RELEASE( md2MAX3DS );
+	SAFE_RELEASE( md2PVRPOD );
 	
 	[display removeFromSuperview];
 	SAFE_RELEASE( display );
@@ -179,11 +205,8 @@
 	if ( _text)
 	{
 		NSString * currentText = [display text];
-		NSString * newText = [NSString stringWithFormat:@"%@%@\n",currentText, _text];
-		CGPoint p = [display contentOffset];
+		NSString * newText = [NSString stringWithFormat:@"\n%@%@", _text, currentText];
 		[display setText:newText];
-		[display setContentOffset:p animated:NO];
-		[display scrollRangeToVisible:NSMakeRange([newText length]-1, 0)];
 	}
 }
 
@@ -215,6 +238,12 @@
 		{
 			[self print:[NSString stringWithFormat:@"Loaded %@ model into memory in %.3f", _container->bundleMesh, end-start]];
 		}
+		else 
+		{
+			[self print:[NSString stringWithFormat:@"Failed to load %@", [_container->bundleMesh lastPathComponent]]];
+			[self print:@""];
+			_container->complete = TRUE;
+		}
 	}
 	else if ( _container->meshA && ![[NSFileManager defaultManager] fileExistsAtPath:_container->localfileMesh] )
 	{
@@ -243,6 +272,8 @@
 		else 
 		{
 			[self print:[NSString stringWithFormat:@"Failed to load %@", [_container->localfileMesh lastPathComponent]]];
+			[self print:@""];
+			_container->complete = TRUE;
 		}
 	}
 	else 
