@@ -93,6 +93,8 @@
 		071270F11255246C00C94F40 /* GLCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 078B0A9A125220CB00227D49 /* GLCamera.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		071270F21255246C00C94F40 /* GLPerspective.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A8F45512536F73009E62A5 /* GLPerspective.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		071270F31255247100C94F40 /* GLCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 078B0A9B125220CB00227D49 /* GLCamera.mm */; };
+		073F0279125C8238005F7C98 /* GLVertexUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 073F0278125C8238005F7C98 /* GLVertexUtility.h */; };
+		073F02F2125C8E66005F7C98 /* vertex_cube_indexed.POD in Resources */ = {isa = PBXBuildFile; fileRef = 073F02AE125C8787005F7C98 /* vertex_cube_indexed.POD */; };
 		0774F088125609A2006AC5BA /* GLMeshes.h in Headers */ = {isa = PBXBuildFile; fileRef = 0799C109125603E300846A9C /* GLMeshes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0774F089125609AE006AC5BA /* GLTextures.h in Headers */ = {isa = PBXBuildFile; fileRef = 0799C10A1256043800846A9C /* GLTextures.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0774F08A125609B9006AC5BA /* GLSprites.h in Headers */ = {isa = PBXBuildFile; fileRef = 0799C10B1256046B00846A9C /* GLSprites.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -232,6 +234,8 @@
 		07126F691255199A00C94F40 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		07126F6E12551E3700C94F40 /* Electric3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Electric3D.h; sourceTree = "<group>"; };
 		07126F7312551F0E00C94F40 /* libElectric3D.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libElectric3D.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		073F0278125C8238005F7C98 /* GLVertexUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLVertexUtility.h; sourceTree = "<group>"; };
+		073F02AE125C8787005F7C98 /* vertex_cube_indexed.POD */ = {isa = PBXFileReference; lastKnownFileType = file; name = vertex_cube_indexed.POD; path = ../../../../../../Desktop/vertex_cube_indexed.POD; sourceTree = SOURCE_ROOT; };
 		077FF0E21248C53D00FC7D17 /* CGMaths.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = CGMaths.h; sourceTree = "<group>"; };
 		077FF0EC1248C5FF00FC7D17 /* CGMathsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGMathsConstants.h; sourceTree = "<group>"; };
 		077FF0ED1248C69500FC7D17 /* CGMathsUtilties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGMathsUtilties.h; sourceTree = "<group>"; };
@@ -738,6 +742,7 @@
 			isa = PBXGroup;
 			children = (
 				0799C0FC1256036400846A9C /* GLVertexs.h */,
+				073F0278125C8238005F7C98 /* GLVertexUtility.h */,
 				077FF914124CB32200FC7D17 /* GLVertexTypes.h */,
 				077FF913124CB28300FC7D17 /* GLVertexComponents.h */,
 			);
@@ -981,6 +986,7 @@
 			isa = PBXGroup;
 			children = (
 				079E42C9125BA66400AFC765 /* vertex_cube.POD */,
+				073F02AE125C8787005F7C98 /* vertex_cube_indexed.POD */,
 			);
 			path = POD;
 			sourceTree = "<group>";
@@ -1129,6 +1135,7 @@
 				079E4390125BDE1900AFC765 /* GLMeshCube.h in Headers */,
 				079E4391125BDE1900AFC765 /* GLMeshCylinder.h in Headers */,
 				079E4392125BDE1900AFC765 /* GLMeshSphere.h in Headers */,
+				073F0279125C8238005F7C98 /* GLVertexUtility.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1240,6 +1247,7 @@
 				07ECE49B125A46B10097D909 /* 3DS_d.rtf in Resources */,
 				07ECE49C125A46B10097D909 /* 3ds.rtf in Resources */,
 				079E42CA125BA66400AFC765 /* vertex_cube.POD in Resources */,
+				073F02F2125C8E66005F7C98 /* vertex_cube_indexed.POD in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

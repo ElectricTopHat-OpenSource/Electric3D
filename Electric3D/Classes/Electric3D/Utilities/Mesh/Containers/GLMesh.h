@@ -10,6 +10,7 @@
 #if !defined(__GLMesh_h__)
 #define __GLMesh_h__
 
+#import "CGMaths.h"
 #import "GLMeshTypes.h"
 #import "GLVertexTypes.h"
 
@@ -53,14 +54,20 @@ namespace GLMeshes
 		
 		virtual eGLMeshType type() const = 0;
 		
-		inline const NSString *	name() const { return [m_name lastPathComponent]; };
-		inline const NSUInteger hash() const { return m_hash; };
+		inline const NSString *				name() const { return [m_name lastPathComponent]; };
+		inline const NSUInteger				hash() const { return m_hash; };
 		
 		virtual BOOL read( NSString * _filePath ) = 0;
 		virtual BOOL write( NSString * _filePath ) const = 0;
 		
 		virtual const NSUInteger			numverts() const = 0;
+		virtual const NSUInteger			numindices() const = 0;
+		
+		virtual const CGMaths::CGAABB &		AABB() const = 0;
+		
+		virtual const eGLVertListType		vertListType() const = 0;
 		virtual const GLInterleavedVert3D *	verts() const = 0;
+		virtual const GLVertIndice *		indices() const = 0;
 		
 #pragma mark ---------------------------------------------------------
 #pragma mark === End Public Functions  ===

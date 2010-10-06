@@ -35,20 +35,26 @@ namespace GLMeshes
 	, m_data		( 0 )
 	, m_header		( 0 )
 	, m_verts		( 0 )
+	, m_indices		( 0 )
 	{
 		read( _filePath );
 	}
 	
-	GLMeshStatic::GLMeshStatic( unsigned int _numverts, NSString * _name )
+	GLMeshStatic::GLMeshStatic( const GLMeshStaticInfo & _info, NSString * _name )
 	: GLMesh		( _name )
 	, m_data		( 0 )
 	, m_header		( 0 )
 	, m_verts		( 0 )
-	{
+	, m_indices		( 0 )
+	{		
 		// -----------------------------------------------
 		// malloc the data
 		// -----------------------------------------------
-		int space = sizeof( GLMeshStaticHeader ) + ( sizeof(GLInterleavedVert3D) * _numverts );
+		int buffer  = sizeof(GLInterleavedVert3D) * _info.numverts;
+		int indices = ( _info.numindices ) ? sizeof(GLVertIndice) * _info.numindices : 0;
+		int header	= sizeof(GLMeshStaticHeader);
+		int space	= header + buffer + indices;
+
 		void * bytes = (void*)malloc( space );
 		memset(bytes, 0, space);
 		// -----------------------------------------------
@@ -71,14 +77,23 @@ namespace GLMeshes
 		// -----------------------------------------------
 		m_header->ident		= _kMSIdent;
 		m_header->version	= _kMSVersion;
-		m_header->numverts	= _numverts;
+		memcpy( &m_header->info, &_info, sizeof(GLMeshStaticInfo));
 		// -----------------------------------------------
 		
 		// -----------------------------------------------
 		// Fix up the pointers
 		// -----------------------------------------------
 		unsigned char * p = (unsigned char*)bytes;
-		m_verts = (GLInterleavedVert3D*)&p[sizeof( GLMeshStaticHeader )];
+		m_verts = (GLInterleavedVert3D*)&p[header];
+		// -----------------------------------------------
+		
+		// -----------------------------------------------
+		// Fix up the indices pointer
+		// -----------------------------------------------
+		if ( _info.numindices )
+		{
+			m_indices = (GLVertIndice*)&p[header+buffer];
+		}
 		// -----------------------------------------------
 	}
 	
@@ -100,6 +115,9 @@ namespace GLMeshes
 		NSFileHandle * file = [NSFileHandle fileHandleForReadingAtPath:_filePath];
 		if ( file )
 		{
+			// release the old file
+			SAFE_RELEASE(m_data);
+			
 #if USE_COMPRESSED_MS_FILE
 			
 			// read the compressed file
@@ -136,13 +154,23 @@ namespace GLMeshes
 				}
 				else 
 				{
-					// keep the bytes in memory
-					[m_data retain];
-					
-					// set up the vert pointer
-					m_verts = (GLInterleavedVert3D*)&p[headerSize];
-					
-					return true;
+					unsigned int chunksize = headerSize + ( sizeof(GLInterleavedVert3D) * m_header->info.numverts );
+					if ( [m_data length] >= chunksize )
+					{
+						// keep the bytes in memory
+						[m_data retain];
+						
+						// set up the vert pointer
+						m_verts = (GLInterleavedVert3D*)&p[headerSize];
+						
+						// set up the indices list
+						if ( m_header->info.numindices )
+						{
+							m_indices = (GLVertIndice*)&p[chunksize];
+						}
+						
+						return true;
+					}
 				}
 			}
 		}

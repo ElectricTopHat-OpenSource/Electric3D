@@ -120,9 +120,33 @@ namespace GLObjects
 	}
 	
 	// --------------------------------------------------
+	// Number indices in the mesh
+	// --------------------------------------------------
+	NSUInteger GLModelVertexAnimation::numindices() const
+	{
+		if ( m_mesh )
+		{
+			return m_mesh->numindices();
+		}
+		return 0;
+	}
+	
+	// --------------------------------------------------
+	// Return the vert list type
+	// --------------------------------------------------
+	const eGLVertListType GLModelVertexAnimation::vertListType() const
+	{
+		if ( m_mesh )
+		{
+			return m_mesh->vertListType();
+		}
+		return eGLVertListType_Unknown;
+	}
+	
+	// --------------------------------------------------
 	// Get the verts for the mesh
 	// --------------------------------------------------
-	const GLInterleavedVert3D* GLModelVertexAnimation::verts() const
+	const GLInterleavedVert3D * GLModelVertexAnimation::verts() const
 	{
 		if ( m_mesh )
 		{
@@ -136,6 +160,18 @@ namespace GLObjects
 			}
 		}
 		return nil;
+	}
+	
+	// --------------------------------------------------
+	// Get the verts indices for the mesh
+	// --------------------------------------------------
+	const GLVertIndice * GLModelVertexAnimation::indices() const
+	{
+		if ( m_mesh )
+		{
+			return m_mesh->indices();
+		}
+		return 0;
 	}
 	
 #pragma mark ---------------------------------------------------------

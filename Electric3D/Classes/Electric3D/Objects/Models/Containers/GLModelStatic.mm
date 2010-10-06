@@ -53,13 +53,49 @@ namespace GLObjects
 	}
 	
 	// --------------------------------------------------
+	// Number faces in the mesh
+	// --------------------------------------------------
+	NSUInteger GLModelStatic::numindices() const
+	{
+		if ( m_mesh )
+		{
+			return m_mesh->numindices();
+		}
+		return 0;
+	}
+
+	// --------------------------------------------------
+	// Return the vert list type
+	// --------------------------------------------------
+	const eGLVertListType GLModelStatic::vertListType() const
+	{
+		if ( m_mesh )
+		{
+			return m_mesh->vertListType();
+		}
+		return eGLVertListType_Unknown;
+	}
+	
+	// --------------------------------------------------
 	// Get the verts for the mesh
 	// --------------------------------------------------
-	const GLInterleavedVert3D* GLModelStatic::verts() const
+	const GLInterleavedVert3D * GLModelStatic::verts() const
 	{
 		if ( m_mesh )
 		{
 			return m_mesh->verts();
+		}
+		return 0;
+	}
+	
+	// --------------------------------------------------
+	// Get the verts indices for the mesh
+	// --------------------------------------------------
+	const GLVertIndice * GLModelStatic::indices() const
+	{
+		if ( m_mesh )
+		{
+			return m_mesh->indices();
 		}
 		return 0;
 	}

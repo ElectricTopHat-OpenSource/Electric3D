@@ -50,7 +50,10 @@ namespace GLObjects
 		virtual const GLMeshes::GLMesh * mesh() const;
 		
 		virtual NSUInteger numverts() const;
-		virtual const GLInterleavedVert3D* verts() const;
+		virtual NSUInteger numindices() const;
+		virtual const eGLVertListType vertListType() const;
+		virtual const GLInterleavedVert3D * verts() const;
+		virtual const GLVertIndice * indices() const;
 		
 #pragma mark ---------------------------------------------------------
 #pragma mark === End Public Functions  ===

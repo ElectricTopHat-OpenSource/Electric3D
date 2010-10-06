@@ -11,10 +11,10 @@
 
 namespace PVRPOD
 {
-	BOOL convertFrameToVerts( const PODMesh * _model, GLInterleavedVert3D * _verts )
+	BOOL convertToVerts( const PODMesh * _model, GLInterleavedVert3D * _verts )
 	{
 		if ( ( _model ) && 
-			 ( _model->numVertices ) )
+			( _model->numVertices ) )
 		{
 			if ( _model->numUVW )
 			{
@@ -58,95 +58,118 @@ namespace PVRPOD
 					}
 					
 					const NSInteger	numVerts			= _model->numVertices;
-					const NSInteger numNonIndexVerts	= _model->numFaces * 3;
-					if ( numVerts == numNonIndexVerts )
+					
+					int i;
+					for ( i=0; i<numVerts; i++ )
+					{	
+						// grab the interleaved vertex object
+						GLInterleavedVert3D * vert	= &_verts[i];
+						
+						// -------------------------------------------
+						// pull the verts
+						// -------------------------------------------
+						PODVec3f * v = (PODVec3f *)&mvertsdata[vertpos];
+						
+						vert->vert.x = v->x;
+						vert->vert.y = v->y;
+						vert->vert.z = v->z;
+						
+						vertpos += mverts->stride;
+						
+						NSLog( @"%f, %f, %f", vert->vert.x, vert->vert.y, vert->vert.z );
+						// -------------------------------------------
+						
+						// -------------------------------------------
+						// pull the normals
+						// -------------------------------------------
+						PODVec3f * n = (PODVec3f *)&mnormaldata[normpos];
+						
+						vert->normal.x = n->x;
+						vert->normal.y = n->y;
+						vert->normal.z = n->z;
+						
+						normpos += mnormals->stride;
+						// -------------------------------------------
+						
+						// -------------------------------------------
+						// pull the uvs
+						// -------------------------------------------
+						PODVec2f * uv = (PODVec2f *)&muvwdata[uvwpos];
+						
+						vert->uv.x = uv->x;
+						vert->uv.y = uv->y;
+						
+						uvwpos += mUVW->stride;
+						// -------------------------------------------
+						
+#if GLInterleavedVert3D_color
+						if ( mcolordata )
+						{
+							// -------------------------------------------
+							// pull the colors out
+							// -------------------------------------------
+							PODVec4c * c = (PODVec4c *)&mcolordata[colpos];
+							if ( mvertColor->type == EPODDataRGBA )
+							{	
+								vert->color.red		= c->x;
+								vert->color.green	= c->y;
+								vert->color.blue	= c->z;
+								vert->color.alpha	= c->w;
+							}
+							else if ( ( mvertColor->type == EPODDataARGB ) ||
+									 ( mvertColor->type == EPODDataD3DCOLOR ) )
+							{
+								vert->color.red		= c->y;
+								vert->color.green	= c->z;
+								vert->color.blue	= c->w;
+								vert->color.alpha	= c->x;
+							}
+							colpos += mvertColor->stride;
+							// -------------------------------------------
+						}
+						else
+						{
+							vert->color.red		= 255;
+							vert->color.green	= 255;
+							vert->color.blue	= 255;
+							vert->color.alpha	= 255;
+						}
+						
+#endif
+					}
+					return TRUE;	
+				}
+			}
+		}
+		return false;
+	}
+	
+	BOOL convertToIndices( const PODMesh * _model, GLVertIndice * _indices )
+	{
+		if ( _model && _indices )
+		{
+			if ( _model->numFaces )
+			{
+				const PODData * mfaces	= &_model->faces;
+				if ( mfaces->data )
+				{
+					const NSInteger	numindices	= _model->numFaces*3;
+					if ( mfaces->stride == sizeof(short) )
 					{
-						// Non-Index Triangles
+						memcpy(_indices, mfaces->data, sizeof(short)*numindices);
 						
 						int i;
-						for ( i=0; i<numVerts; i++ )
-						{	
-							// grab the interleaved vertex object
-							GLInterleavedVert3D * vert	= &_verts[i];
-							
-							// -------------------------------------------
-							// pull the verts
-							// -------------------------------------------
-							PODVec3f * v = (PODVec3f *)&mvertsdata[vertpos];
-							
-							vert->vert.x = v->x;
-							vert->vert.y = v->y;
-							vert->vert.z = v->z;
-							
-							vertpos += mverts->stride;
-							
-							NSLog( @"%f, %f, %f", vert->vert.x, vert->vert.y, vert->vert.z );
-							// -------------------------------------------
-							
-							// -------------------------------------------
-							// pull the normals
-							// -------------------------------------------
-							PODVec3f * n = (PODVec3f *)&mnormaldata[normpos];
-							
-							vert->normal.x = n->x;
-							vert->normal.y = n->y;
-							vert->normal.z = n->z;
-							
-							normpos += mnormals->stride;
-							// -------------------------------------------
-							
-							// -------------------------------------------
-							// pull the uvs
-							// -------------------------------------------
-							PODVec2f * uv = (PODVec2f *)&muvwdata[uvwpos];
-							
-							vert->uv.x = uv->x;
-							vert->uv.y = uv->y;
-							
-							uvwpos += mUVW->stride;
-							// -------------------------------------------
-							
-#if GLInterleavedVert3D_color
-							if ( mcolordata )
-							{
-								// -------------------------------------------
-								// pull the colors out
-								// -------------------------------------------
-								PODVec4c * c = (PODVec4c *)&mcolordata[colpos];
-								if ( mvertColor->type == EPODDataRGBA )
-								{	
-									vert->color.red		= c->x;
-									vert->color.green	= c->y;
-									vert->color.blue	= c->z;
-									vert->color.alpha	= c->w;
-								}
-								else if ( ( mvertColor->type == EPODDataARGB ) ||
-										 ( mvertColor->type == EPODDataD3DCOLOR ) )
-								{
-									vert->color.red		= c->y;
-									vert->color.green	= c->z;
-									vert->color.blue	= c->w;
-									vert->color.alpha	= c->x;
-								}
-								colpos += mvertColor->stride;
-								// -------------------------------------------
-							}
-							else
-							{
-								vert->color.red		= 255;
-								vert->color.green	= 255;
-								vert->color.blue	= 255;
-								vert->color.alpha	= 255;
-							}
-							
-#endif
+						for ( i=0; i<numindices; i++ )
+						{
+							NSLog( @"%d", _indices[i] );
 						}
-						return TRUE;
 					}
-					else // Indexed triangle list
+					else 
 					{
-						NSLog( @"I Don't deal with indexed triangle lists yet" );
-					}	
+						// TODO :: iterate over the index list
+					}
+					
+					return TRUE;
 				}
 			}
 		}

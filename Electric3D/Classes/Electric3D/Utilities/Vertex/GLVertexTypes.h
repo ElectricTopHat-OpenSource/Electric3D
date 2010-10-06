@@ -14,6 +14,14 @@
 
 #define GLInterleavedVert3D_color 1
 
+typedef enum
+{
+	eGLVertListType_Unknown = -1,
+	eGLVertListType_NonIndexed = 0,
+	eGLVertListType_Indexed,
+	
+} eGLVertListType;
+
 typedef struct
 {
 	_GLVert2D	vert;
@@ -39,5 +47,7 @@ typedef struct
 	_GLUV		uv;
 	
 } GLInterleavedVert3D;
+
+typedef unsigned short GLVertIndice;
 
 #endif

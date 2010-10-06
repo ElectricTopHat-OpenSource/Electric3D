@@ -11,6 +11,8 @@
 #import "GLMeshStatic.h"
 #import "GLMeshVertexAnimation.h"
 
+#import "GLVertexs.h"
+
 #pragma mark ---------------------------------------------------------
 
 #pragma mark MAX3DSModel
@@ -289,22 +291,41 @@ namespace GLMeshes
 					 ( model.numframes() == 2 ) || // Start and end frame
 					 ( model.numframes() == 20 ) ) // 20 is the default num frames in the QTip Exporter
 				{
-					GLMeshStatic * staticMesh = new GLMeshStatic( model.numverts(), _filePath );
+					GLMeshStaticInfo info;
+					info.numverts	= model.numverts();
+					info.numindices	= 0;
+					info.aabb		= CGMaths::CGAABBUnit;
+					
+					GLMeshStatic * staticMesh = new GLMeshStatic( info, _filePath );
 					
 					if ( !MD2::convertFrameToVerts( &model, 0, staticMesh->verts() ) )
 					{
 						delete( staticMesh );
 						staticMesh = nil;
 					}
+					else 
+					{
+						CGMaths::CGAABB aabb = calculateAABB(staticMesh->verts(), staticMesh->numverts());
+						staticMesh->setAABB( aabb );
+					}
 					
 					return staticMesh;
 				}
 				else 
 				{
-					GLMeshVertexAnimation * animatedMesh = new GLMeshVertexAnimation( model.numverts(), model.numframes(), _filePath );
+					GLMeshVertexAnimationInfo info;
+					info.numframes	= model.numframes();
+					info.numverts	= model.numverts();
+					info.numindices	= 0;
+					info.aabb		= CGMaths::CGAABBUnit;
+					
+					GLMeshVertexAnimation * animatedMesh = new GLMeshVertexAnimation( info, _filePath );
 					
 					if ( MD2::convertFrameToVerts( &model, 0, animatedMesh->interpverts() ) )
 					{
+						CGMaths::CGAABB aabb = calculateAABB(animatedMesh->interpverts(), animatedMesh->numverts());
+						animatedMesh->setAABB( aabb );
+						
 						int i;
 						for ( i=0; i<model.numframes(); i++ )
 						{
@@ -347,12 +368,22 @@ namespace GLMeshes
 			{
 				const MAX3DS::MAX3DS_OBJECT * mesh0 = model.objectAtIndex(0);
 				
-				GLMeshStatic * staticMesh = new GLMeshStatic( mesh0->header.numVerts, _filePath );
+				GLMeshStaticInfo info;
+				info.numverts	= mesh0->header.numVerts;
+				info.numindices	= 0;
+				info.aabb		= CGMaths::CGAABBUnit;
 				
-				if ( !MAX3DS::convertFrameToVerts( mesh0, staticMesh->verts() ) )
+				GLMeshStatic * staticMesh = new GLMeshStatic( info, _filePath );
+				
+				if ( !MAX3DS::convertToVerts( mesh0, staticMesh->verts() ) )
 				{
 					delete( staticMesh );
 					staticMesh = nil;
+				}
+				else 
+				{
+					CGMaths::CGAABB aabb = calculateAABB(staticMesh->verts(), staticMesh->numverts());
+					staticMesh->setAABB( aabb );
 				}
 				
 				return staticMesh;
@@ -383,12 +414,32 @@ namespace GLMeshes
 				{
 					const PVRPOD::PODMesh * mesh = &scene->meshes[0];
 					
-					GLMeshStatic * staticMesh = new GLMeshStatic( mesh->numVertices, _filePath );
+					GLMeshStaticInfo info;
+					info.numverts	= mesh->numVertices;
+					info.numindices	= ( mesh->numVertices != mesh->numFaces*3 ) ? mesh->numFaces*3  : 0;
+					info.aabb		= CGMaths::CGAABBUnit;
 					
-					if ( !PVRPOD::convertFrameToVerts( mesh, staticMesh->verts() ) )
+					GLMeshStatic * staticMesh = new GLMeshStatic( info, _filePath );
+					
+					if ( !PVRPOD::convertToVerts( mesh, staticMesh->verts() ) )
 					{
 						delete( staticMesh );
 						staticMesh = nil;
+					}
+					else 
+					{
+						// is it an indexed triangle mesh
+						if ( staticMesh->indices() )
+						{
+							if ( !PVRPOD::convertToIndices( mesh, staticMesh->indices() ) )
+							{
+								delete( staticMesh );
+								staticMesh = nil;
+							}
+						}
+						
+						CGMaths::CGAABB aabb = calculateAABB(staticMesh->verts(), staticMesh->numverts());
+						staticMesh->setAABB( aabb );
 					}
 					
 					return staticMesh;

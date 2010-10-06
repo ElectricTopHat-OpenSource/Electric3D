@@ -14,7 +14,7 @@ namespace GLMeshes
 {
 	typedef enum 
 	{
-		eGLMeshType_Invalid,
+		eGLMeshType_Invalid = 0,
 		eGLMeshType_Static,
 		eGLMeshType_VertexAnimation,
 		

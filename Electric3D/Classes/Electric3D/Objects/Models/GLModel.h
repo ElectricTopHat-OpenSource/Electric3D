@@ -49,7 +49,10 @@ namespace GLObjects
 		virtual const GLMeshes::GLMesh * mesh() const = 0;
 		
 		virtual NSUInteger numverts() const = 0;
+		virtual NSUInteger numindices() const = 0;
+		virtual const eGLVertListType vertListType() const = 0;
 		virtual const GLInterleavedVert3D* verts() const = 0;
+		virtual const GLVertIndice * indices() const = 0;
 		
 		inline BOOL isHidden() const { return m_hidden; };
 		inline void setHidden( BOOL _hidden ) { m_hidden = _hidden; };

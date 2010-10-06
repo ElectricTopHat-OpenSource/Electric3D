@@ -117,14 +117,22 @@ namespace CGMaths
 	// ---------------------------------------------------
 	// Add a point to an existing AABB
 	// ---------------------------------------------------
+	inline void CGAABBAddPoint( CGAABB & _aabb, float _x, float _y, float _z )
+	{
+		_aabb.min.x = ( _aabb.min.x > _x ) ? _x : _aabb.min.x;
+		_aabb.min.y = ( _aabb.min.y > _y ) ? _y : _aabb.min.y;
+		_aabb.min.z = ( _aabb.min.z > _z ) ? _z : _aabb.min.z;
+		_aabb.max.x = ( _aabb.max.x < _x ) ? _x : _aabb.max.x;
+		_aabb.max.y = ( _aabb.max.y < _y ) ? _y : _aabb.max.y;
+		_aabb.max.z = ( _aabb.max.z < _z ) ? _z : _aabb.max.z;
+	}
+	
+	// ---------------------------------------------------
+	// Add a point to an existing AABB
+	// ---------------------------------------------------
 	inline void CGAABBAddPoint( CGAABB & _aabb, const CGVector3D & _point )
 	{
-		_aabb.min.x = ( _aabb.min.x > _point.x ) ? _point.x : _aabb.min.x;
-		_aabb.min.y = ( _aabb.min.y > _point.y ) ? _point.y : _aabb.min.y;
-		_aabb.min.z = ( _aabb.min.z > _point.z ) ? _point.z : _aabb.min.z;
-		_aabb.max.x = ( _aabb.max.x < _point.x ) ? _point.x : _aabb.max.x;
-		_aabb.max.y = ( _aabb.max.y < _point.y ) ? _point.y : _aabb.max.y;
-		_aabb.max.z = ( _aabb.max.z < _point.z ) ? _point.z : _aabb.max.z;
+		CGAABBAddPoint( _aabb, _point.x, _point.y, _point.z );
 	}
 	
 	// ---------------------------------------------------

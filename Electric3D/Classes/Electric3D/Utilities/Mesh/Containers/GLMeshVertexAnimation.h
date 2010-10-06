@@ -9,6 +9,7 @@
 #if !defined(__GLMeshVertexAnimation_h__)
 #define __GLMeshVertexAnimation_h__
 
+#import "CGMaths.h"
 #import "GLMesh.h"
 #import "GLVertexTypes.h"
 
@@ -18,12 +19,20 @@ namespace GLMeshes
 #pragma mark File Header
 #pragma mark ---------------------------------------------------------
 	
+	typedef struct
+	{
+		unsigned int	numframes;
+		unsigned int	numverts;
+		unsigned int	numindices;
+		CGMaths::CGAABB aabb;
+		
+	} GLMeshVertexAnimationInfo;
+	
 	typedef struct 
 	{
-		unsigned int ident;
-		unsigned int version; 
-		unsigned int numframes;
-		unsigned int numverts;
+		unsigned int				ident;
+		unsigned int				version; 
+		GLMeshVertexAnimationInfo	info;
 		
 	} GLMeshVertexAnimationHeader;
 	
@@ -39,7 +48,7 @@ namespace GLMeshes
 	public: // Functions
 		
 		GLMeshVertexAnimation( NSString * _filePath = nil );
-		GLMeshVertexAnimation( unsigned int _numverts, unsigned int _numframes, NSString * _name = nil );
+		GLMeshVertexAnimation( const GLMeshVertexAnimationInfo & _info, NSString * _name = nil );
 		virtual ~GLMeshVertexAnimation();
 
 #pragma mark ---------------------------------------------------------
@@ -58,10 +67,18 @@ namespace GLMeshes
 		BOOL read( NSString * _filePath );
 		BOOL write( NSString * _filePath ) const;
 		
-		inline const NSUInteger			numverts() const		{ return m_header->numverts; };
-		inline const NSUInteger			numframes() const		{ return m_header->numframes; };
+		inline const NSUInteger				numverts() const		{ return m_header->info.numverts; };
+		inline const NSUInteger				numindices() const		{ return m_header->info.numindices; };
+		inline const NSUInteger				numframes() const		{ return m_header->info.numframes; };
 		
-		inline const GLInterleavedVert3D *	verts() const		{ return m_iterpverts; };
+		inline const CGMaths::CGAABB &		AABB() const						{ return m_header->info.aabb; };
+		inline void							setAABB( CGMaths::CGAABB & _aabb )	{ m_header->info.aabb = _aabb; };
+		
+		inline const eGLVertListType		vertListType() const				{ return ( m_indices ) ? eGLVertListType_Indexed : eGLVertListType_NonIndexed; };
+		inline const GLInterleavedVert3D *	verts() const						{ return m_iterpverts; };
+		
+		inline const GLVertIndice *			indices() const						{ return m_indices; };
+		inline GLVertIndice *				indices()							{ return m_indices; };
 		
 		// get a vert buffer with the interped verts
 		const GLInterleavedVert3D *					interpverts( unsigned int _frame ) const;
@@ -87,6 +104,8 @@ namespace GLMeshes
 		
 		GLMeshVertexAnimationHeader *	m_header;
 		GLInterleavedVert3D *			m_iterpverts;
+		GLVertIndice *					m_indices;
+		
 		GLInterleavedVertNormal3D	*	m_verts[256];
 		
 #pragma mark ---------------------------------------------------------

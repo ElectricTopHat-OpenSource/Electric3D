@@ -93,7 +93,7 @@
 	if ( model )
 	{
 		CGMaths::CGMatrix4x4 mat = model->transform();
-		CGMaths::CGMatrix4x4 rot = CGMaths::CGMatrix4x4MakeRotation( CGMaths::CGVector3DMake( 0.0f, 1.0f, 0.0f ), 10.0f * CGMaths::degreesToRadians );
+		CGMaths::CGMatrix4x4 rot = CGMaths::CGMatrix4x4MakeRotation( CGMaths::CGVector3DMake( 0.0f, 1.0f, 0.0f ), 1.0f * CGMaths::degreesToRadians );
 		//CGMaths::CGMatrix4x4 rot2 = CGMaths::CGMatrix4x4MakeRotation( CGMaths::CGVector3DMake( 1.0f, 0.0f, 0.0f ), 10.0f * CGMaths::degreesToRadians );
 		//CGMaths::CGMatrix4x4 rot = CGMaths::CGMatrix4x4Multiply( rot1, rot2 );
 		
@@ -125,7 +125,8 @@
 	texture = nil; 
 	//mesh	= [self meshes]->load( @"MD2StaticMeshTest", @"md2" );
 	//mesh	= [self meshes]->load( @"E3D_cube", @"md2" );
-	mesh	= [self meshes]->load( @"vertex_cube", @"POD" );
+	//mesh	= [self meshes]->load( @"vertex_cube", @"POD" );
+	mesh	= [self meshes]->load( @"vertex_cube_indexed", @"POD" );
 	
 	if ( mesh )
 	{
@@ -138,7 +139,7 @@
 	
 	[self addScene:scene];
 	
-	CGMaths::CGVector3D eye		= CGMaths::CGVector3DMake( 10.0f, 0.0f, 0.0f );
+	CGMaths::CGVector3D eye		= CGMaths::CGVector3DMake( 70.0f, 0.0f, 0.0f );
 	CGMaths::CGVector3D target  = CGMaths::CGVector3DMake( 0.0f, 0.0f, 0.0f );
 	
 	[self camera]->setTransform( eye, target );

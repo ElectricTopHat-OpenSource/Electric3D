@@ -62,8 +62,8 @@ namespace GLRenderers
 		glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
 		
 		//glFrontFace(GL_CW);
-		//glEnable(GL_CULL_FACE);
-		//glCullFace(GL_BACK);
+		glEnable(GL_CULL_FACE);
+		glCullFace(GL_BACK);
 		
 		glEnableClientState(GL_VERTEX_ARRAY);
 		glEnableClientState(GL_NORMAL_ARRAY);
@@ -169,7 +169,16 @@ namespace GLRenderers
 			
 			bindColor( color );
 			bindTexture( _object->texture() );
-			renderVerts( _object->verts(), _object->numverts() );
+			
+			if ( _object->vertListType() == eGLVertListType_NonIndexed )
+			{
+				renderNonIndexedVerts( _object->verts(), _object->numverts() );
+			}
+			else 
+			{
+				renderIndexedVerts( _object->verts(), _object->indices(), _object->numverts(), _object->numindices() );
+			}
+
 			
 			glPopMatrix();
 		}
@@ -202,7 +211,7 @@ namespace GLRenderers
 	// ------------------------------------------
 	// render the verts
 	// ------------------------------------------
-	void GLES1Renderer::renderVerts( const GLInterleavedVert3D * _verts, NSUInteger _numverts )
+	void GLES1Renderer::renderNonIndexedVerts( const GLInterleavedVert3D * _verts, NSUInteger _numverts )
 	{
 		glVertexPointer(3, GL_FLOAT,	sizeof(GLInterleavedVert3D), &_verts[0].vert.x);
 		glNormalPointer(GL_FLOAT,		sizeof(GLInterleavedVert3D), &_verts[0].normal.x);
@@ -211,8 +220,21 @@ namespace GLRenderers
 #endif
 		glTexCoordPointer(2, GL_FLOAT,	sizeof(GLInterleavedVert3D), &_verts[0].uv.x);
 		glDrawArrays(GL_TRIANGLES, 0, _numverts);
-		//glDrawArrays(GL_TRIANGLE_STRIP, 0, _numverts);
-		//glDrawArrays(GL_TRIANGLE_FAN, 0, _numverts);
+	}
+	
+	// ------------------------------------------
+	// render the verts
+	// ------------------------------------------
+	void GLES1Renderer::renderIndexedVerts( const GLInterleavedVert3D * _verts, const GLVertIndice * _indices, NSUInteger _numverts, NSUInteger _numindices )
+	{
+		glVertexPointer(3, GL_FLOAT,	sizeof(GLInterleavedVert3D), &_verts[0].vert.x);
+		glNormalPointer(GL_FLOAT,		sizeof(GLInterleavedVert3D), &_verts[0].normal.x);
+#if GLInterleavedVert3D_color
+		glColorPointer(4, GL_UNSIGNED_BYTE, sizeof(GLInterleavedVert3D), &_verts[0].color);
+#endif
+		glTexCoordPointer(2, GL_FLOAT,	sizeof(GLInterleavedVert3D), &_verts[0].uv.x);
+		glDrawElements(GL_TRIANGLES, _numindices, GL_UNSIGNED_SHORT, &_indices[0]);
+		//glDrawArrays(GL_TRIANGLES, 0, _numverts);
 	}
 	
 #pragma mark ---------------------------------------------------------

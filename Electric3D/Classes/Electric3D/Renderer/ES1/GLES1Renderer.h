@@ -75,7 +75,9 @@ namespace GLRenderers
 		
 		inline void bindColor( const GLColors::GLColor & _color );
 		inline void bindTexture( const GLTextures::GLTexture * _texture );
-		inline void renderVerts( const GLInterleavedVert3D * _verts, NSUInteger _numverts );
+		
+		inline void renderNonIndexedVerts( const GLInterleavedVert3D * _verts, NSUInteger _numverts );
+		inline void renderIndexedVerts( const GLInterleavedVert3D * _verts, const GLVertIndice * _indices, NSUInteger _numverts, NSUInteger _numindices );
 		
 #pragma mark ---------------------------------------------------------
 #pragma mark End Private Functions

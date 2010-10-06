@@ -11,7 +11,7 @@
 
 namespace MAX3DS 
 {
-	BOOL convertFrameToVerts( const MAX3DS_OBJECT * _model, GLInterleavedVert3D * _verts )
+	BOOL convertToVerts( const MAX3DS_OBJECT * _model, GLInterleavedVert3D * _verts )
 	{
 		if ( ( _model ) && 
 			 ( _model->header.numVerts ) && 

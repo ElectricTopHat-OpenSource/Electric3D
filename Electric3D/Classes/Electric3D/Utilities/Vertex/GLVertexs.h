@@ -12,5 +12,6 @@
 
 #import "GLVertexComponents.h"
 #import "GLVertexTypes.h"
+#import "GLVertexUtility.h"
 
 #endif

@@ -35,33 +35,35 @@ namespace GLMeshes
 	, m_data		( 0 )
 	, m_header		( 0 )
 	, m_iterpverts	( 0 )
+	, m_indices		( 0 )
 	{
 		read( _filePath );
 	}
 	
-	GLMeshVertexAnimation::GLMeshVertexAnimation( unsigned int _numverts, unsigned int _numframes, NSString * _name )
+	GLMeshVertexAnimation::GLMeshVertexAnimation( const GLMeshVertexAnimationInfo & _info, NSString * _name )
 	: GLMesh( _name )
 	, m_data		( 0 )
 	, m_header		( 0 )
 	, m_iterpverts	( 0 )
+	, m_indices		( 0 )
 	{
 		// -----------------------------------------------
 		// clamp the number of frames supported
 		// -----------------------------------------------
-		_numframes = MIN( 256, _numframes );
+		NSInteger numframes = MIN( 256, _info.numframes );
 		// -----------------------------------------------
 		
 		// -----------------------------------------------
 		// malloc the data
 		// -----------------------------------------------
-		int chunk	= sizeof(GLInterleavedVertNormal3D) * _numverts;
-		int buffer  = sizeof(GLInterleavedVert3D) * _numverts;
+		int chunk	= sizeof(GLInterleavedVertNormal3D) * _info.numverts;
+		int indices = sizeof(GLVertIndice) * _info.numindices;
+		int buffer  = sizeof(GLInterleavedVert3D) * _info.numverts;
 		int header	= sizeof(GLMeshVertexAnimationHeader);
 		// this is x number of vert frames + 1 for the interperied frame
-		int space   = header + buffer + ( chunk * _numframes );
+		int space   = header + buffer + ( chunk * numframes );
 		
-		unsigned char * bytes = (unsigned char *)malloc( space );
-		memset(bytes, 0, space);
+		unsigned char * bytes = (unsigned char *)memset( malloc( space ), 0, space );
 		// -----------------------------------------------
 		
 		// -----------------------------------------------
@@ -82,22 +84,30 @@ namespace GLMeshes
 		// -----------------------------------------------
 		m_header->ident		= _kMVAIdent;
 		m_header->version	= _kMVAVersion;
-		m_header->numverts	= _numverts;
-		m_header->numframes	= _numframes;
+		memcpy( &m_header->info, &_info, sizeof(GLMeshVertexAnimationInfo) );
+		
+		// limit the number of frames supported
+		m_header->info.numframes = numframes;
 		// -----------------------------------------------
 		
 		// -----------------------------------------------
 		// Fix up the pointers
 		// -----------------------------------------------
-		int interpoffset = header;
-		int vertsoffset  = header + buffer;
+		int interpoffset	= header;
+		int indicesoffset	= header + buffer;
+		int vertsoffset		= header + buffer + indices;
 		
 		// set up the vert pointer
 		m_iterpverts = (GLInterleavedVert3D*)&bytes[interpoffset];
 		
+		if ( indices )
+		{
+			m_indices = (GLVertIndice*)&bytes[indicesoffset];
+		}
+		
 		int i; 
 		int offset	= vertsoffset;
-		for ( i=0; i<_numframes; i++ )
+		for ( i=0; i<m_header->info.numframes; i++ )
 		{
 			m_verts[i] = (GLInterleavedVertNormal3D*)&bytes[offset];
 			offset += chunk;
@@ -123,6 +133,9 @@ namespace GLMeshes
 		NSFileHandle * file = [NSFileHandle fileHandleForReadingAtPath:_filePath];
 		if ( file )
 		{
+			// release the old file
+			SAFE_RELEASE(m_data);
+			
 #if USE_COMPRESSED_MVA_FILE
 			// read the compressed file
 			NSData * compressed = [file readDataToEndOfFile];
@@ -161,17 +174,24 @@ namespace GLMeshes
 					// keep the bytes in memory
 					[m_data retain];
 					
-					int chunk   = ( sizeof( GLInterleavedVert3D ) * m_header->numverts );
-					int buffer  = ( sizeof(GLInterleavedVert3D) * m_header->numverts );
-					int interpoffset = headerSize;
-					int vertsoffset  = interpoffset + buffer;
+					int chunk   = ( sizeof( GLInterleavedVert3D ) * m_header->info.numverts );
+					int indices = ( sizeof(GLVertIndice) * m_header->info.numindices );
+					int buffer  = ( sizeof(GLInterleavedVert3D) * m_header->info.numverts );
+					int interpoffset	= headerSize;
+					int indicesoffset	= headerSize + buffer;
+					int vertsoffset		= headerSize + buffer + indices;
 					
 					// set up the vert pointer
 					m_iterpverts = (GLInterleavedVert3D*)&p[interpoffset];
 					
+					if ( indices )
+					{
+						m_indices = (GLVertIndice*)&p[indicesoffset];
+					}
+					
 					int i; 
 					int offset	= vertsoffset;
-					for ( i=0; i<m_header->numframes; i++ )
+					for ( i=0; i<m_header->info.numframes; i++ )
 					{
 						m_verts[i] = (GLInterleavedVertNormal3D*)&p[offset];
 						offset += chunk;
@@ -207,7 +227,7 @@ namespace GLMeshes
 	{
 		GLInterleavedVertNormal3D * v = m_verts[_frame];
 		int i;
-		for (i=0; i<m_header->numverts; i++)
+		for (i=0; i<m_header->info.numverts; i++)
 		{
 			m_iterpverts[i].vert.x = v[i].vert.x;
 			m_iterpverts[i].vert.y = v[i].vert.y;
@@ -224,10 +244,10 @@ namespace GLMeshes
 	const GLInterleavedVert3D * GLMeshVertexAnimation::interpverts( unsigned int _frame1, unsigned int _frame2, float _interp ) const
 	{		
 		float  value = MAX( MIN( _interp, 1.0f ), 0.0f );
-		GLInterleavedVertNormal3D * v1 = m_verts[MIN(_frame1, m_header->numframes-1)];
-		GLInterleavedVertNormal3D * v2 = m_verts[MIN(_frame2, m_header->numframes-1)];
+		GLInterleavedVertNormal3D * v1 = m_verts[MIN(_frame1, m_header->info.numframes-1)];
+		GLInterleavedVertNormal3D * v2 = m_verts[MIN(_frame2, m_header->info.numframes-1)];
 		int i;
-		for (i=0; i<m_header->numverts; i++)
+		for (i=0; i<m_header->info.numverts; i++)
 		{
 			m_iterpverts[i].vert.x = v1[i].vert.x + ( (v2[i].vert.x - v1[i].vert.x) * value );
 			m_iterpverts[i].vert.y = v1[i].vert.y + ( (v2[i].vert.y - v1[i].vert.y) * value );
