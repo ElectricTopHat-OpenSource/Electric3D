@@ -15,7 +15,7 @@
 namespace PVRPOD
 {
 	BOOL convertToVerts( const PODMesh * _model, GLInterleavedVert3D * _verts );
-	BOOL convertToIndices( const PODMesh * _model, GLVertIndice * _indices ); 
+	BOOL convertToIndices( const PODMesh * _model, GLVertIndice * _indices );
 };
 
 #endif

@@ -14,8 +14,8 @@
 
 namespace MAX3DS 
 {
-	
 	BOOL convertToVerts( const MAX3DS_OBJECT * _model, GLInterleavedVert3D * _verts );
+	BOOL convertToIndices( const MAX3DS_OBJECT * _model, GLVertIndice * _indices );
 	
 };
 

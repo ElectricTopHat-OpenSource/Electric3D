@@ -53,13 +53,8 @@
 		07127073125522FD00C94F40 /* GLView.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF32B124A0AA300FC7D17 /* GLView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07127074125522FD00C94F40 /* GLRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF48C124A433E00FC7D17 /* GLRenderer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		071270751255230200C94F40 /* IRenderEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF32E124A0C0C00FC7D17 /* IRenderEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		071270791255231300C94F40 /* project.c in Sources */ = {isa = PBXBuildFile; fileRef = 077FF512124A523800FC7D17 /* project.c */; };
-		0712707A1255231300C94F40 /* registry.c in Sources */ = {isa = PBXBuildFile; fileRef = 077FF513124A523800FC7D17 /* registry.c */; };
 		0712707D1255232200C94F40 /* GLES1RenderEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF32F124A0D2700FC7D17 /* GLES1RenderEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0712707E1255232200C94F40 /* GLES1Renderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FFC7C124E3E6500FC7D17 /* GLES1Renderer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		071270801255233100C94F40 /* glu.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF50E124A523800FC7D17 /* glu.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		071270811255233100C94F40 /* gluint.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF510124A523800FC7D17 /* gluint.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		071270821255233100C94F40 /* gluos.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF511124A523800FC7D17 /* gluos.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		071270831255233C00C94F40 /* GLObjectTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FFAE7124CF8AC00FC7D17 /* GLObjectTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		071270841255233C00C94F40 /* GLObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FFAE6124CF8AC00FC7D17 /* GLObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		071270851255234400C94F40 /* GLScene.h in Headers */ = {isa = PBXBuildFile; fileRef = 078B05831250D57F00227D49 /* GLScene.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -93,8 +88,29 @@
 		071270F11255246C00C94F40 /* GLCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 078B0A9A125220CB00227D49 /* GLCamera.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		071270F21255246C00C94F40 /* GLPerspective.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A8F45512536F73009E62A5 /* GLPerspective.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		071270F31255247100C94F40 /* GLCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 078B0A9B125220CB00227D49 /* GLCamera.mm */; };
-		073F0279125C8238005F7C98 /* GLVertexUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 073F0278125C8238005F7C98 /* GLVertexUtility.h */; };
+		073F0279125C8238005F7C98 /* GLVertexUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 073F0278125C8238005F7C98 /* GLVertexUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		073F02F2125C8E66005F7C98 /* vertex_cube_indexed.POD in Resources */ = {isa = PBXBuildFile; fileRef = 073F02AE125C8787005F7C98 /* vertex_cube_indexed.POD */; };
+		073F04DA125CB42C005F7C98 /* CGTestMathsAABB.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A8F6231254D88A009E62A5 /* CGTestMathsAABB.h */; };
+		073F04DB125CB42C005F7C98 /* CGTextMaths.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A8F6261254DA17009E62A5 /* CGTextMaths.h */; };
+		073F04DC125CB42C005F7C98 /* GLTestCameraGeneral.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A8F2B412535015009E62A5 /* GLTestCameraGeneral.h */; };
+		073F04DD125CB42C005F7C98 /* GLTestCameraPerspective.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A8F4A212539EE1009E62A5 /* GLTestCameraPerspective.h */; };
+		073F04DE125CB42C005F7C98 /* GLTestColorModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A8F5811253B47D009E62A5 /* GLTestColorModel.h */; };
+		073F04DF125CB42C005F7C98 /* GLTestColorScene.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A8F5601253B2F1009E62A5 /* GLTestColorScene.h */; };
+		073F04E0125CB42C005F7C98 /* GLTestColorSceneModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A8F5981253B54B009E62A5 /* GLTestColorSceneModel.h */; };
+		073F04E1125CB42C005F7C98 /* GLTestGeneral.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF35D124A1DB500FC7D17 /* GLTestGeneral.h */; };
+		073F04E2125CB42C005F7C98 /* GLTestMeshFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF714124BBA9A00FC7D17 /* GLTestMeshFactory.h */; };
+		073F04E3125CB42C005F7C98 /* GLTestStaticMesh.h in Headers */ = {isa = PBXBuildFile; fileRef = 078B09581251F51500227D49 /* GLTestStaticMesh.h */; };
+		073F04E4125CB42C005F7C98 /* GLTestTextureFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF7C5124BC7AF00FC7D17 /* GLTestTextureFactory.h */; };
+		073F04E5125CB42C005F7C98 /* GLTestVertexAnimatedMesh.h in Headers */ = {isa = PBXBuildFile; fileRef = 078B097B1251F9C000227D49 /* GLTestVertexAnimatedMesh.h */; };
+		073F04E6125CB42C005F7C98 /* MAX3DSModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 07ECE1811259E82E0097D909 /* MAX3DSModel.h */; };
+		073F04E7125CB42C005F7C98 /* MAX3DSModelConvertor.h in Headers */ = {isa = PBXBuildFile; fileRef = 07ECE286125A0C040097D909 /* MAX3DSModelConvertor.h */; };
+		073F04E8125CB42C005F7C98 /* MAX3DSTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 07ECE17F1259E8100097D909 /* MAX3DSTypes.h */; };
+		073F04E9125CB42C005F7C98 /* MAX3DSUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 07ECE348125A1BC30097D909 /* MAX3DSUtility.h */; };
+		073F04EA125CB42C005F7C98 /* PVRPODModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 07ECE4C7125A4BC60097D909 /* PVRPODModel.h */; };
+		073F04EB125CB42C005F7C98 /* PVRPODModelConvertor.h in Headers */ = {isa = PBXBuildFile; fileRef = 07ECE4D6125A4DDC0097D909 /* PVRPODModelConvertor.h */; };
+		073F04EC125CB42C005F7C98 /* PVRPODTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 07ECE4C6125A4B800097D909 /* PVRPODTypes.h */; };
+		073F04ED125CB42C005F7C98 /* PVRPODUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 079E40D7125B809800AFC765 /* PVRPODUtility.h */; };
+		073F06C0125DD668005F7C98 /* CGOOBB.h in Headers */ = {isa = PBXBuildFile; fileRef = 073F06BF125DD668005F7C98 /* CGOOBB.h */; };
 		0774F088125609A2006AC5BA /* GLMeshes.h in Headers */ = {isa = PBXBuildFile; fileRef = 0799C109125603E300846A9C /* GLMeshes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0774F089125609AE006AC5BA /* GLTextures.h in Headers */ = {isa = PBXBuildFile; fileRef = 0799C10A1256043800846A9C /* GLTextures.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0774F08A125609B9006AC5BA /* GLSprites.h in Headers */ = {isa = PBXBuildFile; fileRef = 0799C10B1256046B00846A9C /* GLSprites.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -102,7 +118,6 @@
 		0774F08C125609D4006AC5BA /* GLObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = 0799C0FB125602DE00846A9C /* GLObjects.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0774F0FC12561017006AC5BA /* GLVertexs.h in Headers */ = {isa = PBXBuildFile; fileRef = 0799C0FC1256036400846A9C /* GLVertexs.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0774F11712561CA5006AC5BA /* Compression.m in Sources */ = {isa = PBXBuildFile; fileRef = 077FF87E124BEB6300FC7D17 /* Compression.m */; };
-		0774F11812561CA5006AC5BA /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = 077FF50D124A523800FC7D17 /* error.c */; };
 		0774F11912561CA5006AC5BA /* GameTimer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FFC1F124E398A00FC7D17 /* GameTimer.mm */; };
 		0774F11A12561CA5006AC5BA /* GLBasicTextureLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF2D51249265000FC7D17 /* GLBasicTextureLoader.mm */; };
 		0774F11B12561CA5006AC5BA /* GLColor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF2581249184500FC7D17 /* GLColor.mm */; };
@@ -123,7 +138,6 @@
 		0774F12A12561CA5006AC5BA /* GLSpriteFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FFA94124CE96900FC7D17 /* GLSpriteFactory.mm */; };
 		0774F12B12561CA5006AC5BA /* GLTexture.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FFA17124CD70400FC7D17 /* GLTexture.mm */; };
 		0774F12C12561CA5006AC5BA /* GLTextureFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FFA0F124CD26900FC7D17 /* GLTextureFactory.mm */; };
-		0774F12D12561CA5006AC5BA /* glue.c in Sources */ = {isa = PBXBuildFile; fileRef = 077FF50F124A523800FC7D17 /* glue.c */; };
 		0774F12E12561CA5006AC5BA /* GLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF32C124A0AA300FC7D17 /* GLView.mm */; };
 		0774F12F12561CA5006AC5BA /* MD2Model.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF91E124CB42200FC7D17 /* MD2Model.mm */; };
 		0774F13012561CA5006AC5BA /* MD2ModelConvertor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF920124CB42200FC7D17 /* MD2ModelConvertor.mm */; };
@@ -138,10 +152,6 @@
 		077FF331124A0D2700FC7D17 /* GLES1RenderEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF330124A0D2700FC7D17 /* GLES1RenderEngine.mm */; };
 		077FF35F124A1DB500FC7D17 /* GLTestGeneral.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF35E124A1DB500FC7D17 /* GLTestGeneral.mm */; };
 		077FF48E124A433E00FC7D17 /* GLRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF48D124A433E00FC7D17 /* GLRenderer.mm */; };
-		077FF514124A523800FC7D17 /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = 077FF50D124A523800FC7D17 /* error.c */; };
-		077FF515124A523800FC7D17 /* glue.c in Sources */ = {isa = PBXBuildFile; fileRef = 077FF50F124A523800FC7D17 /* glue.c */; };
-		077FF516124A523800FC7D17 /* project.c in Sources */ = {isa = PBXBuildFile; fileRef = 077FF512124A523800FC7D17 /* project.c */; };
-		077FF517124A523800FC7D17 /* registry.c in Sources */ = {isa = PBXBuildFile; fileRef = 077FF513124A523800FC7D17 /* registry.c */; };
 		077FF532124A564800FC7D17 /* GLModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF531124A564800FC7D17 /* GLModel.mm */; };
 		077FF716124BBA9A00FC7D17 /* GLTestMeshFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF715124BBA9A00FC7D17 /* GLTestMeshFactory.mm */; };
 		077FF73B124BBE1900FC7D17 /* MD2AnimatedMeshTest.md2 in Resources */ = {isa = PBXBuildFile; fileRef = 077FF73A124BBE1900FC7D17 /* MD2AnimatedMeshTest.md2 */; };
@@ -236,6 +246,7 @@
 		07126F7312551F0E00C94F40 /* libElectric3D.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libElectric3D.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		073F0278125C8238005F7C98 /* GLVertexUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLVertexUtility.h; sourceTree = "<group>"; };
 		073F02AE125C8787005F7C98 /* vertex_cube_indexed.POD */ = {isa = PBXFileReference; lastKnownFileType = file; name = vertex_cube_indexed.POD; path = ../../../../../../Desktop/vertex_cube_indexed.POD; sourceTree = SOURCE_ROOT; };
+		073F06BF125DD668005F7C98 /* CGOOBB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGOOBB.h; sourceTree = "<group>"; };
 		077FF0E21248C53D00FC7D17 /* CGMaths.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = CGMaths.h; sourceTree = "<group>"; };
 		077FF0EC1248C5FF00FC7D17 /* CGMathsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGMathsConstants.h; sourceTree = "<group>"; };
 		077FF0ED1248C69500FC7D17 /* CGMathsUtilties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGMathsUtilties.h; sourceTree = "<group>"; };
@@ -264,13 +275,6 @@
 		077FF35E124A1DB500FC7D17 /* GLTestGeneral.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLTestGeneral.mm; sourceTree = "<group>"; };
 		077FF48C124A433E00FC7D17 /* GLRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLRenderer.h; sourceTree = "<group>"; };
 		077FF48D124A433E00FC7D17 /* GLRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLRenderer.mm; sourceTree = "<group>"; };
-		077FF50D124A523800FC7D17 /* error.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = error.c; sourceTree = "<group>"; };
-		077FF50E124A523800FC7D17 /* glu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glu.h; sourceTree = "<group>"; };
-		077FF50F124A523800FC7D17 /* glue.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glue.c; sourceTree = "<group>"; };
-		077FF510124A523800FC7D17 /* gluint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gluint.h; sourceTree = "<group>"; };
-		077FF511124A523800FC7D17 /* gluos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gluos.h; sourceTree = "<group>"; };
-		077FF512124A523800FC7D17 /* project.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = project.c; sourceTree = "<group>"; };
-		077FF513124A523800FC7D17 /* registry.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = registry.c; sourceTree = "<group>"; };
 		077FF52D124A559E00FC7D17 /* GLModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLModel.h; sourceTree = "<group>"; };
 		077FF531124A564800FC7D17 /* GLModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLModel.mm; sourceTree = "<group>"; };
 		077FF714124BBA9A00FC7D17 /* GLTestMeshFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTestMeshFactory.h; sourceTree = "<group>"; };
@@ -507,7 +511,6 @@
 				077FF48C124A433E00FC7D17 /* GLRenderer.h */,
 				077FF48D124A433E00FC7D17 /* GLRenderer.mm */,
 				077FF32E124A0C0C00FC7D17 /* IRenderEngine.h */,
-				077FF50C124A523800FC7D17 /* iGlu */,
 				077FF22C12490CA000FC7D17 /* ES1 */,
 			);
 			path = Renderer;
@@ -566,6 +569,7 @@
 				077FF1621248D68700FC7D17 /* CGMatrix4x4.h */,
 				078B0A9C12522D1E00227D49 /* CGQuaternion.h */,
 				077FF966124CBE6000FC7D17 /* CGAABB.h */,
+				073F06BF125DD668005F7C98 /* CGOOBB.h */,
 				07A8F5E01254A489009E62A5 /* CGSphere.h */,
 			);
 			path = Maths;
@@ -630,20 +634,6 @@
 				077FF35E124A1DB500FC7D17 /* GLTestGeneral.mm */,
 			);
 			path = Test;
-			sourceTree = "<group>";
-		};
-		077FF50C124A523800FC7D17 /* iGlu */ = {
-			isa = PBXGroup;
-			children = (
-				077FF50D124A523800FC7D17 /* error.c */,
-				077FF50E124A523800FC7D17 /* glu.h */,
-				077FF50F124A523800FC7D17 /* glue.c */,
-				077FF510124A523800FC7D17 /* gluint.h */,
-				077FF511124A523800FC7D17 /* gluos.h */,
-				077FF512124A523800FC7D17 /* project.c */,
-				077FF513124A523800FC7D17 /* registry.c */,
-			);
-			path = iGlu;
 			sourceTree = "<group>";
 		};
 		077FF527124A548A00FC7D17 /* Models */ = {
@@ -1069,37 +1059,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0774F0FC12561017006AC5BA /* GLVertexs.h in Headers */,
-				0774F08C125609D4006AC5BA /* GLObjects.h in Headers */,
-				0774F08B125609C7006AC5BA /* Timers.h in Headers */,
-				0774F08A125609B9006AC5BA /* GLSprites.h in Headers */,
-				0774F089125609AE006AC5BA /* GLTextures.h in Headers */,
-				0774F088125609A2006AC5BA /* GLMeshes.h in Headers */,
-				071270F01255246C00C94F40 /* GLCameras.h in Headers */,
-				071270F11255246C00C94F40 /* GLCamera.h in Headers */,
-				071270F21255246C00C94F40 /* GLPerspective.h in Headers */,
-				071270EE1255245A00C94F40 /* GLVertexTypes.h in Headers */,
-				071270EF1255245A00C94F40 /* GLVertexComponents.h in Headers */,
-				071270EC1255244900C94F40 /* GLMeshFactory.h in Headers */,
-				071270E61255243C00C94F40 /* GLMeshTypes.h in Headers */,
-				071270E71255243C00C94F40 /* GLMesh.h in Headers */,
-				071270E81255243C00C94F40 /* GLMeshStatic.h in Headers */,
-				071270E91255243C00C94F40 /* GLMeshVertexAnimation.h in Headers */,
-				071270E41255242500C94F40 /* GLMeshWriter.h in Headers */,
-				071270DF1255241C00C94F40 /* GLMeshShapes.h in Headers */,
 				07126F771255229400C94F40 /* Anorms.h in Headers */,
-				0712709F125523EF00C94F40 /* MD2Types.h in Headers */,
-				071270A0125523EF00C94F40 /* MD2Model.h in Headers */,
-				071270A1125523EF00C94F40 /* MD2ModelConvertor.h in Headers */,
-				0712709E125523E700C94F40 /* MD3Types.h in Headers */,
-				0712709A125523D800C94F40 /* GLBasicTextureLoader.h in Headers */,
-				0712709B125523D800C94F40 /* GLPVRTextureLoader.h in Headers */,
-				07127098125523CB00C94F40 /* GLTexture.h in Headers */,
-				07127096125523C000C94F40 /* GLTextureFactory.h in Headers */,
-				07127094125523A600C94F40 /* GLSprite.h in Headers */,
-				071270921255239900C94F40 /* GLSpriteFactory.h in Headers */,
-				0712708F1255238300C94F40 /* GLColors.h in Headers */,
-				071270901255238300C94F40 /* GLColor.h in Headers */,
 				07126F781255229400C94F40 /* CGAABB.h in Headers */,
 				07126F791255229400C94F40 /* CGMaths.h in Headers */,
 				07126F7A1255229400C94F40 /* CGMathsConstants.h in Headers */,
@@ -1108,34 +1068,82 @@
 				07126F7D1255229400C94F40 /* CGMatrix4x4.h in Headers */,
 				07126F7E1255229400C94F40 /* CGQuaternion.h in Headers */,
 				07126F7F1255229400C94F40 /* CGSphere.h in Headers */,
+				073F04DA125CB42C005F7C98 /* CGTestMathsAABB.h in Headers */,
+				073F04DB125CB42C005F7C98 /* CGTextMaths.h in Headers */,
 				07126F801255229400C94F40 /* CGVector2D.h in Headers */,
 				07126F811255229400C94F40 /* CGVector3D.h in Headers */,
 				07126F821255229400C94F40 /* CGVector4D.h in Headers */,
-				0712708B1255235B00C94F40 /* GLModelStatic.h in Headers */,
-				0712708C1255235B00C94F40 /* GLModelVertexAnimation.h in Headers */,
-				071270871255235200C94F40 /* GLModels.h in Headers */,
-				071270881255235200C94F40 /* GLModelTypes.h in Headers */,
-				071270891255235200C94F40 /* GLModel.h in Headers */,
-				071270851255234400C94F40 /* GLScene.h in Headers */,
-				071270831255233C00C94F40 /* GLObjectTypes.h in Headers */,
-				071270841255233C00C94F40 /* GLObject.h in Headers */,
-				071270801255233100C94F40 /* glu.h in Headers */,
-				071270811255233100C94F40 /* gluint.h in Headers */,
-				071270821255233100C94F40 /* gluos.h in Headers */,
+				07126F831255229400C94F40 /* Compression.h in Headers */,
+				07127070125522D500C94F40 /* GameTimer.h in Headers */,
+				0712709A125523D800C94F40 /* GLBasicTextureLoader.h in Headers */,
+				071270F11255246C00C94F40 /* GLCamera.h in Headers */,
+				071270F01255246C00C94F40 /* GLCameras.h in Headers */,
+				071270901255238300C94F40 /* GLColor.h in Headers */,
+				0712708F1255238300C94F40 /* GLColors.h in Headers */,
 				0712707D1255232200C94F40 /* GLES1RenderEngine.h in Headers */,
 				0712707E1255232200C94F40 /* GLES1Renderer.h in Headers */,
-				07127073125522FD00C94F40 /* GLView.h in Headers */,
-				07127074125522FD00C94F40 /* GLRenderer.h in Headers */,
-				071270751255230200C94F40 /* IRenderEngine.h in Headers */,
-				07127072125522E800C94F40 /* Electric3D.h in Headers */,
-				0712706F125522D500C94F40 /* RenderTimer.h in Headers */,
-				07127070125522D500C94F40 /* GameTimer.h in Headers */,
-				07126F831255229400C94F40 /* Compression.h in Headers */,
+				071270E71255243C00C94F40 /* GLMesh.h in Headers */,
 				079E438F125BDE1900AFC765 /* GLMeshCone.h in Headers */,
 				079E4390125BDE1900AFC765 /* GLMeshCube.h in Headers */,
 				079E4391125BDE1900AFC765 /* GLMeshCylinder.h in Headers */,
+				0774F088125609A2006AC5BA /* GLMeshes.h in Headers */,
+				071270EC1255244900C94F40 /* GLMeshFactory.h in Headers */,
+				071270DF1255241C00C94F40 /* GLMeshShapes.h in Headers */,
 				079E4392125BDE1900AFC765 /* GLMeshSphere.h in Headers */,
+				071270E81255243C00C94F40 /* GLMeshStatic.h in Headers */,
+				071270E61255243C00C94F40 /* GLMeshTypes.h in Headers */,
+				071270E91255243C00C94F40 /* GLMeshVertexAnimation.h in Headers */,
+				071270E41255242500C94F40 /* GLMeshWriter.h in Headers */,
+				071270891255235200C94F40 /* GLModel.h in Headers */,
+				071270871255235200C94F40 /* GLModels.h in Headers */,
+				0712708B1255235B00C94F40 /* GLModelStatic.h in Headers */,
+				071270881255235200C94F40 /* GLModelTypes.h in Headers */,
+				0712708C1255235B00C94F40 /* GLModelVertexAnimation.h in Headers */,
+				071270841255233C00C94F40 /* GLObject.h in Headers */,
+				071270831255233C00C94F40 /* GLObjectTypes.h in Headers */,
+				071270F21255246C00C94F40 /* GLPerspective.h in Headers */,
+				0712709B125523D800C94F40 /* GLPVRTextureLoader.h in Headers */,
+				07127074125522FD00C94F40 /* GLRenderer.h in Headers */,
+				071270851255234400C94F40 /* GLScene.h in Headers */,
+				07127094125523A600C94F40 /* GLSprite.h in Headers */,
+				071270921255239900C94F40 /* GLSpriteFactory.h in Headers */,
+				073F04DC125CB42C005F7C98 /* GLTestCameraGeneral.h in Headers */,
+				073F04DD125CB42C005F7C98 /* GLTestCameraPerspective.h in Headers */,
+				073F04DE125CB42C005F7C98 /* GLTestColorModel.h in Headers */,
+				073F04DF125CB42C005F7C98 /* GLTestColorScene.h in Headers */,
+				073F04E0125CB42C005F7C98 /* GLTestColorSceneModel.h in Headers */,
+				073F04E1125CB42C005F7C98 /* GLTestGeneral.h in Headers */,
+				073F04E2125CB42C005F7C98 /* GLTestMeshFactory.h in Headers */,
+				073F04E3125CB42C005F7C98 /* GLTestStaticMesh.h in Headers */,
+				073F04E4125CB42C005F7C98 /* GLTestTextureFactory.h in Headers */,
+				073F04E5125CB42C005F7C98 /* GLTestVertexAnimatedMesh.h in Headers */,
+				07127098125523CB00C94F40 /* GLTexture.h in Headers */,
+				07127096125523C000C94F40 /* GLTextureFactory.h in Headers */,
+				0774F089125609AE006AC5BA /* GLTextures.h in Headers */,
+				071270EF1255245A00C94F40 /* GLVertexComponents.h in Headers */,
+				0774F0FC12561017006AC5BA /* GLVertexs.h in Headers */,
+				071270EE1255245A00C94F40 /* GLVertexTypes.h in Headers */,
 				073F0279125C8238005F7C98 /* GLVertexUtility.h in Headers */,
+				07127073125522FD00C94F40 /* GLView.h in Headers */,
+				071270751255230200C94F40 /* IRenderEngine.h in Headers */,
+				073F04E6125CB42C005F7C98 /* MAX3DSModel.h in Headers */,
+				073F04E7125CB42C005F7C98 /* MAX3DSModelConvertor.h in Headers */,
+				073F04E8125CB42C005F7C98 /* MAX3DSTypes.h in Headers */,
+				073F04E9125CB42C005F7C98 /* MAX3DSUtility.h in Headers */,
+				071270A0125523EF00C94F40 /* MD2Model.h in Headers */,
+				071270A1125523EF00C94F40 /* MD2ModelConvertor.h in Headers */,
+				0712709F125523EF00C94F40 /* MD2Types.h in Headers */,
+				0712709E125523E700C94F40 /* MD3Types.h in Headers */,
+				073F04EA125CB42C005F7C98 /* PVRPODModel.h in Headers */,
+				073F04EB125CB42C005F7C98 /* PVRPODModelConvertor.h in Headers */,
+				073F04EC125CB42C005F7C98 /* PVRPODTypes.h in Headers */,
+				073F04ED125CB42C005F7C98 /* PVRPODUtility.h in Headers */,
+				0712706F125522D500C94F40 /* RenderTimer.h in Headers */,
+				0774F08B125609C7006AC5BA /* Timers.h in Headers */,
+				0774F08C125609D4006AC5BA /* GLObjects.h in Headers */,
+				0774F08A125609B9006AC5BA /* GLSprites.h in Headers */,
+				07127072125522E800C94F40 /* Electric3D.h in Headers */,
+				073F06C0125DD668005F7C98 /* CGOOBB.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1274,11 +1282,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				071270791255231300C94F40 /* project.c in Sources */,
-				0712707A1255231300C94F40 /* registry.c in Sources */,
 				071270F31255247100C94F40 /* GLCamera.mm in Sources */,
 				0774F11712561CA5006AC5BA /* Compression.m in Sources */,
-				0774F11812561CA5006AC5BA /* error.c in Sources */,
 				0774F11912561CA5006AC5BA /* GameTimer.mm in Sources */,
 				0774F11A12561CA5006AC5BA /* GLBasicTextureLoader.mm in Sources */,
 				0774F11B12561CA5006AC5BA /* GLColor.mm in Sources */,
@@ -1299,7 +1304,6 @@
 				0774F12A12561CA5006AC5BA /* GLSpriteFactory.mm in Sources */,
 				0774F12B12561CA5006AC5BA /* GLTexture.mm in Sources */,
 				0774F12C12561CA5006AC5BA /* GLTextureFactory.mm in Sources */,
-				0774F12D12561CA5006AC5BA /* glue.c in Sources */,
 				0774F12E12561CA5006AC5BA /* GLView.mm in Sources */,
 				0774F12F12561CA5006AC5BA /* MD2Model.mm in Sources */,
 				0774F13012561CA5006AC5BA /* MD2ModelConvertor.mm in Sources */,
@@ -1326,10 +1330,6 @@
 				077FF331124A0D2700FC7D17 /* GLES1RenderEngine.mm in Sources */,
 				077FF35F124A1DB500FC7D17 /* GLTestGeneral.mm in Sources */,
 				077FF48E124A433E00FC7D17 /* GLRenderer.mm in Sources */,
-				077FF514124A523800FC7D17 /* error.c in Sources */,
-				077FF515124A523800FC7D17 /* glue.c in Sources */,
-				077FF516124A523800FC7D17 /* project.c in Sources */,
-				077FF517124A523800FC7D17 /* registry.c in Sources */,
 				077FF532124A564800FC7D17 /* GLModel.mm in Sources */,
 				077FF716124BBA9A00FC7D17 /* GLTestMeshFactory.mm in Sources */,
 				077FF7C7124BC7AF00FC7D17 /* GLTestTextureFactory.mm in Sources */,

@@ -65,8 +65,8 @@ namespace GLObjects
 		inline const CGMaths::CGMatrix4x4 & transform() const					{ return m_transform; };
 		inline void setTransform( const CGMaths::CGMatrix4x4 & _transform )		{ m_transform = _transform; };
 		
-		inline CGMaths::CGVector3D postion() const								{ return CGMaths::CGMatrix4x4GetTranslation( m_transform ); };
-		inline void setPostion( const CGMaths::CGVector3D & _pos )				{ CGMaths::CGMatrix4x4SetTranslation( m_transform, _pos ); };
+		inline CGMaths::CGVector3D position() const								{ return CGMaths::CGMatrix4x4GetTranslation( m_transform ); };
+		inline void setPosition( const CGMaths::CGVector3D & _pos )				{ CGMaths::CGMatrix4x4SetTranslation( m_transform, _pos ); };
 		
 #pragma mark ---------------------------------------------------------
 #pragma mark === End Public Functions  ===

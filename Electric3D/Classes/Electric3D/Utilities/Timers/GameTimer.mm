@@ -69,7 +69,7 @@
     if ( !running && delegate && selector )
     {
 		normalTimer = [NSTimer scheduledTimerWithTimeInterval:normalTimerTiming target:delegate selector:selector userInfo:nil repeats:TRUE];
-		[[NSRunLoop mainRunLoop] addTimer:normalTimer forMode:NSRunLoopCommonModes];	
+		[[NSRunLoop mainRunLoop] addTimer:normalTimer forMode:NSRunLoopCommonModes];
 		
         running = TRUE;
     }

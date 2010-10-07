@@ -366,22 +366,32 @@ namespace GLMeshes
 			
 			if ( model.valid() && model.count() )
 			{
-				const MAX3DS::MAX3DS_OBJECT * mesh0 = model.objectAtIndex(0);
+				const MAX3DS::MAX3DS_OBJECT * mesh = model.objectAtIndex(0);
 				
 				GLMeshStaticInfo info;
-				info.numverts	= mesh0->header.numVerts;
-				info.numindices	= 0;
+				info.numverts	= mesh->header.numVerts;
+				info.numindices	= ( mesh->header.numVerts != mesh->header.numFaces*3 ) ? mesh->header.numFaces*3  : 0;
 				info.aabb		= CGMaths::CGAABBUnit;
 				
 				GLMeshStatic * staticMesh = new GLMeshStatic( info, _filePath );
 				
-				if ( !MAX3DS::convertToVerts( mesh0, staticMesh->verts() ) )
+				if ( !MAX3DS::convertToVerts( mesh, staticMesh->verts() ) )
 				{
 					delete( staticMesh );
 					staticMesh = nil;
 				}
 				else 
 				{
+					// is it an indexed triangle mesh
+					if ( staticMesh->indices() )
+					{
+						if ( !MAX3DS::convertToIndices( mesh, staticMesh->indices() ) )
+						{
+							delete( staticMesh );
+							staticMesh = nil;
+						}
+					}
+					
 					CGMaths::CGAABB aabb = calculateAABB(staticMesh->verts(), staticMesh->numverts());
 					staticMesh->setAABB( aabb );
 				}

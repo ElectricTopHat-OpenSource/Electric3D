@@ -238,7 +238,7 @@ namespace MAX3DS
 		float v;
 		
 	} MAX3DS_UV;
-	
+		
 	//The three ints for the polygon
 	//represent the no.s(or rank) of it's 3 vertices
 	typedef struct
@@ -247,7 +247,23 @@ namespace MAX3DS
 		unsigned short b;
 		unsigned short c;
 		unsigned short flag; // visibility flag
-		
+		/*
+		union {
+			struct  {
+				unsigned char AB : 1;
+				unsigned char BC : 1;
+				unsigned char AC : 1;
+				unsigned char Mapping : 1;
+				unsigned char padA : 4;
+				unsigned char padB : 2;
+				unsigned char padC : 2;
+				unsigned char faceSelected3 : 1;
+				unsigned char faceSelected2 : 1;
+				unsigned char faceSelected1 : 1;
+			};
+			unsigned short flag; // visibility flag
+		}flag;
+		*/
 	} MAX3DS_FACE;
 	
 	typedef struct

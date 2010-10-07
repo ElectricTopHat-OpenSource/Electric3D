@@ -75,8 +75,6 @@ namespace PVRPOD
 						vert->vert.z = v->z;
 						
 						vertpos += mverts->stride;
-						
-						NSLog( @"%f, %f, %f", vert->vert.x, vert->vert.y, vert->vert.z );
 						// -------------------------------------------
 						
 						// -------------------------------------------
@@ -157,12 +155,6 @@ namespace PVRPOD
 					if ( mfaces->stride == sizeof(short) )
 					{
 						memcpy(_indices, mfaces->data, sizeof(short)*numindices);
-						
-						int i;
-						for ( i=0; i<numindices; i++ )
-						{
-							NSLog( @"%d", _indices[i] );
-						}
 					}
 					else 
 					{

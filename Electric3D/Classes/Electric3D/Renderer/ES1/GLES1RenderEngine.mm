@@ -12,8 +12,6 @@
 #import "GLScene.h"
 #import "GLCamera.h"
 
-#import "glu.h"
-
 namespace GLRenderers 
 {
 #pragma mark ---------------------------------------------------------

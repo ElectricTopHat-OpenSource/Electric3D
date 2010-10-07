@@ -66,9 +66,9 @@ namespace MAX3DS
 				n[2] = (u[0]*v[1] - u[1]*v[0]);
 				
 				// Add this normal to its verts' normals
-				_verts[vertIndexA].normal.x		+= n[0];
-				_verts[vertIndexA].normal.y		+= n[1];
-				_verts[vertIndexA].normal.z		+= n[2];
+				_verts[vertIndexA].normal.x	+= n[0];
+				_verts[vertIndexA].normal.y	+= n[1];
+				_verts[vertIndexA].normal.z	+= n[2];
 				
 				_verts[vertIndexB].normal.x	+= n[0];
 				_verts[vertIndexB].normal.y	+= n[1];
@@ -112,6 +112,30 @@ namespace MAX3DS
 				vert->color.blue	= 255;
 				vert->color.alpha	= 255;
 #endif
+			}
+			
+			return TRUE;
+		}
+		return FALSE;
+	}
+	
+	BOOL convertToIndices( const MAX3DS_OBJECT * _model, GLVertIndice * _indices )
+	{
+		if ( ( _model ) && ( _indices ) &&
+			 ( _model->header.numVerts ) &&
+			 ( _model->header.numFaces ) )
+		{
+			NSUInteger pos	= 0;
+			NSUInteger size = sizeof(GLVertIndice)*3;
+			
+			int i;
+			for ( i=0; i<_model->header.numFaces; i++ )
+			{
+				MAX3DS_FACE * face = &_model->faces[i];
+				
+				memcpy(&_indices[pos], face, size);
+
+				pos += 3;
 			}
 			
 			return TRUE;

@@ -89,7 +89,7 @@
 // ------------------------------------------
 - (void) update:(id)_sender
 {
-	CGMaths::CGVector3D moveto = lookat->postion();
+	CGMaths::CGVector3D moveto = lookat->position();
 	if ( CGMaths::CGVector3DEqual( moveto, target, 1.0f ) )
 	{
 		if ( lookat == objects[0] )

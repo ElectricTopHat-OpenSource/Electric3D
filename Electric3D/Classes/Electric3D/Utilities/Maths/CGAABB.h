@@ -95,7 +95,7 @@ namespace CGMaths
 	// ---------------------------------------------------
 	// Scale a CGAABB
 	// ---------------------------------------------------
-	inline CGAABB CGAABBScale( const CGAABB & _aabb, float _scale )
+	inline CGAABB CGAABBMakeScale( const CGAABB & _aabb, float _scale )
 	{
 		return CGAABBMake( _aabb.min.x*_scale, _aabb.min.y*_scale, _aabb.min.z*_scale, 
 						   _aabb.max.x*_scale, _aabb.max.y*_scale, _aabb.max.z*_scale );
@@ -113,6 +113,7 @@ namespace CGMaths
 						   ( ( _aabbA.max.y > _aabbB.max.y ) ? _aabbB.max.y : _aabbA.max.y ),
 						   ( ( _aabbA.max.z > _aabbB.max.z ) ? _aabbB.max.z : _aabbA.max.z ) );
 	}
+	
 	
 	// ---------------------------------------------------
 	// Add a point to an existing AABB
@@ -134,6 +135,37 @@ namespace CGMaths
 	{
 		CGAABBAddPoint( _aabb, _point.x, _point.y, _point.z );
 	}
+	
+	// ---------------------------------------------------
+	// Make a transformed CGAABB
+	// ---------------------------------------------------
+	inline CGAABB CGAABBMakeTransformed( const CGAABB & _aabb, const CGMatrix4x4 & _matrix )
+	{
+		CGAABB new_AABB = CGAABBMake( CGMatrix4x4TransformVector(_matrix, _aabb.min), CGMatrix4x4TransformVector(_matrix, _aabb.max) );
+		
+		CGVector3D corner = _aabb.min;
+		
+		corner.z = _aabb.max.z; // min min max
+		CGAABBAddPoint( new_AABB, CGMatrix4x4TransformVector(_matrix, corner) );
+		
+		corner.y = _aabb.max.y; // min max max
+		CGAABBAddPoint( new_AABB, CGMatrix4x4TransformVector(_matrix, corner) );
+		
+		corner.z = _aabb.min.z; // min max min
+		CGAABBAddPoint( new_AABB, CGMatrix4x4TransformVector(_matrix, corner) );
+		
+		corner.x = _aabb.max.x; // max max min
+		CGAABBAddPoint( new_AABB, CGMatrix4x4TransformVector(_matrix, corner) );
+		
+		corner.y = _aabb.min.y; // max min min
+		CGAABBAddPoint( new_AABB, CGMatrix4x4TransformVector(_matrix, corner) );
+		
+		corner.z = _aabb.max.z; // max min max
+		CGAABBAddPoint( new_AABB, CGMatrix4x4TransformVector(_matrix, corner) );
+		
+		return new_AABB;		
+	};
+	
 	
 	// ---------------------------------------------------
 	// Merge an AABB with another AABB

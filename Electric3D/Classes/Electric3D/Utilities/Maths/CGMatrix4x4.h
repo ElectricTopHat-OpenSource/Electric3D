@@ -266,9 +266,9 @@ namespace CGMaths
 	// ---------------------------------------------------
 	// Make a CGMatrix4x4 Translation
 	// ---------------------------------------------------
-	inline CGMatrix4x4 CGMatrix4x4SetTranslation( CGMatrix4x4 & _matrix, const CGVector3D & _translation )
+	inline void CGMatrix4x4SetTranslation( CGMatrix4x4 & _matrix, const CGVector3D & _translation )
 	{		
-		return CGMatrix4x4MakeTranslation( _translation.x, _translation.y, _translation.z );
+		CGMatrix4x4SetTranslation( _matrix, _translation.x, _translation.y, _translation.z );
 	}
 	
 	// ---------------------------------------------------
