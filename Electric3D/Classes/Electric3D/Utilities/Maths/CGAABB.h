@@ -34,8 +34,9 @@ namespace CGMaths
 #pragma mark CGAABB consts 
 #pragma mark ---------------------------------------------------------
 	
-	const CGAABB CGAABBZero = {  0.0f,  0.0f,  0.0f, 0.0f, 0.0f, 0.0f };
-	const CGAABB CGAABBUnit = { -0.5f, -0.5f, -0.5f, 0.5f, 0.5f, 0.5f };
+	const CGAABB CGAABBZero		= {  0.0f,  0.0f,  0.0f, 0.0f, 0.0f, 0.0f };
+	const CGAABB CGAABBUnit		= { -0.5f, -0.5f, -0.5f, 0.5f, 0.5f, 0.5f };
+	const CGAABB CGAABBInvalid	= { MAXFLOAT, MAXFLOAT, MAXFLOAT, -MAXFLOAT, -MAXFLOAT, -MAXFLOAT };
 	
 #pragma mark ---------------------------------------------------------
 #pragma mark End CGAABB consts 
@@ -123,6 +124,7 @@ namespace CGMaths
 		_aabb.min.x = ( _aabb.min.x > _x ) ? _x : _aabb.min.x;
 		_aabb.min.y = ( _aabb.min.y > _y ) ? _y : _aabb.min.y;
 		_aabb.min.z = ( _aabb.min.z > _z ) ? _z : _aabb.min.z;
+		
 		_aabb.max.x = ( _aabb.max.x < _x ) ? _x : _aabb.max.x;
 		_aabb.max.y = ( _aabb.max.y < _y ) ? _y : _aabb.max.y;
 		_aabb.max.z = ( _aabb.max.z < _z ) ? _z : _aabb.max.z;
@@ -185,9 +187,9 @@ namespace CGMaths
 	// ---------------------------------------------------
 	inline CGVector3D CGAABBGetCenter( const CGAABB & _aabb )
 	{
-		return CGVector3DMake( ( (_aabb.max.x + _aabb.min.x) * 0.5f ),
-							   ( (_aabb.max.y + _aabb.min.y) * 0.5f ),
-							   ( (_aabb.max.z + _aabb.min.z) * 0.5f ) );
+		return CGVector3DMake( _aabb.min.x + ( (_aabb.max.x - _aabb.min.x) * 0.5f ),
+							   _aabb.min.y + ( (_aabb.max.y - _aabb.min.y) * 0.5f ),
+							   _aabb.min.z + ( (_aabb.max.z - _aabb.min.z) * 0.5f ) );
 	}
 	
 	// ---------------------------------------------------

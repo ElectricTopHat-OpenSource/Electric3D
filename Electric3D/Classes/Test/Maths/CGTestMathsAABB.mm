@@ -158,14 +158,14 @@
 		}
 		case 11:
 		{
-			CGMaths::CGAABB smallaabb = CGMaths::CGAABBScale( CGMaths::CGAABBUnit, 0.5f );
+			CGMaths::CGAABB smallaabb = CGMaths::CGAABBMakeScale( CGMaths::CGAABBUnit, 0.5f );
 			BOOL result = CGMaths::CGAABBContains( aabb, smallaabb );
 			[self print:@"CGAABBUnit Contains small AABB" result:result==TRUE];
 			break;
 		}
 		case 12:
 		{
-			CGMaths::CGAABB largeaabb = CGMaths::CGAABBScale( CGMaths::CGAABBUnit, 10.0f );
+			CGMaths::CGAABB largeaabb = CGMaths::CGAABBMakeScale( CGMaths::CGAABBUnit, 10.0f );
 			BOOL result = CGMaths::CGAABBContains( aabb, largeaabb );
 			[self print:@"CGAABBUnit NOT Contains large AABB" result:result==FALSE];
 			break;
@@ -187,14 +187,14 @@
 		}
 		case 15:
 		{
-			CGMaths::CGAABB smallaabb = CGMaths::CGAABBScale( CGMaths::CGAABBUnit, 0.5f );
+			CGMaths::CGAABB smallaabb = CGMaths::CGAABBMakeScale( CGMaths::CGAABBUnit, 0.5f );
 			BOOL result = CGMaths::CGAABBIntersects( aabb, smallaabb );
 			[self print:@"CGAABBUnit NOT Intersects small AABB" result:result==TRUE];
 			break;
 		}
 		case 16:
 		{
-			CGMaths::CGAABB largeaabb = CGMaths::CGAABBScale( CGMaths::CGAABBUnit, 10.0f );
+			CGMaths::CGAABB largeaabb = CGMaths::CGAABBMakeScale( CGMaths::CGAABBUnit, 10.0f );
 			BOOL result = CGMaths::CGAABBIntersects( aabb, largeaabb );
 			[self print:@"CGAABBUnit NOT Intersects large AABB" result:result==FALSE];
 			break;

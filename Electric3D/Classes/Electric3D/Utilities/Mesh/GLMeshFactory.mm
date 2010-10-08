@@ -292,9 +292,14 @@ namespace GLMeshes
 					 ( model.numframes() == 20 ) ) // 20 is the default num frames in the QTip Exporter
 				{
 					GLMeshStaticInfo info;
-					info.numverts	= model.numverts();
-					info.numindices	= 0;
 					info.aabb		= CGMaths::CGAABBUnit;
+#if MD2_USE_INDEXED_TRIANLGES
+					info.numverts	= model.numverts();
+					info.numindices	= ( model.numtrangles() != model.numtrangles()*3 ) ? model.numtrangles()*3  : 0;
+#else
+					info.numverts	= model.numtrangles()*3;
+					info.numindices	= 0;
+#endif
 					
 					GLMeshStatic * staticMesh = new GLMeshStatic( info, _filePath );
 					
@@ -305,8 +310,17 @@ namespace GLMeshes
 					}
 					else 
 					{
-						CGMaths::CGAABB aabb = calculateAABB(staticMesh->verts(), staticMesh->numverts());
-						staticMesh->setAABB( aabb );
+						// is it an indexed triangle mesh
+						if ( info.numindices && !MD2::convertToIndices( &model, 0, staticMesh->indices() ) )
+						{
+							delete( staticMesh );
+							staticMesh = nil;
+						}
+						else 
+						{
+							CGMaths::CGAABB aabb = calculateAABB(staticMesh->verts(), staticMesh->numverts());
+							staticMesh->setaabb( aabb );
+						}
 					}
 					
 					return staticMesh;
@@ -315,25 +329,39 @@ namespace GLMeshes
 				{
 					GLMeshVertexAnimationInfo info;
 					info.numframes	= model.numframes();
-					info.numverts	= model.numverts();
-					info.numindices	= 0;
 					info.aabb		= CGMaths::CGAABBUnit;
+#if MD2_USE_INDEXED_TRIANLGES
+					info.numverts	= model.numverts();
+					info.numindices	= ( model.numtrangles() != model.numtrangles()*3 ) ? model.numtrangles()*3  : 0;
+#else
+					info.numverts	= model.numtrangles()*3;
+					info.numindices	= 0;
+#endif
 					
 					GLMeshVertexAnimation * animatedMesh = new GLMeshVertexAnimation( info, _filePath );
 					
 					if ( MD2::convertFrameToVerts( &model, 0, animatedMesh->interpverts() ) )
 					{
-						CGMaths::CGAABB aabb = calculateAABB(animatedMesh->interpverts(), animatedMesh->numverts());
-						animatedMesh->setAABB( aabb );
-						
-						int i;
-						for ( i=0; i<model.numframes(); i++ )
+						// is it an indexed triangle mesh
+						if ( info.numindices && !MD2::convertToIndices( &model, 0, animatedMesh->indices() ) )
 						{
-							if ( !MD2::convertFrameToVerts( &model, i, animatedMesh->frameverts(i) ) )
+							delete( animatedMesh );
+							animatedMesh = nil;
+						}
+						else 
+						{
+							CGMaths::CGAABB aabb = calculateAABB(animatedMesh->interpverts(), animatedMesh->numverts());
+							animatedMesh->setaabb( aabb );
+							
+							int i;
+							for ( i=0; i<model.numframes(); i++ )
 							{
-								delete( animatedMesh );
-								animatedMesh = nil;
-								break;
+								if ( !MD2::convertFrameToVerts( &model, i, animatedMesh->frameverts(i) ) )
+								{
+									delete( animatedMesh );
+									animatedMesh = nil;
+									break;
+								}
 							}
 						}
 					}
@@ -366,36 +394,67 @@ namespace GLMeshes
 			
 			if ( model.valid() && model.count() )
 			{
-				const MAX3DS::MAX3DS_OBJECT * mesh = model.objectAtIndex(0);
-				
 				GLMeshStaticInfo info;
-				info.numverts	= mesh->header.numVerts;
-				info.numindices	= ( mesh->header.numVerts != mesh->header.numFaces*3 ) ? mesh->header.numFaces*3  : 0;
+				info.numverts	= 0;
+				info.numindices	= 0;
 				info.aabb		= CGMaths::CGAABBUnit;
 				
+				int i;
+				// work out the total number size 
+				// of the meshes
+				for ( i=0; i<model.count(); i++ )
+				{
+					const MAX3DS::MAX3DS_OBJECT * mesh = model.objectAtIndex(i);
+					
+					info.numverts	+= mesh->header.numVerts;
+					info.numindices	+= ( mesh->header.numVerts != mesh->header.numFaces*3 ) ? mesh->header.numFaces*3  : 0;
+				}
+				
+				// create the static model with the total space required
 				GLMeshStatic * staticMesh = new GLMeshStatic( info, _filePath );
 				
-				if ( !MAX3DS::convertToVerts( mesh, staticMesh->verts() ) )
+				CGMaths::CGAABB			aabb	= CGMaths::CGAABBZero;
+				GLInterleavedVert3D *	verts	= staticMesh->verts();
+				GLVertIndice *			indices	= staticMesh->indices();
+				
+				// loop over each mesh and convert it
+				int vertoffset		= 0;
+				int indicesoffset	= 0;
+				BOOL ok				= TRUE;
+				for ( i=0; i<model.count(); i++ )
+				{
+					const MAX3DS::MAX3DS_OBJECT * mesh = model.objectAtIndex(i);
+					
+					if ( MAX3DS::convertToVerts( mesh, &verts[vertoffset] ) )
+					{
+						// is it an indexed triangle mesh
+						if ( indices && !MAX3DS::convertToIndices( mesh, &indices[indicesoffset], vertoffset ) )
+						{
+							ok = FALSE;
+							break;
+						}
+					}
+					else 
+					{
+						ok = FALSE;
+						break;
+					}
+					
+					vertoffset		+= mesh->header.numVerts;
+					indicesoffset	+= mesh->header.numFaces*3;
+				}
+				
+				if ( ok )
+				{
+					CGMaths::CGAABB aabb = calculateAABB(staticMesh->verts(), staticMesh->numverts());
+					staticMesh->setaabb( aabb );
+				}
+				else 
 				{
 					delete( staticMesh );
 					staticMesh = nil;
 				}
-				else 
-				{
-					// is it an indexed triangle mesh
-					if ( staticMesh->indices() )
-					{
-						if ( !MAX3DS::convertToIndices( mesh, staticMesh->indices() ) )
-						{
-							delete( staticMesh );
-							staticMesh = nil;
-						}
-					}
-					
-					CGMaths::CGAABB aabb = calculateAABB(staticMesh->verts(), staticMesh->numverts());
-					staticMesh->setAABB( aabb );
-				}
-				
+
 				return staticMesh;
 			}
 		}
@@ -422,34 +481,68 @@ namespace GLMeshes
 				const PVRPOD::PODScene * scene = model.scene();
 				if ( scene->numMeshes )
 				{
-					const PVRPOD::PODMesh * mesh = &scene->meshes[0];
-					
 					GLMeshStaticInfo info;
-					info.numverts	= mesh->numVertices;
-					info.numindices	= ( mesh->numVertices != mesh->numFaces*3 ) ? mesh->numFaces*3  : 0;
+					info.numverts	= 0;
+					info.numindices	= 0;
 					info.aabb		= CGMaths::CGAABBUnit;
 					
+					int i;
+					// work out the total number size 
+					// of the meshes
+					for ( i=0; i<scene->numMeshes; i++ )
+					{
+						const PVRPOD::PODMesh * mesh = &scene->meshes[i];
+						
+						info.numverts	+= mesh->numVertices;
+						info.numindices	+= ( mesh->numVertices != mesh->numFaces*3 ) ? mesh->numFaces*3  : 0;
+					}
+					
+					// create the static model with the total space required
 					GLMeshStatic * staticMesh = new GLMeshStatic( info, _filePath );
 					
-					if ( !PVRPOD::convertToVerts( mesh, staticMesh->verts() ) )
+					CGMaths::CGAABB			aabb	= CGMaths::CGAABBZero;
+					GLInterleavedVert3D *	verts	= staticMesh->verts();
+					GLVertIndice *			indices	= staticMesh->indices();
+					
+					// loop over each mesh and convert it
+					int vertoffset		= 0;
+					int indicesoffset	= 0;
+					BOOL ok				= TRUE;
+					for ( i=0; i<scene->numMeshNodes; i++ )
 					{
-						delete( staticMesh );
-						staticMesh = nil;
+						const PVRPOD::PODNode * node = &scene->nodes[i];
+						const PVRPOD::PODMesh * mesh = &scene->meshes[node->idx];
+						
+						CGMaths::CGMatrix4x4 matrix = PVRPOD::getNodeTransform( node, 0, scene->nodes );
+						
+						if ( PVRPOD::convertToVerts( mesh, &verts[vertoffset], matrix ) )
+						{
+							// is it an indexed triangle mesh
+							if ( indices && !PVRPOD::convertToIndices( mesh, &indices[indicesoffset], vertoffset ) )
+							{
+								ok = FALSE;
+								break;
+							}
+						}
+						else 
+						{
+							ok = FALSE;
+							break;
+						}
+						
+						vertoffset		+= mesh->numVertices;
+						indicesoffset	+= mesh->numFaces*3;
+					}
+					
+					if ( ok )
+					{
+						CGMaths::CGAABB aabb = calculateAABB(staticMesh->verts(), staticMesh->numverts());
+						staticMesh->setaabb( aabb );
 					}
 					else 
 					{
-						// is it an indexed triangle mesh
-						if ( staticMesh->indices() )
-						{
-							if ( !PVRPOD::convertToIndices( mesh, staticMesh->indices() ) )
-							{
-								delete( staticMesh );
-								staticMesh = nil;
-							}
-						}
-						
-						CGMaths::CGAABB aabb = calculateAABB(staticMesh->verts(), staticMesh->numverts());
-						staticMesh->setAABB( aabb );
+						delete( staticMesh );
+						staticMesh = nil;
 					}
 					
 					return staticMesh;

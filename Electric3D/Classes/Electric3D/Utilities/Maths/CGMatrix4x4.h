@@ -90,6 +90,34 @@ namespace CGMaths
 		return _matrix;
 	}
 	
+	inline CGMatrix4x4 CGMatrix4x4Make( const CGQuaternion & _quat )
+	{
+		CGMatrix4x4 matrix;
+		
+		/* Fill matrix members */
+		matrix.m[0] = 1.0f - 2.0f*_quat.y*_quat.y - 2.0f*_quat.z*_quat.z;
+		matrix.m[1] = 2.0f*_quat.x*_quat.y - 2.0f*_quat.z*_quat.w;
+		matrix.m[2] = 2.0f*_quat.x*_quat.z + 2.0f*_quat.y*_quat.w;
+		matrix.m[3] = 0.0f;
+		
+		matrix.m[4] = 2.0f*_quat.x*_quat.y + 2.0f*_quat.z*_quat.w;
+		matrix.m[5] = 1.0f - 2.0f*_quat.x*_quat.x - 2.0f*_quat.z*_quat.z;
+		matrix.m[6] = 2.0f*_quat.y*_quat.z - 2.0f*_quat.x*_quat.w;
+		matrix.m[7] = 0.0f;
+		
+		matrix.m[8] = 2.0f*_quat.x*_quat.z - 2*_quat.y*_quat.w;
+		matrix.m[9] = 2.0f*_quat.y*_quat.z + 2.0f*_quat.x*_quat.w;
+		matrix.m[10] = 1.0f - 2.0f*_quat.x*_quat.x - 2*_quat.y*_quat.y;
+		matrix.m[11] = 0.0f;
+		
+		matrix.m[12] = 0.0f;
+		matrix.m[13] = 0.0f;
+		matrix.m[14] = 0.0f;
+		matrix.m[15] = 1.0f;
+		
+		return matrix;
+	}
+	
 #pragma mark CGMatrix4x4 Rotations
 	
 	// ---------------------------------------------------
@@ -231,6 +259,17 @@ namespace CGMaths
 	}
 	
 	// ---------------------------------------------------
+	// Make a CGMatrix4x4 Scale
+	// ---------------------------------------------------
+	inline void CGMatrix4x4SetScale( CGMatrix4x4 & _matrix, float _x, float _y, float _z )
+	{		
+		_matrix.m[0]  = _x;
+		_matrix.m[5]  = _y;
+		_matrix.m[10] = _z;
+		_matrix.m[15] = 1.0f;
+	}
+	
+	// ---------------------------------------------------
 	// Make a CGMatrix4x4 Translation
 	// ---------------------------------------------------
 	inline CGMatrix4x4 CGMatrix4x4MakeTranslation( float _x, float _y, float _z )
@@ -368,11 +407,19 @@ namespace CGMaths
 	// ---------------------------------------------------
 	// Transform a Vector 3D
 	// ---------------------------------------------------
+	inline CGVector3D CGMatrix4x4TransformVector( const CGMatrix4x4 & _matrix, float _x, float _y, float _z )
+	{
+		return CGVector3DMake(	( _matrix.m[0] * _x + _matrix.m[4] * _y + _matrix.m[8] * _z + _matrix.m[12] ),
+								( _matrix.m[1] * _x + _matrix.m[5] * _y + _matrix.m[9] * _z + _matrix.m[13] ),
+								( _matrix.m[2] * _x + _matrix.m[6] * _y + _matrix.m[10] * _z + _matrix.m[14] ) );
+	}
+	
+	// ---------------------------------------------------
+	// Transform a Vector 3D
+	// ---------------------------------------------------
 	inline CGVector3D CGMatrix4x4TransformVector( const CGMatrix4x4 & _matrix, const CGVector3D & _vector )
 	{
-		return CGVector3DMake( ( _matrix.m[0] * _vector.x + _matrix.m[4] * _vector.y + _matrix.m[8] * _vector.z + _matrix.m[12] ),
-							   ( _matrix.m[1] * _vector.x + _matrix.m[5] * _vector.y + _matrix.m[9] * _vector.z + _matrix.m[13] ),
-							   ( _matrix.m[2] * _vector.x + _matrix.m[6] * _vector.y + _matrix.m[10] * _vector.z + _matrix.m[14] ) );
+		return CGMatrix4x4TransformVector( _matrix, _vector.x, _vector.y, _vector.z );
 	}
 	
 	// ---------------------------------------------------

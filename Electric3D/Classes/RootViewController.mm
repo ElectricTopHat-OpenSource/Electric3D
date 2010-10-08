@@ -17,6 +17,7 @@
 #import "GLTestCameraPerspective.h"
 #import "GLTestStaticMesh.h"
 #import "GLTestVertexAnimatedMesh.h"
+#import "GLTestPodMesh.h"
 
 #import "GLTestColorScene.h"
 #import "GLTestColorModel.h"
@@ -130,6 +131,15 @@
 				
 				[testInfo setObject:@"Test Vertex Animated Mesh" forKey:@"name"];
 				[testInfo setObject:[GLTestVertexAnimatedMesh class] forKey:@"class"];
+				
+				[array addObject:testInfo];
+			}
+			
+			{
+				NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];
+				
+				[testInfo setObject:@"Test POD Mesh" forKey:@"name"];
+				[testInfo setObject:[GLTestPodMesh class] forKey:@"class"];
 				
 				[array addObject:testInfo];
 			}

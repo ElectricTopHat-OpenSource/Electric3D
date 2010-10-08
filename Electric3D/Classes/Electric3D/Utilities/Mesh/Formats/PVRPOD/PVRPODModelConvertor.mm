@@ -8,13 +8,69 @@
 
 #import "PVRPODModelConvertor.h"
 
-
 namespace PVRPOD
 {
-	BOOL convertToVerts( const PODMesh * _model, GLInterleavedVert3D * _verts )
+	CGMaths::CGMatrix4x4 getNodeTransform( const PODNode * _node, unsigned int _animFrame, const PODNode * _nodelist )
+	{
+		if ( _node )
+		{
+			CGMaths::CGMatrix4x4 matrix;
+			if(_node->animMatrixs)
+			{
+				if(_node->animFlags & ePODHasMatrixAni)
+				{
+					unsigned int offset = _animFrame * 16;
+					memcpy(&matrix.m, &_node->animMatrixs[offset], sizeof(CGMaths::CGMatrix4x4));
+				}
+				else
+				{
+					memcpy(&matrix.m, _node->animMatrixs, sizeof(CGMaths::CGMatrix4x4));
+				}
+			}
+			else
+			{
+				matrix = CGMaths::CGMatrix4x4Identity;
+				
+				// Scale
+				if(_node->animScales)
+				{
+					unsigned int offset = (_node->animFlags & ePODHasScaleAni) ? _animFrame * 3 : 0;
+					CGMaths::CGMatrix4x4SetScale( matrix, _node->animScales[offset+0], _node->animScales[offset+1], _node->animScales[offset+2] );
+				}
+				
+				// Rotation
+				if(_node->animRotations)
+				{
+					CGMaths::CGQuaternion quat;
+					unsigned int offset = (_node->animFlags & ePODHasRotationAni) ? _animFrame * 4 : 0;
+					memcpy(&quat, &_node->animRotations[offset], sizeof(CGMaths::CGQuaternion));
+					matrix = CGMatrix4x4Multiply( matrix, CGMaths::CGMatrix4x4Make( quat ) );
+				}
+				
+				// Translation
+				if(_node->animPositions)
+				{
+					unsigned int offset = (_node->animFlags & ePODHasPositionAni) ? _animFrame * 3 : 0;
+					CGMaths::CGMatrix4x4SetTranslation( matrix, _node->animPositions[offset+0], _node->animPositions[offset+1], _node->animPositions[offset+2] );
+				}
+			}
+			
+			// add the parent if there is one
+			if ( ( _nodelist ) && ( _node->idxParent >= 0 ) )
+			{
+				CGMaths::CGMatrix4x4 parent = getNodeTransform( &_nodelist[_node->idxParent], _animFrame, _nodelist );
+				matrix = CGMatrix4x4Multiply( matrix, parent );
+			}
+			
+			return matrix;
+		}
+		return CGMaths::CGMatrix4x4Identity;
+	}
+	
+	BOOL convertToVerts( const PODMesh * _model, GLInterleavedVert3D * _verts, const CGMaths::CGMatrix4x4 & _transform )
 	{
 		if ( ( _model ) && 
-			( _model->numVertices ) )
+			 ( _model->numVertices ) )
 		{
 			if ( _model->numUVW )
 			{
@@ -22,7 +78,7 @@ namespace PVRPOD
 				const PODData * mverts		= &_model->vertices;
 				const PODData * mnormals	= &_model->normals;
 				const PODData * mvertColor	= &_model->vtxColours;
-				const PODData * mUVW		= &_model->UVWs[0];
+				const PODData * mUVW		= &_model->UVWs[_model->numUVW-1];
 				
 				if ( mverts->numVertexes == 3 )
 				{
@@ -46,8 +102,15 @@ namespace PVRPOD
 						
 						mvertsdata	= _model->interleaved;
 						mnormaldata	= _model->interleaved;
-						mcolordata	= _model->interleaved;
-						muvwdata	= _model->interleaved;
+						
+						if ( mvertColor->numVertexes )
+						{
+							mcolordata	= _model->interleaved;
+						}
+						if ( mUVW->numVertexes )
+						{
+							muvwdata	= _model->interleaved;
+						}
 					}
 					else // not interleaved data 
 					{
@@ -70,9 +133,11 @@ namespace PVRPOD
 						// -------------------------------------------
 						PODVec3f * v = (PODVec3f *)&mvertsdata[vertpos];
 						
-						vert->vert.x = v->x;
-						vert->vert.y = v->y;
-						vert->vert.z = v->z;
+						CGMaths::CGVector3D pos = CGMaths::CGMatrix4x4TransformVector( _transform, v->x, v->y ,v->z );
+						
+						vert->vert.x = pos.x;
+						vert->vert.y = pos.y;
+						vert->vert.z = pos.z;
 						
 						vertpos += mverts->stride;
 						// -------------------------------------------
@@ -89,16 +154,19 @@ namespace PVRPOD
 						normpos += mnormals->stride;
 						// -------------------------------------------
 						
-						// -------------------------------------------
-						// pull the uvs
-						// -------------------------------------------
-						PODVec2f * uv = (PODVec2f *)&muvwdata[uvwpos];
-						
-						vert->uv.x = uv->x;
-						vert->uv.y = uv->y;
-						
-						uvwpos += mUVW->stride;
-						// -------------------------------------------
+						if ( muvwdata )
+						{
+							// -------------------------------------------
+							// pull the uvs
+							// -------------------------------------------
+							PODVec2f * uv = (PODVec2f *)&muvwdata[uvwpos];
+							
+							vert->uv.x =  uv->x;
+							vert->uv.y = -uv->y; // ?? don't know why i have to negate this ??
+							
+							uvwpos += mUVW->stride;
+							// -------------------------------------------
+						}
 						
 #if GLInterleavedVert3D_color
 						if ( mcolordata )
@@ -106,21 +174,25 @@ namespace PVRPOD
 							// -------------------------------------------
 							// pull the colors out
 							// -------------------------------------------
-							PODVec4c * c = (PODVec4c *)&mcolordata[colpos];
+							PODVec4c * col = (PODVec4c *)&mcolordata[colpos];
+							//memcpy(&col, &mcolordata[colpos], sizeof(PODVec4c));
 							if ( mvertColor->type == EPODDataRGBA )
 							{	
-								vert->color.red		= c->x;
-								vert->color.green	= c->y;
-								vert->color.blue	= c->z;
-								vert->color.alpha	= c->w;
+								// err something seems to be wrong with 
+								// the way pod exporter is doing this
+								vert->color.red		= col->y;
+								vert->color.green	= col->z;
+								vert->color.blue	= col->w;
+								vert->color.alpha	= col->x;
 							}
 							else if ( ( mvertColor->type == EPODDataARGB ) ||
-									 ( mvertColor->type == EPODDataD3DCOLOR ) )
+									  ( mvertColor->type == EPODDataD3DCOLOR ) )
 							{
-								vert->color.red		= c->y;
-								vert->color.green	= c->z;
-								vert->color.blue	= c->w;
-								vert->color.alpha	= c->x;
+								// not sure why this works but it does???
+								vert->color.red		= col->x;
+								vert->color.green	= col->y;
+								vert->color.blue	= col->z;
+								vert->color.alpha	= col->w;
 							}
 							colpos += mvertColor->stride;
 							// -------------------------------------------
@@ -142,7 +214,7 @@ namespace PVRPOD
 		return false;
 	}
 	
-	BOOL convertToIndices( const PODMesh * _model, GLVertIndice * _indices )
+	BOOL convertToIndices( const PODMesh * _model, GLVertIndice * _indices, unsigned int _offset )
 	{
 		if ( _model && _indices )
 		{
@@ -152,13 +224,18 @@ namespace PVRPOD
 				if ( mfaces->data )
 				{
 					const NSInteger	numindices	= _model->numFaces*3;
-					if ( mfaces->stride == sizeof(short) )
+					if ( mfaces->stride == sizeof(short) && _offset == 0 )
 					{
 						memcpy(_indices, mfaces->data, sizeof(short)*numindices);
 					}
 					else 
 					{
-						// TODO :: iterate over the index list
+						int i;
+						for ( i=0; i<numindices; i++ )
+						{
+							unsigned short value = mfaces->data[i*mfaces->stride];
+							_indices[i] = value + _offset;
+						}
 					}
 					
 					return TRUE;

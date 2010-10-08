@@ -90,27 +90,15 @@
 		071270F31255247100C94F40 /* GLCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 078B0A9B125220CB00227D49 /* GLCamera.mm */; };
 		073F0279125C8238005F7C98 /* GLVertexUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 073F0278125C8238005F7C98 /* GLVertexUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		073F02F2125C8E66005F7C98 /* vertex_cube_indexed.POD in Resources */ = {isa = PBXBuildFile; fileRef = 073F02AE125C8787005F7C98 /* vertex_cube_indexed.POD */; };
-		073F04DA125CB42C005F7C98 /* CGTestMathsAABB.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A8F6231254D88A009E62A5 /* CGTestMathsAABB.h */; };
-		073F04DB125CB42C005F7C98 /* CGTextMaths.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A8F6261254DA17009E62A5 /* CGTextMaths.h */; };
-		073F04DC125CB42C005F7C98 /* GLTestCameraGeneral.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A8F2B412535015009E62A5 /* GLTestCameraGeneral.h */; };
-		073F04DD125CB42C005F7C98 /* GLTestCameraPerspective.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A8F4A212539EE1009E62A5 /* GLTestCameraPerspective.h */; };
-		073F04DE125CB42C005F7C98 /* GLTestColorModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A8F5811253B47D009E62A5 /* GLTestColorModel.h */; };
-		073F04DF125CB42C005F7C98 /* GLTestColorScene.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A8F5601253B2F1009E62A5 /* GLTestColorScene.h */; };
-		073F04E0125CB42C005F7C98 /* GLTestColorSceneModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A8F5981253B54B009E62A5 /* GLTestColorSceneModel.h */; };
-		073F04E1125CB42C005F7C98 /* GLTestGeneral.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF35D124A1DB500FC7D17 /* GLTestGeneral.h */; };
-		073F04E2125CB42C005F7C98 /* GLTestMeshFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF714124BBA9A00FC7D17 /* GLTestMeshFactory.h */; };
-		073F04E3125CB42C005F7C98 /* GLTestStaticMesh.h in Headers */ = {isa = PBXBuildFile; fileRef = 078B09581251F51500227D49 /* GLTestStaticMesh.h */; };
-		073F04E4125CB42C005F7C98 /* GLTestTextureFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF7C5124BC7AF00FC7D17 /* GLTestTextureFactory.h */; };
-		073F04E5125CB42C005F7C98 /* GLTestVertexAnimatedMesh.h in Headers */ = {isa = PBXBuildFile; fileRef = 078B097B1251F9C000227D49 /* GLTestVertexAnimatedMesh.h */; };
-		073F04E6125CB42C005F7C98 /* MAX3DSModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 07ECE1811259E82E0097D909 /* MAX3DSModel.h */; };
-		073F04E7125CB42C005F7C98 /* MAX3DSModelConvertor.h in Headers */ = {isa = PBXBuildFile; fileRef = 07ECE286125A0C040097D909 /* MAX3DSModelConvertor.h */; };
-		073F04E8125CB42C005F7C98 /* MAX3DSTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 07ECE17F1259E8100097D909 /* MAX3DSTypes.h */; };
-		073F04E9125CB42C005F7C98 /* MAX3DSUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 07ECE348125A1BC30097D909 /* MAX3DSUtility.h */; };
-		073F04EA125CB42C005F7C98 /* PVRPODModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 07ECE4C7125A4BC60097D909 /* PVRPODModel.h */; };
-		073F04EB125CB42C005F7C98 /* PVRPODModelConvertor.h in Headers */ = {isa = PBXBuildFile; fileRef = 07ECE4D6125A4DDC0097D909 /* PVRPODModelConvertor.h */; };
-		073F04EC125CB42C005F7C98 /* PVRPODTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 07ECE4C6125A4B800097D909 /* PVRPODTypes.h */; };
-		073F04ED125CB42C005F7C98 /* PVRPODUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 079E40D7125B809800AFC765 /* PVRPODUtility.h */; };
-		073F06C0125DD668005F7C98 /* CGOOBB.h in Headers */ = {isa = PBXBuildFile; fileRef = 073F06BF125DD668005F7C98 /* CGOOBB.h */; };
+		073F04E6125CB42C005F7C98 /* MAX3DSModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 07ECE1811259E82E0097D909 /* MAX3DSModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		073F04E7125CB42C005F7C98 /* MAX3DSModelConvertor.h in Headers */ = {isa = PBXBuildFile; fileRef = 07ECE286125A0C040097D909 /* MAX3DSModelConvertor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		073F04E8125CB42C005F7C98 /* MAX3DSTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 07ECE17F1259E8100097D909 /* MAX3DSTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		073F04E9125CB42C005F7C98 /* MAX3DSUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 07ECE348125A1BC30097D909 /* MAX3DSUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		073F04EA125CB42C005F7C98 /* PVRPODModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 07ECE4C7125A4BC60097D909 /* PVRPODModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		073F04EB125CB42C005F7C98 /* PVRPODModelConvertor.h in Headers */ = {isa = PBXBuildFile; fileRef = 07ECE4D6125A4DDC0097D909 /* PVRPODModelConvertor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		073F04EC125CB42C005F7C98 /* PVRPODTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 07ECE4C6125A4B800097D909 /* PVRPODTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		073F04ED125CB42C005F7C98 /* PVRPODUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 079E40D7125B809800AFC765 /* PVRPODUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		073F06C0125DD668005F7C98 /* CGOOBB.h in Headers */ = {isa = PBXBuildFile; fileRef = 073F06BF125DD668005F7C98 /* CGOOBB.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0774F088125609A2006AC5BA /* GLMeshes.h in Headers */ = {isa = PBXBuildFile; fileRef = 0799C109125603E300846A9C /* GLMeshes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0774F089125609AE006AC5BA /* GLTextures.h in Headers */ = {isa = PBXBuildFile; fileRef = 0799C10A1256043800846A9C /* GLTextures.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0774F08A125609B9006AC5BA /* GLSprites.h in Headers */ = {isa = PBXBuildFile; fileRef = 0799C10B1256046B00846A9C /* GLSprites.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -196,15 +184,21 @@
 		078B095A1251F51500227D49 /* GLTestStaticMesh.mm in Sources */ = {isa = PBXBuildFile; fileRef = 078B09591251F51500227D49 /* GLTestStaticMesh.mm */; };
 		078B097D1251F9C000227D49 /* GLTestVertexAnimatedMesh.mm in Sources */ = {isa = PBXBuildFile; fileRef = 078B097C1251F9C000227D49 /* GLTestVertexAnimatedMesh.mm */; };
 		078B0B95125259AF00227D49 /* GLCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 078B0A9B125220CB00227D49 /* GLCamera.mm */; };
+		07990634125E088B004CCA19 /* SL_HL_clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 07990633125E088B004CCA19 /* SL_HL_clock.png */; };
+		07990636125E0894004CCA19 /* SL_HL_clock_ARGB.POD in Resources */ = {isa = PBXBuildFile; fileRef = 07990635125E0894004CCA19 /* SL_HL_clock_ARGB.POD */; };
+		07990639125E08B3004CCA19 /* GLTestPodMesh.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07990638125E08B3004CCA19 /* GLTestPodMesh.mm */; };
+		079908B0125E2E37004CCA19 /* SL_HL_clock_RGBA.POD in Resources */ = {isa = PBXBuildFile; fileRef = 079908AF125E2E37004CCA19 /* SL_HL_clock_RGBA.POD */; };
+		079908E0125E354E004CCA19 /* SL_ghosts.png in Resources */ = {isa = PBXBuildFile; fileRef = 079908DE125E354E004CCA19 /* SL_ghosts.png */; };
+		07990926125E3997004CCA19 /* SL_ghosts.POD in Resources */ = {isa = PBXBuildFile; fileRef = 07990925125E3997004CCA19 /* SL_ghosts.POD */; };
 		079E42CA125BA66400AFC765 /* vertex_cube.POD in Resources */ = {isa = PBXBuildFile; fileRef = 079E42C9125BA66400AFC765 /* vertex_cube.POD */; };
 		079E42ED125BD15000AFC765 /* PVRPODModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07ECE4C8125A4BC60097D909 /* PVRPODModel.mm */; };
 		079E42EE125BD15000AFC765 /* PVRPODModelConvertor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07ECE4D7125A4DDC0097D909 /* PVRPODModelConvertor.mm */; };
 		079E42EF125BD15900AFC765 /* MAX3DSModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07ECE1821259E82E0097D909 /* MAX3DSModel.mm */; };
 		079E42F0125BD15900AFC765 /* MAX3DSModelConvertor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07ECE287125A0C040097D909 /* MAX3DSModelConvertor.mm */; };
-		079E438F125BDE1900AFC765 /* GLMeshCone.h in Headers */ = {isa = PBXBuildFile; fileRef = 079E438B125BDE1900AFC765 /* GLMeshCone.h */; };
-		079E4390125BDE1900AFC765 /* GLMeshCube.h in Headers */ = {isa = PBXBuildFile; fileRef = 079E438C125BDE1900AFC765 /* GLMeshCube.h */; };
-		079E4391125BDE1900AFC765 /* GLMeshCylinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 079E438D125BDE1900AFC765 /* GLMeshCylinder.h */; };
-		079E4392125BDE1900AFC765 /* GLMeshSphere.h in Headers */ = {isa = PBXBuildFile; fileRef = 079E438E125BDE1900AFC765 /* GLMeshSphere.h */; };
+		079E438F125BDE1900AFC765 /* GLMeshCone.h in Headers */ = {isa = PBXBuildFile; fileRef = 079E438B125BDE1900AFC765 /* GLMeshCone.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		079E4390125BDE1900AFC765 /* GLMeshCube.h in Headers */ = {isa = PBXBuildFile; fileRef = 079E438C125BDE1900AFC765 /* GLMeshCube.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		079E4391125BDE1900AFC765 /* GLMeshCylinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 079E438D125BDE1900AFC765 /* GLMeshCylinder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		079E4392125BDE1900AFC765 /* GLMeshSphere.h in Headers */ = {isa = PBXBuildFile; fileRef = 079E438E125BDE1900AFC765 /* GLMeshSphere.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07A8F2B612535015009E62A5 /* GLTestCameraGeneral.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A8F2B512535015009E62A5 /* GLTestCameraGeneral.mm */; };
 		07A8F45712536F73009E62A5 /* GLPerspective.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A8F45612536F73009E62A5 /* GLPerspective.mm */; };
 		07A8F4A412539EE1009E62A5 /* GLTestCameraPerspective.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A8F4A312539EE1009E62A5 /* GLTestCameraPerspective.mm */; };
@@ -224,6 +218,10 @@
 		07ECE49C125A46B10097D909 /* 3ds.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 07ECE49A125A46B10097D909 /* 3ds.rtf */; };
 		07ECE4C9125A4BC60097D909 /* PVRPODModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07ECE4C8125A4BC60097D909 /* PVRPODModel.mm */; };
 		07ECE4D8125A4DDC0097D909 /* PVRPODModelConvertor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07ECE4D7125A4DDC0097D909 /* PVRPODModelConvertor.mm */; };
+		07FDED19125F760F002AACD9 /* SL_EX_house.POD in Resources */ = {isa = PBXBuildFile; fileRef = 07FDED18125F760F002AACD9 /* SL_EX_house.POD */; };
+		07FDED1B125F762D002AACD9 /* SL_EX_house.png in Resources */ = {isa = PBXBuildFile; fileRef = 07FDED1A125F762D002AACD9 /* SL_EX_house.png */; };
+		07FDED3A125F7812002AACD9 /* SL_EX_gravestones.png in Resources */ = {isa = PBXBuildFile; fileRef = 07FDED39125F7812002AACD9 /* SL_EX_gravestones.png */; };
+		07FDED3C125F789A002AACD9 /* SL_EX_gravestones.md2 in Resources */ = {isa = PBXBuildFile; fileRef = 07FDED3B125F789A002AACD9 /* SL_EX_gravestones.md2 */; };
 		1D3623260D0F684500981E51 /* Electric3DAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* Electric3DAppDelegate.mm */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -355,6 +353,13 @@
 		078B0A9B125220CB00227D49 /* GLCamera.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLCamera.mm; sourceTree = "<group>"; };
 		078B0A9C12522D1E00227D49 /* CGQuaternion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGQuaternion.h; sourceTree = "<group>"; };
 		078B0B301252496700227D49 /* MD3Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD3Types.h; sourceTree = "<group>"; };
+		07990633125E088B004CCA19 /* SL_HL_clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SL_HL_clock.png; sourceTree = "<group>"; };
+		07990635125E0894004CCA19 /* SL_HL_clock_ARGB.POD */ = {isa = PBXFileReference; lastKnownFileType = file; path = SL_HL_clock_ARGB.POD; sourceTree = "<group>"; };
+		07990637125E08B3004CCA19 /* GLTestPodMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTestPodMesh.h; sourceTree = "<group>"; };
+		07990638125E08B3004CCA19 /* GLTestPodMesh.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLTestPodMesh.mm; sourceTree = "<group>"; };
+		079908AF125E2E37004CCA19 /* SL_HL_clock_RGBA.POD */ = {isa = PBXFileReference; lastKnownFileType = file; path = SL_HL_clock_RGBA.POD; sourceTree = "<group>"; };
+		079908DE125E354E004CCA19 /* SL_ghosts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SL_ghosts.png; sourceTree = "<group>"; };
+		07990925125E3997004CCA19 /* SL_ghosts.POD */ = {isa = PBXFileReference; lastKnownFileType = file; path = SL_ghosts.POD; sourceTree = "<group>"; };
 		0799C0FB125602DE00846A9C /* GLObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLObjects.h; sourceTree = "<group>"; };
 		0799C0FC1256036400846A9C /* GLVertexs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLVertexs.h; sourceTree = "<group>"; };
 		0799C109125603E300846A9C /* GLMeshes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMeshes.h; sourceTree = "<group>"; };
@@ -403,6 +408,10 @@
 		07ECE4C8125A4BC60097D909 /* PVRPODModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PVRPODModel.mm; sourceTree = "<group>"; };
 		07ECE4D6125A4DDC0097D909 /* PVRPODModelConvertor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVRPODModelConvertor.h; sourceTree = "<group>"; };
 		07ECE4D7125A4DDC0097D909 /* PVRPODModelConvertor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PVRPODModelConvertor.mm; sourceTree = "<group>"; };
+		07FDED18125F760F002AACD9 /* SL_EX_house.POD */ = {isa = PBXFileReference; lastKnownFileType = file; path = SL_EX_house.POD; sourceTree = "<group>"; };
+		07FDED1A125F762D002AACD9 /* SL_EX_house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SL_EX_house.png; path = "Multiple Mesh Test/SL_EX_house.png"; sourceTree = "<group>"; };
+		07FDED39125F7812002AACD9 /* SL_EX_gravestones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SL_EX_gravestones.png; sourceTree = "<group>"; };
+		07FDED3B125F789A002AACD9 /* SL_EX_gravestones.md2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SL_EX_gravestones.md2; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* Electric3DAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Electric3DAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* Electric3DAppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Electric3DAppDelegate.mm; sourceTree = "<group>"; };
@@ -678,6 +687,8 @@
 		077FF70A124BB82200FC7D17 /* MD2 */ = {
 			isa = PBXGroup;
 			children = (
+				07FDED39125F7812002AACD9 /* SL_EX_gravestones.png */,
+				07FDED3B125F789A002AACD9 /* SL_EX_gravestones.md2 */,
 				07A8F5491253B1E3009E62A5 /* E3D_cone.md2 */,
 				07A8F54A1253B1E3009E62A5 /* E3D_sphere.md2 */,
 				07A8F54B1253B1E3009E62A5 /* E3D_cylinder.md2 */,
@@ -696,6 +707,7 @@
 		077FF70B124BB83300FC7D17 /* PNG */ = {
 			isa = PBXGroup;
 			children = (
+				07990633125E088B004CCA19 /* SL_HL_clock.png */,
 				078B04051250A1DD00227D49 /* SL_bert.png */,
 				078B04091250A1F000227D49 /* SL_dasher.png */,
 				078B040A1250A1F000227D49 /* SL_taffy.png */,
@@ -869,6 +881,8 @@
 				078B09591251F51500227D49 /* GLTestStaticMesh.mm */,
 				078B097B1251F9C000227D49 /* GLTestVertexAnimatedMesh.h */,
 				078B097C1251F9C000227D49 /* GLTestVertexAnimatedMesh.mm */,
+				07990637125E08B3004CCA19 /* GLTestPodMesh.h */,
+				07990638125E08B3004CCA19 /* GLTestPodMesh.mm */,
 			);
 			path = MeshTests;
 			sourceTree = "<group>";
@@ -891,6 +905,15 @@
 				078B0B301252496700227D49 /* MD3Types.h */,
 			);
 			path = MD3;
+			sourceTree = "<group>";
+		};
+		079908DD125E354E004CCA19 /* Multiple Mesh Test */ = {
+			isa = PBXGroup;
+			children = (
+				079908DE125E354E004CCA19 /* SL_ghosts.png */,
+				07990925125E3997004CCA19 /* SL_ghosts.POD */,
+			);
+			path = "Multiple Mesh Test";
 			sourceTree = "<group>";
 		};
 		07A8F2B312534FEE009E62A5 /* Camera */ = {
@@ -975,6 +998,11 @@
 		07ECE4E8125A5BAD0097D909 /* POD */ = {
 			isa = PBXGroup;
 			children = (
+				079908DD125E354E004CCA19 /* Multiple Mesh Test */,
+				07FDED1A125F762D002AACD9 /* SL_EX_house.png */,
+				07FDED18125F760F002AACD9 /* SL_EX_house.POD */,
+				079908AF125E2E37004CCA19 /* SL_HL_clock_RGBA.POD */,
+				07990635125E0894004CCA19 /* SL_HL_clock_ARGB.POD */,
 				079E42C9125BA66400AFC765 /* vertex_cube.POD */,
 				073F02AE125C8787005F7C98 /* vertex_cube_indexed.POD */,
 			);
@@ -1068,8 +1096,6 @@
 				07126F7D1255229400C94F40 /* CGMatrix4x4.h in Headers */,
 				07126F7E1255229400C94F40 /* CGQuaternion.h in Headers */,
 				07126F7F1255229400C94F40 /* CGSphere.h in Headers */,
-				073F04DA125CB42C005F7C98 /* CGTestMathsAABB.h in Headers */,
-				073F04DB125CB42C005F7C98 /* CGTextMaths.h in Headers */,
 				07126F801255229400C94F40 /* CGVector2D.h in Headers */,
 				07126F811255229400C94F40 /* CGVector3D.h in Headers */,
 				07126F821255229400C94F40 /* CGVector4D.h in Headers */,
@@ -1107,16 +1133,6 @@
 				071270851255234400C94F40 /* GLScene.h in Headers */,
 				07127094125523A600C94F40 /* GLSprite.h in Headers */,
 				071270921255239900C94F40 /* GLSpriteFactory.h in Headers */,
-				073F04DC125CB42C005F7C98 /* GLTestCameraGeneral.h in Headers */,
-				073F04DD125CB42C005F7C98 /* GLTestCameraPerspective.h in Headers */,
-				073F04DE125CB42C005F7C98 /* GLTestColorModel.h in Headers */,
-				073F04DF125CB42C005F7C98 /* GLTestColorScene.h in Headers */,
-				073F04E0125CB42C005F7C98 /* GLTestColorSceneModel.h in Headers */,
-				073F04E1125CB42C005F7C98 /* GLTestGeneral.h in Headers */,
-				073F04E2125CB42C005F7C98 /* GLTestMeshFactory.h in Headers */,
-				073F04E3125CB42C005F7C98 /* GLTestStaticMesh.h in Headers */,
-				073F04E4125CB42C005F7C98 /* GLTestTextureFactory.h in Headers */,
-				073F04E5125CB42C005F7C98 /* GLTestVertexAnimatedMesh.h in Headers */,
 				07127098125523CB00C94F40 /* GLTexture.h in Headers */,
 				07127096125523C000C94F40 /* GLTextureFactory.h in Headers */,
 				0774F089125609AE006AC5BA /* GLTextures.h in Headers */,
@@ -1256,6 +1272,15 @@
 				07ECE49C125A46B10097D909 /* 3ds.rtf in Resources */,
 				079E42CA125BA66400AFC765 /* vertex_cube.POD in Resources */,
 				073F02F2125C8E66005F7C98 /* vertex_cube_indexed.POD in Resources */,
+				07990634125E088B004CCA19 /* SL_HL_clock.png in Resources */,
+				07990636125E0894004CCA19 /* SL_HL_clock_ARGB.POD in Resources */,
+				079908B0125E2E37004CCA19 /* SL_HL_clock_RGBA.POD in Resources */,
+				079908E0125E354E004CCA19 /* SL_ghosts.png in Resources */,
+				07990926125E3997004CCA19 /* SL_ghosts.POD in Resources */,
+				07FDED19125F760F002AACD9 /* SL_EX_house.POD in Resources */,
+				07FDED1B125F762D002AACD9 /* SL_EX_house.png in Resources */,
+				07FDED3A125F7812002AACD9 /* SL_EX_gravestones.png in Resources */,
+				07FDED3C125F789A002AACD9 /* SL_EX_gravestones.md2 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1363,6 +1388,7 @@
 				07ECE291125A0D050097D909 /* MAX3DSModel.mm in Sources */,
 				07ECE4C9125A4BC60097D909 /* PVRPODModel.mm in Sources */,
 				07ECE4D8125A4DDC0097D909 /* PVRPODModelConvertor.mm in Sources */,
+				07990639125E08B3004CCA19 /* GLTestPodMesh.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

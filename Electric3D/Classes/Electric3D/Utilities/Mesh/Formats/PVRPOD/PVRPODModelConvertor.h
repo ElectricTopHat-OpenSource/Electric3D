@@ -11,11 +11,14 @@
 
 #import "GLVertexTypes.h"
 #import "PVRPODTypes.h"
+#import "CGMaths.h"
 
 namespace PVRPOD
 {
-	BOOL convertToVerts( const PODMesh * _model, GLInterleavedVert3D * _verts );
-	BOOL convertToIndices( const PODMesh * _model, GLVertIndice * _indices );
+	CGMaths::CGMatrix4x4 getNodeTransform( const PODNode * _node, unsigned int animFrame = 0, const PODNode * _nodelist = nil );
+	
+	BOOL convertToVerts( const PODMesh * _model, GLInterleavedVert3D * _verts, const CGMaths::CGMatrix4x4 & _transform = CGMaths::CGMatrix4x4Identity );
+	BOOL convertToIndices( const PODMesh * _model, GLVertIndice * _indices, unsigned int _offset = 0 );
 };
 
 #endif

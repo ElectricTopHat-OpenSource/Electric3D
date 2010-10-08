@@ -119,22 +119,26 @@ namespace MAX3DS
 		return FALSE;
 	}
 	
-	BOOL convertToIndices( const MAX3DS_OBJECT * _model, GLVertIndice * _indices )
+	BOOL convertToIndices( const MAX3DS_OBJECT * _model, GLVertIndice * _indices, unsigned short _offset )
 	{
 		if ( ( _model ) && ( _indices ) &&
 			 ( _model->header.numVerts ) &&
 			 ( _model->header.numFaces ) )
 		{
 			NSUInteger pos	= 0;
-			NSUInteger size = sizeof(GLVertIndice)*3;
+			//NSUInteger size = sizeof(GLVertIndice)*3;
 			
 			int i;
 			for ( i=0; i<_model->header.numFaces; i++ )
 			{
 				MAX3DS_FACE * face = &_model->faces[i];
 				
-				memcpy(&_indices[pos], face, size);
-
+				_indices[pos]	= face->a + _offset;
+				_indices[pos+1] = face->b + _offset;
+				_indices[pos+2] = face->c + _offset;
+				
+				//memcpy(&_indices[pos], face, size);
+				
 				pos += 3;
 			}
 			

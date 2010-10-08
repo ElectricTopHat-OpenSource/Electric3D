@@ -172,12 +172,15 @@ namespace PVRPOD
 		float w;
 	} PODVec4f;
 	
-	typedef struct
-	{
-		char x;
-		char y;
-		char z;
-		char w;
+	typedef union {
+		int value;
+		struct 
+		{
+			unsigned char x;
+			unsigned char y;
+			unsigned char z;
+			unsigned char w;
+		};
 	} PODVec4c;
 	
 	typedef struct

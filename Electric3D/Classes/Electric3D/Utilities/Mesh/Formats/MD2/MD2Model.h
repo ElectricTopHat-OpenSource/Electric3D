@@ -48,11 +48,13 @@ namespace MD2
 		inline const Md2Skin *		skins() const { return m_skins; };
 		inline const Md2TexCoord *	texCoords() const { return m_texCoords; };
 		inline const Md2Triangle *	triangles() const { return m_triangles; };
-		inline const unsigned int	numverts() const { return (m_header) ? m_header->num_tris*3 : 0; };
+		inline const unsigned int	numverts() const { return (m_header) ? m_header->num_vertices : 0; };
+		inline const unsigned int	numtrangles() const { return (m_header) ? m_header->num_tris : 0; };
+		inline const int *			glcmds() const { return m_glcmds; };
 		
 		inline const unsigned int	numframes() const { return (m_header) ? m_header->num_frames : 0; };
 		inline const Md2Frame *		frames() const { return *m_frames; };
-		inline const Md2Frame *		frame( unsigned int _index ) const { return m_frames[_index]; };
+		inline const Md2Frame *		frame( unsigned int _index ) const { return m_frames[_index]; };		
 		
 	private: // Functions
 		

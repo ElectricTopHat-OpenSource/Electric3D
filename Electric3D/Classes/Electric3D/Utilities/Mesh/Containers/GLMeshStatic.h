@@ -71,8 +71,8 @@ namespace GLMeshes
 		inline const NSUInteger				numverts() const					{ return m_header->info.numverts; };
 		inline const NSUInteger				numindices() const					{ return m_header->info.numindices; };
 		
-		inline const CGMaths::CGAABB &		AABB() const						{ return m_header->info.aabb; };
-		inline void							setAABB( CGMaths::CGAABB & _aabb )	{ m_header->info.aabb = _aabb; };
+		inline const CGMaths::CGAABB &		aabb() const						{ return m_header->info.aabb; };
+		inline void							setaabb( CGMaths::CGAABB & _aabb )	{ m_header->info.aabb = _aabb; };
 		
 		inline const eGLVertListType		vertListType() const				{ return ( m_indices ) ? eGLVertListType_Indexed : eGLVertListType_NonIndexed; };
 		

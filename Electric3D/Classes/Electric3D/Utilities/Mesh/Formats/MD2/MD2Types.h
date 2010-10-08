@@ -27,7 +27,7 @@ namespace MD2
 		int num_vertices;   // Number of vertices per frame
 		int num_st;         // Number of texture coords
 		int num_tris;       // Number of triangles
-		int num_glcmds;     // Number of OpenGL commands
+		int num_glcmds;     // Number of dwords (4 bytes) in the opengl command list
 		int num_frames;     // Number of frames
 		
 		int offset_skins;   // offset to skin data

@@ -15,7 +15,7 @@
 
 inline CGMaths::CGAABB calculateAABB( const  GLInterleavedVert3D * _verts, NSUInteger _numverts )
 {
-	CGMaths::CGAABB aabb = CGMaths::CGAABBZero;
+	CGMaths::CGAABB aabb = CGMaths::CGAABBInvalid;
 	int i;
 	for ( i=0; i<_numverts; i++ )
 	{
@@ -27,7 +27,7 @@ inline CGMaths::CGAABB calculateAABB( const  GLInterleavedVert3D * _verts, NSUIn
 
 inline CGMaths::CGAABB calculateAABB( const  GLInterleavedVertNormal3D * _verts, NSUInteger _numverts )
 {
-	CGMaths::CGAABB aabb = CGMaths::CGAABBZero;
+	CGMaths::CGAABB aabb = CGMaths::CGAABBInvalid;
 	int i;
 	for ( i=0; i<_numverts; i++ )
 	{
