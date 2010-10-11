@@ -10,7 +10,10 @@
 #if !defined(__Timers_h__)
 #define __Timers_h__
 
+#import "TimerTypes.h"
 #import "RenderTimer.h"
 #import "GameTimer.h"
+#import "DeltaTimer.h"
+#import "FPSTimer.h"
 
 #endif

@@ -291,25 +291,7 @@ namespace CGMaths
 	{		
 		return CGMatrix4x4MakeTranslation( _translation.x, _translation.y, _translation.z );
 	}
-	
-	// ---------------------------------------------------
-	// Make a CGMatrix4x4 Translation
-	// ---------------------------------------------------
-	inline void CGMatrix4x4SetTranslation( CGMatrix4x4 & _matrix, float _x, float _y, float _z )
-	{
-		_matrix.m[12] = _x;
-		_matrix.m[13] = _y;
-		_matrix.m[14] = _z;
-	}
-	
-	// ---------------------------------------------------
-	// Make a CGMatrix4x4 Translation
-	// ---------------------------------------------------
-	inline void CGMatrix4x4SetTranslation( CGMatrix4x4 & _matrix, const CGVector3D & _translation )
-	{		
-		CGMatrix4x4SetTranslation( _matrix, _translation.x, _translation.y, _translation.z );
-	}
-	
+		
 	// ---------------------------------------------------
 	// Negate a CGMatrix4x4
 	// ---------------------------------------------------
@@ -452,6 +434,56 @@ namespace CGMaths
 	inline CGVector3D CGMatrix4x4GetRight( const CGMatrix4x4 & _matrix )
 	{
 		return CGVector3DMake( _matrix.m[0], _matrix.m[4], _matrix.m[8] );
+	}
+	
+	// ---------------------------------------------------
+	// Get the matrix translation value
+	// ---------------------------------------------------
+	inline void CGMatrix4x4SetTranslation( CGMatrix4x4 & _matrix, const CGVector3D & _translation )
+	{
+		_matrix.m[12] = _translation.x;
+		_matrix.m[13] = _translation.y; 
+		_matrix.m[14] = _translation.z;
+	}
+	
+	// ---------------------------------------------------
+	// Translate an existing CGMatrix4x4
+	// ---------------------------------------------------
+	inline void CGMatrix4x4SetTranslation( CGMatrix4x4 & _matrix, float _x, float _y, float _z )
+	{
+		_matrix.m[12] = _x;   
+		_matrix.m[13] = _y;   
+		_matrix.m[14] = _z;
+	}
+	
+	// ---------------------------------------------------
+	// Get the matrix at value
+	// ---------------------------------------------------
+	inline void CGMatrix4x4SetAt( CGMatrix4x4 & _matrix, const CGVector3D & _at )
+	{
+		_matrix.m[2]  = _at.x;
+		_matrix.m[6]  = _at.y; 
+		_matrix.m[10] = _at.z;
+	}
+	
+	// ---------------------------------------------------
+	// Get the matrix up value
+	// ---------------------------------------------------
+	inline void CGMatrix4x4SetUp( CGMatrix4x4 & _matrix, const CGVector3D & _up )
+	{
+		_matrix.m[1] = _up.x;
+		_matrix.m[5] = _up.y; 
+		_matrix.m[9] = _up.z;
+	}
+	
+	// ---------------------------------------------------
+	// Get the matrix right value
+	// ---------------------------------------------------
+	inline void CGMatrix4x4SetRight( CGMatrix4x4 & _matrix, const CGVector3D & _right )
+	{
+		_matrix.m[0] = _right.x;
+		_matrix.m[4] = _right.y; 
+		_matrix.m[8] = _right.z;
 	}
 	
 #pragma mark ---------------------------------------------------------

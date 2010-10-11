@@ -212,6 +212,15 @@
 }
 
 // ------------------------------------------
+// set the clear color
+// ------------------------------------------
+- (void) setClearColor:(UIColor*)_color
+{
+	GLColors::GLColor color( _color );
+	m_renderer->setClearColor(color.red(), color.green(), color.blue());
+}
+
+// ------------------------------------------
 // does the render contain the scene
 // ------------------------------------------
 - (BOOL) containsScene:(GLObjects::GLScene*)_scene

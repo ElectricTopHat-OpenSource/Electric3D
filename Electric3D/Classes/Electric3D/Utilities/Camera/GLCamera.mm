@@ -27,7 +27,6 @@ namespace GLCameras
 	// --------------------------------------------------
 	GLCamera::GLCamera( const GLCamera & _camera )
 	{
-		m_fov		= _camera.m_fov;
 		m_transform = _camera.m_transform;
 	}
 	

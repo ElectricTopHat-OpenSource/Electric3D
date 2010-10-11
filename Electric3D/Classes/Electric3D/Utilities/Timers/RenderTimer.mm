@@ -9,6 +9,13 @@
 #import "RenderTimer.h"
 #import <QuartzCore/QuartzCore.h>
 
+@interface RenderTimer (PrivateMethods)
+
+- (NSUInteger)		updateRateDisplayLink;
+- (NSTimeInterval)	updateRateNormal;
+
+@end
+
 @implementation RenderTimer
 
 #pragma mark ---------------------------------------------------------
@@ -19,8 +26,7 @@
 @synthesize delegate;
 @synthesize selector;
 
-@synthesize displayLinkTiming;
-@synthesize normalTimerTiming;
+@synthesize timeInteval;
 
 #pragma mark ---------------------------------------------------------
 #pragma mark === End Properties  ===
@@ -50,8 +56,7 @@
 			displayLinkSupported = FALSE;
 		}
 		
-		displayLinkTiming	= 1;
-		normalTimerTiming	= 1.0f / 60.0f;
+		timeInteval	= eTimeInterval_60hz;
 		
 		running = FALSE;
 	}
@@ -89,12 +94,12 @@
             // if the system version runtime check for CADisplayLink exists in -initWithCoder:. The runtime check ensures this code will
             // not be called in system versions earlier than 3.1.
             displayLink = [NSClassFromString(@"CADisplayLink") displayLinkWithTarget:delegate selector:selector];
-            [displayLink setFrameInterval:displayLinkTiming];
+            [displayLink setFrameInterval:[self updateRateDisplayLink]];
             [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
         }
         else
 		{
-            normalTimer = [NSTimer scheduledTimerWithTimeInterval:normalTimerTiming target:delegate selector:selector userInfo:nil repeats:TRUE];
+            normalTimer = [NSTimer scheduledTimerWithTimeInterval:[self updateRateNormal] target:delegate selector:selector userInfo:nil repeats:TRUE];
 		}
 		
         running = TRUE;
@@ -124,7 +129,52 @@
 }
 
 #pragma mark ---------------------------------------------------------
-#pragma mark === End Public  ===
+#pragma mark === End Public Functions ===
+#pragma mark ---------------------------------------------------------
+
+#pragma mark ---------------------------------------------------------
+#pragma mark === Private Functions  ===
+#pragma mark ---------------------------------------------------------
+
+// -----------------------------------------------------
+// return the display link time interval
+// -----------------------------------------------------
+- (NSUInteger) updateRateDisplayLink
+{
+	switch (timeInteval) 
+	{
+		default:
+		case eTimeInterval_60hz:
+			return 1;
+		case eTimeInterval_30hz:
+		case eTimeInterval_24hz:
+			return 2;
+		case eTimeInterval_15hz:
+			return 3;
+	}
+}
+
+// -----------------------------------------------------
+// return the update time interval
+// -----------------------------------------------------
+- (NSTimeInterval) updateRateNormal
+{
+	switch (timeInteval) 
+	{
+		default:
+		case eTimeInterval_60hz:
+			return 1.0f / 60.0f;
+		case eTimeInterval_30hz:
+			return 1.0f / 30.0f;
+		case eTimeInterval_24hz:
+			return 1.0f / 24.0f;
+		case eTimeInterval_15hz:
+			return 1.0f / 15.0f;
+	}
+}
+
+#pragma mark ---------------------------------------------------------
+#pragma mark === End Private Functions  ===
 #pragma mark ---------------------------------------------------------
 
 @end

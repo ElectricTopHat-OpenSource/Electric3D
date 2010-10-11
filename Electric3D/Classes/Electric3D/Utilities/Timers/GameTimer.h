@@ -7,15 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "TimerTypes.h"
 
 @interface GameTimer : NSObject 
 {
 	// ------------------------------------------------
 	// Basic animation timer
 	// ------------------------------------------------
-    NSTimer *		normalTimer;
-	NSTimeInterval	normalTimerTiming; // default to 60hz (1.0 / 60.0) ( set to 1.0 / 30.0 to half the frame rate )
+    NSTimer *		timer;
+	eTimeInterval	timeInteval; // default to 60hz (1.0 / 60.0) ( set to 1.0 / 30.0 to half the frame rate )
 	// ------------------------------------------------
 	
 	// ------------------------------------------------
@@ -37,7 +37,7 @@
 @property (nonatomic,retain)	id		delegate;
 @property (nonatomic)			SEL		selector;
 
-@property (nonatomic)			NSTimeInterval	normalTimerTiming;
+@property (nonatomic)			eTimeInterval	timeInterval;
 
 - (void) startTimer;
 - (void) stopTimer;

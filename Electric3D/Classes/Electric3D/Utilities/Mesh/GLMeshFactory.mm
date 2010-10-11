@@ -281,7 +281,7 @@ namespace GLMeshes
 		{
 			NSData * data = [file readDataToEndOfFile];
 			
-			NSLog( @"loadMD2 file of size %d", [data length] );
+			//NSLog( @"loadMD2 file of size %d", [data length] );
 			
 			MD2::MD2Model model( data );
 			
@@ -388,7 +388,7 @@ namespace GLMeshes
 		{
 			NSData * data = [file readDataToEndOfFile];
 			
-			NSLog( @"load3DS file of size %d", [data length] );
+			//NSLog( @"load3DS file of size %d", [data length] );
 			
 			MAX3DS::MAX3DSModel model( data );
 			
@@ -472,7 +472,7 @@ namespace GLMeshes
 		{
 			NSData * data = [file readDataToEndOfFile];
 			
-			NSLog( @"loadPOD file of size %d", [data length] );
+			//NSLog( @"loadPOD file of size %d", [data length] );
 			
 			PVRPOD::PVRPODModel model( data );
 			

@@ -121,6 +121,15 @@
     [m_renderer rebindContext];
 }
 
+// ------------------------------------------
+// set the Background color
+// ------------------------------------------
+- (void) setBackgroundColor:(UIColor *)_color
+{
+	[super setBackgroundColor:_color];
+	[m_renderer setClearColor:_color];
+}
+
 #pragma mark ---------------------------------------------------------
 #pragma mark === End UIView Functions  ===
 #pragma mark ---------------------------------------------------------

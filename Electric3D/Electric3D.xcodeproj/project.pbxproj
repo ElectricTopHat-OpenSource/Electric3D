@@ -190,6 +190,13 @@
 		079908B0125E2E37004CCA19 /* SL_HL_clock_RGBA.POD in Resources */ = {isa = PBXBuildFile; fileRef = 079908AF125E2E37004CCA19 /* SL_HL_clock_RGBA.POD */; };
 		079908E0125E354E004CCA19 /* SL_ghosts.png in Resources */ = {isa = PBXBuildFile; fileRef = 079908DE125E354E004CCA19 /* SL_ghosts.png */; };
 		07990926125E3997004CCA19 /* SL_ghosts.POD in Resources */ = {isa = PBXBuildFile; fileRef = 07990925125E3997004CCA19 /* SL_ghosts.POD */; };
+		0799A7BA1263588B000BF77C /* TimerTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 0799A7B512635503000BF77C /* TimerTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0799A7E51263606F000BF77C /* FPSTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0799A7E212635F9C000BF77C /* FPSTimer.m */; };
+		0799A7E61263606F000BF77C /* DeltaTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0799A7E412636065000BF77C /* DeltaTimer.m */; };
+		0799A7E71263606F000BF77C /* FPSTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0799A7E212635F9C000BF77C /* FPSTimer.m */; };
+		0799A7E81263606F000BF77C /* DeltaTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0799A7E412636065000BF77C /* DeltaTimer.m */; };
+		0799A7F312636173000BF77C /* DeltaTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0799A7E312636065000BF77C /* DeltaTimer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0799A7F412636173000BF77C /* FPSTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0799A7E112635F9C000BF77C /* FPSTimer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		079E42CA125BA66400AFC765 /* vertex_cube.POD in Resources */ = {isa = PBXBuildFile; fileRef = 079E42C9125BA66400AFC765 /* vertex_cube.POD */; };
 		079E42ED125BD15000AFC765 /* PVRPODModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07ECE4C8125A4BC60097D909 /* PVRPODModel.mm */; };
 		079E42EE125BD15000AFC765 /* PVRPODModelConvertor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07ECE4D7125A4DDC0097D909 /* PVRPODModelConvertor.mm */; };
@@ -222,6 +229,9 @@
 		07FDED1B125F762D002AACD9 /* SL_EX_house.png in Resources */ = {isa = PBXBuildFile; fileRef = 07FDED1A125F762D002AACD9 /* SL_EX_house.png */; };
 		07FDED3A125F7812002AACD9 /* SL_EX_gravestones.png in Resources */ = {isa = PBXBuildFile; fileRef = 07FDED39125F7812002AACD9 /* SL_EX_gravestones.png */; };
 		07FDED3C125F789A002AACD9 /* SL_EX_gravestones.md2 in Resources */ = {isa = PBXBuildFile; fileRef = 07FDED3B125F789A002AACD9 /* SL_EX_gravestones.md2 */; };
+		07FDF27612622B2D002AACD9 /* BERTCUBE.POD in Resources */ = {isa = PBXBuildFile; fileRef = 07FDF27512622B2D002AACD9 /* BERTCUBE.POD */; };
+		07FDF27812622B34002AACD9 /* BERTCUBE.md2 in Resources */ = {isa = PBXBuildFile; fileRef = 07FDF27712622B34002AACD9 /* BERTCUBE.md2 */; };
+		07FDF27C12622B59002AACD9 /* GLTestPODMd2Meshes.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07FDF27B12622B59002AACD9 /* GLTestPODMd2Meshes.mm */; };
 		1D3623260D0F684500981E51 /* Electric3DAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* Electric3DAppDelegate.mm */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -360,6 +370,11 @@
 		079908AF125E2E37004CCA19 /* SL_HL_clock_RGBA.POD */ = {isa = PBXFileReference; lastKnownFileType = file; path = SL_HL_clock_RGBA.POD; sourceTree = "<group>"; };
 		079908DE125E354E004CCA19 /* SL_ghosts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SL_ghosts.png; sourceTree = "<group>"; };
 		07990925125E3997004CCA19 /* SL_ghosts.POD */ = {isa = PBXFileReference; lastKnownFileType = file; path = SL_ghosts.POD; sourceTree = "<group>"; };
+		0799A7B512635503000BF77C /* TimerTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerTypes.h; sourceTree = "<group>"; };
+		0799A7E112635F9C000BF77C /* FPSTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPSTimer.h; sourceTree = "<group>"; };
+		0799A7E212635F9C000BF77C /* FPSTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPSTimer.m; sourceTree = "<group>"; };
+		0799A7E312636065000BF77C /* DeltaTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeltaTimer.h; sourceTree = "<group>"; };
+		0799A7E412636065000BF77C /* DeltaTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeltaTimer.m; sourceTree = "<group>"; };
 		0799C0FB125602DE00846A9C /* GLObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLObjects.h; sourceTree = "<group>"; };
 		0799C0FC1256036400846A9C /* GLVertexs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLVertexs.h; sourceTree = "<group>"; };
 		0799C109125603E300846A9C /* GLMeshes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMeshes.h; sourceTree = "<group>"; };
@@ -412,6 +427,10 @@
 		07FDED1A125F762D002AACD9 /* SL_EX_house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SL_EX_house.png; path = "Multiple Mesh Test/SL_EX_house.png"; sourceTree = "<group>"; };
 		07FDED39125F7812002AACD9 /* SL_EX_gravestones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SL_EX_gravestones.png; sourceTree = "<group>"; };
 		07FDED3B125F789A002AACD9 /* SL_EX_gravestones.md2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SL_EX_gravestones.md2; sourceTree = "<group>"; };
+		07FDF27512622B2D002AACD9 /* BERTCUBE.POD */ = {isa = PBXFileReference; lastKnownFileType = file; path = BERTCUBE.POD; sourceTree = "<group>"; };
+		07FDF27712622B34002AACD9 /* BERTCUBE.md2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = BERTCUBE.md2; sourceTree = "<group>"; };
+		07FDF27A12622B59002AACD9 /* GLTestPODMd2Meshes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTestPODMd2Meshes.h; sourceTree = "<group>"; };
+		07FDF27B12622B59002AACD9 /* GLTestPODMd2Meshes.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLTestPODMd2Meshes.mm; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* Electric3DAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Electric3DAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* Electric3DAppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Electric3DAppDelegate.mm; sourceTree = "<group>"; };
@@ -557,10 +576,15 @@
 			isa = PBXGroup;
 			children = (
 				0799C10C125604E700846A9C /* Timers.h */,
+				0799A7B512635503000BF77C /* TimerTypes.h */,
 				077FF1CE12490B0F00FC7D17 /* RenderTimer.h */,
 				077FF1CF12490B0F00FC7D17 /* RenderTimer.mm */,
 				077FFC1E124E398A00FC7D17 /* GameTimer.h */,
 				077FFC1F124E398A00FC7D17 /* GameTimer.mm */,
+				0799A7E112635F9C000BF77C /* FPSTimer.h */,
+				0799A7E212635F9C000BF77C /* FPSTimer.m */,
+				0799A7E312636065000BF77C /* DeltaTimer.h */,
+				0799A7E412636065000BF77C /* DeltaTimer.m */,
 			);
 			path = Timers;
 			sourceTree = "<group>";
@@ -687,6 +711,7 @@
 		077FF70A124BB82200FC7D17 /* MD2 */ = {
 			isa = PBXGroup;
 			children = (
+				07FDF27712622B34002AACD9 /* BERTCUBE.md2 */,
 				07FDED39125F7812002AACD9 /* SL_EX_gravestones.png */,
 				07FDED3B125F789A002AACD9 /* SL_EX_gravestones.md2 */,
 				07A8F5491253B1E3009E62A5 /* E3D_cone.md2 */,
@@ -883,6 +908,8 @@
 				078B097C1251F9C000227D49 /* GLTestVertexAnimatedMesh.mm */,
 				07990637125E08B3004CCA19 /* GLTestPodMesh.h */,
 				07990638125E08B3004CCA19 /* GLTestPodMesh.mm */,
+				07FDF27A12622B59002AACD9 /* GLTestPODMd2Meshes.h */,
+				07FDF27B12622B59002AACD9 /* GLTestPODMd2Meshes.mm */,
 			);
 			path = MeshTests;
 			sourceTree = "<group>";
@@ -1000,6 +1027,7 @@
 			children = (
 				079908DD125E354E004CCA19 /* Multiple Mesh Test */,
 				07FDED1A125F762D002AACD9 /* SL_EX_house.png */,
+				07FDF27512622B2D002AACD9 /* BERTCUBE.POD */,
 				07FDED18125F760F002AACD9 /* SL_EX_house.POD */,
 				079908AF125E2E37004CCA19 /* SL_HL_clock_RGBA.POD */,
 				07990635125E0894004CCA19 /* SL_HL_clock_ARGB.POD */,
@@ -1087,6 +1115,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0799A7F312636173000BF77C /* DeltaTimer.h in Headers */,
+				0799A7F412636173000BF77C /* FPSTimer.h in Headers */,
+				0799A7BA1263588B000BF77C /* TimerTypes.h in Headers */,
 				07126F771255229400C94F40 /* Anorms.h in Headers */,
 				07126F781255229400C94F40 /* CGAABB.h in Headers */,
 				07126F791255229400C94F40 /* CGMaths.h in Headers */,
@@ -1281,6 +1312,8 @@
 				07FDED1B125F762D002AACD9 /* SL_EX_house.png in Resources */,
 				07FDED3A125F7812002AACD9 /* SL_EX_gravestones.png in Resources */,
 				07FDED3C125F789A002AACD9 /* SL_EX_gravestones.md2 in Resources */,
+				07FDF27612622B2D002AACD9 /* BERTCUBE.POD in Resources */,
+				07FDF27812622B34002AACD9 /* BERTCUBE.md2 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1337,6 +1370,8 @@
 				079E42EE125BD15000AFC765 /* PVRPODModelConvertor.mm in Sources */,
 				079E42EF125BD15900AFC765 /* MAX3DSModel.mm in Sources */,
 				079E42F0125BD15900AFC765 /* MAX3DSModelConvertor.mm in Sources */,
+				0799A7E51263606F000BF77C /* FPSTimer.m in Sources */,
+				0799A7E61263606F000BF77C /* DeltaTimer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1389,6 +1424,9 @@
 				07ECE4C9125A4BC60097D909 /* PVRPODModel.mm in Sources */,
 				07ECE4D8125A4DDC0097D909 /* PVRPODModelConvertor.mm in Sources */,
 				07990639125E08B3004CCA19 /* GLTestPodMesh.mm in Sources */,
+				07FDF27C12622B59002AACD9 /* GLTestPODMd2Meshes.mm in Sources */,
+				0799A7E71263606F000BF77C /* FPSTimer.m in Sources */,
+				0799A7E81263606F000BF77C /* DeltaTimer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1406,11 +1444,17 @@
 				GCC_PREFIX_HEADER = Electric3D_Prefix.pch;
 				GCC_THUMB_SUPPORT = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
-				OTHER_CFLAGS = "-fvisibility=hidden";
+				OTHER_CFLAGS = (
+					"-fobjc-abi-version=2",
+					"-fobjc-legacy-dispatch",
+					"-fvisibility=hidden",
+				);
+				OTHER_LDFLAGS = "";
 				PREBINDING = NO;
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/Electric3D;
 				PRODUCT_NAME = Electric3D;
 				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/Electric3D;
+				SDKROOT = iphoneos3.2;
 				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = dynamic;
 			};
 			name = Debug;
@@ -1427,13 +1471,17 @@
 				GCC_THUMB_SUPPORT = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				OTHER_CFLAGS = (
+					"-fobjc-abi-version=2",
+					"-fobjc-legacy-dispatch",
 					"-fvisibility=default",
 					"-DNS_BLOCK_ASSERTIONS=1",
 				);
+				OTHER_LDFLAGS = "";
 				PREBINDING = NO;
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/Electric3D;
 				PRODUCT_NAME = Electric3D;
 				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/Electric3D;
+				SDKROOT = iphoneos3.2;
 				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = dynamic;
 				ZERO_LINK = NO;
 			};

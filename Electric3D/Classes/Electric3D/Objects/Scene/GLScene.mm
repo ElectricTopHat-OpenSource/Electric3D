@@ -47,9 +47,13 @@ namespace GLObjects
 	// --------------------------------------------------
 	BOOL GLScene::contains( const GLObjects::GLObject * _object ) const
 	{
-		NSUInteger key = _object->hash();
-		_SceneListConstIterator lb = m_objects.lower_bound(key);
-		return (lb != m_objects.end() && !(m_objects.key_comp()(key, lb->first)));
+		if ( _object )
+		{
+			NSUInteger key = _object->hash();
+			_SceneListConstIterator lb = m_objects.lower_bound(key);
+			return (lb != m_objects.end() && !(m_objects.key_comp()(key, lb->first)));
+		}
+		return FALSE;
 	}
 	
 	// --------------------------------------------------
@@ -57,7 +61,7 @@ namespace GLObjects
 	// --------------------------------------------------
 	BOOL GLScene::add( GLObjects::GLObject * _object )
 	{
-		if ( !contains( _object ) && !( _object == this ) )
+		if ( _object && !contains( _object ) && !( _object == this ) )
 		{
 			// We don't have the object add it
 			m_objects[_object->hash()] = _object;
@@ -72,13 +76,16 @@ namespace GLObjects
 	// --------------------------------------------------
 	void GLScene::remove( GLObjects::GLObject * _object )
 	{
-		NSUInteger key = _object->hash();
-		_SceneListIterator lb = m_objects.lower_bound(key);
-		if (lb != m_objects.end() && !(m_objects.key_comp()(key, lb->first)))
+		if ( _object )
 		{
-			// remove the object reference
-			// from the map
-			m_objects.erase( lb );
+			NSUInteger key = _object->hash();
+			_SceneListIterator lb = m_objects.lower_bound(key);
+			if (lb != m_objects.end() && !(m_objects.key_comp()(key, lb->first)))
+			{
+				// remove the object reference
+				// from the map
+				m_objects.erase( lb );
+			}
 		}
 	}
 	

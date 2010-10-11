@@ -18,6 +18,7 @@
 #import "GLTestStaticMesh.h"
 #import "GLTestVertexAnimatedMesh.h"
 #import "GLTestPodMesh.h"
+#import "GLTestPodMd2Meshes.h"
 
 #import "GLTestColorScene.h"
 #import "GLTestColorModel.h"
@@ -143,6 +144,15 @@
 				
 				[array addObject:testInfo];
 			}
+			
+			{
+				NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];
+				
+				[testInfo setObject:@"Test POD Md2 Meshes" forKey:@"name"];
+				[testInfo setObject:[GLTestPODMd2Meshes class] forKey:@"class"];
+				
+				[array addObject:testInfo];
+			}			
 			
 			{
 				NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];

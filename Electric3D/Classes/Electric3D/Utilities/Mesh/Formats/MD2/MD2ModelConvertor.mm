@@ -8,6 +8,7 @@
 
 #import "MD2ModelConvertor.h"
 #import "MD2Model.h"
+#import "CGMaths.h"
 
 namespace MD2
 {
@@ -144,6 +145,8 @@ namespace MD2
 			const Md2Frame *	frame		= _model->frame( _frame );
 			const Md2TexCoord * texCords	= _model->texCoords();
 			
+			CGMaths::CGMatrix4x4 rot		= CGMaths::CGMatrix4x4MakeRotation( 0, 1, 0, CGMaths::Degrees2Radians(-90.0f) );
+			
 			// --------------------------------------------
 			// this is wrong should really use the glcomands 
 			// data but it's difficult to map back to our
@@ -176,6 +179,10 @@ namespace MD2
 					vert->vert.z = -(modelVert->v[1] * frame->scale[1] + frame->translate[1]);
 					vert->vert.y =  (modelVert->v[2] * frame->scale[2] + frame->translate[2]);
 					
+					CGMaths::CGVector3D vec = CGMaths::CGMatrix4x4TransformVector( rot, vert->vert.x, vert->vert.y, vert->vert.z );
+					vert->vert.x = vec.x;
+					vert->vert.y = vec.y;
+					vert->vert.z = vec.z;
 					
 					// copy the normal information
 					int normIndex	= modelVert->normalIndex;
@@ -186,8 +193,6 @@ namespace MD2
 					// zero the texture uv cordinates
 					vert->uv.x = texCords[stIndex].s / 256.0f;
 					vert->uv.y = texCords[stIndex].t / 256.0f;
-					
-					NSLog( @"Vert i %d, u %f, v %f", vertIndex, vert->uv.x, vert->uv.y );
 					
 #if GLInterleavedVert3D_color
 					// set the vertex colors

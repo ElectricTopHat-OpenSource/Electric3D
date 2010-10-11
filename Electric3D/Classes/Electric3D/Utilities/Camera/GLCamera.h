@@ -34,12 +34,17 @@ namespace GLCameras
 #pragma mark ---------------------------------------------------------
 	public: // Functions
 		
-		inline float & fov()				{ return m_fov; };
-		inline float fov() const			{ return m_fov; };
-		inline void setFov( float _fov )	{ m_fov = _fov; };
-		
 		inline CGMaths::CGVector3D position() const								{ return CGMaths::CGMatrix4x4GetTranslation( m_transform ); };
 		inline void setPosition( const CGMaths::CGVector3D & _pos )				{ CGMaths::CGMatrix4x4SetTranslation( m_transform, _pos ); };
+		
+		inline CGMaths::CGVector3D at() const									{ return CGMaths::CGMatrix4x4GetAt( m_transform ); };
+		inline void setAt( const CGMaths::CGVector3D & _at )					{ CGMaths::CGMatrix4x4SetAt( m_transform, _at ); };
+		
+		inline CGMaths::CGVector3D up() const									{ return CGMaths::CGMatrix4x4GetUp( m_transform ); };
+		inline void setUp( const CGMaths::CGVector3D & _up )					{ CGMaths::CGMatrix4x4SetUp( m_transform, _up ); };
+		
+		inline CGMaths::CGVector3D right() const								{ return CGMaths::CGMatrix4x4GetTranslation( m_transform ); };
+		inline void setRight( const CGMaths::CGVector3D & _right )				{ CGMaths::CGMatrix4x4SetTranslation( m_transform, _right ); };
 		
 		inline CGMaths::CGMatrix4x4 & transform()								{ return m_transform; };
 		inline const CGMaths::CGMatrix4x4 & transform() const					{ return m_transform; };
@@ -47,8 +52,6 @@ namespace GLCameras
 		
 		void setTransform( const CGMaths::CGVector3D & _eye, const CGMaths::CGVector3D & _target, const CGMaths::CGVector3D & _up = CGMaths::CGVector3DYAxis );
 		void setTransform( const CGMaths::CGQuaternion & _quat, const CGMaths::CGVector3D & _translation );
-		
-		
 
 #pragma mark ---------------------------------------------------------
 #pragma mark === End Public Functions  ===
@@ -59,7 +62,6 @@ namespace GLCameras
 #pragma mark ---------------------------------------------------------
 	private: // Data
 		
-		float					m_fov;
 		CGMaths::CGMatrix4x4	m_transform;
 		
 #pragma mark ---------------------------------------------------------

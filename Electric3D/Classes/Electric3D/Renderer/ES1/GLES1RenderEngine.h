@@ -50,7 +50,7 @@ namespace GLRenderers
 		
 		void rebindBuffers();
 		
-		void setClearColor( float _red=1.0f, float _green=1.0f, float _blue=1.0f );
+		void setClearColor( float _red, float _green, float _blue );
 		
 		void initialize();
 		void teardown();

@@ -49,6 +49,7 @@ mkdir -p $DISK_IMAGE
 xcodebuild -target $libName -configuration Release -sdk iphoneos$IPHONE_SDK install \
    ARCHS="armv6 armv7" SKIP_INSTALL=NO\
    DSTROOT=$DISK_IMAGE/SDKs/$sdkName/iphoneos.sdk || exit 2
+   
 sed -e "s/%PROJECT%/$PROJECT/g" \
     -e "s/%VERS%/$VERS/g" \
     -e "s/%IPHONE_SDK%/$IPHONE_SDK/g" \
@@ -59,6 +60,7 @@ sed -e "s/%PROJECT%/$PROJECT/g" \
 xcodebuild -target $libName -configuration Debug -sdk iphoneos$IPHONE_SDK install \
    ARCHS="armv6 armv7" SKIP_INSTALL=NO\
    DSTROOT=$DISK_IMAGE/SDKs/${sdkName}_d/iphoneos.sdk || exit 4   
+   
 sed -e "s/%PROJECT%/$PROJECT/g" \
     -e "s/%VERS%/$VERS/g" \
     -e "s/%IPHONE_SDK%/$IPHONE_SDK/g" \
@@ -75,6 +77,7 @@ sed -e "s/%PROJECT%/$PROJECT/g" \
 xcodebuild -target $libName -configuration Release -sdk iphonesimulator$IPHONESIM_SDK install \
     ARCHS=i386 SKIP_INSTALL=NO\
     DSTROOT=$DISK_IMAGE/SDKs/$sdkName/iphonesimulator.sdk || exit 6
+	
 sed -e "s/%PROJECT%/$PROJECT/g" \
     -e "s/%VERS%/$VERS/g" \
     -e "s/%IPHONESIM_SDK%/$IPHONESIM_SDK/g" \
@@ -84,6 +87,7 @@ sed -e "s/%PROJECT%/$PROJECT/g" \
 xcodebuild -target $libName -configuration Debug -sdk iphonesimulator$IPHONESIM_SDK install \
     ARCHS=i386 SKIP_INSTALL=NO\
     DSTROOT=$DISK_IMAGE/SDKs/${sdkName}_d/iphonesimulator.sdk || exit 8
+	
 sed -e "s/%PROJECT%/$PROJECT/g" \
     -e "s/%VERS%/$VERS/g" \
     -e "s/%IPHONESIM_SDK%/$IPHONESIM_SDK/g" \

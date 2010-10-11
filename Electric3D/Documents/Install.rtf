@@ -18,9 +18,17 @@
 \pard\tx220\tx720\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\li720\fi-720\ql\qnatural\pardirnatural
 \ls1\ilvl0\cf0 1) 	Drag the Electric 3D folder from the distribution source directory and drop it on the 'Classes' \
 		group in the 'Groups & Files' menu of your Xcode project.\
+\
 2) 	Tick the 'Copy items into destination group's folder' option.\
-3) 	Refrence the OpenGLES.framework and QuartzCore.framework in the Projects Frameworks.\
-4) 	Use '#import' in your source files to include the desired header files.\
+\
+3) 	The Project may need to reference the following frameworks and libraries:\
+		\'95 OpenGLES.framework\
+		\'95 QuartsCore.framework\
+		\'95 libz.dylib\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+\ls1\ilvl0\cf0 \
+\pard\tx220\tx720\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\li720\fi-720\ql\qnatural\pardirnatural
+\ls1\ilvl0\cf0 4) 	Use '#import' in your source files to include the desired header files.\
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
 \cf0 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
@@ -35,25 +43,40 @@
 \
 \pard\tx220\tx720\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\li720\fi-720\ql\qnatural\pardirnatural
 \ls2\ilvl0\cf0 1)	Create a directory ~/Library/SDKs/, if it does not already exist.\
+\
 2)	Copy the SDKs/Electric3D folder from this disk image into the directory you just created.\
+\
 3)	In your Project, select your target in the left-hand menu and click the blue Info button (Apple-i) and select the "Build" tab.\
 \
 4)	Make sure "Debug Configurations" is selected in the "Configuration" drop-down.\
+\
 5)	Add the following new line to the "Additional SDKs" option:\uc0\u8232 $HOME/Library/SDKs/Electric3D_d/$\{PLATFORM_NAME\}.sdk\
 \
 6) 	 Make sure "Release" is selected in the "Configuration" drop-down.\
+\
 7)         Add the following new line to the "Additional SDKs" option:\
              $HOME/Library/SDKs/Electric3D/$\{PLATFORM_NAME\}.sdk\
 			 \
-8)	Add the following two options to the "Other Linker Flags" option:\uc0\u8232 -ObjC -lelectric3d\
+8)	Add the following two options to the "Other Linker Flags" option:\uc0\u8232 \'95 -ObjC \
+		\'95 -lelectric3d\
+		\
+9)        Add the following two options to the "Other C Flags" option, \
+           this is to build against the iOS Simulator:\
+		\'95 -fobjc-abi-version=2\
+		\'95 -fobjc-legacy-dispatch\
 \
 9)	Add the following :\
 		$(SDKROOT)/ResourceRules.plist\
 		to the CODE_SIGN_RESOURCE_RULES_PATH\
 		\
 10)	Use '#import <Electric3D/Electric3D.h>' in your source files.\
+\
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
-\cf0 11) 	  The Project may need to refrence the followin iPhone frameworks OpenGLES.framework and 	  QuartzCore.framework\
+\cf0 11) 	  The Project may need to reference the following frameworks :\
+	  \'95 OpenGLES.framework 	  \
+	  \'95 QuartzCore.framework\
+	  \'95 libz.dylib\
+	  \
 \
 Note : You will need to use the .mm extention when you include any of the SDK components.\
 \

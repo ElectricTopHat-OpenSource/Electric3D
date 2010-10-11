@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "TimerTypes.h"
 
 @interface RenderTimer : NSObject 
 {
@@ -22,14 +22,18 @@
     // ------------------------------------------------
 	BOOL			displayLinkSupported;
 	id				displayLink;
-	NSInteger		displayLinkTiming;	// default to 1 ( setting to 2 will half the render rate )
 	// ------------------------------------------------
 	
 	// ------------------------------------------------
 	// Basic animation timer for pre 3.1
 	// ------------------------------------------------
     NSTimer *		normalTimer;
-	NSTimeInterval	normalTimerTiming; // default to 60hz (1.0 / 60.0) ( set to 1.0 / 30.0 to half the frame rate )
+	// ------------------------------------------------
+	
+	// ------------------------------------------------
+	// Time Interval
+	// ------------------------------------------------
+	eTimeInterval	timeInteval;
 	// ------------------------------------------------
 	
 	// ------------------------------------------------
@@ -51,8 +55,7 @@
 @property (nonatomic,retain)	id		delegate;
 @property (nonatomic)			SEL		selector;
 
-@property (nonatomic)			NSInteger		displayLinkTiming;
-@property (nonatomic)			NSTimeInterval	normalTimerTiming;
+@property (nonatomic)			eTimeInterval	timeInteval;
 
 - (void) startTimer;
 - (void) stopTimer;

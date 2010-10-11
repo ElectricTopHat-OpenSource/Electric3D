@@ -62,6 +62,8 @@ namespace GLObjects		{ class GLScene; };
 - (void) rebindContext;
 - (void) render:(id)_sender;
 
+- (void) setClearColor:(UIColor*)_color;
+
 - (BOOL) containsScene:(GLObjects::GLScene*)_scene;
 - (void) addScene:(GLObjects::GLScene*)_scene;
 - (void) removeScene:(GLObjects::GLScene*)_scene;

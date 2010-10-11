@@ -8,6 +8,12 @@
 
 #import "GameTimer.h"
 
+@interface GameTimer (PrivateMethods)
+
+- (NSTimeInterval) updateRate;
+
+@end
+
 
 @implementation GameTimer
 
@@ -19,7 +25,7 @@
 @synthesize delegate;
 @synthesize selector;
 
-@synthesize normalTimerTiming;
+@synthesize timeInterval;
 
 #pragma mark ---------------------------------------------------------
 #pragma mark === End Properties  ===
@@ -36,9 +42,8 @@
 {
 	if ( self = [super init] )
 	{
-		normalTimerTiming	= 1.0f / 60.0f;
-		
-		running = FALSE;
+		timeInterval	= eTimeInterval_60hz;
+		running			= FALSE;
 	}
 	return self;
 }
@@ -58,7 +63,7 @@
 #pragma mark ---------------------------------------------------------
 
 #pragma mark ---------------------------------------------------------
-#pragma mark === Public  ===
+#pragma mark === Public Functions ===
 #pragma mark ---------------------------------------------------------
 
 // -----------------------------------------------------
@@ -68,8 +73,8 @@
 {
     if ( !running && delegate && selector )
     {
-		normalTimer = [NSTimer scheduledTimerWithTimeInterval:normalTimerTiming target:delegate selector:selector userInfo:nil repeats:TRUE];
-		[[NSRunLoop mainRunLoop] addTimer:normalTimer forMode:NSRunLoopCommonModes];
+		timer = [NSTimer scheduledTimerWithTimeInterval:[self updateRate] target:delegate selector:selector userInfo:nil repeats:TRUE];
+		[[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
 		
         running = TRUE;
     }
@@ -80,17 +85,44 @@
 // -----------------------------------------------------
 - (void) stopTimer
 {
-    if (running)
+    if ( running )
     {
-		[normalTimer invalidate];
-		normalTimer = nil;
+		[timer invalidate];
+		timer = nil;
 		
         running = FALSE;
     }
 }
 
 #pragma mark ---------------------------------------------------------
-#pragma mark === End Public  ===
+#pragma mark === End Public Functions ===
+#pragma mark ---------------------------------------------------------
+
+#pragma mark ---------------------------------------------------------
+#pragma mark === Private Functions  ===
+#pragma mark ---------------------------------------------------------
+
+// -----------------------------------------------------
+// return the update time interval
+// -----------------------------------------------------
+- (NSTimeInterval) updateRate
+{
+	switch (timeInteval) 
+	{
+		default:
+		case eTimeInterval_60hz:
+			return 1.0f / 60.0f;
+		case eTimeInterval_30hz:
+			return 1.0f / 30.0f;
+		case eTimeInterval_24hz:
+			return 1.0f / 24.0f;
+		case eTimeInterval_15hz:
+			return 1.0f / 15.0f;
+	}
+}
+
+#pragma mark ---------------------------------------------------------
+#pragma mark === End Private Functions  ===
 #pragma mark ---------------------------------------------------------
 
 @end
