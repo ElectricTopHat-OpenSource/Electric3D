@@ -43,8 +43,8 @@ namespace GLCameras
 		inline CGMaths::CGVector3D up() const									{ return CGMaths::CGMatrix4x4GetUp( m_transform ); };
 		inline void setUp( const CGMaths::CGVector3D & _up )					{ CGMaths::CGMatrix4x4SetUp( m_transform, _up ); };
 		
-		inline CGMaths::CGVector3D right() const								{ return CGMaths::CGMatrix4x4GetTranslation( m_transform ); };
-		inline void setRight( const CGMaths::CGVector3D & _right )				{ CGMaths::CGMatrix4x4SetTranslation( m_transform, _right ); };
+		inline CGMaths::CGVector3D right() const								{ return CGMaths::CGMatrix4x4GetRight( m_transform ); };
+		inline void setRight( const CGMaths::CGVector3D & _right )				{ CGMaths::CGMatrix4x4SetRight( m_transform, _right ); };
 		
 		inline CGMaths::CGMatrix4x4 & transform()								{ return m_transform; };
 		inline const CGMaths::CGMatrix4x4 & transform() const					{ return m_transform; };
