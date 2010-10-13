@@ -10,7 +10,7 @@
 #import "GLVertexTypes.h"
 
 #import "GLScene.h"
-#import "GLCamera.h"
+#import "GLCameras.h"
 
 namespace GLRenderers 
 {
@@ -146,7 +146,7 @@ namespace GLRenderers
 		
 		glViewport(0, 0, m_width, m_height);
 		
-		m_perspective.setAspect( (float)m_width / (float)m_height );
+		m_viewport.set( 0, 0, m_width, m_height );
 		
 		if ( m_depthbuffer )
 		{
@@ -214,7 +214,7 @@ namespace GLRenderers
 	{
 		//glBindFramebufferOES(GL_FRAMEBUFFER_OES, m_framebuffer);
 		
-		updateCameraPersepctive();
+		setupPersepctive();
 		
 		glClear(m_clearValue);
 		
@@ -270,21 +270,14 @@ namespace GLRenderers
 	// --------------------------------------------------
 	// Update the camera Perspective
 	// --------------------------------------------------
-	void GLES1RenderEngine::updateCameraPersepctive()
+	void GLES1RenderEngine::setupPersepctive()
 	{
 		// --------------------------------------
 		// Update the camera perspective
 		// --------------------------------------
-		if ( m_perspective.isDirty() )
-		{
-			CGMaths::CGMatrix4x4 perspective;
-			m_perspective.resetFlags();
-			if ( m_perspective.convertToMatrix( perspective ) )
-			{
-				glMatrixMode(GL_PROJECTION);
-				glLoadMatrixf( perspective.m );
-			}
-		}
+		CGMaths::CGMatrix4x4 perspective = createProjectionMatrix( m_camera, m_viewport );
+		glMatrixMode(GL_PROJECTION);
+		glLoadMatrixf( perspective.m );
 		// --------------------------------------
 	}
 	
@@ -294,34 +287,10 @@ namespace GLRenderers
 	void GLES1RenderEngine::setupCamera()
 	{
 		// --------------------------------------
-		// Correct the camera and split to 
-		// be rotation and translation
-		// --------------------------------------
-		const CGMaths::CGMatrix4x4 & matrix = m_camera.transform();
-		
-		CGMaths::CGMatrix4x4 rotation		= CGMaths::CGMatrix4x4Identity;
-
-		// copy the right axis
-		rotation.m[0]  = matrix.m[0];
-		rotation.m[4]  = matrix.m[4];
-		rotation.m[8]  = matrix.m[8];
-		
-		// copy the up axis
-		rotation.m[1]  = matrix.m[1];
-		rotation.m[5]  = matrix.m[5];
-		rotation.m[9]  = matrix.m[9];
-		
-		// copy and flip the at
-		rotation.m[2]  = -matrix.m[2];
-		rotation.m[6]  = -matrix.m[6];
-		rotation.m[10] = -matrix.m[10];
-		// --------------------------------------
-		
-		// --------------------------------------
 		// Update the gl camera 
-		// --------------------------------------		
-		glLoadMatrixf( rotation.m );
-		glTranslatef( -matrix.m[12], -matrix.m[13], -matrix.m[14] );
+		// --------------------------------------
+		CGMaths::CGMatrix4x4 matrix = createModelMatrix( m_camera );
+		glLoadMatrixf( matrix.m );
 		// --------------------------------------
 	}
 	

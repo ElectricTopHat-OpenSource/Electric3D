@@ -53,6 +53,14 @@ namespace GLCameras
 		void setTransform( const CGMaths::CGVector3D & _eye, const CGMaths::CGVector3D & _target, const CGMaths::CGVector3D & _up = CGMaths::CGVector3DYAxis );
 		void setTransform( const CGMaths::CGQuaternion & _quat, const CGMaths::CGVector3D & _translation );
 
+		inline float fov() const												{ return m_fov; };
+		inline float near() const												{ return m_near; };
+		inline float far() const												{ return m_far; };
+		
+		inline void setFov( float _fov )										{ m_fov  = _fov; };
+		inline void setNear( float _near )										{ m_near = _near; };
+		inline void setFar( float _far )										{ m_far  = _far; };
+		
 #pragma mark ---------------------------------------------------------
 #pragma mark === End Public Functions  ===
 #pragma mark ---------------------------------------------------------
@@ -62,7 +70,11 @@ namespace GLCameras
 #pragma mark ---------------------------------------------------------
 	private: // Data
 		
+		float					m_fov;
+		float					m_near;
+		float					m_far;
 		CGMaths::CGMatrix4x4	m_transform;
+		
 		
 #pragma mark ---------------------------------------------------------
 #pragma mark === End Private Data  ===

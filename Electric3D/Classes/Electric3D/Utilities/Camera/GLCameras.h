@@ -11,6 +11,7 @@
 #define __GLCameras_h__
 
 #import "GLCamera.h"
-#import "GLPerspective.h"
+#import "GLViewport.h"
+#import "GLCameraUtilties.h"
 
 #endif

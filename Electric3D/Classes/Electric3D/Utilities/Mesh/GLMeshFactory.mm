@@ -362,6 +362,12 @@ namespace GLMeshes
 									animatedMesh = nil;
 									break;
 								}
+								else 
+								{
+									CGMaths::CGAABB aabb = calculateAABB(animatedMesh->frameverts(i), animatedMesh->numverts());
+									animatedMesh->setaabb( i, aabb );
+								}
+
 							}
 						}
 					}

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "CGMaths.h"
 
 #pragma mark ---------------------------------------------------------
 #pragma mark === Forward Declaration  ===
@@ -23,7 +23,6 @@ namespace GLTextures	{ class GLTextureFactory; };
 namespace GLSprites		{ class GLSpriteFactory; };
 
 namespace GLCameras		{ class GLCamera; };
-namespace GLCameras		{ class GLPerspective; };
 
 namespace GLObjects		{ class GLScene; };
 
@@ -51,7 +50,6 @@ namespace GLObjects		{ class GLScene; };
 }
 
 @property (nonatomic,readonly) GLCameras::GLCamera *			camera;
-@property (nonatomic,readonly) GLCameras::GLPerspective *		perspective;
 
 @property (nonatomic,readonly) GLMeshes::GLMeshFactory *		meshes;
 @property (nonatomic,readonly) GLTextures::GLTextureFactory *	textures;
@@ -63,6 +61,9 @@ namespace GLObjects		{ class GLScene; };
 - (void) render:(id)_sender;
 
 - (void) setClearColor:(UIColor*)_color;
+
+- (CGMaths::CGVector3D) screenToWorld:(CGMaths::CGVector3D)_point;
+- (CGMaths::CGVector3D) worldToScreen:(CGMaths::CGVector3D)_point;
 
 - (BOOL) containsScene:(GLObjects::GLScene*)_scene;
 - (void) addScene:(GLObjects::GLScene*)_scene;

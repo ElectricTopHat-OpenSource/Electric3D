@@ -15,6 +15,8 @@
 #import "GLTestGeneral.h"
 #import "GLTestCameraGeneral.h"
 #import "GLTestCameraPerspective.h"
+#import "GLTestCameraTouchPoint.h"
+
 #import "GLTestStaticMesh.h"
 #import "GLTestVertexAnimatedMesh.h"
 #import "GLTestPodMesh.h"
@@ -117,6 +119,15 @@
 				
 				[array addObject:testInfo];
 			}
+			
+			{
+				NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];
+				
+				[testInfo setObject:@"Camera Touch Test" forKey:@"name"];
+				[testInfo setObject:[GLTestCameraTouchPoint class] forKey:@"class"];
+				
+				[array addObject:testInfo];
+			}			
 			
 			{
 				NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];

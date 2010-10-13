@@ -245,6 +245,8 @@ namespace MD2
 			const Md2Triangle * triangles	= _model->triangles();
 			const Md2Frame *	frame		= _model->frame( _frame );
 			
+			CGMaths::CGMatrix4x4 rot		= CGMaths::CGMatrix4x4MakeRotation( 0, 1, 0, CGMaths::Degrees2Radians(-90.0f) );
+			
 			int numtris  = header->num_tris;
 			
 			int i, v;
@@ -269,11 +271,16 @@ namespace MD2
 					vert->vert.z = -(modelVert->v[1] * frame->scale[1] + frame->translate[1]);
 					vert->vert.y =  (modelVert->v[2] * frame->scale[2] + frame->translate[2]);
 					
+					CGMaths::CGVector3D vec = CGMaths::CGMatrix4x4TransformVector( rot, vert->vert.x, vert->vert.y, vert->vert.z );
+					vert->vert.x = vec.x;
+					vert->vert.y = vec.y;
+					vert->vert.z = vec.z;
+					
 					// copy the normal information
 					int normIndex	= modelVert->normalIndex;
-					vert->normal.x = _kAnorms[ normIndex ][0];
-					vert->normal.z = -_kAnorms[ normIndex ][1];
-					vert->normal.y = _kAnorms[ normIndex ][2];
+					vert->normal.x	=  _kAnorms[ normIndex ][0];
+					vert->normal.z	= -_kAnorms[ normIndex ][1];
+					vert->normal.y	=  _kAnorms[ normIndex ][2];
 				}
 			}
 #endif

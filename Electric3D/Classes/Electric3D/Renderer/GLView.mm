@@ -39,11 +39,6 @@
 	return [m_renderer camera];
 }
 
--(GLCameras::GLPerspective*) perspective
-{
-	return [m_renderer perspective];
-}
-
 -(GLMeshes::GLMeshFactory*) meshes
 {
 	return [m_renderer meshes];
@@ -151,6 +146,22 @@
 // ------------------------------------------
 - (void) didRotate:(NSNotification*)_notification
 {
+}
+
+// ------------------------------------------
+// convert a screen point into the world
+// ------------------------------------------
+- (CGMaths::CGVector3D) screenToWorld:(CGMaths::CGVector3D)_point
+{
+	return [m_renderer screenToWorld:_point];
+}
+
+// ------------------------------------------
+// convert a screen point into the world
+// ------------------------------------------
+- (CGMaths::CGVector3D) worldToScreen:(CGMaths::CGVector3D)_point
+{
+	return [m_renderer worldToScreen:_point];
 }
 
 - (BOOL) containsScene:(GLObjects::GLScene*)_scene

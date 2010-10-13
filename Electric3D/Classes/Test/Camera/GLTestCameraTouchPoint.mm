@@ -1,12 +1,12 @@
 //
-//  GLTestCameraPerspective.m
+//  GLTestCameraTouchPoint.m
 //  Electric3D
 //
-//  Created by Robert McDowell on 29/09/2010.
+//  Created by Robert McDowell on 12/10/2010.
 //  Copyright 2010 Electric TopHat Ltd. All rights reserved.
 //
 
-#import "GLTestCameraPerspective.h"
+#import "GLTestCameraTouchPoint.h"
 
 #import "GLTextureFactory.h"
 #import "GLTexture.h"
@@ -14,19 +14,18 @@
 #import "GLMeshFactory.h"
 #import "GLMesh.h"
 
-#import "GLCameras.h"
+#import "GLCamera.h"
 #import "GLScene.h"
 #import "GLModels.h"
 
-
-@interface GLTestCameraPerspective (PrivateMethods)
+@interface GLTestCameraTouchPoint (PrivateMethods)
 
 - (void) initialization;
 - (void) teardown;
 
 @end
 
-@implementation GLTestCameraPerspective
+@implementation GLTestCameraTouchPoint
 
 #pragma mark ---------------------------------------------------------
 #pragma mark === Constructor / Destructor Functions  ===
@@ -88,30 +87,79 @@
 // update Function
 // ------------------------------------------
 - (void) update:(id)_sender
-{
-	if ( state == 0 )
-	{
-		fov += 0.01f;
-		if ( fov > 90.0f )
-		{
-			state = 1;
-		}
-	}
-	else if ( state == 1 )
-	{
-		fov -= 0.01f;
-		if ( fov < 20.0f )
-		{
-			state = 0;
-		}
-	}
-	[self camera]->setFov( fov );
-	
+{	
 	[self drawView:nil];
 }
 
 #pragma mark ---------------------------------------------------------
 #pragma mark === End Public Functions  ===
+#pragma mark ---------------------------------------------------------
+
+#pragma mark ---------------------------------------------------------
+#pragma mark === UIResponder Functions  ===
+#pragma mark ---------------------------------------------------------
+
+// ------------------------------------------
+// Touches Began
+// ------------------------------------------
+- (void) touchesBegan:(NSSet *)_touches withEvent:(UIEvent *)_event
+{
+	[super touchesBegan:_touches withEvent:_event];
+
+	if ( model )
+	{
+		model->setPosition( CGMaths::CGVector3DMake( 0, 0, 0 ) );
+	}
+}
+
+// ------------------------------------------
+// Touches Moved
+// ------------------------------------------
+- (void) touchesMoved:(NSSet *)_touches withEvent:(UIEvent *)_event
+{
+	[super touchesMoved:_touches withEvent:_event];
+
+	NSSet *		currentTouches		= [_event allTouches];
+	CGPoint screen_point			= [[currentTouches anyObject] locationInView:self];
+	
+	CGRect rect = [self frame];
+	
+	static float z = 10.0f;
+	CGMaths::CGVector3D worldPoint	= [self screenToWorld:CGMaths::CGVector3DMake( screen_point.x, rect.size.height - screen_point.y, z ) ];
+	CGMaths::CGVector3D screenPoint = [self worldToScreen:worldPoint ];
+	
+	if ( z < 50.0f )
+	{
+		z += 0.1f;
+	}
+	
+	if ( model )
+	{
+		model->setPosition( worldPoint );
+	}
+}
+
+// ------------------------------------------
+// Touches Ended
+// ------------------------------------------
+- (void) touchesEnded:(NSSet *)_touches withEvent:(UIEvent *)_event
+{
+	[super touchesEnded:_touches withEvent:_event];
+
+}
+
+// ------------------------------------------
+// Touches Cancelled
+// ------------------------------------------
+- (void)touchesCancelled:(NSSet *)_touches withEvent:(UIEvent *)_event
+{
+	[super touchesCancelled:_touches withEvent:_event];
+
+}
+
+
+#pragma mark ---------------------------------------------------------
+#pragma mark === End UIResponder Functions  ===
 #pragma mark ---------------------------------------------------------
 
 #pragma mark ---------------------------------------------------------
@@ -122,54 +170,29 @@
 // Initialization
 // ------------------------------------------
 - (void) initialization
-{		
-	scene = new GLObjects::GLScene( @"Test Scene" );
+{	
+	scene = new GLObjects::GLScene( @"Test" );
 	
-	//mesh = [self meshes]->load( @"MD2StaticMeshTest", @"md2" );
-	const GLMeshes::GLMesh * meshA = [self meshes]->load( @"E3D_cube", @"md2" );
-	const GLMeshes::GLMesh * meshB = [self meshes]->load( @"E3D_cylinder", @"md2" );
-	const GLMeshes::GLMesh * meshC = [self meshes]->load( @"E3D_sphere", @"md2" );
-	const GLMeshes::GLMesh * meshD = [self meshes]->load( @"E3D_cone", @"md2" );
+	mesh	= [self meshes]->load( @"vertex_cube", @"POD" );
 	
-	GLObjects::GLModel * modelA = new GLObjects::GLModelStatic( @"Cube" );
-	GLObjects::GLModel * modelB = new GLObjects::GLModelStatic( @"Cylinder" );
-	GLObjects::GLModel * modelC = new GLObjects::GLModelStatic( @"Sphere" );
-	GLObjects::GLModel * modelD = new GLObjects::GLModelStatic( @"Cone" );
-	GLObjects::GLModel * modelE = new GLObjects::GLModelStatic( @"Cube" );
-	
-	modelA->setMesh( meshA ); 
-	modelB->setMesh( meshB );
-	modelC->setMesh( meshC );
-	modelD->setMesh( meshD );
-	modelE->setMesh( meshA );
-	
-	CGMaths::CGMatrix4x4SetTranslation( modelA->transform(),   -2,  0,  5 );
-	CGMaths::CGMatrix4x4SetTranslation( modelB->transform(),   -1,  0,  5 );
-	CGMaths::CGMatrix4x4SetTranslation( modelC->transform(),     0, 0,  5 );
-	CGMaths::CGMatrix4x4SetTranslation( modelD->transform(),    1,  0,  5 );
-	CGMaths::CGMatrix4x4SetTranslation( modelE->transform(),    2,  0,  5 );
-	
-	scene->add( modelA );
-	scene->add( modelB );
-	scene->add( modelC );
-	scene->add( modelD );
-	scene->add( modelE );
-	
-	objects.push_back( modelA );
-	objects.push_back( modelB );
-	objects.push_back( modelC );
-	objects.push_back( modelD );
-	objects.push_back( modelE );
+	CGMaths::CGAABB aabb = CGMaths::CGAABBUnit;
+	if ( mesh )
+	{
+		aabb = mesh->aabb();
+		
+		model = new GLObjects::GLModelStatic( @"TestObj" );
+		model->setMesh( mesh );
+		model->setTexture( texture );
+		
+		scene->add( model );
+	}
 	
 	[self addScene:scene];
 	
-	CGMaths::CGVector3D eye		= CGMaths::CGVector3DMake( 0.0f, 0.0f, 0.0f );
-	CGMaths::CGVector3D target  = CGMaths::CGVector3DMake( 0.0f, 0.0f, 5.0f );
+	CGMaths::CGVector3D eye		= CGMaths::CGVector3DMake( 10.0f, 0.0f, 10.0f );
+	CGMaths::CGVector3D target  = CGMaths::CGVector3DMake( 0.0f, 0.0f, 0.0f );
 	
 	[self camera]->setTransform( eye, target );
-	
-	fov   = [self camera]->fov();
-	state = 0;
 }
 
 // ------------------------------------------
@@ -179,18 +202,15 @@
 {
 	[self removeScene:scene];
 	
-	for ( int i=0; i<objects.size(); i++ )
+	if ( model )
 	{
-		GLObjects::GLModel * model = objects[i];
 		scene->remove( model );
 		
 		[self textures]->release( model->texture() );
 		[self meshes]->release( model->mesh() );
-		
-		delete( model );
 	}
-	objects.clear();
 	
+	delete( model );
 	delete( scene );
 }
 

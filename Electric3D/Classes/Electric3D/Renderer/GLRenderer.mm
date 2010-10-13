@@ -15,8 +15,7 @@
 
 #import <OpenGLES/ES2/gl.h> // for GL_RENDERBUFFER only
 
-#import "GLCamera.h"
-#import "GLPerspective.h"
+#import "GLCameras.h"
 
 #import "GLMeshFactory.h"
 #import "GLTextureFactory.h"
@@ -30,12 +29,7 @@
 
 - (GLCameras::GLCamera*) camera
 {
-	return m_renderer->camera();
-}
-
-- (GLCameras::GLPerspective*) perspective
-{
-	return m_renderer->perspective();
+	return &m_renderer->camera();
 }
 
 @synthesize meshes			= m_meshFactory;
@@ -218,6 +212,22 @@
 {
 	GLColors::GLColor color( _color );
 	m_renderer->setClearColor(color.red(), color.green(), color.blue());
+}
+
+// ------------------------------------------
+// convert a screen point into the world
+// ------------------------------------------
+- (CGMaths::CGVector3D) screenToWorld:(CGMaths::CGVector3D)_point
+{
+	return GLCameras::screenToWorld( _point, m_renderer->camera(), m_renderer->viewport() );
+}
+
+// ------------------------------------------
+// convert a screen point into the world
+// ------------------------------------------
+- (CGMaths::CGVector3D) worldToScreen:(CGMaths::CGVector3D)_point
+{
+	return GLCameras::worldToScreen( _point, m_renderer->camera(), m_renderer->viewport() );
 }
 
 // ------------------------------------------

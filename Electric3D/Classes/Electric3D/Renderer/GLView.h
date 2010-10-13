@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CGMaths.h"
 
 @class GLRenderer;
 
@@ -30,7 +31,6 @@ namespace GLObjects		{ class GLScene; };
 }
 
 @property (nonatomic,readonly) GLCameras::GLCamera *			camera;
-@property (nonatomic,readonly) GLCameras::GLPerspective *		perspective;
 
 @property (nonatomic,readonly) GLMeshes::GLMeshFactory *		meshes;
 @property (nonatomic,readonly) GLTextures::GLTextureFactory *	textures;
@@ -38,6 +38,9 @@ namespace GLObjects		{ class GLScene; };
 
 - (void) drawView:(id)_sender;
 - (void) didRotate:(NSNotification*)_notification;
+
+- (CGMaths::CGVector3D) screenToWorld:(CGMaths::CGVector3D)_point;
+- (CGMaths::CGVector3D) worldToScreen:(CGMaths::CGVector3D)_point;
 
 - (BOOL) containsScene:(GLObjects::GLScene*)_scene;
 - (void) addScene:(GLObjects::GLScene*)_scene;

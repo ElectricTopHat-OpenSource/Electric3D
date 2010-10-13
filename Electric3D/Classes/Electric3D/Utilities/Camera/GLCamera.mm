@@ -19,6 +19,9 @@ namespace GLCameras
 	// --------------------------------------------------
 	GLCamera::GLCamera()
 	: m_transform (CGMaths::CGMatrix4x4Identity)
+	, m_fov		( 45.0f )
+	, m_near	( 1.0f )
+	, m_far		( 100.0f )
 	{
 	}
 	
@@ -80,6 +83,16 @@ namespace GLCameras
 		CGMaths::CGMatrix4x4SetRotation( m_transform, _quat );
 		CGMaths::CGMatrix4x4SetTranslation( m_transform, _translation );
 	}
+	
+	/*
+	CGMaths::CGVector2D	GLCamera::pointToScreen( CGMaths::CGVector3D _point )
+	{
+	}
+	
+	CGMaths::CGVector3D	GLCamera::pointToWorld( CGMaths::CGVector2D _point )
+	{
+	}
+	*/
 	
 #pragma mark ---------------------------------------------------------
 #pragma mark === End Public Functions  ===

@@ -13,7 +13,7 @@
 #import "CGMaths.h"
 
 namespace GLCameras { class GLCamera; };
-namespace GLCameras { class GLPerspective; };
+namespace GLCameras { class GLViewport; };
 namespace GLObjects { class GLScene; };
 
 namespace GLRenderers 
@@ -57,8 +57,8 @@ namespace GLRenderers
 		virtual void render() = 0;
 		virtual void onRotate( eDeviceOrientation _newOrientation ) = 0;
 		
-		virtual GLCameras::GLCamera * camera() = 0;
-		virtual GLCameras::GLPerspective * perspective() = 0;
+		virtual GLCameras::GLCamera & camera() = 0;
+		virtual GLCameras::GLViewport & viewport() = 0;
 		
 		virtual BOOL contains( GLObjects::GLScene * _scene ) = 0;
 		virtual void add( GLObjects::GLScene * _scene ) = 0;

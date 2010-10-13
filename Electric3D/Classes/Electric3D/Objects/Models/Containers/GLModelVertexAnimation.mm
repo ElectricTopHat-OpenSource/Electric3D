@@ -72,6 +72,31 @@ namespace GLObjects
 	}
 	
 	// --------------------------------------------------
+	// Get the mesh AABB
+	// --------------------------------------------------
+	const CGMaths::CGAABB GLModelVertexAnimation::aabb() const
+	{
+		CGMaths::CGAABB aabb;
+		if ( m_mesh )
+		{
+			if ( m_startFrame == m_targetFrame )
+			{
+				aabb = m_mesh->aabb( m_startFrame );
+			}
+			else 
+			{
+				aabb = m_mesh->aabb( m_startFrame, m_targetFrame, m_blend );
+			}
+		}
+		else 
+		{
+			aabb = CGMaths::CGAABBUnit;
+		}
+		
+		return CGMaths::CGAABBMakeTransformed( aabb, m_transform );
+	}
+	
+	// --------------------------------------------------
 	// get the number of frames in the animation
 	// --------------------------------------------------
 	NSUInteger GLModelVertexAnimation::numFrames() const

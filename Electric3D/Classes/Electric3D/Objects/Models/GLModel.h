@@ -45,6 +45,8 @@ namespace GLObjects
 		inline void setTexture(const GLTextures::GLTexture * _texture) { m_texture = _texture; };
 		inline const GLTextures::GLTexture * texture() const { return m_texture; };
 		
+		virtual const CGMaths::CGAABB aabb() const = 0;
+		
 		virtual void setMesh(const GLMeshes::GLMesh * _mesh) = 0;
 		virtual const GLMeshes::GLMesh * mesh() const = 0;
 		
@@ -54,8 +56,8 @@ namespace GLObjects
 		virtual const GLInterleavedVert3D* verts() const = 0;
 		virtual const GLVertIndice * indices() const = 0;
 		
-		inline BOOL isHidden() const { return m_hidden; };
-		inline void setHidden( BOOL _hidden ) { m_hidden = _hidden; };
+		inline BOOL isHidden() const											{ return m_hidden; };
+		inline void setHidden( BOOL _hidden )									{ m_hidden = _hidden; };
 		
 		inline GLColors::GLColor & color()										{ return m_color; };
 		inline const GLColors::GLColor & color() const							{ return m_color; };
@@ -73,9 +75,9 @@ namespace GLObjects
 #pragma mark ---------------------------------------------------------
 		
 #pragma mark ---------------------------------------------------------
-#pragma mark === Private Data  ===
+#pragma mark === Protected Data  ===
 #pragma mark ---------------------------------------------------------
-	private: // Data
+	protected: // Data
 		
 		GLColors::GLColor				m_color;
 		CGMaths::CGMatrix4x4			m_transform;
@@ -85,7 +87,7 @@ namespace GLObjects
 		BOOL							m_hidden;
 		
 #pragma mark ---------------------------------------------------------
-#pragma mark === Private Data  ===
+#pragma mark === End Protected Data  ===
 #pragma mark ---------------------------------------------------------
 	};	
 };

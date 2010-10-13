@@ -14,7 +14,7 @@
 
 #import "IRenderEngine.h"
 #import "GLCamera.h"
-#import "GLPerspective.h"
+#import "GLViewport.h"
 #import "GLES1Renderer.h"
 
 namespace GLObjects { class GLScene; };
@@ -59,8 +59,8 @@ namespace GLRenderers
 		void render();
 		void onRotate( eDeviceOrientation _newOrientation );
 		
-		GLCameras::GLCamera *		camera()		{ return &m_camera; };
-		GLCameras::GLPerspective *	perspective()	{ return &m_perspective; };
+		GLCameras::GLCamera &		camera()		{ return m_camera; };
+		GLCameras::GLViewport &		viewport()		{ return m_viewport; };
 		
 		BOOL contains( GLObjects::GLScene * _scene );
 		void add( GLObjects::GLScene * _scene );
@@ -75,7 +75,7 @@ namespace GLRenderers
 #pragma mark ---------------------------------------------------------
 	private: // Data
 		
-		inline void updateCameraPersepctive();
+		inline void setupPersepctive();
 		inline void setupCamera();
 		
 #pragma mark ---------------------------------------------------------
@@ -88,9 +88,8 @@ namespace GLRenderers
 	private: // Data
 		
 		// GL Cameras
-		GLCameras::GLPerspective	m_perspective;
 		GLCameras::GLCamera			m_camera;
-		
+		GLCameras::GLViewport		m_viewport;
 		
 		// Renderer Pipelines
 		GLES1Renderer			m_Renderer;

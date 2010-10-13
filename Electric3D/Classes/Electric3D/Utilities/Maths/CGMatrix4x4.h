@@ -325,6 +325,124 @@ namespace CGMaths
 	}
 	
 	// ---------------------------------------------------
+	// Invert an existing CGMatrix4x4
+	// ---------------------------------------------------
+	inline BOOL CGMatrix4x4Invert( CGMatrix4x4 & _matrix )
+	{
+		CGMatrix4x4 inv;
+		
+		inv.m[0]  =   _matrix.m[5]*_matrix.m[10]*_matrix.m[15]	
+					- _matrix.m[5]*_matrix.m[11]*_matrix.m[14]	
+					- _matrix.m[9]*_matrix.m[6]*_matrix.m[15] 
+					+ _matrix.m[9]*_matrix.m[7]*_matrix.m[14] 
+					+ _matrix.m[13]*_matrix.m[6]*_matrix.m[11] 
+					- _matrix.m[13]*_matrix.m[7]*_matrix.m[10];
+		inv.m[4]  = - _matrix.m[4]*_matrix.m[10]*_matrix.m[15]	
+					+ _matrix.m[4]*_matrix.m[11]*_matrix.m[14]
+					+ _matrix.m[8]*_matrix.m[6]*_matrix.m[15] 
+					- _matrix.m[8]*_matrix.m[7]*_matrix.m[14]
+					- _matrix.m[12]*_matrix.m[6]*_matrix.m[11]
+					+ _matrix.m[12]*_matrix.m[7]*_matrix.m[10];
+		inv.m[8]  =   _matrix.m[4]*_matrix.m[9]*_matrix.m[15]
+					- _matrix.m[4]*_matrix.m[11]*_matrix.m[13]
+					- _matrix.m[8]*_matrix.m[5]*_matrix.m[15]
+					+ _matrix.m[8]*_matrix.m[7]*_matrix.m[13]
+					+ _matrix.m[12]*_matrix.m[5]*_matrix.m[11]
+					- _matrix.m[12]*_matrix.m[7]*_matrix.m[9];
+		inv.m[12] = - _matrix.m[4]*_matrix.m[9]*_matrix.m[14]
+					+ _matrix.m[4]*_matrix.m[10]*_matrix.m[13]
+					+ _matrix.m[8]*_matrix.m[5]*_matrix.m[14] 
+					- _matrix.m[8]*_matrix.m[6]*_matrix.m[13]
+					- _matrix.m[12]*_matrix.m[5]*_matrix.m[10]
+					+ _matrix.m[12]*_matrix.m[6]*_matrix.m[9];
+		inv.m[1]  = - _matrix.m[1]*_matrix.m[10]*_matrix.m[15]
+					+ _matrix.m[1]*_matrix.m[11]*_matrix.m[14]
+					+ _matrix.m[9]*_matrix.m[2]*_matrix.m[15]
+					- _matrix.m[9]*_matrix.m[3]*_matrix.m[14]
+					- _matrix.m[13]*_matrix.m[2]*_matrix.m[11]
+					+ _matrix.m[13]*_matrix.m[3]*_matrix.m[10];
+		inv.m[5]  =   _matrix.m[0]*_matrix.m[10]*_matrix.m[15]
+					- _matrix.m[0]*_matrix.m[11]*_matrix.m[14]
+					- _matrix.m[8]*_matrix.m[2]*_matrix.m[15]
+					+ _matrix.m[8]*_matrix.m[3]*_matrix.m[14]
+					+ _matrix.m[12]*_matrix.m[2]*_matrix.m[11]
+					- _matrix.m[12]*_matrix.m[3]*_matrix.m[10];
+		inv.m[9]  = - _matrix.m[0]*_matrix.m[9]*_matrix.m[15]
+					+ _matrix.m[0]*_matrix.m[11]*_matrix.m[13]
+					+ _matrix.m[8]*_matrix.m[1]*_matrix.m[15]
+					- _matrix.m[8]*_matrix.m[3]*_matrix.m[13]
+					- _matrix.m[12]*_matrix.m[1]*_matrix.m[11]
+					+ _matrix.m[12]*_matrix.m[3]*_matrix.m[9];
+		inv.m[13] =   _matrix.m[0]*_matrix.m[9]*_matrix.m[14]
+					- _matrix.m[0]*_matrix.m[10]*_matrix.m[13]
+					- _matrix.m[8]*_matrix.m[1]*_matrix.m[14]
+					+ _matrix.m[8]*_matrix.m[2]*_matrix.m[13]
+					+ _matrix.m[12]*_matrix.m[1]*_matrix.m[10]
+					- _matrix.m[12]*_matrix.m[2]*_matrix.m[9];
+		inv.m[2]  =   _matrix.m[1]*_matrix.m[6]*_matrix.m[15]
+					- _matrix.m[1]*_matrix.m[7]*_matrix.m[14]
+					- _matrix.m[5]*_matrix.m[2]*_matrix.m[15]
+					+ _matrix.m[5]*_matrix.m[3]*_matrix.m[14]
+					+ _matrix.m[13]*_matrix.m[2]*_matrix.m[7]
+					- _matrix.m[13]*_matrix.m[3]*_matrix.m[6];
+		inv.m[6]  = - _matrix.m[0]*_matrix.m[6]*_matrix.m[15]
+					+ _matrix.m[0]*_matrix.m[7]*_matrix.m[14]
+					+ _matrix.m[4]*_matrix.m[2]*_matrix.m[15]
+					- _matrix.m[4]*_matrix.m[3]*_matrix.m[14]
+					- _matrix.m[12]*_matrix.m[2]*_matrix.m[7] 
+					+ _matrix.m[12]*_matrix.m[3]*_matrix.m[6];
+		inv.m[10] =   _matrix.m[0]*_matrix.m[5]*_matrix.m[15]
+					- _matrix.m[0]*_matrix.m[7]*_matrix.m[13]
+					- _matrix.m[4]*_matrix.m[1]*_matrix.m[15]
+					+ _matrix.m[4]*_matrix.m[3]*_matrix.m[13]
+					+ _matrix.m[12]*_matrix.m[1]*_matrix.m[7]
+					- _matrix.m[12]*_matrix.m[3]*_matrix.m[5];
+		inv.m[14] = - _matrix.m[0]*_matrix.m[5]*_matrix.m[14]
+					+ _matrix.m[0]*_matrix.m[6]*_matrix.m[13]
+					+ _matrix.m[4]*_matrix.m[1]*_matrix.m[14]
+					- _matrix.m[4]*_matrix.m[2]*_matrix.m[13]
+					- _matrix.m[12]*_matrix.m[1]*_matrix.m[6]
+					+ _matrix.m[12]*_matrix.m[2]*_matrix.m[5];
+		inv.m[3]  = - _matrix.m[1]*_matrix.m[6]*_matrix.m[11]
+					+ _matrix.m[1]*_matrix.m[7]*_matrix.m[10]
+					+ _matrix.m[5]*_matrix.m[2]*_matrix.m[11]
+					- _matrix.m[5]*_matrix.m[3]*_matrix.m[10]
+					- _matrix.m[9]*_matrix.m[2]*_matrix.m[7]
+					+ _matrix.m[9]*_matrix.m[3]*_matrix.m[6];
+		inv.m[7]  =   _matrix.m[0]*_matrix.m[6]*_matrix.m[11]
+					- _matrix.m[0]*_matrix.m[7]*_matrix.m[10]
+					- _matrix.m[4]*_matrix.m[2]*_matrix.m[11]
+					+ _matrix.m[4]*_matrix.m[3]*_matrix.m[10]
+					+ _matrix.m[8]*_matrix.m[2]*_matrix.m[7]
+					- _matrix.m[8]*_matrix.m[3]*_matrix.m[6];
+		inv.m[11] = - _matrix.m[0]*_matrix.m[5]*_matrix.m[11]
+					+ _matrix.m[0]*_matrix.m[7]*_matrix.m[9]
+					+ _matrix.m[4]*_matrix.m[1]*_matrix.m[11]
+					- _matrix.m[4]*_matrix.m[3]*_matrix.m[9]
+					- _matrix.m[8]*_matrix.m[1]*_matrix.m[7]
+					+ _matrix.m[8]*_matrix.m[3]*_matrix.m[5];
+		inv.m[15] =   _matrix.m[0]*_matrix.m[5]*_matrix.m[10]
+					- _matrix.m[0]*_matrix.m[6]*_matrix.m[9]
+					- _matrix.m[4]*_matrix.m[1]*_matrix.m[10] 
+					+ _matrix.m[4]*_matrix.m[2]*_matrix.m[9]
+					+ _matrix.m[8]*_matrix.m[1]*_matrix.m[6]
+					- _matrix.m[8]*_matrix.m[2]*_matrix.m[5];
+		
+		float det = _matrix.m[0]*inv.m[0] + _matrix.m[1]*inv.m[4] + _matrix.m[2]*inv.m[8] + _matrix.m[3]*inv.m[12];
+		if (det != 0.0f)
+		{
+			det = 1.0 / det;
+			int i;
+			for (i = 0; i < 16; i++)
+			{
+				_matrix.m[i] = inv.m[i] * det;
+			}
+			return TRUE;
+		}
+		return FALSE;
+	}
+	
+	// ---------------------------------------------------
 	// Translate an existing CGMatrix4x4
 	// ---------------------------------------------------
 	inline void CGMatrix4x4Translate( CGMatrix4x4 & _matrix, const CGVector3D & _translation )
@@ -333,7 +451,7 @@ namespace CGMaths
 		_matrix.m[13] *= _translation.y;   
 		_matrix.m[14] *= _translation.z;
 	}
-	
+
 	// ---------------------------------------------------
 	// Add 2 CGMatrix4x4's
 	// ---------------------------------------------------
@@ -402,6 +520,25 @@ namespace CGMaths
 	inline CGVector3D CGMatrix4x4TransformVector( const CGMatrix4x4 & _matrix, const CGVector3D & _vector )
 	{
 		return CGMatrix4x4TransformVector( _matrix, _vector.x, _vector.y, _vector.z );
+	}
+	
+	// ---------------------------------------------------
+	// Transform a Vector 4D
+	// ---------------------------------------------------
+	inline CGVector4D CGMatrix4x4TransformVector( const CGMatrix4x4 & _matrix, float _x, float _y, float _z, float _w )
+	{
+		return CGVector4DMake( ( _matrix.m[0] * _x + _matrix.m[4] * _y + _matrix.m[8] *  _z + _matrix.m[12] * _w ),
+							   ( _matrix.m[1] * _x + _matrix.m[5] * _y + _matrix.m[9] *  _z + _matrix.m[13] * _w ),
+							   ( _matrix.m[2] * _x + _matrix.m[6] * _y + _matrix.m[10] * _z + _matrix.m[14] * _w ),
+							   ( _matrix.m[3] * _x + _matrix.m[7] * _y + _matrix.m[11] * _z + _matrix.m[15] * _w ) );
+	}
+	
+	// ---------------------------------------------------
+	// Transform a Vector 4D
+	// ---------------------------------------------------
+	inline CGVector4D CGMatrix4x4TransformVector( const CGMatrix4x4 & _matrix, const CGVector4D & _vector )
+	{
+		return CGMatrix4x4TransformVector( _matrix, _vector.x, _vector.y, _vector.z, _vector.w );
 	}
 	
 	// ---------------------------------------------------

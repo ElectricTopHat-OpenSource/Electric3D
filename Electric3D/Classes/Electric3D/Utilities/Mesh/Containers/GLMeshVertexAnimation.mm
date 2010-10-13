@@ -36,6 +36,7 @@ namespace GLMeshes
 	, m_header		( 0 )
 	, m_iterpverts	( 0 )
 	, m_indices		( 0 )
+	, m_vertsaabb	( 0 )
 	{
 		read( _filePath );
 	}
@@ -46,6 +47,7 @@ namespace GLMeshes
 	, m_header		( 0 )
 	, m_iterpverts	( 0 )
 	, m_indices		( 0 )
+	, m_vertsaabb	( 0 )
 	{
 		// -----------------------------------------------
 		// clamp the number of frames supported
@@ -60,8 +62,9 @@ namespace GLMeshes
 		int indices = sizeof(GLVertIndice) * _info.numindices;
 		int buffer  = sizeof(GLInterleavedVert3D) * _info.numverts;
 		int header	= sizeof(GLMeshVertexAnimationHeader);
+		int aabbs	= sizeof(CGMaths::CGAABB);
 		// this is x number of vert frames + 1 for the interperied frame
-		int space   = header + buffer + ( chunk * numframes );
+		int space   = header + buffer + indices + ( chunk * numframes ) + ( aabbs * numframes );
 		
 		unsigned char * bytes = (unsigned char *)memset( malloc( space ), 0, space );
 		// -----------------------------------------------
@@ -96,9 +99,11 @@ namespace GLMeshes
 		int interpoffset	= header;
 		int indicesoffset	= header + buffer;
 		int vertsoffset		= header + buffer + indices;
+		int aabboffset		= header + buffer + indices + ( chunk * numframes );
 		
 		// set up the vert pointer
 		m_iterpverts = (GLInterleavedVert3D*)&bytes[interpoffset];
+		m_vertsaabb  = (CGMaths::CGAABB*)&bytes[aabboffset];
 		
 		if ( indices )
 		{
@@ -180,9 +185,11 @@ namespace GLMeshes
 					int interpoffset	= headerSize;
 					int indicesoffset	= headerSize + buffer;
 					int vertsoffset		= headerSize + buffer + indices;
+					int aabboffset		= headerSize + buffer + indices + ( chunk * m_header->info.numframes );
 					
 					// set up the vert pointer
 					m_iterpverts = (GLInterleavedVert3D*)&p[interpoffset];
+					m_vertsaabb  = (CGMaths::CGAABB*)&p[aabboffset];
 					
 					if ( indices )
 					{
@@ -239,6 +246,23 @@ namespace GLMeshes
 		}
 		
 		return m_iterpverts;
+	}
+	
+	const CGMaths::CGAABB &	GLMeshVertexAnimation::aabb( unsigned int _frame1, unsigned int _frame2, float _interp ) const
+	{
+		float  value = MAX( MIN( _interp, 1.0f ), 0.0f );
+		const CGMaths::CGAABB & v1 = m_vertsaabb[MIN(_frame1, m_header->info.numframes-1)];
+		const CGMaths::CGAABB & v2 = m_vertsaabb[MIN(_frame2, m_header->info.numframes-1)];
+		
+		m_header->info.aabb.min.x = v1.min.x + ( (v2.min.x - v1.min.x) * value );
+		m_header->info.aabb.min.y = v1.min.y + ( (v2.min.y - v1.min.y) * value );
+		m_header->info.aabb.min.z = v1.min.z + ( (v2.min.z - v1.min.z) * value );
+		
+		m_header->info.aabb.max.x = v1.max.x + ( (v2.max.x - v1.max.x) * value );
+		m_header->info.aabb.max.y = v1.max.y + ( (v2.max.y - v1.max.y) * value );
+		m_header->info.aabb.max.z = v1.max.z + ( (v2.max.z - v1.max.z) * value );
+		
+		return m_header->info.aabb;
 	}
 	
 	const GLInterleavedVert3D * GLMeshVertexAnimation::interpverts( unsigned int _frame1, unsigned int _frame2, float _interp ) const

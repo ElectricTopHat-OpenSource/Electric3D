@@ -46,6 +46,8 @@ namespace GLObjects
 		inline NSUInteger targetFrame() const		{ return m_targetFrame; };
 		inline float blendValue() const				{ return m_blend; };
 		
+		virtual const CGMaths::CGAABB aabb() const;
+		
 		virtual void setMesh(const GLMeshes::GLMesh * _mesh);
 		virtual const GLMeshes::GLMesh * mesh() const;
 		

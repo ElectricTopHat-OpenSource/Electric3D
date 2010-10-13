@@ -38,6 +38,8 @@ namespace GLObjects
 		
 		inline eGLModelType subtype() const { return eGLModelType_Static; };
 		
+		virtual const CGMaths::CGAABB aabb() const;
+		
 		virtual void setMesh(const GLMeshes::GLMesh * _mesh) { m_mesh = _mesh; };
 		virtual const GLMeshes::GLMesh * mesh() const { return m_mesh; };
 		

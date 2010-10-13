@@ -41,6 +41,24 @@ namespace GLObjects
 #pragma mark ---------------------------------------------------------
 	
 	// --------------------------------------------------
+	// Get the mesh AABB
+	// --------------------------------------------------
+	const CGMaths::CGAABB GLModelStatic::aabb() const
+	{
+		CGMaths::CGAABB aabb;
+		if ( m_mesh )
+		{
+			aabb = m_mesh->aabb();
+		}
+		else 
+		{
+			aabb = CGMaths::CGAABBUnit;
+		}
+
+		return CGMaths::CGAABBMakeTransformed( aabb, m_transform );
+	}
+	
+	// --------------------------------------------------
 	// Number verts in the mesh
 	// --------------------------------------------------
 	NSUInteger GLModelStatic::numverts() const

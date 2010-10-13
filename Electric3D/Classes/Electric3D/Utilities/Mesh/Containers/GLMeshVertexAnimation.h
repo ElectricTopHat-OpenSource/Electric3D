@@ -72,7 +72,10 @@ namespace GLMeshes
 		inline const NSUInteger				numframes() const		{ return m_header->info.numframes; };
 		
 		inline const CGMaths::CGAABB &		aabb() const						{ return m_header->info.aabb; };
+		inline const CGMaths::CGAABB &		aabb( unsigned int _frame )	const	{ return m_vertsaabb[_frame]; }
+		const CGMaths::CGAABB &				aabb( unsigned int _frame1, unsigned int _frame2, float _interp ) const;
 		inline void							setaabb( CGMaths::CGAABB & _aabb )	{ m_header->info.aabb = _aabb; };
+		inline void							setaabb( unsigned int _frame, CGMaths::CGAABB & _aabb )	{ m_vertsaabb[_frame] = _aabb; };
 		
 		inline const eGLVertListType		vertListType() const				{ return ( m_indices ) ? eGLVertListType_Indexed : eGLVertListType_NonIndexed; };
 		inline const GLInterleavedVert3D *	verts() const						{ return m_iterpverts; };
@@ -107,6 +110,7 @@ namespace GLMeshes
 		GLVertIndice *					m_indices;
 		
 		GLInterleavedVertNormal3D	*	m_verts[256];
+		CGMaths::CGAABB *				m_vertsaabb;
 		
 #pragma mark ---------------------------------------------------------
 #pragma mark End Private Data

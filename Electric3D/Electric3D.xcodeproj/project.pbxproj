@@ -86,7 +86,6 @@
 		071270EF1255245A00C94F40 /* GLVertexComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF913124CB28300FC7D17 /* GLVertexComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		071270F01255246C00C94F40 /* GLCameras.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A8F4A512539F37009E62A5 /* GLCameras.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		071270F11255246C00C94F40 /* GLCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 078B0A9A125220CB00227D49 /* GLCamera.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		071270F21255246C00C94F40 /* GLPerspective.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A8F45512536F73009E62A5 /* GLPerspective.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		071270F31255247100C94F40 /* GLCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 078B0A9B125220CB00227D49 /* GLCamera.mm */; };
 		073F0279125C8238005F7C98 /* GLVertexUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 073F0278125C8238005F7C98 /* GLVertexUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		073F02F2125C8E66005F7C98 /* vertex_cube_indexed.POD in Resources */ = {isa = PBXBuildFile; fileRef = 073F02AE125C8787005F7C98 /* vertex_cube_indexed.POD */; };
@@ -118,7 +117,6 @@
 		0774F12212561CA5006AC5BA /* GLModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF531124A564800FC7D17 /* GLModel.mm */; };
 		0774F12312561CA5006AC5BA /* GLModelStatic.mm in Sources */ = {isa = PBXBuildFile; fileRef = 078B084A12510CAA00227D49 /* GLModelStatic.mm */; };
 		0774F12412561CA5006AC5BA /* GLModelVertexAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 078B082A1251083600227D49 /* GLModelVertexAnimation.mm */; };
-		0774F12512561CA5006AC5BA /* GLPerspective.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A8F45612536F73009E62A5 /* GLPerspective.mm */; };
 		0774F12612561CA5006AC5BA /* GLPVRTextureLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF2D71249265000FC7D17 /* GLPVRTextureLoader.mm */; };
 		0774F12712561CA5006AC5BA /* GLRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF48D124A433E00FC7D17 /* GLRenderer.mm */; };
 		0774F12812561CA5006AC5BA /* GLScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 078B05841250D57F00227D49 /* GLScene.mm */; };
@@ -197,6 +195,7 @@
 		0799A7E81263606F000BF77C /* DeltaTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0799A7E412636065000BF77C /* DeltaTimer.m */; };
 		0799A7F312636173000BF77C /* DeltaTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0799A7E312636065000BF77C /* DeltaTimer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0799A7F412636173000BF77C /* FPSTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0799A7E112635F9C000BF77C /* FPSTimer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0799AD691264CEB0000BF77C /* GLTestCameraTouchPoint.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0799AD561264CC54000BF77C /* GLTestCameraTouchPoint.mm */; };
 		079E42CA125BA66400AFC765 /* vertex_cube.POD in Resources */ = {isa = PBXBuildFile; fileRef = 079E42C9125BA66400AFC765 /* vertex_cube.POD */; };
 		079E42ED125BD15000AFC765 /* PVRPODModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07ECE4C8125A4BC60097D909 /* PVRPODModel.mm */; };
 		079E42EE125BD15000AFC765 /* PVRPODModelConvertor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07ECE4D7125A4DDC0097D909 /* PVRPODModelConvertor.mm */; };
@@ -207,7 +206,6 @@
 		079E4391125BDE1900AFC765 /* GLMeshCylinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 079E438D125BDE1900AFC765 /* GLMeshCylinder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		079E4392125BDE1900AFC765 /* GLMeshSphere.h in Headers */ = {isa = PBXBuildFile; fileRef = 079E438E125BDE1900AFC765 /* GLMeshSphere.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07A8F2B612535015009E62A5 /* GLTestCameraGeneral.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A8F2B512535015009E62A5 /* GLTestCameraGeneral.mm */; };
-		07A8F45712536F73009E62A5 /* GLPerspective.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A8F45612536F73009E62A5 /* GLPerspective.mm */; };
 		07A8F4A412539EE1009E62A5 /* GLTestCameraPerspective.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A8F4A312539EE1009E62A5 /* GLTestCameraPerspective.mm */; };
 		07A8F54D1253B1E3009E62A5 /* E3D_cone.md2 in Resources */ = {isa = PBXBuildFile; fileRef = 07A8F5491253B1E3009E62A5 /* E3D_cone.md2 */; };
 		07A8F54E1253B1E3009E62A5 /* E3D_sphere.md2 in Resources */ = {isa = PBXBuildFile; fileRef = 07A8F54A1253B1E3009E62A5 /* E3D_sphere.md2 */; };
@@ -375,6 +373,10 @@
 		0799A7E212635F9C000BF77C /* FPSTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPSTimer.m; sourceTree = "<group>"; };
 		0799A7E312636065000BF77C /* DeltaTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeltaTimer.h; sourceTree = "<group>"; };
 		0799A7E412636065000BF77C /* DeltaTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeltaTimer.m; sourceTree = "<group>"; };
+		0799AC0A12649DAF000BF77C /* GLViewport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLViewport.h; sourceTree = "<group>"; };
+		0799AC2D1264A239000BF77C /* GLCameraUtilties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLCameraUtilties.h; sourceTree = "<group>"; };
+		0799AD551264CC54000BF77C /* GLTestCameraTouchPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTestCameraTouchPoint.h; sourceTree = "<group>"; };
+		0799AD561264CC54000BF77C /* GLTestCameraTouchPoint.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLTestCameraTouchPoint.mm; sourceTree = "<group>"; };
 		0799C0FB125602DE00846A9C /* GLObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLObjects.h; sourceTree = "<group>"; };
 		0799C0FC1256036400846A9C /* GLVertexs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLVertexs.h; sourceTree = "<group>"; };
 		0799C109125603E300846A9C /* GLMeshes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMeshes.h; sourceTree = "<group>"; };
@@ -389,8 +391,6 @@
 		079E438E125BDE1900AFC765 /* GLMeshSphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMeshSphere.h; sourceTree = "<group>"; };
 		07A8F2B412535015009E62A5 /* GLTestCameraGeneral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTestCameraGeneral.h; sourceTree = "<group>"; };
 		07A8F2B512535015009E62A5 /* GLTestCameraGeneral.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLTestCameraGeneral.mm; sourceTree = "<group>"; };
-		07A8F45512536F73009E62A5 /* GLPerspective.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLPerspective.h; sourceTree = "<group>"; };
-		07A8F45612536F73009E62A5 /* GLPerspective.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLPerspective.mm; sourceTree = "<group>"; };
 		07A8F4A212539EE1009E62A5 /* GLTestCameraPerspective.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTestCameraPerspective.h; sourceTree = "<group>"; };
 		07A8F4A312539EE1009E62A5 /* GLTestCameraPerspective.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLTestCameraPerspective.mm; sourceTree = "<group>"; };
 		07A8F4A512539F37009E62A5 /* GLCameras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLCameras.h; sourceTree = "<group>"; };
@@ -918,10 +918,10 @@
 			isa = PBXGroup;
 			children = (
 				07A8F4A512539F37009E62A5 /* GLCameras.h */,
+				0799AC2D1264A239000BF77C /* GLCameraUtilties.h */,
 				078B0A9A125220CB00227D49 /* GLCamera.h */,
 				078B0A9B125220CB00227D49 /* GLCamera.mm */,
-				07A8F45512536F73009E62A5 /* GLPerspective.h */,
-				07A8F45612536F73009E62A5 /* GLPerspective.mm */,
+				0799AC0A12649DAF000BF77C /* GLViewport.h */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -950,6 +950,8 @@
 				07A8F2B512535015009E62A5 /* GLTestCameraGeneral.mm */,
 				07A8F4A212539EE1009E62A5 /* GLTestCameraPerspective.h */,
 				07A8F4A312539EE1009E62A5 /* GLTestCameraPerspective.mm */,
+				0799AD551264CC54000BF77C /* GLTestCameraTouchPoint.h */,
+				0799AD561264CC54000BF77C /* GLTestCameraTouchPoint.mm */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -1158,7 +1160,6 @@
 				0712708C1255235B00C94F40 /* GLModelVertexAnimation.h in Headers */,
 				071270841255233C00C94F40 /* GLObject.h in Headers */,
 				071270831255233C00C94F40 /* GLObjectTypes.h in Headers */,
-				071270F21255246C00C94F40 /* GLPerspective.h in Headers */,
 				0712709B125523D800C94F40 /* GLPVRTextureLoader.h in Headers */,
 				07127074125522FD00C94F40 /* GLRenderer.h in Headers */,
 				071270851255234400C94F40 /* GLScene.h in Headers */,
@@ -1354,7 +1355,6 @@
 				0774F12212561CA5006AC5BA /* GLModel.mm in Sources */,
 				0774F12312561CA5006AC5BA /* GLModelStatic.mm in Sources */,
 				0774F12412561CA5006AC5BA /* GLModelVertexAnimation.mm in Sources */,
-				0774F12512561CA5006AC5BA /* GLPerspective.mm in Sources */,
 				0774F12612561CA5006AC5BA /* GLPVRTextureLoader.mm in Sources */,
 				0774F12712561CA5006AC5BA /* GLRenderer.mm in Sources */,
 				0774F12812561CA5006AC5BA /* GLScene.mm in Sources */,
@@ -1413,7 +1413,6 @@
 				078B097D1251F9C000227D49 /* GLTestVertexAnimatedMesh.mm in Sources */,
 				078B0B95125259AF00227D49 /* GLCamera.mm in Sources */,
 				07A8F2B612535015009E62A5 /* GLTestCameraGeneral.mm in Sources */,
-				07A8F45712536F73009E62A5 /* GLPerspective.mm in Sources */,
 				07A8F4A412539EE1009E62A5 /* GLTestCameraPerspective.mm in Sources */,
 				07A8F5621253B2F1009E62A5 /* GLTestColorScene.mm in Sources */,
 				07A8F5831253B47D009E62A5 /* GLTestColorModel.mm in Sources */,
@@ -1427,6 +1426,7 @@
 				07FDF27C12622B59002AACD9 /* GLTestPODMd2Meshes.mm in Sources */,
 				0799A7E71263606F000BF77C /* FPSTimer.m in Sources */,
 				0799A7E81263606F000BF77C /* DeltaTimer.m in Sources */,
+				0799AD691264CEB0000BF77C /* GLTestCameraTouchPoint.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
