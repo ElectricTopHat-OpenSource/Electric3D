@@ -15,11 +15,7 @@
 
 #import <OpenGLES/ES2/gl.h> // for GL_RENDERBUFFER only
 
-#import "GLCameras.h"
-
-#import "GLMeshFactory.h"
-#import "GLTextureFactory.h"
-#import "GLSpriteFactory.h"
+#import "E3DFactories.h"
 
 @implementation GLRenderer
 
@@ -27,14 +23,7 @@
 #pragma mark === Properties  ===
 #pragma mark ---------------------------------------------------------
 
-- (GLCameras::GLCamera*) camera
-{
-	return &m_renderer->camera();
-}
-
-@synthesize meshes			= m_meshFactory;
-@synthesize textures		= m_textureFactory;
-@synthesize sprites			= m_spriteFactory;
+@synthesize factories	= m_factories;
 
 #pragma mark ---------------------------------------------------------
 #pragma mark === End Properties  ===
@@ -111,9 +100,7 @@
 		// --------------------------------------
 		// Create the container objects
 		// --------------------------------------
-		m_meshFactory		= new GLMeshes::GLMeshFactory();
-		m_textureFactory	= new GLTextures::GLTextureFactory();
-		m_spriteFactory		= new GLSprites::GLSpriteFactory( m_textureFactory );
+		m_factories		= new E3D::E3DFactories();
 		// --------------------------------------
 	}
 	
@@ -128,17 +115,9 @@
 	// --------------------------------------
 	// Teardown the container classes
 	// --------------------------------------
-	if ( m_spriteFactory )
+	if ( m_factories )
 	{
-		SAFE_DELETE( m_spriteFactory );
-	}
-	if ( m_textureFactory )
-	{
-		SAFE_DELETE( m_textureFactory );
-	}
-	if ( m_meshFactory )
-	{
-		SAFE_DELETE( m_meshFactory );
+		SAFE_DELETE( m_factories );
 	}
 	// --------------------------------------
 	
@@ -215,25 +194,9 @@
 }
 
 // ------------------------------------------
-// convert a screen point into the world
-// ------------------------------------------
-- (CGMaths::CGVector3D) screenToWorld:(CGMaths::CGVector3D)_point
-{
-	return GLCameras::screenToWorld( _point, m_renderer->camera(), m_renderer->viewport() );
-}
-
-// ------------------------------------------
-// convert a screen point into the world
-// ------------------------------------------
-- (CGMaths::CGVector3D) worldToScreen:(CGMaths::CGVector3D)_point
-{
-	return GLCameras::worldToScreen( _point, m_renderer->camera(), m_renderer->viewport() );
-}
-
-// ------------------------------------------
 // does the render contain the scene
 // ------------------------------------------
-- (BOOL) containsScene:(GLObjects::GLScene*)_scene
+- (BOOL) containsScene:(E3D::E3DScene*)_scene
 {
 	return m_renderer->contains( _scene );
 }
@@ -241,7 +204,7 @@
 // ------------------------------------------
 // add the Scene to the render
 // ------------------------------------------
-- (void) addScene:(GLObjects::GLScene*)_scene
+- (void) addScene:(E3D::E3DScene*)_scene
 {
 	m_renderer->add( _scene );
 }
@@ -249,7 +212,7 @@
 // ------------------------------------------
 // remove the Scene from the render
 // ------------------------------------------
-- (void) removeScene:(GLObjects::GLScene*)_scene
+- (void) removeScene:(E3D::E3DScene*)_scene
 {
 	m_renderer->remove( _scene );
 }

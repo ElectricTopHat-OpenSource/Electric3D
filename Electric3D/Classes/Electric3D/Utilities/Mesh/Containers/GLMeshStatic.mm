@@ -125,8 +125,8 @@ namespace GLMeshes
 			
 			NSLog( @"Read compressed file of size %d", [compressed length] );
 			
-			m_data = [Compression gzipInflate:compressed];
-			//m_data = [Compression zlibInflate:compressed];
+			m_data = Compressor::gzip::inflate( compressed );
+			//m_data = Compressor::zlib::inflate( compressed );
 			
 			NSLog( @"Memory foot print size       %d", [m_data length] );
 #else
@@ -185,8 +185,8 @@ namespace GLMeshes
 #if USE_COMPRESSED_MS_FILE
 			NSLog( @"Memory foot print size        %d", [m_data length] );
 			
-			NSData * compressed = [Compression gzipDeflate:m_data];
-			//NSData * compressed = [Compression zlibDeflate:m_data];
+			NSData * compressed = Compressor::gzip::deflate( m_data );
+			//NSData * compressed = Compressor::zlib::deflate( m_data );
 			
 			NSLog( @"Write compressed file of size %d", [compressed length] );
 			

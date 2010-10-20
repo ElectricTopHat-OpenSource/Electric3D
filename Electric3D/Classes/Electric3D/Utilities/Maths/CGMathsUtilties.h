@@ -10,149 +10,39 @@
 #if !defined(__CGMathsUtilties_h__)
 #define __CGMathsUtilties_h__
 
+#import "CGMathsConstants.h"
+
 namespace CGMaths 
 {
 #pragma mark ---------------------------------------------------------
-#pragma mark Utilty Functions : Float
+#pragma mark MACROS
+#pragma mark ---------------------------------------------------------
+	
+#define CLAMP( _value, _min, _max )		MAX( MIN( _value, _max ), _min )
+#define LERP( _start, _end, _interp )	(((1.0f - _interp) * _start) + (_interp * _end))
+	
+#pragma mark ---------------------------------------------------------
+#pragma mark End MACROS
+#pragma mark ---------------------------------------------------------
+	
+#pragma mark ---------------------------------------------------------
+#pragma mark Utilty Functions
 #pragma mark ---------------------------------------------------------
 	
 	inline float Degrees2Radians( float _angle ) { return _angle * degreesToRadians; };
 	inline float Radians2Degrees( float _angle ) { return _angle * radiansToDegrees; };
 	
-	// --------------------------------------------------
-	// Fast Sin Function
-	// --------------------------------------------------
-	inline float fastSin( float _rad )
-	{
-		//always wrap input angle to -PI..PI
-		while (_rad < -3.14159265f)
-		{
-			_rad += 6.28318531f;
-		}
-		while (_rad >  3.14159265f)
-		{
-			_rad -= 6.28318531f;
-		}
-		
-		float sinVal = 0.0f;
-		
-		//compute sine
-		if (_rad < 0)
-			sinVal = _rad*(1.27323954 + .405284735 * _rad);
-		else
-			sinVal = _rad*(1.27323954 - 0.405284735 * _rad);
-		
-		if (sinVal < 0)
-			sinVal = sinVal*(-0.225f * (sinVal + 1) + 1);
-		else
-			sinVal = sinVal*(0.225f * (sinVal - 1) + 1);
-		
-		return sinVal;
-	}
+	inline float Clamp( float _value, float _min, float _max )			{ return CLAMP( _value, _min, _max ); };
+	inline int   Clamp( int _value, int _min, int _max )				{ return CLAMP( _value, _min, _max ); };
 	
-	// --------------------------------------------------
-	// Fast Cos Function
-	// --------------------------------------------------
-	inline float fastCos( float _rad )
-	{
-		//compute cosine: sin(x + PI/2) = cos(x)
-		_rad += 1.57079632f;
-		while (_rad < -3.14159265f)
-		{
-			_rad += 6.28318531f;
-		}
-		while (_rad >  3.14159265f)
-		{
-			_rad -= 6.28318531f;
-		}
-		
-		float cosVal;
-		if (_rad < 0)
-			cosVal = 1.27323954f * _rad + 0.405284735f * _rad * _rad;
-		else
-			cosVal = 1.27323954f * _rad - 0.405284735f * _rad * _rad;
-		
-		if (cosVal < 0)
-			cosVal = 0.225f * (cosVal *-cosVal - cosVal) + cosVal;
-		else
-			cosVal = 0.225f * (cosVal * cosVal - cosVal) + cosVal;
-		
-		return cosVal;
-	}
-	
-	// --------------------------------------------------
-	// Clamp a float between two values
-	// --------------------------------------------------
-	inline float fClamp( float _value, float _min, float _max )
-	{
-		return (_value > _min) ? (_value < _max ) ? _value : _max : _min;
-	}
-	
-	// --------------------------------------------------
-	// Loop the value
-	// --------------------------------------------------
-	inline float fLoop( float _value, float _min, float _max )
-	{
-		// TODO : Fix this function so that the value is looped correctly
-		return (_value > _min) ? (_value < _max ) ? _value : _min : _max;
-	}
-	
-	// ---------------------------------------------------
-	// Lerp function
-	// ---------------------------------------------------
-	inline float fLerp( float _start, float _end, float _value )
-	{	
-		return ((1.0f - _value) * _start) + (_value * _end);
-	}
-	
-	// ---------------------------------------------------
-	// Sin Lerp function
-	// ---------------------------------------------------
-	inline float fSinLerp( float _start, float _end, float _value )
-	{
-		float value = sin(_value * PI_HALF);
-		
-		return fLerp(_start,_end,value);
-	}
-	
-	// ---------------------------------------------------
-	// Hermite function
-	// ---------------------------------------------------
-	inline float fHermite( float _start, float _end, float _value )
-	{
-		float value = _value * _value * (3.0f - 2.0f * _value);
-		
-		return fLerp(_start,_end,value);
-	}
+	inline float Lerp( float _start, float _end, float _value )			{ return LERP( _start, _end, _value ); };
+	inline float LerpSin( float _start, float _end, float _value )		{ float v = sin(_value * PI_HALF); return LERP( _start, _end, v ); }
+	inline float LerpHermite( float _start, float _end, float _value )	{ float v = _value * _value * (3.0f - 2.0f * _value); return LERP( _start, _end, v ); }
 	
 #pragma mark ---------------------------------------------------------
-#pragma mark End Utilty Functions : Float
+#pragma mark End Utilty Functions
 #pragma mark ---------------------------------------------------------
-	
-#pragma mark ---------------------------------------------------------
-#pragma mark Utilty Functions : NSInteger
-#pragma mark ---------------------------------------------------------
-	
-	// --------------------------------------------------
-	// Clamp a NSInteger between two values
-	// --------------------------------------------------
-	inline NSInteger iClamp( NSInteger _value, NSInteger _min, NSInteger _max )
-	{
-		return (_value > _min) ? (_value < _max ) ? _value : _max : _min;
-	}
-	
-	// --------------------------------------------------
-	// Loop the value
-	// --------------------------------------------------
-	inline NSInteger iLoop( NSInteger _value, NSInteger _min, NSInteger _max )
-	{
-		// TODO : Fix this function so that the value is looped correctly
-		return (_value > _min) ? (_value < _max ) ? _value : _min : _max;
-	}
-	
-#pragma mark ---------------------------------------------------------
-#pragma mark End Utilty Functions : NSInteger
-#pragma mark ---------------------------------------------------------
+
 };
 
 #endif

@@ -15,12 +15,12 @@
 
 #pragma mark ---------------------------------------------------------
 
-#pragma mark MAX3DSModel
+#pragma mark MAX3DSScene
 
-#import "MAX3DSModel.h"
+#import "MAX3DSScene.h"
 #import "MAX3DSModelConvertor.h"
 
-#pragma mark End MAX3DSModel
+#pragma mark End MAX3DSScene
 
 
 #pragma mark MD2Model
@@ -30,12 +30,12 @@
 
 #pragma mark End MD2Model
 
-#pragma mark PVRPODModel
+#pragma mark PVRPODScene
 
-#import "PVRPODModel.h"
+#import "PVRPODScene.h"
 #import "PVRPODModelConvertor.h"
 
-#pragma mark End PVRPODModel
+#pragma mark End PVRPODScene
 
 #pragma mark ---------------------------------------------------------
 
@@ -396,7 +396,7 @@ namespace GLMeshes
 			
 			//NSLog( @"load3DS file of size %d", [data length] );
 			
-			MAX3DS::MAX3DSModel model( data );
+			MAX3DS::MAX3DSScene model( data );
 			
 			if ( model.valid() && model.count() )
 			{
@@ -480,7 +480,7 @@ namespace GLMeshes
 			
 			//NSLog( @"loadPOD file of size %d", [data length] );
 			
-			PVRPOD::PVRPODModel model( data );
+			PVRPOD::PVRPODScene model( data );
 			
 			if ( model.valid() )
 			{

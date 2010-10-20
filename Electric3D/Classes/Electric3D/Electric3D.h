@@ -14,14 +14,16 @@
 #import "GLRenderer.h"
 #import "IRenderEngine.h"
 #import "GLES1RenderEngine.h"
-#import "GLES1Renderer.h"
 
-#import "GLCameras.h"
 #import "GLVertexs.h"
 #import "GLMeshes.h"
 #import "GLTextures.h"
 #import "GLSprites.h"
-#import "GLObjects.h"
+#import "E3DSplines.h"
+
+#import "E3DFactories.h"
+
+#import "E3DScenes.h"
 
 #import "Timers.h"
 #import "CGMaths.h"

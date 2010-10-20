@@ -7,24 +7,11 @@
 //
 
 #import "RootViewController.h"
-#import "CGTextMaths.h"
 
-#import "GLTestMeshFactory.h"
-#import "GLTestTextureFactory.h"
-
-#import "GLTestGeneral.h"
-#import "GLTestCameraGeneral.h"
-#import "GLTestCameraPerspective.h"
-#import "GLTestCameraTouchPoint.h"
-
-#import "GLTestStaticMesh.h"
-#import "GLTestVertexAnimatedMesh.h"
-#import "GLTestPodMesh.h"
-#import "GLTestPodMd2Meshes.h"
-
-#import "GLTestColorScene.h"
-#import "GLTestColorModel.h"
-#import "GLTestColorSceneModel.h"
+#import "CGTestMaths.h"
+#import "TestSplines.h"
+#import "TestModels.h"
+#import "TestCamera.h"
 
 // -------------------------------------------------------------------
 // update time defines
@@ -59,143 +46,9 @@
 		tableData = [[NSMutableArray alloc] initWithCapacity:10];
 		
 		MathsTests::AddSection( tableData );
-		
-		{
-			NSMutableDictionary * data			= [NSMutableDictionary dictionaryWithCapacity:2];
-			NSString *			sectiontitle	= @"Load Tests";
-			NSMutableArray *	array			= [NSMutableArray arrayWithCapacity:16];
-			
-			{
-				NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];
-				
-				[testInfo setObject:@"GL Texture Factory" forKey:@"name"];
-				[testInfo setObject:[GLTestTextureFactory class] forKey:@"class"];
-				
-				[array addObject:testInfo];
-			}
-			
-			{
-				NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];
-				
-				[testInfo setObject:@"GL Mesh Factory" forKey:@"name"];
-				[testInfo setObject:[GLTestMeshFactory class] forKey:@"class"];
-				
-				[array addObject:testInfo];
-			}
-			
-			[data setObject:sectiontitle	forKey:@"sectiontitle"];
-			[data setObject:array			forKey:@"array"];
-			[tableData addObject:data];
-		}
-		
-		{
-			NSMutableDictionary * data			= [NSMutableDictionary dictionaryWithCapacity:2];
-			NSString *			sectiontitle	= @"OpenGL Tests";
-			NSMutableArray *	array			= [NSMutableArray arrayWithCapacity:16];
-			
-			{
-				NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];
-				
-				[testInfo setObject:@"General Test" forKey:@"name"];
-				[testInfo setObject:[GLTestGeneral class] forKey:@"class"];
-				
-				[array addObject:testInfo];
-			}
-			
-			{
-				NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];
-				
-				[testInfo setObject:@"Camera Test" forKey:@"name"];
-				[testInfo setObject:[GLTestCameraGeneral class] forKey:@"class"];
-				
-				[array addObject:testInfo];
-			}
-			
-			{
-				NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];
-				
-				[testInfo setObject:@"Camera Perspective Test" forKey:@"name"];
-				[testInfo setObject:[GLTestCameraPerspective class] forKey:@"class"];
-				
-				[array addObject:testInfo];
-			}
-			
-			{
-				NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];
-				
-				[testInfo setObject:@"Camera Touch Test" forKey:@"name"];
-				[testInfo setObject:[GLTestCameraTouchPoint class] forKey:@"class"];
-				
-				[array addObject:testInfo];
-			}			
-			
-			{
-				NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];
-				
-				[testInfo setObject:@"Test Static Mesh" forKey:@"name"];
-				[testInfo setObject:[GLTestStaticMesh class] forKey:@"class"];
-				
-				[array addObject:testInfo];
-			}
-			
-			{
-				NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];
-				
-				[testInfo setObject:@"Test Vertex Animated Mesh" forKey:@"name"];
-				[testInfo setObject:[GLTestVertexAnimatedMesh class] forKey:@"class"];
-				
-				[array addObject:testInfo];
-			}
-			
-			{
-				NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];
-				
-				[testInfo setObject:@"Test POD Mesh" forKey:@"name"];
-				[testInfo setObject:[GLTestPodMesh class] forKey:@"class"];
-				
-				[array addObject:testInfo];
-			}
-			
-			{
-				NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];
-				
-				[testInfo setObject:@"Test POD Md2 Meshes" forKey:@"name"];
-				[testInfo setObject:[GLTestPODMd2Meshes class] forKey:@"class"];
-				
-				[array addObject:testInfo];
-			}			
-			
-			{
-				NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];
-				
-				[testInfo setObject:@"Color Scene" forKey:@"name"];
-				[testInfo setObject:[GLTestColorScene class] forKey:@"class"];
-				
-				[array addObject:testInfo];
-			}
-			
-			{
-				NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];
-				
-				[testInfo setObject:@"Color Model" forKey:@"name"];
-				[testInfo setObject:[GLTestColorModel class] forKey:@"class"];
-				
-				[array addObject:testInfo];
-			}
-			
-			{
-				NSMutableDictionary * testInfo = [NSMutableDictionary dictionary];
-				
-				[testInfo setObject:@"Color Scene and Model" forKey:@"name"];
-				[testInfo setObject:[GLTestColorSceneModel class] forKey:@"class"];
-				
-				[array addObject:testInfo];
-			}
-			
-			[data setObject:sectiontitle	forKey:@"sectiontitle"];
-			[data setObject:array			forKey:@"array"];
-			[tableData addObject:data];
-		}
+		SplineTests::AddSection( tableData );
+		ModelTests::AddSection( tableData );
+		CameraTests::AddSection( tableData );
 	}
 	return self;
 }

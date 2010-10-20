@@ -97,7 +97,7 @@
 		//CGMaths::CGMatrix4x4 rot2 = CGMaths::CGMatrix4x4MakeRotation( CGMaths::CGVector3DMake( 1.0f, 0.0f, 0.0f ), 10.0f * CGMaths::degreesToRadians );
 		//CGMaths::CGMatrix4x4 rot = CGMaths::CGMatrix4x4Multiply( rot1, rot2 );
 		
-		CGMaths::CGMatrix4x4 newMat = CGMaths::CGMatrix4x4Multiply( mat, rot );
+		CGMaths::CGMatrix4x4 newMat = CGMaths::CGMatrix4x4MakeMultiply( mat, rot );
 		
 		//CGMaths::CGMatrix4x4SetTranslation( newMat, 0, 0, 10 );
 		

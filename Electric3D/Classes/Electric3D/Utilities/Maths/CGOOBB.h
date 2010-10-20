@@ -11,24 +11,12 @@
 #define __CGOOBB_h__
 
 #import "CGMathsConstants.h"
-#import "CGVector3D.h"
+#import "CGMathsTypes.h"
 
 namespace CGMaths 
 {
 	
-#pragma mark ---------------------------------------------------------
-#pragma mark CGAABB typedef
-#pragma mark ---------------------------------------------------------
-	
-	typedef struct 
-	{ 
-		CGMatrix4x4 transform;
-		CGVector3D	extents;
-	} CGOOBB;
-	
-#pragma mark ---------------------------------------------------------
-#pragma mark End CGAABB typedef
-#pragma mark ---------------------------------------------------------
+
 
 };
 

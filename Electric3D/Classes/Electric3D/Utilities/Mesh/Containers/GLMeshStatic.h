@@ -73,8 +73,9 @@ namespace GLMeshes
 		
 		inline const CGMaths::CGAABB &		aabb() const						{ return m_header->info.aabb; };
 		inline void							setaabb( CGMaths::CGAABB & _aabb )	{ m_header->info.aabb = _aabb; };
+		inline const CGMaths::CGSphere		sphere() const						{ return CGMaths::CGSphereMake(m_header->info.aabb); };
 		
-		inline const eGLVertListType		vertListType() const				{ return ( m_indices ) ? eGLVertListType_Indexed : eGLVertListType_NonIndexed; };
+		inline const eGLRenderType			vertListType() const				{ return ( m_indices ) ? eGLRenderType_Indexed : eGLRenderType_NonIndexed; };
 		
 		inline const GLInterleavedVert3D *	verts() const						{ return m_verts; };
 		inline GLInterleavedVert3D *		verts()								{ return m_verts; };

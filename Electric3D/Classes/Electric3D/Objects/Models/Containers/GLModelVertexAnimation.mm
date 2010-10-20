@@ -27,8 +27,8 @@ namespace GLObjects
 	: GLModel		(_name) 
 	, m_mesh		( nil )
 	, m_startFrame	( 0 )
-	, m_targetFrame	( 1 )
-	, m_blend		( 0.5f )
+	, m_targetFrame	( 0 )
+	, m_blend		( 0.0f )
 	{
 	}
 	
@@ -94,6 +94,34 @@ namespace GLObjects
 		}
 		
 		return CGMaths::CGAABBMakeTransformed( aabb, m_transform );
+	}
+	
+	// --------------------------------------------------
+	// Get the model bounding sphere
+	// --------------------------------------------------
+	const CGMaths::CGSphere GLModelVertexAnimation::sphere() const
+	{
+		CGMaths::CGSphere sphere;
+		
+		if ( m_mesh )
+		{
+			if ( m_startFrame == m_targetFrame )
+			{
+				sphere = m_mesh->sphere( m_startFrame );
+			}
+			else 
+			{
+				sphere = m_mesh->sphere( m_startFrame, m_targetFrame, m_blend );
+			}
+		}
+		else 
+		{
+			sphere = CGMaths::CGSphereUnit;
+		}
+		
+		sphere.center = CGMaths::CGMatrix4x4TransformVector( m_transform, sphere.center );
+		
+		return sphere;
 	}
 	
 	// --------------------------------------------------

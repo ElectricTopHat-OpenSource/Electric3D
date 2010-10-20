@@ -11,28 +11,10 @@
 #define __CGVector4D_h__
 
 #import "CGMathsConstants.h"
-#import "CGVector3D.h"
+#import "CGMathsTypes.h"
 
 namespace CGMaths 
 {
-	
-#pragma mark ---------------------------------------------------------
-#pragma mark Vector4D typedef
-#pragma mark ---------------------------------------------------------
-	
-	typedef struct 
-	{ 
-		float x;
-		float y;
-		float z;
-		float w;
-		
-	} CGVector4D;
-	
-#pragma mark ---------------------------------------------------------
-#pragma mark End Vector4D typedef
-#pragma mark ---------------------------------------------------------
-	
 #pragma mark ---------------------------------------------------------
 #pragma mark CGVector4D consts 
 #pragma mark ---------------------------------------------------------
@@ -42,9 +24,28 @@ namespace CGMaths
 #pragma mark ---------------------------------------------------------
 #pragma mark End CGVector4D consts 
 #pragma mark ---------------------------------------------------------
-	
+
 #pragma mark ---------------------------------------------------------
 #pragma mark CGVector4D Functions
+#pragma mark ---------------------------------------------------------
+	
+	// ---------------------------------------------------
+	// Are equal
+	// ---------------------------------------------------
+	inline BOOL CGVector4DAreEqual( const CGVector4D & _vectorA, const CGVector4D & _vectorB, float _tolerance = EPSILON )
+	{
+		return ( ( fabsf(_vectorA.x - _vectorB.x) < _tolerance ) &&
+				 ( fabsf(_vectorA.y - _vectorB.y) < _tolerance ) &&
+				 ( fabsf(_vectorA.z - _vectorB.z) < _tolerance ) &&
+				 ( fabsf(_vectorA.w - _vectorB.w) < _tolerance ) );
+	}
+	
+#pragma mark ---------------------------------------------------------
+#pragma mark End CGVector4D Functions
+#pragma mark ---------------------------------------------------------
+	
+#pragma mark ---------------------------------------------------------
+#pragma mark CGVector4D Make Functions
 #pragma mark ---------------------------------------------------------
 	
 	// ---------------------------------------------------
@@ -71,15 +72,26 @@ namespace CGMaths
 	// ---------------------------------------------------
 	// Add 2 CGVectro4D's
 	// ---------------------------------------------------
-	inline CGVector4D CGVector3DAdd( const CGVector4D & _vectorA, const CGVector4D & _vectorB )
+	inline CGVector4D CGVector3DMakeAdd( const CGVector4D & _vectorA, const CGVector4D & _vectorB )
 	{
 		return CGVector4DMake( _vectorA.x + _vectorB.x, _vectorA.y + _vectorB.y, _vectorA.z + _vectorB.z, _vectorA.w + _vectorB.w );
 	}
 	
 	// ---------------------------------------------------
+	// Add 2 CGVectro4D's
+	// ---------------------------------------------------
+	inline CGVector4D CGVector3DMakeAdd( const CGVector4D & _vectorA, const CGVector4D & _vectorB, float _scaleB )
+	{
+		return CGVector4DMake( _vectorA.x + ( _vectorB.x * _scaleB), 
+							   _vectorA.y + ( _vectorB.y * _scaleB), 
+							   _vectorA.z + ( _vectorB.z * _scaleB), 
+							   _vectorA.w + ( _vectorB.w * _scaleB) );
+	}
+	
+	// ---------------------------------------------------
 	// Sub 2 CGVectro4D's
 	// ---------------------------------------------------
-	inline CGVector4D CGVector4DSub( const CGVector4D & _vectorA, const CGVector4D & _vectorB )
+	inline CGVector4D CGVector4DMakeSub( const CGVector4D & _vectorA, const CGVector4D & _vectorB )
 	{
 		return CGVector4DMake( _vectorA.x - _vectorB.x, _vectorA.y - _vectorB.y, _vectorA.z - _vectorB.z, _vectorA.w - _vectorB.w );
 	}
@@ -87,7 +99,7 @@ namespace CGMaths
 	// ---------------------------------------------------
 	// Multiply 2 CGVectro4D's
 	// ---------------------------------------------------
-	inline CGVector4D CGVector4DMultiply( const CGVector4D & _vectorA, const CGVector4D & _vectorB )
+	inline CGVector4D CGVector4DMakeMultiply( const CGVector4D & _vectorA, const CGVector4D & _vectorB )
 	{
 		return CGVector4DMake( _vectorA.x * _vectorB.x, _vectorA.y * _vectorB.y, _vectorA.z * _vectorB.z, _vectorA.w * _vectorB.w );
 	}
@@ -95,7 +107,7 @@ namespace CGMaths
 	// ---------------------------------------------------
 	// Divide 2 CGVectro4D's
 	// ---------------------------------------------------
-	inline CGVector4D CGVector4DDivide( const CGVector4D & _vectorA, const CGVector4D & _vectorB )
+	inline CGVector4D CGVector4DMakeDivide( const CGVector4D & _vectorA, const CGVector4D & _vectorB )
 	{
 		return CGVector4DMake( _vectorA.x / _vectorB.x, _vectorA.y / _vectorB.y, _vectorA.z / _vectorB.z, _vectorA.w / _vectorB.w );
 	}
@@ -103,7 +115,7 @@ namespace CGMaths
 	// ---------------------------------------------------
 	// Negate a CGVectro4D
 	// ---------------------------------------------------
-	inline CGVector4D CGVector3DNegate( const CGVector4D & _vector )
+	inline CGVector4D CGVector3DMakeNegate( const CGVector4D & _vector )
 	{
 		return CGVector4DMake( -_vector.x, -_vector.y, -_vector.z, -_vector.w );
 	}
@@ -111,7 +123,7 @@ namespace CGMaths
 	// ---------------------------------------------------
 	// CGVectro4D minimum values of x,y,z,w independently
 	// ---------------------------------------------------
-	inline CGVector4D CGVector3DMin( const CGVector4D & _vectorA, const CGVector4D & _vectorB )
+	inline CGVector4D CGVector3DMakeMin( const CGVector4D & _vectorA, const CGVector4D & _vectorB )
 	{
 		return CGVector4DMake( ( ( _vectorA.x < _vectorB.x ) ? _vectorA.x : _vectorB.x ),
 							   ( ( _vectorA.y < _vectorB.y ) ? _vectorA.y : _vectorB.y ),
@@ -122,7 +134,7 @@ namespace CGMaths
 	// ---------------------------------------------------
 	// CGVectro4D maximum values of x,y,z,w independently
 	// ---------------------------------------------------
-	inline CGVector4D CGVector4DMax( const CGVector4D & _vectorA, const CGVector4D & _vectorB )
+	inline CGVector4D CGVector4DMakeMax( const CGVector4D & _vectorA, const CGVector4D & _vectorB )
 	{
 		return CGVector4DMake( ( ( _vectorA.x > _vectorB.x ) ? _vectorA.x : _vectorB.x ),
 							   ( ( _vectorA.y > _vectorB.y ) ? _vectorA.y : _vectorB.y ),
@@ -131,7 +143,7 @@ namespace CGMaths
 	}
 	
 #pragma mark ---------------------------------------------------------
-#pragma mark CGVector4D Functions
+#pragma mark End CGVector4D Make Functions
 #pragma mark ---------------------------------------------------------
 	
 };

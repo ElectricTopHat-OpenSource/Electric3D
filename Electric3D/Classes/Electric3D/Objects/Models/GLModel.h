@@ -46,6 +46,7 @@ namespace GLObjects
 		inline const GLTextures::GLTexture * texture() const { return m_texture; };
 		
 		virtual const CGMaths::CGAABB aabb() const = 0;
+		virtual const CGMaths::CGSphere sphere() const = 0;
 		
 		virtual void setMesh(const GLMeshes::GLMesh * _mesh) = 0;
 		virtual const GLMeshes::GLMesh * mesh() const = 0;

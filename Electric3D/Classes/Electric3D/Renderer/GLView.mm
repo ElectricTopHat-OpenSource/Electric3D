@@ -34,25 +34,7 @@
 #pragma mark === Properties  ===
 #pragma mark ---------------------------------------------------------
 
--(GLCameras::GLCamera*) camera
-{
-	return [m_renderer camera];
-}
-
--(GLMeshes::GLMeshFactory*) meshes
-{
-	return [m_renderer meshes];
-}
-
--(GLTextures::GLTextureFactory*) textures
-{
-	return [m_renderer textures];
-}
-
--(GLSprites::GLSpriteFactory*) sprites
-{
-	return [m_renderer sprites];
-}
+@synthesize renderer = m_renderer;
 
 #pragma mark ---------------------------------------------------------
 #pragma mark === End Properties  ===
@@ -146,37 +128,6 @@
 // ------------------------------------------
 - (void) didRotate:(NSNotification*)_notification
 {
-}
-
-// ------------------------------------------
-// convert a screen point into the world
-// ------------------------------------------
-- (CGMaths::CGVector3D) screenToWorld:(CGMaths::CGVector3D)_point
-{
-	return [m_renderer screenToWorld:_point];
-}
-
-// ------------------------------------------
-// convert a screen point into the world
-// ------------------------------------------
-- (CGMaths::CGVector3D) worldToScreen:(CGMaths::CGVector3D)_point
-{
-	return [m_renderer worldToScreen:_point];
-}
-
-- (BOOL) containsScene:(GLObjects::GLScene*)_scene
-{
-	return [m_renderer containsScene:_scene];
-}
-
-- (void) addScene:(GLObjects::GLScene*)_scene
-{
-	return [m_renderer addScene:_scene];
-}
-
-- (void) removeScene:(GLObjects::GLScene*)_scene
-{
-	return [m_renderer removeScene:_scene];
 }
 
 #pragma mark ---------------------------------------------------------

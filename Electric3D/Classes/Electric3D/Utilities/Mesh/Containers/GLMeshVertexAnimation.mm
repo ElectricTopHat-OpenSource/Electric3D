@@ -58,7 +58,7 @@ namespace GLMeshes
 		// -----------------------------------------------
 		// malloc the data
 		// -----------------------------------------------
-		int chunk	= sizeof(GLInterleavedVertNormal3D) * _info.numverts;
+		int chunk	= sizeof(_GLVert3D) * _info.numverts;
 		int indices = sizeof(GLVertIndice) * _info.numindices;
 		int buffer  = sizeof(GLInterleavedVert3D) * _info.numverts;
 		int header	= sizeof(GLMeshVertexAnimationHeader);
@@ -114,7 +114,7 @@ namespace GLMeshes
 		int offset	= vertsoffset;
 		for ( i=0; i<m_header->info.numframes; i++ )
 		{
-			m_verts[i] = (GLInterleavedVertNormal3D*)&bytes[offset];
+			m_verts[i] = (_GLVert3D*)&bytes[offset];
 			offset += chunk;
 		}	
 		// -----------------------------------------------
@@ -147,8 +147,8 @@ namespace GLMeshes
 			
 			NSLog( @"Read compressed file of size %d", [compressed length] );
 			
-			m_data = [Compression gzipInflate:compressed];
-			//m_data = [Compression zlibInflate:compressed];
+			m_data = Compressor::gzip::inflate( compressed );
+			//m_data = Compressor::zlib::inflate( compressed );
 			
 			NSLog( @"Memory foot print size       %d", [m_data length] );
 #else
@@ -179,9 +179,9 @@ namespace GLMeshes
 					// keep the bytes in memory
 					[m_data retain];
 					
-					int chunk   = ( sizeof( GLInterleavedVert3D ) * m_header->info.numverts );
-					int indices = ( sizeof(GLVertIndice) * m_header->info.numindices );
-					int buffer  = ( sizeof(GLInterleavedVert3D) * m_header->info.numverts );
+					int chunk			= ( sizeof(_GLVert3D) * m_header->info.numverts );
+					int indices			= ( sizeof(GLVertIndice) * m_header->info.numindices );
+					int buffer			= ( sizeof(GLInterleavedVert3D) * m_header->info.numverts );
 					int interpoffset	= headerSize;
 					int indicesoffset	= headerSize + buffer;
 					int vertsoffset		= headerSize + buffer + indices;
@@ -200,7 +200,7 @@ namespace GLMeshes
 					int offset	= vertsoffset;
 					for ( i=0; i<m_header->info.numframes; i++ )
 					{
-						m_verts[i] = (GLInterleavedVertNormal3D*)&p[offset];
+						m_verts[i] = (_GLVert3D*)&p[offset];
 						offset += chunk;
 					}					
 					return true;
@@ -217,8 +217,8 @@ namespace GLMeshes
 #if USE_COMPRESSED_MVA_FILE
 			NSLog( @"Memory foot print size        %d", [m_data length] );
 			
-			NSData * compressed = [Compression gzipDeflate:m_data];
-			//NSData * compressed = [Compression zlibDeflate:m_data];
+			NSData * compressed = Compressor::gzip::deflate( m_data );
+			//NSData * compressed = Compressor::gzip::deflate( m_data );
 			
 			NSLog( @"Write compressed file of size %d", [compressed length] );
 			
@@ -232,17 +232,14 @@ namespace GLMeshes
 	
 	const GLInterleavedVert3D *	GLMeshVertexAnimation::interpverts( unsigned int _frame ) const
 	{
-		GLInterleavedVertNormal3D * v = m_verts[_frame];
+		_GLVert3D * v = m_verts[MIN(_frame, m_header->info.numframes-1)];
+		
 		int i;
 		for (i=0; i<m_header->info.numverts; i++)
 		{
-			m_iterpverts[i].vert.x = v[i].vert.x;
-			m_iterpverts[i].vert.y = v[i].vert.y;
-			m_iterpverts[i].vert.z = v[i].vert.z;
-			
-			m_iterpverts[i].normal.x = v[i].normal.x;
-			m_iterpverts[i].normal.y = v[i].normal.y;
-			m_iterpverts[i].normal.z = v[i].normal.z;
+			m_iterpverts[i].vert.x = v[i].x;
+			m_iterpverts[i].vert.y = v[i].y;
+			m_iterpverts[i].vert.z = v[i].z;
 		}
 		
 		return m_iterpverts;
@@ -254,13 +251,13 @@ namespace GLMeshes
 		const CGMaths::CGAABB & v1 = m_vertsaabb[MIN(_frame1, m_header->info.numframes-1)];
 		const CGMaths::CGAABB & v2 = m_vertsaabb[MIN(_frame2, m_header->info.numframes-1)];
 		
-		m_header->info.aabb.min.x = v1.min.x + ( (v2.min.x - v1.min.x) * value );
-		m_header->info.aabb.min.y = v1.min.y + ( (v2.min.y - v1.min.y) * value );
-		m_header->info.aabb.min.z = v1.min.z + ( (v2.min.z - v1.min.z) * value );
+		m_header->info.aabb.min.x = LERP( v1.min.x, v2.min.x, value );
+		m_header->info.aabb.min.y = LERP( v1.min.y, v2.min.y, value );
+		m_header->info.aabb.min.z = LERP( v1.min.z, v2.min.z, value );
 		
-		m_header->info.aabb.max.x = v1.max.x + ( (v2.max.x - v1.max.x) * value );
-		m_header->info.aabb.max.y = v1.max.y + ( (v2.max.y - v1.max.y) * value );
-		m_header->info.aabb.max.z = v1.max.z + ( (v2.max.z - v1.max.z) * value );
+		m_header->info.aabb.max.x = LERP( v1.max.x, v2.max.x, value );
+		m_header->info.aabb.max.y = LERP( v1.max.y, v2.max.y, value );
+		m_header->info.aabb.max.z = LERP( v1.max.z, v2.max.z, value );
 		
 		return m_header->info.aabb;
 	}
@@ -268,28 +265,14 @@ namespace GLMeshes
 	const GLInterleavedVert3D * GLMeshVertexAnimation::interpverts( unsigned int _frame1, unsigned int _frame2, float _interp ) const
 	{		
 		float  value = MAX( MIN( _interp, 1.0f ), 0.0f );
-		GLInterleavedVertNormal3D * v1 = m_verts[MIN(_frame1, m_header->info.numframes-1)];
-		GLInterleavedVertNormal3D * v2 = m_verts[MIN(_frame2, m_header->info.numframes-1)];
+		_GLVert3D * v1 = m_verts[MIN(_frame1, m_header->info.numframes-1)];
+		_GLVert3D * v2 = m_verts[MIN(_frame2, m_header->info.numframes-1)];
 		int i;
 		for (i=0; i<m_header->info.numverts; i++)
 		{
-			m_iterpverts[i].vert.x = v1[i].vert.x + ( (v2[i].vert.x - v1[i].vert.x) * value );
-			m_iterpverts[i].vert.y = v1[i].vert.y + ( (v2[i].vert.y - v1[i].vert.y) * value );
-			m_iterpverts[i].vert.z = v1[i].vert.z + ( (v2[i].vert.z - v1[i].vert.z) * value );
-			
-			m_iterpverts[i].normal.x = v1[i].normal.x + ( (v2[i].normal.x - v1[i].normal.x) * value );
-			m_iterpverts[i].normal.y = v1[i].normal.y + ( (v2[i].normal.y - v1[i].normal.y) * value );
-			m_iterpverts[i].normal.z = v1[i].normal.z + ( (v2[i].normal.z - v1[i].normal.z) * value );
-			
-			//m_iterpverts[i].uv.x = v1[i].uv.x + value*(v2[i].uv.x - v1[i].uv.x);
-			//m_iterpverts[i].uv.y = v1[i].uv.y + value*(v2[i].uv.y - v1[i].uv.y);
-			
-#if GLInterleavedVert3D_color
-			//m_iterpverts[i].color.red = v1[i].color.red + value*(v2[i].color.red- v1[i].color.red);
-			//m_iterpverts[i].color.green = v1[i].color.green + value*(v2[i].color.green- v1[i].color.green);
-			//m_iterpverts[i].color.blue = v1[i].color.blue + value*(v2[i].color.blue- v1[i].color.blue);
-			//m_iterpverts[i].color.alpha = v1[i].color.alpha + value*(v2[i].color.alpha- v1[i].color.alpha);
-#endif
+			m_iterpverts[i].vert.x = LERP( v1[i].x, v2[i].x, value );
+			m_iterpverts[i].vert.y = LERP( v1[i].y, v2[i].y, value );
+			m_iterpverts[i].vert.z = LERP( v1[i].z, v2[i].z, value );
 		}
 		
 		return m_iterpverts;

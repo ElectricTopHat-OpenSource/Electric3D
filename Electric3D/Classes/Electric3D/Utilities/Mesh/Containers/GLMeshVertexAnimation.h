@@ -77,7 +77,11 @@ namespace GLMeshes
 		inline void							setaabb( CGMaths::CGAABB & _aabb )	{ m_header->info.aabb = _aabb; };
 		inline void							setaabb( unsigned int _frame, CGMaths::CGAABB & _aabb )	{ m_vertsaabb[_frame] = _aabb; };
 		
-		inline const eGLVertListType		vertListType() const				{ return ( m_indices ) ? eGLVertListType_Indexed : eGLVertListType_NonIndexed; };
+		inline const CGMaths::CGSphere		sphere() const						{ return CGMaths::CGSphereMake(aabb()); };
+		inline const CGMaths::CGSphere		sphere( unsigned int _frame ) const	{ return CGMaths::CGSphereMake(aabb(_frame)); };
+		inline const CGMaths::CGSphere		sphere( unsigned int _frame1, unsigned int _frame2, float _interp ) const { return CGMaths::CGSphereMake(aabb(_frame1,_frame2,_interp)); };
+		
+		inline const eGLRenderType			vertListType() const				{ return ( m_indices ) ? eGLRenderType_Indexed : eGLRenderType_NonIndexed; };
 		inline const GLInterleavedVert3D *	verts() const						{ return m_iterpverts; };
 		
 		inline const GLVertIndice *			indices() const						{ return m_indices; };
@@ -89,10 +93,10 @@ namespace GLMeshes
 		inline GLInterleavedVert3D *				interpverts() { return m_iterpverts; };
 		
 		// get a writeable version of the vert buffer
-		inline GLInterleavedVertNormal3D *			frameverts( unsigned int _frame ) { return m_verts[_frame]; };
+		inline _GLVert3D *							frameverts( unsigned int _frame ) { return m_verts[_frame]; };
 		
-		inline const GLInterleavedVertNormal3D *	frameverts( unsigned int _frame ) const						{ return m_verts[_frame]; };
-		inline const GLInterleavedVertNormal3D *	framevert( unsigned int _frame, unsigned int _index ) const	{ return &m_verts[_frame][_index]; };
+		inline const _GLVert3D *					frameverts( unsigned int _frame ) const						{ return m_verts[_frame]; };
+		inline const _GLVert3D *					framevert( unsigned int _frame, unsigned int _index ) const	{ return &m_verts[_frame][_index]; };
 		
 #pragma mark ---------------------------------------------------------
 #pragma mark === End Public Functions  ===
@@ -109,7 +113,7 @@ namespace GLMeshes
 		GLInterleavedVert3D *			m_iterpverts;
 		GLVertIndice *					m_indices;
 		
-		GLInterleavedVertNormal3D	*	m_verts[256];
+		_GLVert3D *						m_verts[256];
 		CGMaths::CGAABB *				m_vertsaabb;
 		
 #pragma mark ---------------------------------------------------------

@@ -11,6 +11,7 @@
 
 #import "CGMathsConstants.h"
 #import "CGMathsUtilties.h"
+#import "CGMathsTypes.h"
 
 #import "CGVector2D.h"
 #import "CGVector3D.h"

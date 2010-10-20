@@ -95,13 +95,13 @@ namespace GLCameras
 		{
 			t1.x /= t1.w;
 			t1.y /= t1.w;
-			t1.z /= t1.w;
 			
-			// Map x, y and z to range 0-1 			
+			// Map x, y to range 0-1 
+			// Map z to the real depth in meters
 			// Map x,y to viewport 
 			CGMaths::CGVector3D point = CGMaths::CGVector3DMake( ( t1.x * 0.5 + 0.5 ) * _viewport.width() + _viewport.x(),
 																 ( t1.y * 0.5 + 0.5 ) * _viewport.height() + _viewport.y(),
-																 ( t1.z * 0.5 + 0.5 ) );
+																 ( t1.w ) );
 
 			return point;
 		}
@@ -114,7 +114,7 @@ namespace GLCameras
 		const CGMaths::CGMatrix4x4 & model		= createModelMatrix( _camera );
 		const CGMaths::CGMatrix4x4 & projection = createProjectionMatrix( _camera, _viewport );
 
-		CGMaths::CGMatrix4x4 matrix		= CGMaths::CGMatrix4x4Multiply( model, projection );
+		CGMaths::CGMatrix4x4 matrix		= CGMaths::CGMatrix4x4MakeMultiply( model, projection );
 		if ( CGMaths::CGMatrix4x4Invert( matrix ) )
 		{
 			float x		= (_point.x - _viewport.x()) / _viewport.width() * 2.0 - 1.0f;
@@ -129,7 +129,7 @@ namespace GLCameras
 			CGMaths::CGVector3D p1 = CGMaths::CGVector3DMake( t1.x / t1.w, t1.y / t1.w, t1.z / t1.w );
 			
 			float scale = ( _point.z - _camera.near() ) / ( _camera.far() - _camera.near() );
-			CGMaths::CGVector3D point = CGMaths::CGVector3DAdd( p0, CGMaths::CGVector3DScale( CGMaths::CGVector3DSub( p1, p0 ), scale ) );
+			CGMaths::CGVector3D point = CGMaths::CGVector3DMakeAdd( p0, CGMaths::CGVector3DMakeScale( CGMaths::CGVector3DMakeSub( p1, p0 ), scale ) );
 			
 			return point;
 		

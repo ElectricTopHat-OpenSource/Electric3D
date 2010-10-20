@@ -59,6 +59,27 @@ namespace GLObjects
 	}
 	
 	// --------------------------------------------------
+	// Get the model bounding sphere
+	// --------------------------------------------------
+	const CGMaths::CGSphere GLModelStatic::sphere() const
+	{
+		CGMaths::CGSphere sphere;
+		
+		if ( m_mesh )
+		{
+			sphere = m_mesh->sphere();
+		}
+		else 
+		{
+			sphere = CGMaths::CGSphereUnit;
+		}
+		
+		sphere.center = CGMaths::CGMatrix4x4TransformVector( m_transform, sphere.center );
+		
+		return sphere;
+	}
+	
+	// --------------------------------------------------
 	// Number verts in the mesh
 	// --------------------------------------------------
 	NSUInteger GLModelStatic::numverts() const

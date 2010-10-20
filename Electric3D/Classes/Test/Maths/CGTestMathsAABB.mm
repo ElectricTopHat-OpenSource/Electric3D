@@ -220,7 +220,7 @@
 		case 19:
 		{
 			CGMaths::CGVector3D start = CGMaths::CGVector3DZero;
-			CGMaths::CGVector3D end   = CGMaths::CGVector3DScale( CGMaths::CGVector3DUnit, -1.0f );
+			CGMaths::CGVector3D end   = CGMaths::CGVector3DMakeScale( CGMaths::CGVector3DUnit, -1.0f );
 			
 			BOOL result = CGMaths::CGAABBIntersects( aabb, start, end );
 			[self print:@"CGAABBUnit Intersects (0,0,0)->(-1,-1,-1)" result:result==TRUE];
@@ -228,16 +228,16 @@
 		}
 		case 20:
 		{
-			CGMaths::CGVector3D start = CGMaths::CGVector3DScale( CGMaths::CGVector3DUnit, 1.0f );
-			CGMaths::CGVector3D end   = CGMaths::CGVector3DScale( CGMaths::CGVector3DUnit, 2.0f );
+			CGMaths::CGVector3D start = CGMaths::CGVector3DMakeScale( CGMaths::CGVector3DUnit, 1.0f );
+			CGMaths::CGVector3D end   = CGMaths::CGVector3DMakeScale( CGMaths::CGVector3DUnit, 2.0f );
 			BOOL result = CGMaths::CGAABBIntersects( aabb, start, end );
 			[self print:@"CGAABBUnit NOT Intersects (1,1,1)->(2,2,2)" result:result==FALSE];
 			break;
 		}
 		case 21:
 		{
-			CGMaths::CGVector3D start = CGMaths::CGVector3DScale( CGMaths::CGVector3DUnit, -1.0f );
-			CGMaths::CGVector3D end   = CGMaths::CGVector3DScale( CGMaths::CGVector3DUnit,  2.0f );
+			CGMaths::CGVector3D start = CGMaths::CGVector3DMakeScale( CGMaths::CGVector3DUnit, -1.0f );
+			CGMaths::CGVector3D end   = CGMaths::CGVector3DMakeScale( CGMaths::CGVector3DUnit,  2.0f );
 			BOOL result = CGMaths::CGAABBIntersects( aabb, start, end );
 			[self print:@"CGAABBUnit Intersects (-1,-1,-1)->(2,2,2)" result:result==TRUE];
 			break;

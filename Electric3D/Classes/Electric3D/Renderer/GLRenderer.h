@@ -17,14 +17,9 @@
 @class EAGLContext;
 
 namespace GLRenderers	{ class IRenderEngine; };
-namespace GLScene		{ class GLSceneFactory; };
-namespace GLMeshes		{ class GLMeshFactory; };
-namespace GLTextures	{ class GLTextureFactory; };
-namespace GLSprites		{ class GLSpriteFactory; };
 
-namespace GLCameras		{ class GLCamera; };
-
-namespace GLObjects		{ class GLScene; };
+namespace E3D			{ class E3DFactories; };
+namespace E3D		{ class E3DScene; };
 
 #pragma mark ---------------------------------------------------------
 #pragma mark === End Forward Declaration  ===
@@ -44,16 +39,10 @@ namespace GLObjects		{ class GLScene; };
 	GLRenderers::IRenderEngine *	m_renderer;
 	
 	// Container classes
-	GLMeshes::GLMeshFactory *		m_meshFactory;
-	GLTextures::GLTextureFactory *	m_textureFactory;
-	GLSprites::GLSpriteFactory *	m_spriteFactory;
+	E3D::E3DFactories *				m_factories;
 }
 
-@property (nonatomic,readonly) GLCameras::GLCamera *			camera;
-
-@property (nonatomic,readonly) GLMeshes::GLMeshFactory *		meshes;
-@property (nonatomic,readonly) GLTextures::GLTextureFactory *	textures;
-@property (nonatomic,readonly) GLSprites::GLSpriteFactory *		sprites;
+@property (nonatomic,readonly) E3D::E3DFactories *	factories;
 
 - (id) initWithLayer:(CAEAGLLayer*)_layer withClearColor:(UIColor*)_clearColor;
 
@@ -62,11 +51,8 @@ namespace GLObjects		{ class GLScene; };
 
 - (void) setClearColor:(UIColor*)_color;
 
-- (CGMaths::CGVector3D) screenToWorld:(CGMaths::CGVector3D)_point;
-- (CGMaths::CGVector3D) worldToScreen:(CGMaths::CGVector3D)_point;
-
-- (BOOL) containsScene:(GLObjects::GLScene*)_scene;
-- (void) addScene:(GLObjects::GLScene*)_scene;
-- (void) removeScene:(GLObjects::GLScene*)_scene;
+- (BOOL) containsScene:(E3D::E3DScene*)_scene;
+- (void) addScene:(E3D::E3DScene*)_scene;
+- (void) removeScene:(E3D::E3DScene*)_scene;
 
 @end

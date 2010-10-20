@@ -10,41 +10,59 @@
 #if !defined(__GLVertexComponents_h__)
 #define __GLVertexComponents_h__
 
+typedef unsigned short _GLIndice;
+
 // --------------------------------
 // GL Vert 2D
 // --------------------------------
 typedef struct {
-	float x;
-	float y;
+	float v[2];
+	struct 
+	{
+		float x;
+		float y;
+	};
 } _GLVert2D;
 // --------------------------------
 
 // --------------------------------
 // GL Vert 3D
 // --------------------------------
-typedef struct {
-	float x;
-	float y;
-	float z;
+typedef union {
+	float v[3];
+	struct 
+	{
+		float x;
+		float y;
+		float z;
+	};
 } _GLVert3D;
 // --------------------------------
 
 // --------------------------------
 // GL Normal 
 // --------------------------------
-typedef struct {
-	float x;
-	float y;
-	float z;
+typedef union {
+	float v[3];
+	struct 
+	{
+		float x;
+		float y;
+		float z;
+	};
 } _GLNormal;
 // --------------------------------
 
 // --------------------------------
 // GL UV Cordinates
 // --------------------------------
-typedef struct {
-	float x;
-	float y;
+typedef union {
+	float v[2];
+	struct 
+	{
+		float x;
+		float y;
+	};
 } _GLUV;
 // --------------------------------
 

@@ -11,39 +11,20 @@
 
 @class GLRenderer;
 
-namespace GLObjects		{ class GLSceneFactory; };
-namespace GLMeshes		{ class GLMeshFactory; };
-namespace GLTextures	{ class GLTextureFactory; };
-namespace GLSprites		{ class GLSpriteFactory; };
-
-namespace GLCameras		{ class GLCamera; };
-namespace GLCameras		{ class GLPerspective; };
-namespace GLObjects		{ class GLScene; };
-
 // ----------------------------------
-// GLView 
+// Open GL View 
 // ----------------------------------
 @interface GLView : UIView
 {
 @private	
 	// GL Render
-	GLRenderer *		m_renderer;
+	GLRenderer * m_renderer;
 }
 
-@property (nonatomic,readonly) GLCameras::GLCamera *			camera;
-
-@property (nonatomic,readonly) GLMeshes::GLMeshFactory *		meshes;
-@property (nonatomic,readonly) GLTextures::GLTextureFactory *	textures;
-@property (nonatomic,readonly) GLSprites::GLSpriteFactory *		sprites;
+@property (nonatomic,readonly) GLRenderer *	renderer;
 
 - (void) drawView:(id)_sender;
 - (void) didRotate:(NSNotification*)_notification;
 
-- (CGMaths::CGVector3D) screenToWorld:(CGMaths::CGVector3D)_point;
-- (CGMaths::CGVector3D) worldToScreen:(CGMaths::CGVector3D)_point;
-
-- (BOOL) containsScene:(GLObjects::GLScene*)_scene;
-- (void) addScene:(GLObjects::GLScene*)_scene;
-- (void) removeScene:(GLObjects::GLScene*)_scene;
-
 @end
+// ----------------------------------

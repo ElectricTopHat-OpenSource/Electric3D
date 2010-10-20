@@ -96,7 +96,7 @@
 	{
 		GLObjects::GLModelVertexAnimation * animatedModel = (GLObjects::GLModelVertexAnimation*)model;
 		
-		float addValue = 5.0f * delta;
+		float addValue = 1.0f * delta;
 		float value = animatedModel->blendValue();
 		if ( value+addValue > 1.0f )
 		{
@@ -149,12 +149,14 @@
 		model->setMesh( mesh );
 		model->setTexture( texture );
 
+		model->setColor( GLColors::GLColor( 0, 0, 0, 1.0 ) );
+		
 		scene->add( model );	
 	}
 	
 	[self addScene:scene];
 	
-	CGMaths::CGVector3D eye		= CGMaths::CGVector3DMake( 70.0f, 0.0f, 0.0f );
+	CGMaths::CGVector3D eye		= CGMaths::CGVector3DMake( 0.0f, 0.0f, 70.0f );
 	CGMaths::CGVector3D target  = CGMaths::CGVector3DMake( 0.0f, 0.0f, 0.0f );
 	
 	[self camera]->setTransform( eye, target );

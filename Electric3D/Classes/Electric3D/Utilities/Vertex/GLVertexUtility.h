@@ -25,14 +25,14 @@ inline CGMaths::CGAABB calculateAABB( const  GLInterleavedVert3D * _verts, NSUIn
 	return aabb;
 }
 
-inline CGMaths::CGAABB calculateAABB( const  GLInterleavedVertNormal3D * _verts, NSUInteger _numverts )
+inline CGMaths::CGAABB calculateAABB( const  _GLVert3D * _verts, NSUInteger _numverts )
 {
 	CGMaths::CGAABB aabb = CGMaths::CGAABBInvalid;
 	int i;
 	for ( i=0; i<_numverts; i++ )
 	{
-		const GLInterleavedVertNormal3D * vert = &_verts[i]; 
-		CGMaths::CGAABBAddPoint( aabb, vert->vert.x, vert->vert.y, vert->vert.z );
+		const _GLVert3D * vert = &_verts[i]; 
+		CGMaths::CGAABBAddPoint( aabb, vert->x, vert->y, vert->z );
 	}
 	return aabb;
 }

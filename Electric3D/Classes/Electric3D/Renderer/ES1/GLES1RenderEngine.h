@@ -11,13 +11,15 @@
 
 #import <OpenGLES/ES1/gl.h>
 #import <OpenGLES/ES1/glext.h>
+#import <vector>
 
 #import "IRenderEngine.h"
-#import "GLCamera.h"
-#import "GLViewport.h"
-#import "GLES1Renderer.h"
+#import "GLColors.h"
+#import "GLVertexTypes.h"
 
-namespace GLObjects { class GLScene; };
+namespace E3D		{ class E3DScene; };
+namespace E3D		{ class E3DSceneNode; };
+namespace GLTextures	{ class GLTexture; };
 
 namespace GLRenderers 
 {
@@ -58,13 +60,10 @@ namespace GLRenderers
 		void update( float _timeStep );
 		void render();
 		void onRotate( eDeviceOrientation _newOrientation );
-		
-		GLCameras::GLCamera &		camera()		{ return m_camera; };
-		GLCameras::GLViewport &		viewport()		{ return m_viewport; };
-		
-		BOOL contains( GLObjects::GLScene * _scene );
-		void add( GLObjects::GLScene * _scene );
-		void remove( GLObjects::GLScene * _scene );
+				
+		BOOL contains( E3D::E3DScene * _scene );
+		void add( E3D::E3DScene * _scene );
+		void remove( E3D::E3DScene * _scene );
 		
 #pragma mark ---------------------------------------------------------
 #pragma mark End Public Functions
@@ -75,8 +74,15 @@ namespace GLRenderers
 #pragma mark ---------------------------------------------------------
 	private: // Data
 		
-		inline void setupPersepctive();
-		inline void setupCamera();
+		inline void renderScene( E3D::E3DScene * _scene );
+		inline void renderNode( E3D::E3DSceneNode * _node, const GLColors::GLColor & _color );
+		
+		inline void bindColor( const GLColors::GLColor & _color );
+		inline void bindTexture( const GLTextures::GLTexture * _texture );
+		
+		inline void renderNonIndexedVerts( const GLInterleavedVert3D * _verts, NSUInteger _numverts );
+		inline void renderIndexedVerts( const GLInterleavedVert3D * _verts, const GLVertIndice * _indices, NSUInteger _numindices );
+		inline void renderLineStrip( const _GLVert3D * _points, NSUInteger _numverts );
 		
 #pragma mark ---------------------------------------------------------
 #pragma mark End Private Functions
@@ -86,13 +92,12 @@ namespace GLRenderers
 #pragma mark Private Data
 #pragma mark ---------------------------------------------------------
 	private: // Data
+				
+		// E3D Scenes to render
+		std::vector<E3D::E3DScene*>	m_scenes;
 		
-		// GL Cameras
-		GLCameras::GLCamera			m_camera;
-		GLCameras::GLViewport		m_viewport;
-		
-		// Renderer Pipelines
-		GLES1Renderer			m_Renderer;
+		// currently bound texture
+		GLuint	m_boundTexture;
 		
 		// The pixel dimensions of the backbuffer
 		GLint m_width;

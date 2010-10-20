@@ -47,6 +47,7 @@ namespace GLObjects
 		inline float blendValue() const				{ return m_blend; };
 		
 		virtual const CGMaths::CGAABB aabb() const;
+		virtual const CGMaths::CGSphere sphere() const;
 		
 		virtual void setMesh(const GLMeshes::GLMesh * _mesh);
 		virtual const GLMeshes::GLMesh * mesh() const;

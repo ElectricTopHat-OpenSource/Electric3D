@@ -11,23 +11,10 @@
 #define __CGMatrix3x3_h__
 
 #import "CGMathsConstants.h"
-#import "CGVector3D.h"
+#import "CGMathsTypes.h"
 
 namespace CGMaths 
 {
-	
-#pragma mark ---------------------------------------------------------
-#pragma mark CGMatrix3x3 typedef
-#pragma mark ---------------------------------------------------------
-	
-	typedef struct 
-	{ 
-		float m[3][3];
-	} CGMatrix3x3;
-	
-#pragma mark ---------------------------------------------------------
-#pragma mark End CGMatrix3x3 typedef
-#pragma mark ---------------------------------------------------------
 	
 #pragma mark ---------------------------------------------------------
 #pragma mark CGMatrix3x3 consts 
@@ -57,9 +44,9 @@ namespace CGMaths
 									    float _m20, float _m21, float _m22 )
 	{
 		CGMatrix3x3 matrix;
-		matrix.m[0][0] = _m00; matrix.m[0][1] = _m01; matrix.m[0][2] = _m02;
-		matrix.m[1][0] = _m10; matrix.m[1][1] = _m11; matrix.m[1][2] = _m12;
-		matrix.m[2][0] = _m20; matrix.m[2][1] = _m21; matrix.m[2][2] = _m22;
+		matrix.m00  = _m00; matrix.m01 = _m01; matrix.m02 = _m02;
+		matrix.m10  = _m10; matrix.m11 = _m11; matrix.m12 = _m12;
+		matrix.m20  = _m20; matrix.m21 = _m21; matrix.m22 = _m22;
 		return matrix;
 	}
 	
@@ -69,9 +56,21 @@ namespace CGMaths
 	inline CGMatrix3x3 CGMatrix3x3Make( const CGVector3D & _r0, const CGVector3D & _r1, const CGVector3D & _r2 )
 	{
 		CGMatrix3x3 matrix;
-		matrix.m[0][0] = _r0.x; matrix.m[0][1] = _r0.y; matrix.m[0][2] = _r0.z;
-		matrix.m[1][0] = _r1.x; matrix.m[1][1] = _r1.y; matrix.m[1][2] = _r1.z;
-		matrix.m[2][0] = _r2.x; matrix.m[2][1] = _r2.y; matrix.m[2][2] = _r2.z;
+		matrix.m00 = _r0.x; matrix.m01 = _r0.y; matrix.m02 = _r0.z;
+		matrix.m10 = _r1.x; matrix.m11 = _r1.y; matrix.m12 = _r1.z;
+		matrix.m20 = _r2.x; matrix.m21 = _r2.y; matrix.m22 = _r2.z;
+		return matrix;
+	}
+	
+	// ---------------------------------------------------
+	// Make a CGMatrix3x3
+	// ---------------------------------------------------
+	inline CGMatrix3x3 CGMatrix3x3Make( const CGMatrix4x4 & _matrix )
+	{
+		CGMatrix3x3 matrix;
+		matrix.m00 = _matrix.m00; matrix.m01 = _matrix.m01; matrix.m02 = _matrix.m02;
+		matrix.m10 = _matrix.m10; matrix.m11 = _matrix.m11; matrix.m12 = _matrix.m12;
+		matrix.m20 = _matrix.m20; matrix.m21 = _matrix.m21; matrix.m22 = _matrix.m22;
 		return matrix;
 	}
 	

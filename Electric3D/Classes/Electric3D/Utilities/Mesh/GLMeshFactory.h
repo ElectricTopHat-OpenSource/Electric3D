@@ -54,7 +54,7 @@ namespace GLMeshes
 #pragma mark ---------------------------------------------------------
 #pragma mark === Private Functions  ===
 #pragma mark ---------------------------------------------------------
-		
+	private: // Functions
 		GLMesh * loadMS( const NSString * _filePath );
 		GLMesh * loadMVA( const NSString * _filePath );
 		GLMesh * loadMD2( const NSString * _filePath );

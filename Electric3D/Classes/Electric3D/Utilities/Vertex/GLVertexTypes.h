@@ -16,26 +16,40 @@
 
 typedef enum
 {
-	eGLVertListType_Unknown = -1,
-	eGLVertListType_NonIndexed = 0,
-	eGLVertListType_Indexed,
+	eGLRenderType_Unknown = -1,
+	eGLRenderType_NonIndexed = 0,
+	eGLRenderType_Indexed,
 	
-} eGLVertListType;
+} eGLRenderType;
+
+typedef union
+{
+	int value;
+	struct
+	{
+		int hasVertArray   : 1;
+		int	hasNormalArray : 1;
+		int hasColorArray  : 1;
+		int hasUVArray	   : 1;
+		
+		int pad	: 28; 
+	};
+} _GLDataState;
 
 typedef struct
 {
-	_GLVert2D	vert;
-	_GLColor	color;
-	_GLUV		uv;
+	_GLDataState	state;
+	eGLRenderType	render;
+	unsigned int	numVerts;
+	unsigned int	step;
 	
-} GLInterleavedVert2D;
-
-typedef struct
-{
-	_GLVert3D	vert;
-	_GLNormal	normal;
+	_GLVert3D *		verts;
+	_GLNormal *		normals;
+	_GLColor *		colors;
+	_GLUV *			uvs;
+	_GLIndice *		indices;
 	
-} GLInterleavedVertNormal3D;
+} GLInterleavedData;
 
 typedef struct
 {
@@ -48,6 +62,6 @@ typedef struct
 	
 } GLInterleavedVert3D;
 
-typedef unsigned short GLVertIndice;
+typedef _GLIndice GLVertIndice;
 
 #endif

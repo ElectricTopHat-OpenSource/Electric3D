@@ -95,7 +95,7 @@
 		//CGMaths::CGMatrix4x4 rot2 = CGMaths::CGMatrix4x4MakeRotation( CGMaths::CGVector3DMake( 1.0f, 0.0f, 0.0f ), 10.0f * CGMaths::degreesToRadians );
 		//CGMaths::CGMatrix4x4 rot = CGMaths::CGMatrix4x4Multiply( rot1, rot2 );
 		
-		CGMaths::CGMatrix4x4 newMat = CGMaths::CGMatrix4x4Multiply( mat, rot );
+		CGMaths::CGMatrix4x4 newMat = CGMaths::CGMatrix4x4MakeMultiply( mat, rot );
 		
 		//CGMaths::CGMatrix4x4SetTranslation( newMat, 0, 0, 10 );
 		
@@ -152,8 +152,8 @@
 	
 	CGMaths::CGVector3D meshcenter	= CGAABBGetCenter( aabb );
 	CGMaths::CGVector3D meshvolume  = CGAABBGetVolume( aabb );
-	CGMaths::CGVector3D eye			= CGMaths::CGVector3DAdd( meshcenter, CGMaths::CGVector3DMake( 0.0f, 0.0f, meshvolume.z+0.0f ) );
-	CGMaths::CGVector3D target		= meshcenter;//CGMaths::CGVector3DMake( 0.0f, 0.0f, 0.0f );
+	CGMaths::CGVector3D eye			= CGMaths::CGVector3DMakeAdd( meshcenter, CGMaths::CGVector3DMake( 0.0f, 0.0f, meshvolume.z+0.0f ) );
+	CGMaths::CGVector3D target		= CGMaths::CGVector3DMake( 0.0f, 0.0f, 0.0f );
 	
 	[self camera]->setTransform( eye, target );
 }

@@ -1,22 +1,15 @@
 //
-//  zlib.h
+//  Compression.h
 //  Electric3D
 //
 //  Created by Robert McDowell on 23/09/2010.
 //  Copyright 2010 Electric TopHat Ltd. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#if !defined(__Compression_h__)
+#define __Compression_h__
 
+#import "gzip.h"
+#import "zip.h"
 
-@interface Compression : NSObject 
-
-// ZLIB :: Compressor and Archiver
-+ (NSData *) zlibInflate:(NSData*)_data;
-+ (NSData *) zlibDeflate:(NSData*)_data;
-
-// GZIP :: Compressor Only
-+ (NSData *) gzipInflate:(NSData*)_data;
-+ (NSData *) gzipDeflate:(NSData*)_data;
-
-@end
+#endif

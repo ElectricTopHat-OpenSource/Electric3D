@@ -45,6 +45,8 @@ namespace GLColors
 		// --------------------------------
 		// operators Overloading
 		// --------------------------------
+		GLColor & operator=(const UIColor * _color);
+		
 		inline GLColor & operator=(const GLColor& _color)
 		{
 			m_red = _color.m_red;
@@ -123,7 +125,27 @@ namespace GLColors
         }
 		// --------------------------------
 		
-		GLColor & operator=(const UIColor * _color);
+		// --------------------------------
+		inline float & operator[](NSUInteger i)
+		{ 
+			return  colors[i];
+		}
+		
+		inline float  operator[](NSUInteger i) const
+		{ 
+			return  (i < 4) ? colors[i] : 0.0f;
+		}
+		// --------------------------------
+		
+		// --------------------------------
+		inline BOOL operator==( const GLColor& _color )
+        {
+           return ( fabs(m_red -	_color.m_red)	< 0.001f ) &&
+				  ( fabs(m_green -	_color.m_green) < 0.001f ) &&
+				  ( fabs(m_blue -	_color.m_blue)	< 0.001f ) &&
+				  ( fabs(m_alpha -	_color.m_alpha) < 0.001f );
+        }
+		// --------------------------------
 		
 	#pragma mark ---------------------------------------------------------
 	#pragma mark End Operator Functions
@@ -155,6 +177,8 @@ namespace GLColors
 		// set the color from a UIColor Object
 		void setColor(const UIColor * _color);
 		
+		inline const float * getColors() const { return &colors[0]; };
+		
 	#pragma mark ---------------------------------------------------------
 	#pragma mark End Public Functions
 	#pragma mark ---------------------------------------------------------
@@ -173,11 +197,17 @@ namespace GLColors
 	#pragma mark ---------------------------------------------------------
 	private: // Data
 		
-		float m_red;
-		float m_green;
-		float m_blue;
-		float m_alpha;
-		
+		union 
+		{
+			float colors[4];
+			struct 
+			{
+				float m_red;
+				float m_green;
+				float m_blue;
+				float m_alpha;
+			};
+		};
 	#pragma mark ---------------------------------------------------------
 	#pragma mark End Private Data
 	#pragma mark ---------------------------------------------------------

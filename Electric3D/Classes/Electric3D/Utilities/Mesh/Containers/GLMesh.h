@@ -64,8 +64,9 @@ namespace GLMeshes
 		virtual const NSUInteger			numindices() const = 0;
 		
 		virtual const CGMaths::CGAABB &		aabb() const = 0;
+		virtual const CGMaths::CGSphere 	sphere() const = 0;
 		
-		virtual const eGLVertListType		vertListType() const = 0;
+		virtual const eGLRenderType			vertListType() const = 0;
 		virtual const GLInterleavedVert3D *	verts() const = 0;
 		virtual const GLVertIndice *		indices() const = 0;
 		

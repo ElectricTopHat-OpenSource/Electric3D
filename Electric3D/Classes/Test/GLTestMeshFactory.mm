@@ -9,7 +9,7 @@
 #import "GLTestMeshFactory.h"
 #import "GLMeshFactory.h"
 #import "GLMesh.h"
-#import "GLMeshWriter.h"
+#import "GLMeshWriteHeader.h"
 
 @implementation GLTestMeshFactory_container
 
