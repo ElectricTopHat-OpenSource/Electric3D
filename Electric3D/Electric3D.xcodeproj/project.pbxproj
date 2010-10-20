@@ -218,12 +218,12 @@
 		07A212F1126DEFF300084A47 /* E3DCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A212EE126DEFF300084A47 /* E3DCamera.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07A212F2126DEFF300084A47 /* E3DCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A212EF126DEFF300084A47 /* E3DCamera.mm */; };
 		07A212F4126DF7FB00084A47 /* E3DCameraTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A212F3126DF7FB00084A47 /* E3DCameraTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07A2136C126E12AE00084A47 /* E3DFactories.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A2136B126E12AE00084A47 /* E3DFactories.h */; };
-		07A21377126E167800084A47 /* E3DScenes.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A21376126E167800084A47 /* E3DScenes.h */; };
+		07A2136C126E12AE00084A47 /* E3DFactories.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A2136B126E12AE00084A47 /* E3DFactories.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A21377126E167800084A47 /* E3DScenes.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A21376126E167800084A47 /* E3DScenes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07A213A8126E206500084A47 /* TestMeshLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A21384126E17A700084A47 /* TestMeshLoader.mm */; };
 		07A213A9126E206A00084A47 /* TestMeshStatic.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A21388126E1B9800084A47 /* TestMeshStatic.mm */; };
 		07A214B9126E2D4800084A47 /* TestMeshAnimated.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A214B4126E2C4800084A47 /* TestMeshAnimated.mm */; };
-		07A214F6126E2F4500084A47 /* E3DSceneTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A214F5126E2F4500084A47 /* E3DSceneTypes.h */; };
+		07A214F6126E2F4500084A47 /* E3DSceneTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A214F5126E2F4500084A47 /* E3DSceneTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07A2152B126E322C00084A47 /* TestCameraBasic.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A2152A126E322C00084A47 /* TestCameraBasic.mm */; };
 		07A215E5126F010900084A47 /* TestCameraFOV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A215E4126F010900084A47 /* TestCameraFOV.mm */; };
 		07A215F0126F02CC00084A47 /* TestCameraTouch.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A215EF126F02CC00084A47 /* TestCameraTouch.mm */; };
