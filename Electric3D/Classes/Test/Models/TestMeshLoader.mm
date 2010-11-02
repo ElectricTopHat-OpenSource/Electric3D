@@ -89,7 +89,7 @@
 		case 0:
 		{
 			NSTimeInterval start = [NSDate timeIntervalSinceReferenceDate];
-			const GLMeshes::GLMesh * mesh = factory->load( @"MD2AnimatedMeshTest", @"md2" );
+			const E3D::E3DMesh * mesh = factory->load( @"MD2AnimatedMeshTest", @"md2" );
 			NSTimeInterval end   = [NSDate timeIntervalSinceReferenceDate];
 			
 			[self print:@"Animated MD2 loaded" result:mesh!=nil withTime:(end-start)];
@@ -102,7 +102,7 @@
 		case 1:
 		{
 			NSTimeInterval start = [NSDate timeIntervalSinceReferenceDate];
-			const GLMeshes::GLMesh * mesh = factory->load( @"MD2StaticMeshTest", @"md2" );
+			const E3D::E3DMesh * mesh = factory->load( @"MD2StaticMeshTest", @"md2" );
 			NSTimeInterval end   = [NSDate timeIntervalSinceReferenceDate];
 			
 			[self print:@"Static MD2 loaded" result:mesh!=nil withTime:(end-start)];
@@ -115,7 +115,7 @@
 		case 2:
 		{
 			NSTimeInterval start = [NSDate timeIntervalSinceReferenceDate];
-			const GLMeshes::GLMesh * mesh = factory->load( @"vertexpaintcube", @"3DS" );
+			const E3D::E3DMesh * mesh = factory->load( @"vertexpaintcube", @"3DS" );
 			NSTimeInterval end   = [NSDate timeIntervalSinceReferenceDate];
 			
 			[self print:@"Static 3DS loaded" result:mesh!=nil withTime:(end-start)];
@@ -128,7 +128,7 @@
 		case 3:
 		{
 			NSTimeInterval start = [NSDate timeIntervalSinceReferenceDate];
-			const GLMeshes::GLMesh * mesh = factory->load( @"vertex_cube", @"POD" );
+			const E3D::E3DMesh * mesh = factory->load( @"vertex_cube", @"POD" );
 			NSTimeInterval end   = [NSDate timeIntervalSinceReferenceDate];
 			
 			[self print:@"Static POD loaded" result:mesh!=nil withTime:(end-start)];
@@ -140,11 +140,11 @@
 		}
 		case 4:
 		{
-			const GLMeshes::GLMesh * mesh = factory->load( @"vertex_cube", @"POD" );
+			const E3D::E3DMesh * mesh = factory->load( @"vertex_cube", @"POD" );
 			if ( mesh )
 			{
 				NSTimeInterval start = [NSDate timeIntervalSinceReferenceDate];
-				mesh->write( [DOCUMENTS_PATH stringByAppendingPathComponent:@"MSCube.ms"] );
+				factory->save(mesh, [DOCUMENTS_PATH stringByAppendingPathComponent:@"MSCube.ms"] );
 				NSTimeInterval end   = [NSDate timeIntervalSinceReferenceDate];
 				
 				[self print:@"Write MS File From POD" result:mesh!=nil withTime:(end-start)];
@@ -158,7 +158,7 @@
 		case 5:
 		{
 			NSTimeInterval start = [NSDate timeIntervalSinceReferenceDate];
-			const GLMeshes::GLMesh * mesh = factory->load( [DOCUMENTS_PATH stringByAppendingPathComponent:@"MSCube.ms"] );
+			const E3D::E3DMesh * mesh = factory->load( [DOCUMENTS_PATH stringByAppendingPathComponent:@"MSCube.ms"] );
 			NSTimeInterval end   = [NSDate timeIntervalSinceReferenceDate];
 			
 			[self print:@"Static MS loaded From POD" result:mesh!=nil withTime:(end-start)];
@@ -170,11 +170,11 @@
 		}
 		case 6:
 		{
-			const GLMeshes::GLMesh * mesh = factory->load( @"MD2AnimatedMeshTest", @"md2" );
+			const E3D::E3DMesh * mesh = factory->load( @"MD2AnimatedMeshTest", @"md2" );
 			if ( mesh )
 			{
 				NSTimeInterval start = [NSDate timeIntervalSinceReferenceDate];
-				mesh->write( [DOCUMENTS_PATH stringByAppendingPathComponent:@"MSCube.mva"] );
+				factory->save(mesh, [DOCUMENTS_PATH stringByAppendingPathComponent:@"MSCube.mva"] );
 				NSTimeInterval end   = [NSDate timeIntervalSinceReferenceDate];
 				
 				[self print:@"Write MVA File From MD2" result:mesh!=nil withTime:(end-start)];
@@ -188,7 +188,7 @@
 		case 7:
 		{
 			NSTimeInterval start = [NSDate timeIntervalSinceReferenceDate];
-			const GLMeshes::GLMesh * mesh = factory->load( [DOCUMENTS_PATH stringByAppendingPathComponent:@"MSCube.mva"] );
+			const E3D::E3DMesh * mesh = factory->load( [DOCUMENTS_PATH stringByAppendingPathComponent:@"MSCube.mva"] );
 			NSTimeInterval end   = [NSDate timeIntervalSinceReferenceDate];
 			
 			[self print:@"Static MVA loaded From MD2" result:mesh!=nil withTime:(end-start)];
@@ -201,7 +201,7 @@
 		case 8:
 		{
 			NSTimeInterval start = [NSDate timeIntervalSinceReferenceDate];
-			const GLMeshes::GLMesh * mesh = factory->load( @"Box", @"3ds" );
+			const E3D::E3DMesh * mesh = factory->load( @"Box", @"3ds" );
 			NSTimeInterval end   = [NSDate timeIntervalSinceReferenceDate];
 			
 			[self print:@"Static 3DS loaded" result:mesh!=nil withTime:(end-start)];
@@ -240,7 +240,7 @@
 	[self addSubview:display];
 	[self print:@"Running...."];
 	
-	factory = new GLMeshes::GLMeshFactory();
+	factory = new E3D::E3DMeshManager();
 	
 	state = 0;
 }

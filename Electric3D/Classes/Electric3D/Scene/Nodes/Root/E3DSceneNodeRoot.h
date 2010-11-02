@@ -13,17 +13,20 @@
 #import "E3DSceneNodeTypes.h"
 #import "E3DSceneNode.h"
 
+namespace E3D { class E3DScene; };
+
 namespace E3D 
 {
 	class E3DSceneNodeRoot : public E3DSceneNode
 	{
+		friend class E3DScene;
 #pragma mark ---------------------------------------------------------
 #pragma mark Constructor / Destructor
 #pragma mark ---------------------------------------------------------
-	public: // Functions
+	private: // Functions
 		
 		E3DSceneNodeRoot( NSString * _name )
-		: E3DSceneNode( _name )
+		: E3DSceneNode  ( _name )
 		{};
 		virtual ~E3DSceneNodeRoot() {};
 		
@@ -36,7 +39,10 @@ namespace E3D
 #pragma mark ---------------------------------------------------------
 	public: // Functions
 		
-		inline eE3DSceneNodeType type() const { return eE3DSceneNodeType_Root; };
+		inline eE3DSceneNodeType		  type() const { return eE3DSceneNodeType_Root; };
+		
+		inline const CGMaths::CGAABB	  aabb() const { return CGMaths::CGAABBZero; };
+		inline const CGMaths::CGSphere	sphere() const { return CGMaths::CGSphereZero; };
 		
 #pragma mark ---------------------------------------------------------
 #pragma mark === Public Functions  ===

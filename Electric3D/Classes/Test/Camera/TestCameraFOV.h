@@ -11,13 +11,15 @@
 #import "GLView.h"
 #import "CGMaths.h"
 
+namespace E3D { class E3DManagers; };
 namespace E3D { class E3DScene; };
 
 @interface TestCameraFOV : GLView 
 {
 @private
-	E3D::E3DScene *		scene;
-	NSInteger			state;
+	E3D::E3DManagers *		managers;
+	E3D::E3DScene *			scene;
+	NSInteger				state;
 }
 
 - (BOOL) canRotate;

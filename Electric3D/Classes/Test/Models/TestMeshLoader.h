@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-namespace GLMeshes { class GLMeshFactory; };
+namespace E3D { class E3DMeshManager; };
 
 @interface TestMeshLoader : UIView
 {
@@ -17,7 +17,7 @@ namespace GLMeshes { class GLMeshFactory; };
 	
 	NSInteger						state;
 	
-	GLMeshes::GLMeshFactory *		factory;
+	E3D::E3DMeshManager *		factory;
 }
 
 - (BOOL) canRotate;

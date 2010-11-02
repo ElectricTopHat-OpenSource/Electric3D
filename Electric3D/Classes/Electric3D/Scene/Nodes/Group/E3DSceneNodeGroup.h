@@ -38,6 +38,9 @@ namespace E3D
 		
 		inline eE3DSceneNodeType type() const { return eE3DSceneNodeType_Group; };
 		
+		inline const CGMaths::CGAABB	  aabb() const { return CGMaths::CGAABBZero; };
+		inline const CGMaths::CGSphere	sphere() const { return CGMaths::CGSphereZero; };
+		
 #pragma mark ---------------------------------------------------------
 #pragma mark === Public Functions  ===
 #pragma mark ---------------------------------------------------------		

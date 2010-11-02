@@ -10,13 +10,15 @@
 
 #import "GLView.h"
 
+namespace E3D { class E3DManagers; };
 namespace E3D { class E3DScene; };
 
 @interface TestCameraTouch : GLView 
 {
 @private
-	E3D::E3DScene *		scene;
-	float				depth;
+	E3D::E3DManagers *		managers;
+	E3D::E3DScene *			scene;
+	float					depth;
 }
 
 - (BOOL) canRotate;

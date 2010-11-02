@@ -7,7 +7,7 @@
 //
 
 #import "TestSplineLoader.h"
-#import "E3DSplineFactory.h"
+#import "E3DSplineManager.h"
 
 @interface TestSplineLoader (PrivateMethods)
 
@@ -134,7 +134,7 @@
 	[self addSubview:display];
 	[self print:@"Running...."];
 	
-	factory = new E3D::E3DSplineFactory();
+	factory = new E3D::E3DSplineManager();
 	
 	state = 0;
 }

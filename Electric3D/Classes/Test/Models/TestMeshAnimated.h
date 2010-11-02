@@ -12,13 +12,15 @@
 
 @class DeltaTimer;
 
+namespace E3D { class E3DManagers; };
 namespace E3D { class E3DScene; };
 
 @interface TestMeshAnimated : GLView 
 {
 @private
-	DeltaTimer *			deltaTimer;
+	E3D::E3DManagers *		managers;
 	E3D::E3DScene *			scene;
+	DeltaTimer *			deltaTimer;
 }
 
 - (BOOL) canRotate;

@@ -18,12 +18,22 @@ namespace E3D
 	// Constructor
 	// --------------------------------------------------
 	E3DScene::E3DScene( NSString * _name, eE3DSceneType _type )
-	: m_type	( _type )
-	, m_root	( _name )
+	: m_root	( _name )
 	, m_camera	( _name )
 	{
+		// -----------------------------
+		// set up the scene header
+		// -----------------------------
+		m_header.type		= _type;
+		m_header.numcameras	= 0;
+		m_header.numlights	= 0;
+		// -----------------------------
 		
-		
+		// -----------------------------
+		// set the root nodes scene
+		// -----------------------------
+		m_root.m_scene = this;
+		// -----------------------------
 	}
 	
 	// --------------------------------------------------

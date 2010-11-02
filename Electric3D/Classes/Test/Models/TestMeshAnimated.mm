@@ -87,9 +87,9 @@
 	for ( i=0; i<scene->numchildren(); i++ )
 	{
 		E3D::E3DSceneNode * node = scene->child( i );
-		if ( node->type() == E3D::eE3DSceneNodeType_ModelVertexAnimated )
+		if ( node->type() == E3D::eE3DSceneNodeType_ModelMorph )
 		{
-			E3D::E3DModelVertexAnimated * model = (E3D::E3DModelVertexAnimated*)node;
+			E3D::E3DModelMorph * model = (E3D::E3DModelMorph*)node;
 			
 			float addValue = 2.0f * delta;
 			float value = model->blendValue();
@@ -133,14 +133,15 @@
 // ------------------------------------------
 - (void) initialization
 {	
-	scene = new E3D::E3DScene( @"Test Scene" );
+	managers	= new E3D::E3DManagers();
+	scene		= new E3D::E3DScene( @"Test Scene" );
 	
-	const GLTextures::GLTexture * texture	= [[self renderer] factories]->textures()->load( @"MD2Test", @"png" );
-	const GLMeshes::GLMesh * mesh			= [[self renderer] factories]->meshes()->load( @"MD2AnimatedMeshTest", @"md2" );
+	const E3D::E3DTexture * texture	= managers->textures()->load( @"MD2Test", @"png" );
+	const E3D::E3DMesh * mesh			= managers->meshes()->load( @"MD2AnimatedMeshTest", @"md2" );
 	
-	if ( mesh && ( mesh->type() == GLMeshes::eGLMeshType_VertexAnimation ) )
+	if ( mesh && ( mesh->type() == E3D::eE3DMeshType_Morph ) )
 	{
-		E3D::E3DSceneNode * model = new E3D::E3DModelVertexAnimated( @"Test Model", (GLMeshes::GLMeshVertexAnimation*)mesh, texture );
+		E3D::E3DSceneNode * model = new E3D::E3DModelMorph( @"Test Model", (E3D::E3DMeshMorph*)mesh, texture );
 		scene->addChild( model );
 	}
 	
@@ -169,12 +170,12 @@
 		{
 			E3D::E3DSceneNode * node = scene->child( 0 );
 			if ( ( node->type() == E3D::eE3DSceneNodeType_ModelStatic ) ||
-				( node->type() == E3D::eE3DSceneNodeType_ModelVertexAnimated ) )
+				( node->type() == E3D::eE3DSceneNodeType_ModelMorph ) )
 			{
 				E3D::E3DModel * model = (E3D::E3DModel*)node;
 				
-				[[self renderer] factories]->textures()->release( model->texture() );
-				[[self renderer] factories]->meshes()->release( model->mesh() );
+				managers->textures()->release( model->texture() );
+				managers->meshes()->release( model->mesh() );
 			}
 			
 			scene->removeChild( node );
@@ -183,6 +184,7 @@
 	}
 	
 	SAFE_DELETE( scene );
+	SAFE_DELETE( managers );
 }
 
 #pragma mark ---------------------------------------------------------

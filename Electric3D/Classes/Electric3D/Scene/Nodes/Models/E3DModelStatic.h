@@ -11,7 +11,7 @@
 
 #import "E3DModel.h"
 
-namespace GLMeshes		{ class GLMesh; };
+namespace E3D		{ class E3DMesh; };
 
 namespace E3D  
 {
@@ -22,7 +22,7 @@ namespace E3D
 #pragma mark ---------------------------------------------------------
 	public: // Functions
 		
-		E3DModelStatic( NSString * _name, const GLMeshes::GLMesh * _mesh, const GLTextures::GLTexture * _texture = nil );
+		E3DModelStatic( NSString * _name, const E3D::E3DMesh * _mesh, const E3D::E3DTexture * _texture = nil );
 		virtual ~E3DModelStatic();
 		
 #pragma mark ---------------------------------------------------------
@@ -36,7 +36,7 @@ namespace E3D
 		
 		inline eE3DSceneNodeType type() const { return eE3DSceneNodeType_ModelStatic; };
 		
-		inline const GLMeshes::GLMesh * mesh() const { return m_mesh; }
+		inline const E3D::E3DMesh * mesh() const { return m_mesh; }
 		
 		virtual const CGMaths::CGAABB aabb() const;
 		virtual const CGMaths::CGSphere sphere() const;
@@ -50,7 +50,7 @@ namespace E3D
 #pragma mark ---------------------------------------------------------
 	private: // Data
 		
-		const GLMeshes::GLMesh *	m_mesh;
+		const E3D::E3DMesh *	m_mesh;
 		
 #pragma mark ---------------------------------------------------------
 #pragma mark === Private Data  ===

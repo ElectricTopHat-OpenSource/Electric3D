@@ -152,6 +152,55 @@ namespace CGMaths
 		return TRUE;
 	}
 	
+	inline BOOL CGAABBIntersects( const CGAABB & _aabb, const CGVector3D & _start, const CGVector3D & _end, CGVector3D & _contact )
+	{
+		float tmin = 0.0f;
+		float tmax = MAXFLOAT;
+		CGVector3D r	= CGVector3DMakeSub( _start, _end );
+		int i;
+		for ( i=0; i<3; i++) 
+		{
+			if ( fabs(r.v[i]) < EPSILON )
+			{
+				// ray parallel to slab, no contact if the
+				// start is not in the AABB
+				if ( ( _start.v[i] < _aabb.min.v[i] ) ||
+					 ( _start.v[i] > _aabb.max.v[i] ) )
+				{
+					return FALSE;
+				}
+			}
+			else 
+			{
+				// compute the t value of the ray 
+				// with the near and far plane
+				float ood = 1.0f / r.v[i];
+				float t1  = (_aabb.min.v[i] - _start.v[i]) * ood;
+				float t2  = (_aabb.max.v[i] - _start.v[i]) * ood;
+				
+				// make t1 be the intersection with the near plane, 
+				// t2 with the far plane
+				if ( t1 > t2 )
+				{
+					float t = t2;
+					t2 = t1;
+					t1 = t;
+				}
+				
+				// compute the intersection of slap
+				tmin = MAX( tmin, t1 );
+				tmax = MIN( tmax, t2 );
+				
+				// exit with no collision as soon as 
+				// there is no intersection
+				if ( tmin > tmax ) return FALSE;
+			}
+		}
+		
+		_contact = CGVector3DMakeAdd( _start, r, tmin );
+		return TRUE;
+	}
+	
 #pragma mark ---------------------------------------------------------
 #pragma mark End CGAABB Functions
 #pragma mark ---------------------------------------------------------

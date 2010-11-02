@@ -19,8 +19,11 @@ namespace E3D
 	// Constructor
 	// --------------------------------------------------
 	E3DSceneNode::E3DSceneNode( NSString * _name )
-	: m_name	( [_name copy] )
-	, m_hidden	( FALSE )
+	: m_name		( [_name copy] )
+	, m_identifier	( 0 )
+	, m_scene		( nil )
+	, m_parent		( nil )
+	, m_hidden		( FALSE )
 	{
 		static NSUInteger val=0; 
 		m_hash=val++;
@@ -46,7 +49,13 @@ namespace E3D
 	// --------------------------------------------------
 	void E3DSceneNode::addChild( E3DSceneNode * _child )
 	{
-		m_children.push_back( _child );
+		if ( _child  )
+		{
+			m_children.push_back( _child );
+			
+			_child->m_scene  = m_scene;
+			_child->m_parent = this;
+		}
 	}
 	
 	// --------------------------------------------------
@@ -54,7 +63,13 @@ namespace E3D
 	// --------------------------------------------------
 	void E3DSceneNode::removeChild( E3DSceneNode * _child )
 	{
-		m_children.erase(std::remove(m_children.begin(), m_children.end(), _child), m_children.end());
+		if ( _child && _child->m_parent == this )
+		{
+			m_children.erase(std::remove(m_children.begin(), m_children.end(), _child), m_children.end());
+			
+			_child->m_scene  = nil;
+			_child->m_parent = nil;
+		}
 	}
 	
 	// --------------------------------------------------
@@ -62,6 +77,14 @@ namespace E3D
 	// --------------------------------------------------
 	void E3DSceneNode::removeAllChildren()
 	{
+		sceneNodes::iterator it;
+		for( it = m_children.begin(); it != m_children.end(); it++ )
+		{
+			E3DSceneNode * child = *it;
+			
+			child->m_scene  = nil;
+			child->m_parent = nil;
+		}
 		m_children.clear();
 	}
 	

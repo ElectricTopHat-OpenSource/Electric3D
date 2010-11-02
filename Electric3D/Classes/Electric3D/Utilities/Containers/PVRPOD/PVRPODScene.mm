@@ -8,6 +8,14 @@
 
 #import "PVRPODScene.h"
 
+#define PVRPODLOG_ERRORS 0
+
+#if 1
+#define PVRPODLOG(format, ... )	NSLog(format, ##__VA_ARGS__)
+#else
+#define PVRPODLOG( format, ... )
+#endif 
+
 namespace PVRPOD 
 {	
 	// ---------------------------------------------------------------
@@ -122,7 +130,7 @@ namespace PVRPOD
 			m_offset += _size;
 			
 			void * buffer = &bytes[offset];
-			//NSLog(@"%d, %d", m_offset, buffer );
+			PVRPODLOG(@"%d, %d", m_offset, buffer );
 			return buffer;
 		}
 		return nil;
@@ -170,24 +178,21 @@ namespace PVRPOD
 						{
 							unsigned char * subChunk = &p[pos+hsize];
 							
-							char version[PVRTMODELPOD_VERSION_LEN];
-							memcpy(&version, subChunk, sizeof(version));
-
-							valid = (strcmp(&version[0], PVRTMODELPOD_VERSION) != 0);
+							int result = memcmp( subChunk, PVRTMODELPOD_VERSION, PVRTMODELPOD_VERSION_LEN );
+							valid = (result == 0);
 							
-							//NSLog( @"Found POD Version Chunk : %s", version );
+							PVRPODLOG( @"Found POD Version Chunk : %s", subChunk );
 							break;
 						}
 						case ePODFileExpOpt:
 						{
-							//NSLog( @"Found Exp Opt Chunk" );
-							//const char * expopt = (const char *)&p[pos+hsize];
-							//NSLog( @"%s", expopt );
+							PVRPODLOG( @"Found Exp Opt Chunk" );
+							PVRPODLOG( @"%s", (const char *)&p[pos+hsize] );
 							break;
 						}
 						case ePODFileScene:
 						{
-							//NSLog( @"Found SCENE Chunk" );
+							PVRPODLOG( @"Found SCENE Chunk" );
 							valid = read_SCENE( &p[pos+hsize], ( length - pos+hsize ) );
 							break;
 						}
@@ -205,11 +210,14 @@ namespace PVRPOD
 						}
 						default:
 						{
-							//NSLog( @"Unknown chunkID : %d", chunk->identifier );
+							if ( PVRPODLOG_ERRORS && (int)chunk->identifier > 0 )
+							{
+								PVRPODLOG( @"Unknown fill chunkID : %d", chunk->identifier );
+							}
 							break;
 						}
 					}
-				
+					
 					pos += chunk->length + hsize;
 				}
 				
@@ -254,19 +262,19 @@ namespace PVRPOD
 					
 				case ePODFileColourBackground:
 				{
-					//NSLog( @"Found Color Background Chunk" );
+					PVRPODLOG( @"Found Color Background Chunk" );
 					memcpy(&m_scene.colourBackground, &_data[pos+hsize], sizeof(PODVec3f));
 					break;
 				}
 				case ePODFileColourAmbient:
 				{
-					//NSLog( @"Found Color Ambient Chunk" );
+					PVRPODLOG( @"Found Color Ambient Chunk" );
 					memcpy(&m_scene.colourAmbient, &_data[pos+hsize], sizeof(PODVec3f));
 					break;
 				}
 				case ePODFileNumCamera:
 				{
-					//NSLog( @"Found Num Camera Chunk" );
+					PVRPODLOG( @"Found Num Camera Chunk" );
 					memcpy(&m_scene.numCameras, &_data[pos+hsize], sizeof(unsigned int));
 					if ( m_scene.numCameras )
 					{
@@ -277,7 +285,7 @@ namespace PVRPOD
 				}
 				case ePODFileNumLight:
 				{
-					//NSLog( @"Found Num Light Chunk" );
+					PVRPODLOG( @"Found Num Light Chunk" );
 					memcpy(&m_scene.numLights, &_data[pos+hsize], sizeof(unsigned int));
 					if ( m_scene.numLights )
 					{
@@ -288,7 +296,7 @@ namespace PVRPOD
 				}
 				case ePODFileNumMesh:
 				{
-					//NSLog( @"Found Num Mesh Chunk" );
+					PVRPODLOG( @"Found Num Mesh Chunk" );
 					memcpy(&m_scene.numMeshes, &_data[pos+hsize], sizeof(unsigned int));
 					if ( m_scene.numMeshes )
 					{
@@ -299,7 +307,7 @@ namespace PVRPOD
 				}
 				case ePODFileNumNode:
 				{
-					//NSLog( @"Found Num Node Chunk" );
+					PVRPODLOG( @"Found Num Node Chunk" );
 					memcpy(&m_scene.numNodes, &_data[pos+hsize], sizeof(unsigned int));
 					if ( m_scene.numNodes )
 					{
@@ -310,7 +318,7 @@ namespace PVRPOD
 				}
 				case ePODFileNumTexture:
 				{
-					//NSLog( @"Found Num Texture Chunk" );
+					PVRPODLOG( @"Found Num Texture Chunk" );
 					memcpy(&m_scene.numTextures, &_data[pos+hsize], sizeof(unsigned int));
 					if ( m_scene.numTextures )
 					{
@@ -321,7 +329,7 @@ namespace PVRPOD
 				}
 				case ePODFileNumMaterial:
 				{
-					//NSLog( @"Found Num Material Chunk" );
+					PVRPODLOG( @"Found Num Material Chunk" );
 					memcpy(&m_scene.numMaterials, &_data[pos+hsize], sizeof(unsigned int));
 					if ( m_scene.numMaterials )
 					{
@@ -333,26 +341,26 @@ namespace PVRPOD
 					
 				case ePODFileNumMeshNode:
 				{
-					//NSLog( @"Found Num Mesh Node Chunk" );
+					PVRPODLOG( @"Found Num Mesh Node Chunk" );
 					memcpy(&m_scene.numMeshNodes, &_data[pos+hsize], sizeof(unsigned int));
 					break;
 				}
 				case ePODFileNumFrame:
 				{
-					//NSLog( @"Found Num Frame Chunk" );
+					PVRPODLOG( @"Found Num Frame Chunk" );
 					memcpy(&m_scene.numFrames, &_data[pos+hsize], sizeof(unsigned int));
 					break;
 				}
 				case ePODFileFlags:
 				{
-					//NSLog( @"Found Flags Chunk" );
+					PVRPODLOG( @"Found Flags Chunk" );
 					memcpy(&m_scene.flags, &_data[pos+hsize], sizeof(unsigned int));
 					break;
 				}
 					
 				case ePODFileCamera:
 				{
-					//NSLog( @"Found Camera Chunk %d", chunk->length );
+					PVRPODLOG( @"Found Camera Chunk %d", chunk->length );
 					pos += read_CAMERA( &_data[pos+hsize], ( length - pos+hsize ), &m_scene.cameras[cameras] );
 					cameras++;
 					break;
@@ -366,35 +374,38 @@ namespace PVRPOD
 				}
 				case ePODFileMaterial:
 				{
-					//NSLog( @"Found Material Chunk %d", chunk->length );
+					PVRPODLOG( @"Found Material Chunk %d", chunk->length );
 					pos += read_MATERIAL( &_data[pos+hsize], ( length - pos+hsize ), &m_scene.materials[materials] );
 					materials++;
 					break;
 				}
 				case ePODFileMesh:
 				{
-					//NSLog( @"Found Mesh Chunk %d", chunk->length );
+					PVRPODLOG( @"Found Mesh Chunk %d", chunk->length );
 					pos += read_MESH( &_data[pos+hsize], ( length - pos+hsize ), &m_scene.meshes[meshes] );
 					meshes++;
 					break;
 				}
 				case ePODFileNode:
 				{
-					//NSLog( @"Found Node Chunk %d", chunk->length );
+					PVRPODLOG( @"Found Node Chunk %d", chunk->length );
 					pos += read_NODE( &_data[pos+hsize], ( length - pos+hsize ), &m_scene.nodes[nodes] );
 					nodes++;
 					break;
 				}
 				case ePODFileTexture:	
 				{
-					//NSLog( @"Found Texture Chunk %d", chunk->length );
+					PVRPODLOG( @"Found Texture Chunk %d", chunk->length );
 					pos += read_TEXTURE( &_data[pos+hsize], ( length - pos+hsize ), &m_scene.textures[textures] );
 					textures++;
 					break;
 				}
 				default:
 				{
-					//NSLog( @"Unknown chunkID : %d len %d", chunk->identifier, chunk->length );
+					if ( PVRPODLOG_ERRORS && (int)chunk->identifier > 0 )
+					{
+						PVRPODLOG( @"Unknown SCENE chunkID : %d len %d", chunk->identifier, chunk->length );
+					}
 					break;
 				}
 			}
@@ -453,7 +464,10 @@ namespace PVRPOD
 				}	
 				default:
 				{
-					//NSLog( @"Unknown chunkID : %d len %d", chunk->identifier, chunk->length );
+					if ( PVRPODLOG_ERRORS && (int)chunk->identifier > 0 )
+					{
+						PVRPODLOG( @"Unknown CAMERA chunkID : %d len %d", chunk->identifier, chunk->length );
+					}
 					break;
 				}
 			}
@@ -478,7 +492,7 @@ namespace PVRPOD
 			{
 				case ePODFileLight | PVRTMODELPOD_TAG_END:			
 					return pos + hsize;
-						
+					
 				case ePODFileLightIdxTgt:
 				{
 					memcpy(&_light->idxTarget, &_data[pos+hsize], sizeof(int));
@@ -494,10 +508,13 @@ namespace PVRPOD
 					memcpy(&_light->type, &_data[pos+hsize], sizeof(ePODLightType));
 					break;
 				}
-
+					
 				default:
 				{
-					//NSLog( @"Unknown chunkID : %d len %d", chunk->identifier, chunk->length );
+					if ( PVRPODLOG_ERRORS && (int)chunk->identifier > 0 )
+					{
+						PVRPODLOG( @"Unknown LIGHT chunkID : %d len %d", chunk->identifier, chunk->length );
+					}
 					break;
 				}
 			}
@@ -526,54 +543,66 @@ namespace PVRPOD
 				{
 					unsigned int size = sizeof(char) * MIN( PODMaxName, chunk->length ); 
 					memcpy(&_material->name[0], &_data[pos+hsize], size);
+					PVRPODLOG( @"Material name %s", _material->name );
 					break;
 				}
 				case ePODFileMatIdxTexDiffuse:
 				{
 					memcpy(&_material->idxTexDiffuse, &_data[pos+hsize], sizeof(int) );
+					PVRPODLOG( @"Material Diffuse %d", _material->idxTexDiffuse );
 					break;
 				}
 				case ePODFileMatOpacity:
 				{
 					memcpy(&_material->matOpacity, &_data[pos+hsize], sizeof(float) );	
+					PVRPODLOG( @"Material Opacity %f", _material->matOpacity );
 					break;
 				}
 				case ePODFileMatAmbient:
 				{
 					memcpy(&_material->matAmbient, &_data[pos+hsize], sizeof(float) );
+					PVRPODLOG( @"Material Ambient" );
 					break;
 				}
 				case ePODFileMatDiffuse:
 				{
 					memcpy(&_material->matDiffuse, &_data[pos+hsize], sizeof(float) );
+					PVRPODLOG( @"Material Diffuse" );
 					break;
 				}
 				case ePODFileMatSpecular:
 				{
 					memcpy(&_material->matSpecular, &_data[pos+hsize], sizeof(float) );
+					PVRPODLOG( @"Material Specular" );
 					break;
 				}
 				case ePODFileMatShininess:
 				{
 					memcpy(&_material->matShininess, &_data[pos+hsize], sizeof(float) );
+					PVRPODLOG( @"Material Shininess" );
 					break;
 				}
 				case ePODFileMatEffectFile:
 				{
 					unsigned int size = sizeof(char) * MIN( PODMaxName, chunk->length ); 
 					memcpy(&_material->effectFile[0], &_data[pos+hsize], size);
+					PVRPODLOG( @"Material Effect File %s", _material->effectFile );
 					break;
 				}
 				case ePODFileMatEffectName:
 				{
 					unsigned int size = sizeof(char) * MIN( PODMaxName, chunk->length ); 
 					memcpy(&_material->effectName[0], &_data[pos+hsize], size);
+					PVRPODLOG( @"Material Effect File %s", _material->effectName );
 					break;
 				}
 					
 				default:
 				{
-					//NSLog( @"Unknown chunkID : %d len %d", chunk->identifier, chunk->length );
+					if ( PVRPODLOG_ERRORS && (int)chunk->identifier > 0 )
+					{
+						PVRPODLOG( @"Unknown MATERIAL chunkID : %d len %d", chunk->identifier, chunk->length );
+					}
 					break;
 				}
 			}
@@ -627,7 +656,7 @@ namespace PVRPOD
 					memcpy(&_mesh->numStrips, &_data[pos+hsize], sizeof(unsigned int));	
 					break;
 				}
-				
+					
 				case ePODFileMeshStripLength:
 				{
 					if ( chunk->length )
@@ -647,10 +676,10 @@ namespace PVRPOD
 					break;
 				}
 					
-				
-				// ---------------------------------------------------------------------------------
-				// Bone Batches
-				// ---------------------------------------------------------------------------------
+					
+					// ---------------------------------------------------------------------------------
+					// Bone Batches
+					// ---------------------------------------------------------------------------------
 				case ePODFileMeshBoneBatches:
 				{
 					if ( chunk->length )
@@ -688,7 +717,7 @@ namespace PVRPOD
 					memcpy(&_mesh->boneBatches.batchCnt, &_data[pos+hsize], sizeof(int));
 					break;
 				}
-				// ----------------------------------------------------------------------------------
+					// ----------------------------------------------------------------------------------
 					
 				case ePODFileMeshFaces:
 				{
@@ -738,7 +767,10 @@ namespace PVRPOD
 				}
 				default:
 				{
-					//NSLog( @"Unknown chunkID : %d len %d", chunk->identifier, chunk->length );
+					if ( PVRPODLOG_ERRORS && (int)chunk->identifier > 0 )
+					{
+						PVRPODLOG( @"Unknown MESH chunkID : %d len %d", chunk->identifier, chunk->length );
+					}
 					break;
 				}
 			}
@@ -809,6 +841,7 @@ namespace PVRPOD
 				{
 					unsigned int size = sizeof(char) * MIN( PODMaxName, chunk->length ); 
 					memcpy(&_node->name[0], &_data[pos+hsize], size);	
+					PVRPODLOG( @"Node name %s", _node->name );
 					break;
 				}
 				case ePODFileNodeIdxMat:
@@ -851,7 +884,7 @@ namespace PVRPOD
 					break;
 				}
 					
-				// Parameters from the older pod format
+					// Parameters from the older pod format
 				case ePODFileNodePos:
 				{
 					memcpy(&oldpos[0],  &_data[pos+hsize], sizeof(oldpos));
@@ -873,7 +906,10 @@ namespace PVRPOD
 					
 				default:
 				{
-					//NSLog( @"Unknown chunkID : %d len %d", chunk->identifier, chunk->length );
+					if ( PVRPODLOG_ERRORS && (int)chunk->identifier > 0 )
+					{
+						PVRPODLOG( @"Unknown NODE chunkID : %d len %d", chunk->identifier, chunk->length );
+					}
 					break;
 				}
 			}
@@ -904,12 +940,16 @@ namespace PVRPOD
 				case ePODFileTexName:
 				{
 					unsigned int size = sizeof(char) * MIN( PODMaxName, chunk->length ); 
-					memcpy(&_texture->name[0], &_data[pos+hsize], size);		
+					memcpy(&_texture->name[0], &_data[pos+hsize], size);
+					PVRPODLOG( @"Texture name %s", _texture->name );
 					break;
 				}
 				default:
 				{
-					//NSLog( @"Unknown chunkID : %d len %d", chunk->identifier, chunk->length );
+					if ( (int)chunk->identifier > 0 )
+					{
+						PVRPODLOG( @"Unknown TEXTURE chunkID : %d len %d", chunk->identifier, chunk->length );
+					}
 					break;
 				}
 			}
@@ -965,7 +1005,10 @@ namespace PVRPOD
 				}
 				default:
 				{
-					//NSLog( @"Unknown chunkID : %d len %d", chunk->identifier, chunk->length );
+					if ( PVRPODLOG_ERRORS && (int)chunk->identifier > 0 )
+					{
+						PVRPODLOG( @"Unknown PODDATA chunkID : %d len %d", chunk->identifier, chunk->length );
+					}
 					break;
 				}
 			}
@@ -975,5 +1018,5 @@ namespace PVRPOD
 		
 		return pos;
 	}
-
+	
 };

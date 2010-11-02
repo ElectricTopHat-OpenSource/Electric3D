@@ -20,6 +20,15 @@ namespace E3D
 		eE3DSceneType_Screen,
 	
 	} eE3DSceneType;
+	
+	typedef struct
+	{
+		eE3DSceneType	type;
+		
+		unsigned int	numcameras;
+		unsigned int	numlights;
+		
+	} E3DSceneHeader;
 };
 
 #endif

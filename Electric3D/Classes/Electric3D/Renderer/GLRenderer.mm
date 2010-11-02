@@ -15,19 +15,7 @@
 
 #import <OpenGLES/ES2/gl.h> // for GL_RENDERBUFFER only
 
-#import "E3DFactories.h"
-
 @implementation GLRenderer
-
-#pragma mark ---------------------------------------------------------
-#pragma mark === Properties  ===
-#pragma mark ---------------------------------------------------------
-
-@synthesize factories	= m_factories;
-
-#pragma mark ---------------------------------------------------------
-#pragma mark === End Properties  ===
-#pragma mark ---------------------------------------------------------
 
 #pragma mark ---------------------------------------------------------
 #pragma mark === Constructor / Destructor Functions  ===
@@ -96,12 +84,6 @@
 		// --------------------------------------
 		m_renderer->initialize();
 		// --------------------------------------
-		
-		// --------------------------------------
-		// Create the container objects
-		// --------------------------------------
-		m_factories		= new E3D::E3DFactories();
-		// --------------------------------------
 	}
 	
 	return self;
@@ -111,16 +93,7 @@
 // dealloc
 // ------------------------------------------
 - (void) dealloc
-{	
-	// --------------------------------------
-	// Teardown the container classes
-	// --------------------------------------
-	if ( m_factories )
-	{
-		SAFE_DELETE( m_factories );
-	}
-	// --------------------------------------
-	
+{		
 	// --------------------------------------
 	// Teardown the render and destroy it
 	// --------------------------------------

@@ -7,7 +7,7 @@
 //
 
 #import "E3DModelStatic.h"
-#import "GLMesh.h"
+#import "E3DMesh.h"
 
 namespace E3D  
 {
@@ -19,7 +19,7 @@ namespace E3D
 	// --------------------------------------------------
 	// Constructor
 	// --------------------------------------------------
-	E3DModelStatic::E3DModelStatic( NSString * _name, const GLMeshes::GLMesh * _mesh, const GLTextures::GLTexture * _texture )
+	E3DModelStatic::E3DModelStatic( NSString * _name, const E3D::E3DMesh * _mesh, const E3D::E3DTexture * _texture )
 	: E3DModel	( _name, _texture )
 	, m_mesh	( _mesh )
 	{

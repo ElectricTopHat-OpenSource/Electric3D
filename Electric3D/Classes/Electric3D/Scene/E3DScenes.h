@@ -23,6 +23,6 @@
 
 #import "E3DModel.h"
 #import "E3DModelStatic.h"
-#import "E3DModelVertexAnimated.h"
+#import "E3DModelMorph.h"
 
 #endif

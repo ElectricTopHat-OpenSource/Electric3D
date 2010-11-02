@@ -66,6 +66,9 @@ namespace E3D
 		inline void setUp( const CGMaths::CGVector3D & _up )				{ m_dirty = TRUE; CGMaths::CGMatrix4x4SetUp( m_transform, _up ); };
 		inline void setRight( const CGMaths::CGVector3D & _right )			{ m_dirty = TRUE; CGMaths::CGMatrix4x4SetRight( m_transform, _right ); };
 		
+		inline void setRotation( const CGMaths::CGQuaternion & _quat )		{ m_dirty = TRUE; CGMaths::CGMatrix4x4SetRotation( m_transform, _quat ); };
+		inline void setRotation( const CGMaths::CGMatrix3x3 & _rotation )	{ m_dirty = TRUE; CGMaths::CGMatrix4x4SetRotation( m_transform, _rotation ); };
+		
 #pragma mark ---------------------------------------------------------
 #pragma mark === End Public Functions  ===
 #pragma mark ---------------------------------------------------------

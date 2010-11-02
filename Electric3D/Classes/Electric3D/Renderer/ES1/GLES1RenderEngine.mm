@@ -13,12 +13,12 @@
 #import "E3DCamera.h"
 
 #import "E3DModelStatic.h"
-#import "E3DModelVertexAnimated.h"
+#import "E3DModelMorph.h"
 
-#import "GLTexture.h"
+#import "E3DTexture.h"
 
-#import "GLMesh.h"
-#import "GLMeshVertexAnimation.h"
+#import "E3DMesh.h"
+#import "E3DMeshMorph.h"
 
 namespace GLRenderers 
 {
@@ -154,15 +154,6 @@ namespace GLRenderers
 		
 		glViewport(0, 0, m_width, m_height);
 		
-		if ( m_depthbuffer )
-		{
-			glEnable(GL_DEPTH_TEST);
-		}
-		else 
-		{
-			glDisable(GL_DEPTH_TEST);
-		}
-		
 		glEnable(GL_LIGHTING);
 		glEnable(GL_LIGHT0);
 		glEnable(GL_COLOR_MATERIAL);
@@ -176,10 +167,10 @@ namespace GLRenderers
 		glLightfv( GL_LIGHT0, GL_DIFFUSE,  lightDiffuse );
 		glLightfv( GL_LIGHT0, GL_SPECULAR, lightSpecular );
 		
-		//GLfloat lightmodelAmbient[]	= { 0.2f, 0.2f, 0.2f, 1.0f };
-		//GLfloat lightmodelDiffuse[]	= { 0.2f, 0.2f, 0.2f, 1.0f };
-		//glLightModelfv( GL_AMBIENT, lightmodelAmbient );
-		//glLightModelfv( GL_DIFFUSE, lightmodelDiffuse );
+		GLfloat lightmodelAmbient[]	= { 0.2f, 0.2f, 0.2f, 1.0f };
+		GLfloat lightmodelDiffuse[]	= { 0.2f, 0.2f, 0.2f, 1.0f };
+		glLightModelfv( GL_AMBIENT, lightmodelAmbient );
+		glLightModelfv( GL_DIFFUSE, lightmodelDiffuse );
 	
 		//GLfloat matAmbient[]		= { 1.0f, 0.0f, 0.6f, 1.0f };
 		//GLfloat matDiffuse[]		= { 1.0f, 0.0f, 0.6f, 1.0f };
@@ -187,15 +178,26 @@ namespace GLRenderers
 		//glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, matAmbient);
 		//glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, matDiffuse);
 		
+		glEnable(GL_DEPTH_TEST);
+		//glDepthFunc(GL_LESS);
+		glDepthFunc(GL_LEQUAL);
+		//glDepthFunc(GL_EQUAL);
+		//glDepthFunc(GL_ALWAYS);
+		
 		glEnable(GL_ALPHA_TEST);
 		glAlphaFunc(GL_GREATER, 0.1f);
-		
+		//glAlphaFunc(GL_EQUAL,1.0f);
+				
 		glEnable(GL_BLEND);
-		//glEnable(GL_BLEND_COLOR);
+		glEnable(GL_BLEND_COLOR);
+
+		glBlendFunc(GL_DST_COLOR, GL_ZERO);
 		glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
-		glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
+		//glBlendFunc(GL_SRC_ALPHA, GL_ONE);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		//glBlendFunc(GL_SRC_ALPHA_SATURATE, GL_ONE);
 		
-		//glBlendEquation();
+		glBlendEquation(GL_FUNC_ADD);
 		
 		//glFrontFace(GL_CW);
 		glEnable(GL_CULL_FACE);
@@ -360,10 +362,10 @@ namespace GLRenderers
 
 			switch (_node->type()) 
 			{
-				case E3D::eE3DSceneNodeType_ModelVertexAnimated:
+				case E3D::eE3DSceneNodeType_ModelMorph:
 				{
-					E3D::E3DModelVertexAnimated * model = (E3D::E3DModelVertexAnimated*)_node;
-					const GLMeshes::GLMeshVertexAnimation * mesh =  model->meshVA();
+					E3D::E3DModelMorph * model = (E3D::E3DModelMorph*)_node;
+					const E3D::E3DMeshMorph * mesh =  model->meshVA();
 					
 					bindColor( color );
 					bindTexture( model->texture() );
@@ -378,7 +380,7 @@ namespace GLRenderers
 						verts = mesh->interpverts( model->startFrame(), model->targetFrame(), model->blendValue() );
 					}
 					
-					if ( mesh->vertListType() == eGLRenderType_NonIndexed )
+					if ( mesh->indices() == nil )
 					{
 						renderNonIndexedVerts( verts, mesh->numverts() );
 					}
@@ -392,12 +394,12 @@ namespace GLRenderers
 				case E3D::eE3DSceneNodeType_ModelStatic:
 				{	
 					E3D::E3DModelStatic * model = (E3D::E3DModelStatic*)_node;
-					const GLMeshes::GLMesh * mesh = model->mesh();
+					const E3D::E3DMesh * mesh = model->mesh();
 					
 					bindColor( color );
 					bindTexture( model->texture() );
 					
-					if ( mesh->vertListType() == eGLRenderType_NonIndexed )
+					if ( mesh->indices() == nil )
 					{
 						renderNonIndexedVerts( mesh->verts(), mesh->numverts() );
 					}
@@ -432,7 +434,7 @@ namespace GLRenderers
 	// ------------------------------------------
 	// bind the Texture
 	// ------------------------------------------
-	void GLES1RenderEngine::bindTexture( const GLTextures::GLTexture * _texture )
+	void GLES1RenderEngine::bindTexture( const E3D::E3DTexture * _texture )
 	{		
 		GLuint newTexture = 0;
 		if ( _texture )

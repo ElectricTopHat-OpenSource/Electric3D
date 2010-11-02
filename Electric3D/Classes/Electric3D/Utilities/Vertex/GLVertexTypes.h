@@ -14,14 +14,6 @@
 
 #define GLInterleavedVert3D_color 1
 
-typedef enum
-{
-	eGLRenderType_Unknown = -1,
-	eGLRenderType_NonIndexed = 0,
-	eGLRenderType_Indexed,
-	
-} eGLRenderType;
-
 typedef union
 {
 	int value;
@@ -39,7 +31,6 @@ typedef union
 typedef struct
 {
 	_GLDataState	state;
-	eGLRenderType	render;
 	unsigned int	numVerts;
 	unsigned int	step;
 	

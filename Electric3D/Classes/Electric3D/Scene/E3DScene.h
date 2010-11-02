@@ -13,6 +13,8 @@
 #import "E3DCamera.h"
 #import "E3DSceneNodeRoot.h"
 
+
+
 namespace E3D  
 {
 	class E3DScene
@@ -34,7 +36,7 @@ namespace E3D
 #pragma mark ---------------------------------------------------------
 	public: // Functions
 		
-		inline eE3DSceneType type() const				{ return m_type; };
+		inline eE3DSceneType type() const				{ return m_header.type; };
 		inline const NSString *	name() const			{ return m_root.name(); };
 		inline const NSUInteger hash() const			{ return m_root.hash(); };
 		
@@ -64,8 +66,8 @@ namespace E3D
 #pragma mark ---------------------------------------------------------
 	private: // Data
 		
-		// scene type
-		eE3DSceneType		m_type;
+		// scene header
+		E3DSceneHeader		m_header;
 		
 		// cameras
 		E3DCamera			m_camera;

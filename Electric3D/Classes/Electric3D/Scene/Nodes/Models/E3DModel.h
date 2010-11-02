@@ -13,8 +13,8 @@
 #import "E3DSceneNodeTypes.h"
 #import "E3DSceneNode.h"
 
-namespace GLTextures	{ class GLTexture; };
-namespace GLMeshes		{ class GLMesh; };
+namespace E3D	{ class E3DTexture; };
+namespace E3D		{ class E3DMesh; };
 
 namespace E3D 
 {
@@ -25,7 +25,7 @@ namespace E3D
 #pragma mark ---------------------------------------------------------
 	public: // Functions
 		
-		E3DModel( NSString * _name, const GLTextures::GLTexture * _texture )
+		E3DModel( NSString * _name, const E3D::E3DTexture * _texture )
 		: E3DSceneNode	( _name )
 		, m_texture		( _texture )
 		{};
@@ -39,12 +39,11 @@ namespace E3D
 #pragma mark === Public Functions  ===
 #pragma mark ---------------------------------------------------------
 	public: // Functions
-				
-		inline  const GLTextures::GLTexture * texture() const			{ return m_texture; };
-		virtual const GLMeshes::GLMesh * mesh() const = 0;
 		
-		virtual const CGMaths::CGAABB aabb() const = 0;
-		virtual const CGMaths::CGSphere sphere() const = 0;
+		inline const BOOL isGeometry() const { return TRUE; };
+		
+		inline  const E3D::E3DTexture * texture() const			{ return m_texture; };
+		virtual const E3D::E3DMesh * mesh() const = 0;
 		
 #pragma mark ---------------------------------------------------------
 #pragma mark === End Public Functions  ===
@@ -55,7 +54,7 @@ namespace E3D
 #pragma mark ---------------------------------------------------------
 	protected: // Data
 		
-		const GLTextures::GLTexture *	m_texture;
+		const E3D::E3DTexture *	m_texture;
 		
 #pragma mark ---------------------------------------------------------
 #pragma mark === End Protected Data  ===

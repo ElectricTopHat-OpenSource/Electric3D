@@ -120,12 +120,13 @@
 // ------------------------------------------
 - (void) initialization
 {		
-	scene = new E3D::E3DScene( @"Test Scene" );
+	managers	= new E3D::E3DManagers();
+	scene		= new E3D::E3DScene( @"Test Scene" );
 	
-	const GLMeshes::GLMesh * meshA = [[self renderer] factories]->meshes()->load( @"E3D_cube", @"md2" );
-	const GLMeshes::GLMesh * meshB = [[self renderer] factories]->meshes()->load( @"E3D_cylinder", @"md2" );
-	const GLMeshes::GLMesh * meshC = [[self renderer] factories]->meshes()->load( @"E3D_sphere", @"md2" );
-	const GLMeshes::GLMesh * meshD = [[self renderer] factories]->meshes()->load( @"E3D_cone", @"md2" );
+	const E3D::E3DMesh * meshA = managers->meshes()->load( @"E3D_cube", @"md2" );
+	const E3D::E3DMesh * meshB = managers->meshes()->load( @"E3D_cylinder", @"md2" );
+	const E3D::E3DMesh * meshC = managers->meshes()->load( @"E3D_sphere", @"md2" );
+	const E3D::E3DMesh * meshD = managers->meshes()->load( @"E3D_cone", @"md2" );
 	
 	E3D::E3DSceneNode * modelA = new E3D::E3DModelStatic( @"Cube", meshA );
 	E3D::E3DSceneNode * modelB = new E3D::E3DModelStatic( @"Cylinder", meshB );
@@ -165,12 +166,12 @@
 		{
 			E3D::E3DSceneNode * node = scene->child( 0 );
 			if ( ( node->type() == E3D::eE3DSceneNodeType_ModelStatic ) ||
-				( node->type() == E3D::eE3DSceneNodeType_ModelVertexAnimated ) )
+				( node->type() == E3D::eE3DSceneNodeType_ModelMorph ) )
 			{
 				E3D::E3DModel * model = (E3D::E3DModel*)node;
 				
-				[[self renderer] factories]->textures()->release( model->texture() );
-				[[self renderer] factories]->meshes()->release( model->mesh() );
+				managers->textures()->release( model->texture() );
+				managers->meshes()->release( model->mesh() );
 			}
 			
 			scene->removeChild( node );
@@ -179,6 +180,7 @@
 	}
 	
 	SAFE_DELETE( scene );
+	SAFE_DELETE( managers );
 }
 
 #pragma mark ---------------------------------------------------------

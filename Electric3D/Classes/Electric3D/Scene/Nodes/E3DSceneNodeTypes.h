@@ -21,13 +21,13 @@ namespace E3D
 	
 	typedef enum
 	{
-		eE3DSceneNodeType_Invalid = -1,
+		eE3DSceneNodeType_Unknown = -1,
 		
 		eE3DSceneNodeType_Root,
 		eE3DSceneNodeType_Group,
 		
 		eE3DSceneNodeType_ModelStatic,
-		eE3DSceneNodeType_ModelVertexAnimated,
+		eE3DSceneNodeType_ModelMorph,
 		
 	} eE3DSceneNodeType;
 };

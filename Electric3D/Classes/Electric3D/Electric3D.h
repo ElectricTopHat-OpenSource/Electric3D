@@ -16,12 +16,14 @@
 #import "GLES1RenderEngine.h"
 
 #import "GLVertexs.h"
-#import "GLMeshes.h"
-#import "GLTextures.h"
-#import "GLSprites.h"
-#import "E3DSplines.h"
 
-#import "E3DFactories.h"
+#import "E3DManagers.h"
+#import "E3DMeshManager.h"
+
+#import "E3DMeshes.h"
+#import "E3DTextures.h"
+#import "E3DSprites.h"
+#import "E3DSplines.h"
 
 #import "E3DScenes.h"
 

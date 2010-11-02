@@ -28,92 +28,29 @@
 		07126F6B1255199A00C94F40 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 07126F671255199A00C94F40 /* Credits.rtf */; };
 		07126F6C1255199A00C94F40 /* Install.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 07126F681255199A00C94F40 /* Install.rtf */; };
 		07126F6D1255199A00C94F40 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 07126F691255199A00C94F40 /* README */; };
-		07126F781255229400C94F40 /* CGAABB.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF966124CBE6000FC7D17 /* CGAABB.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07126F791255229400C94F40 /* CGMaths.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF0E21248C53D00FC7D17 /* CGMaths.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07126F7A1255229400C94F40 /* CGMathsConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF0EC1248C5FF00FC7D17 /* CGMathsConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07126F7B1255229400C94F40 /* CGMathsUtilties.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF0ED1248C69500FC7D17 /* CGMathsUtilties.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07126F7C1255229400C94F40 /* CGMatrix3x3.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF17C1248DD4B00FC7D17 /* CGMatrix3x3.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07126F7D1255229400C94F40 /* CGMatrix4x4.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF1621248D68700FC7D17 /* CGMatrix4x4.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07126F7E1255229400C94F40 /* CGQuaternion.h in Headers */ = {isa = PBXBuildFile; fileRef = 078B0A9C12522D1E00227D49 /* CGQuaternion.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07126F7F1255229400C94F40 /* CGSphere.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A8F5E01254A489009E62A5 /* CGSphere.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07126F801255229400C94F40 /* CGVector2D.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF0EF1248C72700FC7D17 /* CGVector2D.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07126F811255229400C94F40 /* CGVector3D.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF0F11248C89D00FC7D17 /* CGVector3D.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07126F821255229400C94F40 /* CGVector4D.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF1631248D6B900FC7D17 /* CGVector4D.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07126F831255229400C94F40 /* Compression.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF87D124BEB6300FC7D17 /* Compression.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07127067125522A900C94F40 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		07127068125522A900C94F40 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		07127069125522A900C94F40 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		0712706A125522A900C94F40 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077FF21712490B9300FC7D17 /* OpenGLES.framework */; };
 		0712706B125522A900C94F40 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077FF21B12490BB500FC7D17 /* QuartzCore.framework */; };
 		0712706C125522A900C94F40 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 077FF885124BEC6500FC7D17 /* libz.dylib */; };
-		0712706F125522D500C94F40 /* RenderTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF1CE12490B0F00FC7D17 /* RenderTimer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07127070125522D500C94F40 /* GameTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FFC1E124E398A00FC7D17 /* GameTimer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07127072125522E800C94F40 /* Electric3D.h in Headers */ = {isa = PBXBuildFile; fileRef = 07126F6E12551E3700C94F40 /* Electric3D.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07127073125522FD00C94F40 /* GLView.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF32B124A0AA300FC7D17 /* GLView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07127074125522FD00C94F40 /* GLRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF48C124A433E00FC7D17 /* GLRenderer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		071270751255230200C94F40 /* IRenderEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF32E124A0C0C00FC7D17 /* IRenderEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0712707D1255232200C94F40 /* GLES1RenderEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF32F124A0D2700FC7D17 /* GLES1RenderEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0712708F1255238300C94F40 /* GLColors.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF2591249184500FC7D17 /* GLColors.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		071270901255238300C94F40 /* GLColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF2571249184500FC7D17 /* GLColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		071270921255239900C94F40 /* GLSpriteFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FFA93124CE96900FC7D17 /* GLSpriteFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07127094125523A600C94F40 /* GLSprite.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FFA97124CEA7000FC7D17 /* GLSprite.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07127096125523C000C94F40 /* GLTextureFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FFA0E124CD26900FC7D17 /* GLTextureFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07127098125523CB00C94F40 /* GLTexture.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FFA16124CD70400FC7D17 /* GLTexture.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0712709A125523D800C94F40 /* GLBasicTextureLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF2D41249265000FC7D17 /* GLBasicTextureLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0712709B125523D800C94F40 /* GLPVRTextureLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF2D61249265000FC7D17 /* GLPVRTextureLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		071270E61255243C00C94F40 /* GLMeshTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF935124CB49600FC7D17 /* GLMeshTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		071270E71255243C00C94F40 /* GLMesh.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF932124CB49600FC7D17 /* GLMesh.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		071270E81255243C00C94F40 /* GLMeshStatic.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF933124CB49600FC7D17 /* GLMeshStatic.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		071270E91255243C00C94F40 /* GLMeshVertexAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF936124CB49600FC7D17 /* GLMeshVertexAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		071270EC1255244900C94F40 /* GLMeshFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF92F124CB46500FC7D17 /* GLMeshFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		071270EE1255245A00C94F40 /* GLVertexTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF914124CB32200FC7D17 /* GLVertexTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		071270EF1255245A00C94F40 /* GLVertexComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF913124CB28300FC7D17 /* GLVertexComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		071270F01255246C00C94F40 /* GLCameras.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A8F4A512539F37009E62A5 /* GLCameras.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		071270F11255246C00C94F40 /* GLCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 078B0A9A125220CB00227D49 /* GLCamera.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		071270F31255247100C94F40 /* GLCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 078B0A9B125220CB00227D49 /* GLCamera.mm */; };
-		073F0279125C8238005F7C98 /* GLVertexUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 073F0278125C8238005F7C98 /* GLVertexUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		073F02F2125C8E66005F7C98 /* vertex_cube_indexed.POD in Resources */ = {isa = PBXBuildFile; fileRef = 073F02AE125C8787005F7C98 /* vertex_cube_indexed.POD */; };
-		073F06C0125DD668005F7C98 /* CGOOBB.h in Headers */ = {isa = PBXBuildFile; fileRef = 073F06BF125DD668005F7C98 /* CGOOBB.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0774F088125609A2006AC5BA /* GLMeshes.h in Headers */ = {isa = PBXBuildFile; fileRef = 0799C109125603E300846A9C /* GLMeshes.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0774F089125609AE006AC5BA /* GLTextures.h in Headers */ = {isa = PBXBuildFile; fileRef = 0799C10A1256043800846A9C /* GLTextures.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0774F08A125609B9006AC5BA /* GLSprites.h in Headers */ = {isa = PBXBuildFile; fileRef = 0799C10B1256046B00846A9C /* GLSprites.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0774F08B125609C7006AC5BA /* Timers.h in Headers */ = {isa = PBXBuildFile; fileRef = 0799C10C125604E700846A9C /* Timers.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0774F0FC12561017006AC5BA /* GLVertexs.h in Headers */ = {isa = PBXBuildFile; fileRef = 0799C0FC1256036400846A9C /* GLVertexs.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0774F11912561CA5006AC5BA /* GameTimer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FFC1F124E398A00FC7D17 /* GameTimer.mm */; };
-		0774F11A12561CA5006AC5BA /* GLBasicTextureLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF2D51249265000FC7D17 /* GLBasicTextureLoader.mm */; };
 		0774F11B12561CA5006AC5BA /* GLColor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF2581249184500FC7D17 /* GLColor.mm */; };
 		0774F11C12561CA5006AC5BA /* GLES1RenderEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF330124A0D2700FC7D17 /* GLES1RenderEngine.mm */; };
-		0774F11E12561CA5006AC5BA /* GLMeshFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF930124CB46500FC7D17 /* GLMeshFactory.mm */; };
-		0774F11F12561CA5006AC5BA /* GLMeshStatic.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF934124CB49600FC7D17 /* GLMeshStatic.mm */; };
-		0774F12012561CA5006AC5BA /* GLMeshVertexAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF937124CB49600FC7D17 /* GLMeshVertexAnimation.mm */; };
-		0774F12612561CA5006AC5BA /* GLPVRTextureLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF2D71249265000FC7D17 /* GLPVRTextureLoader.mm */; };
 		0774F12712561CA5006AC5BA /* GLRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF48D124A433E00FC7D17 /* GLRenderer.mm */; };
-		0774F12912561CA5006AC5BA /* GLSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FFA98124CEA7000FC7D17 /* GLSprite.mm */; };
-		0774F12A12561CA5006AC5BA /* GLSpriteFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FFA94124CE96900FC7D17 /* GLSpriteFactory.mm */; };
-		0774F12B12561CA5006AC5BA /* GLTexture.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FFA17124CD70400FC7D17 /* GLTexture.mm */; };
-		0774F12C12561CA5006AC5BA /* GLTextureFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FFA0F124CD26900FC7D17 /* GLTextureFactory.mm */; };
 		0774F12E12561CA5006AC5BA /* GLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF32C124A0AA300FC7D17 /* GLView.mm */; };
 		0774F13112561CA5006AC5BA /* RenderTimer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF1CF12490B0F00FC7D17 /* RenderTimer.mm */; };
 		077FF1D012490B0F00FC7D17 /* RenderTimer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF1CF12490B0F00FC7D17 /* RenderTimer.mm */; };
 		077FF21812490B9300FC7D17 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077FF21712490B9300FC7D17 /* OpenGLES.framework */; };
 		077FF21C12490BB500FC7D17 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077FF21B12490BB500FC7D17 /* QuartzCore.framework */; };
 		077FF25A1249184500FC7D17 /* GLColor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF2581249184500FC7D17 /* GLColor.mm */; };
-		077FF2DB1249265000FC7D17 /* GLBasicTextureLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF2D51249265000FC7D17 /* GLBasicTextureLoader.mm */; };
-		077FF2DC1249265000FC7D17 /* GLPVRTextureLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF2D71249265000FC7D17 /* GLPVRTextureLoader.mm */; };
 		077FF32D124A0AA300FC7D17 /* GLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF32C124A0AA300FC7D17 /* GLView.mm */; };
 		077FF331124A0D2700FC7D17 /* GLES1RenderEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF330124A0D2700FC7D17 /* GLES1RenderEngine.mm */; };
 		077FF48E124A433E00FC7D17 /* GLRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF48D124A433E00FC7D17 /* GLRenderer.mm */; };
 		077FF73B124BBE1900FC7D17 /* MD2AnimatedMeshTest.md2 in Resources */ = {isa = PBXBuildFile; fileRef = 077FF73A124BBE1900FC7D17 /* MD2AnimatedMeshTest.md2 */; };
 		077FF73D124BBE2600FC7D17 /* MD2Test.png in Resources */ = {isa = PBXBuildFile; fileRef = 077FF73C124BBE2600FC7D17 /* MD2Test.png */; };
 		077FF886124BEC6500FC7D17 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 077FF885124BEC6500FC7D17 /* libz.dylib */; };
-		077FF931124CB46500FC7D17 /* GLMeshFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF930124CB46500FC7D17 /* GLMeshFactory.mm */; };
-		077FF938124CB49600FC7D17 /* GLMeshStatic.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF934124CB49600FC7D17 /* GLMeshStatic.mm */; };
-		077FF939124CB49600FC7D17 /* GLMeshVertexAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FF937124CB49600FC7D17 /* GLMeshVertexAnimation.mm */; };
 		077FF958124CB85D00FC7D17 /* MD2StaticMeshTest.md2 in Resources */ = {isa = PBXBuildFile; fileRef = 077FF957124CB85D00FC7D17 /* MD2StaticMeshTest.md2 */; };
-		077FFA10124CD26900FC7D17 /* GLTextureFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FFA0F124CD26900FC7D17 /* GLTextureFactory.mm */; };
-		077FFA18124CD70400FC7D17 /* GLTexture.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FFA17124CD70400FC7D17 /* GLTexture.mm */; };
-		077FFA95124CE96900FC7D17 /* GLSpriteFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FFA94124CE96900FC7D17 /* GLSpriteFactory.mm */; };
-		077FFA99124CEA7000FC7D17 /* GLSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FFA98124CEA7000FC7D17 /* GLSprite.mm */; };
 		077FFC20124E398A00FC7D17 /* GameTimer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 077FFC1F124E398A00FC7D17 /* GameTimer.mm */; };
 		078B0128124E50FD00227D49 /* application_icon@2x~iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 078B0121124E50FC00227D49 /* application_icon@2x~iPhone.png */; };
 		078B0129124E50FD00227D49 /* application_icon~iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 078B0122124E50FD00227D49 /* application_icon~iPad.png */; };
@@ -133,25 +70,15 @@
 		078B040E1250A1F000227D49 /* SL_taffy.png in Resources */ = {isa = PBXBuildFile; fileRef = 078B040A1250A1F000227D49 /* SL_taffy.png */; };
 		078B040F1250A1F000227D49 /* SL_hinkle.png in Resources */ = {isa = PBXBuildFile; fileRef = 078B040B1250A1F000227D49 /* SL_hinkle.png */; };
 		078B04101250A1F000227D49 /* SL_pickles.png in Resources */ = {isa = PBXBuildFile; fileRef = 078B040C1250A1F000227D49 /* SL_pickles.png */; };
-		078B0B95125259AF00227D49 /* GLCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 078B0A9B125220CB00227D49 /* GLCamera.mm */; };
 		07990634125E088B004CCA19 /* SL_HL_clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 07990633125E088B004CCA19 /* SL_HL_clock.png */; };
 		07990636125E0894004CCA19 /* SL_HL_clock_ARGB.POD in Resources */ = {isa = PBXBuildFile; fileRef = 07990635125E0894004CCA19 /* SL_HL_clock_ARGB.POD */; };
 		079908B0125E2E37004CCA19 /* SL_HL_clock_RGBA.POD in Resources */ = {isa = PBXBuildFile; fileRef = 079908AF125E2E37004CCA19 /* SL_HL_clock_RGBA.POD */; };
 		079908E0125E354E004CCA19 /* SL_ghosts.png in Resources */ = {isa = PBXBuildFile; fileRef = 079908DE125E354E004CCA19 /* SL_ghosts.png */; };
 		07990926125E3997004CCA19 /* SL_ghosts.POD in Resources */ = {isa = PBXBuildFile; fileRef = 07990925125E3997004CCA19 /* SL_ghosts.POD */; };
-		0799A7BA1263588B000BF77C /* TimerTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 0799A7B512635503000BF77C /* TimerTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0799A7E51263606F000BF77C /* FPSTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0799A7E212635F9C000BF77C /* FPSTimer.m */; };
 		0799A7E61263606F000BF77C /* DeltaTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0799A7E412636065000BF77C /* DeltaTimer.m */; };
 		0799A7E71263606F000BF77C /* FPSTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0799A7E212635F9C000BF77C /* FPSTimer.m */; };
 		0799A7E81263606F000BF77C /* DeltaTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0799A7E412636065000BF77C /* DeltaTimer.m */; };
-		0799A7F312636173000BF77C /* DeltaTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0799A7E312636065000BF77C /* DeltaTimer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0799A7F412636173000BF77C /* FPSTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0799A7E112635F9C000BF77C /* FPSTimer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0799B16A12653221000BF77C /* GLCameraUtilties.h in Headers */ = {isa = PBXBuildFile; fileRef = 0799AC2D1264A239000BF77C /* GLCameraUtilties.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0799B16B12653221000BF77C /* GLViewport.h in Headers */ = {isa = PBXBuildFile; fileRef = 0799AC0A12649DAF000BF77C /* GLViewport.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		079CF8BA126CC30500E64CDC /* E3DSplineFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = 079CF89E126CA9A300E64CDC /* E3DSplineFactory.mm */; };
-		079CF8BB126CC30800E64CDC /* E3DSplineFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = 079CF89E126CA9A300E64CDC /* E3DSplineFactory.mm */; };
-		079CF8BC126CC30D00E64CDC /* E3DSplineHermite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 079CF8A1126CA9FA00E64CDC /* E3DSplineHermite.mm */; };
-		079CF8BD126CC30E00E64CDC /* E3DSplineHermite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 079CF8A1126CA9FA00E64CDC /* E3DSplineHermite.mm */; };
 		079CF91D126CC83100E64CDC /* TestSplineLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 079CF91C126CC83100E64CDC /* TestSplineLoader.mm */; };
 		079CF94C126CCAAE00E64CDC /* SPLINE_2Points.3ds in Resources */ = {isa = PBXBuildFile; fileRef = 079CF918126CC7DF00E64CDC /* SPLINE_2Points.3ds */; };
 		079E42CA125BA66400AFC765 /* vertex_cube.POD in Resources */ = {isa = PBXBuildFile; fileRef = 079E42C9125BA66400AFC765 /* vertex_cube.POD */; };
@@ -160,81 +87,156 @@
 		07A210AD126DAC9500084A47 /* MAX3DSScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A21096126DAC9500084A47 /* MAX3DSScene.mm */; };
 		07A210AF126DAC9500084A47 /* MD2Model.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A2109E126DAC9500084A47 /* MD2Model.mm */; };
 		07A210B1126DAC9500084A47 /* PVRPODScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A210A6126DAC9500084A47 /* PVRPODScene.mm */; };
-		07A210B3126DAC9500084A47 /* MAX3DSScene.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A21095126DAC9500084A47 /* MAX3DSScene.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07A210B4126DAC9500084A47 /* MAX3DSScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A21096126DAC9500084A47 /* MAX3DSScene.mm */; };
-		07A210B7126DAC9500084A47 /* MAX3DSTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A21099126DAC9500084A47 /* MAX3DSTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07A210B8126DAC9500084A47 /* MAX3DSUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A2109A126DAC9500084A47 /* MAX3DSUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07A210B9126DAC9500084A47 /* Anorms.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A2109C126DAC9500084A47 /* Anorms.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07A210BA126DAC9500084A47 /* MD2Model.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A2109D126DAC9500084A47 /* MD2Model.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07A210BB126DAC9500084A47 /* MD2Model.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A2109E126DAC9500084A47 /* MD2Model.mm */; };
-		07A210BE126DAC9500084A47 /* MD2Types.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A210A1126DAC9500084A47 /* MD2Types.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07A210BF126DAC9500084A47 /* MD3Types.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A210A3126DAC9500084A47 /* MD3Types.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07A210C0126DAC9500084A47 /* PVRPODScene.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A210A5126DAC9500084A47 /* PVRPODScene.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07A210C1126DAC9500084A47 /* PVRPODScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A210A6126DAC9500084A47 /* PVRPODScene.mm */; };
-		07A210C4126DAC9500084A47 /* PVRPODTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A210A9126DAC9500084A47 /* PVRPODTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07A210C5126DAC9500084A47 /* PVRPODUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A210AA126DAC9500084A47 /* PVRPODUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07A210D8126DB10F00084A47 /* GLMeshCone.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A210D3126DB10F00084A47 /* GLMeshCone.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07A210D9126DB10F00084A47 /* GLMeshCube.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A210D4126DB10F00084A47 /* GLMeshCube.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07A210DA126DB10F00084A47 /* GLMeshCylinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A210D5126DB10F00084A47 /* GLMeshCylinder.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07A210DB126DB10F00084A47 /* GLMeshShapes.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A210D6126DB10F00084A47 /* GLMeshShapes.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07A210DC126DB10F00084A47 /* GLMeshSphere.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A210D7126DB10F00084A47 /* GLMeshSphere.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07A210DF126DB15C00084A47 /* GLMeshWriteHeader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A210DE126DB15C00084A47 /* GLMeshWriteHeader.mm */; };
-		07A210E0126DB15C00084A47 /* GLMeshWriteHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A210DD126DB15C00084A47 /* GLMeshWriteHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07A210E1126DB15C00084A47 /* GLMeshWriteHeader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A210DE126DB15C00084A47 /* GLMeshWriteHeader.mm */; };
-		07A2110A126DB2D400084A47 /* MAX3DSModelConvertor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A21109126DB2D400084A47 /* MAX3DSModelConvertor.mm */; };
-		07A2110B126DB2D400084A47 /* MAX3DSModelConvertor.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A21108126DB2D400084A47 /* MAX3DSModelConvertor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07A2110C126DB2D400084A47 /* MAX3DSModelConvertor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A21109126DB2D400084A47 /* MAX3DSModelConvertor.mm */; };
-		07A2110F126DB2DD00084A47 /* MD2ModelConvertor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A2110E126DB2DD00084A47 /* MD2ModelConvertor.mm */; };
-		07A21110126DB2DD00084A47 /* MD2ModelConvertor.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A2110D126DB2DD00084A47 /* MD2ModelConvertor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07A21111126DB2DD00084A47 /* MD2ModelConvertor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A2110E126DB2DD00084A47 /* MD2ModelConvertor.mm */; };
-		07A21114126DB2E700084A47 /* PVRPODModelConvertor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A21113126DB2E700084A47 /* PVRPODModelConvertor.mm */; };
-		07A21115126DB2E700084A47 /* PVRPODModelConvertor.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A21112126DB2E700084A47 /* PVRPODModelConvertor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07A21116126DB2E700084A47 /* PVRPODModelConvertor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A21113126DB2E700084A47 /* PVRPODModelConvertor.mm */; };
 		07A2112D126DB41E00084A47 /* gzip.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A2112C126DB41E00084A47 /* gzip.mm */; };
-		07A2112E126DB41E00084A47 /* gzip.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A2112B126DB41E00084A47 /* gzip.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07A2112F126DB41E00084A47 /* gzip.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A2112C126DB41E00084A47 /* gzip.mm */; };
 		07A21132126DB4AA00084A47 /* zip.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A21131126DB4AA00084A47 /* zip.mm */; };
-		07A21133126DB4AA00084A47 /* zip.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A21130126DB4AA00084A47 /* zip.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07A21134126DB4AA00084A47 /* zip.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A21131126DB4AA00084A47 /* zip.mm */; };
-		07A2122E126DE42E00084A47 /* E3DScene.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A2122B126DE42E00084A47 /* E3DScene.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07A2122F126DE42E00084A47 /* E3DScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A2122C126DE42E00084A47 /* E3DScene.mm */; };
 		07A21231126DE42E00084A47 /* E3DScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A2122C126DE42E00084A47 /* E3DScene.mm */; };
-		07A2124D126DE4D600084A47 /* E3DSceneNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A2124A126DE4D600084A47 /* E3DSceneNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07A2124E126DE4D600084A47 /* E3DSceneNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A2124B126DE4D600084A47 /* E3DSceneNode.mm */; };
-		07A2124F126DE4D600084A47 /* E3DSceneNodeTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A2124C126DE4D600084A47 /* E3DSceneNodeTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07A21250126DE4D600084A47 /* E3DSceneNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A2124B126DE4D600084A47 /* E3DSceneNode.mm */; };
-		07A21258126DE4F500084A47 /* E3DColorComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A21256126DE4F500084A47 /* E3DColorComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07A21259126DE4F500084A47 /* E3DTransformComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A21257126DE4F500084A47 /* E3DTransformComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07A212B0126DEAC800084A47 /* E3DSceneNodeRoot.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A212AF126DEAC800084A47 /* E3DSceneNodeRoot.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07A212B3126DEB4200084A47 /* E3DSceneNodeGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A212B2126DEB4200084A47 /* E3DSceneNodeGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07A212C3126DEC1600084A47 /* E3DModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A212BE126DEC1600084A47 /* E3DModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07A212C4126DEC1600084A47 /* E3DModelStatic.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A212BF126DEC1600084A47 /* E3DModelStatic.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07A212C5126DEC1600084A47 /* E3DModelStatic.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A212C0126DEC1600084A47 /* E3DModelStatic.mm */; };
-		07A212C6126DEC1600084A47 /* E3DModelVertexAnimated.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A212C1126DEC1600084A47 /* E3DModelVertexAnimated.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07A212C7126DEC1600084A47 /* E3DModelVertexAnimated.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A212C2126DEC1600084A47 /* E3DModelVertexAnimated.mm */; };
+		07A212C7126DEC1600084A47 /* E3DModelMorph.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A212C2126DEC1600084A47 /* E3DModelMorph.mm */; };
 		07A212C8126DEC1600084A47 /* E3DModelStatic.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A212C0126DEC1600084A47 /* E3DModelStatic.mm */; };
-		07A212C9126DEC1600084A47 /* E3DModelVertexAnimated.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A212C2126DEC1600084A47 /* E3DModelVertexAnimated.mm */; };
+		07A212C9126DEC1600084A47 /* E3DModelMorph.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A212C2126DEC1600084A47 /* E3DModelMorph.mm */; };
 		07A212F0126DEFF300084A47 /* E3DCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A212EF126DEFF300084A47 /* E3DCamera.mm */; };
-		07A212F1126DEFF300084A47 /* E3DCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A212EE126DEFF300084A47 /* E3DCamera.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07A212F2126DEFF300084A47 /* E3DCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A212EF126DEFF300084A47 /* E3DCamera.mm */; };
-		07A212F4126DF7FB00084A47 /* E3DCameraTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A212F3126DF7FB00084A47 /* E3DCameraTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07A2136C126E12AE00084A47 /* E3DFactories.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A2136B126E12AE00084A47 /* E3DFactories.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07A21377126E167800084A47 /* E3DScenes.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A21376126E167800084A47 /* E3DScenes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07A213A8126E206500084A47 /* TestMeshLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A21384126E17A700084A47 /* TestMeshLoader.mm */; };
 		07A213A9126E206A00084A47 /* TestMeshStatic.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A21388126E1B9800084A47 /* TestMeshStatic.mm */; };
 		07A214B9126E2D4800084A47 /* TestMeshAnimated.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A214B4126E2C4800084A47 /* TestMeshAnimated.mm */; };
-		07A214F6126E2F4500084A47 /* E3DSceneTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A214F5126E2F4500084A47 /* E3DSceneTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07A2152B126E322C00084A47 /* TestCameraBasic.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A2152A126E322C00084A47 /* TestCameraBasic.mm */; };
 		07A215E5126F010900084A47 /* TestCameraFOV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A215E4126F010900084A47 /* TestCameraFOV.mm */; };
 		07A215F0126F02CC00084A47 /* TestCameraTouch.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A215EF126F02CC00084A47 /* TestCameraTouch.mm */; };
 		07A21630126F0ABA00084A47 /* TestSplinePlayback2Points.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A2162F126F0ABA00084A47 /* TestSplinePlayback2Points.mm */; };
 		07A216D5126F19E500084A47 /* SPLINE_4Points.3ds in Resources */ = {isa = PBXBuildFile; fileRef = 07A216D4126F19E500084A47 /* SPLINE_4Points.3ds */; };
 		07A21706126F208800084A47 /* TestSplinePlayback4Points.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A21705126F208800084A47 /* TestSplinePlayback4Points.mm */; };
+		07A218F612704C7300084A47 /* Anorms.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A2109C126DAC9500084A47 /* Anorms.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A218F712704C7300084A47 /* CGAABB.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF966124CBE6000FC7D17 /* CGAABB.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A218F812704C7300084A47 /* CGMaths.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF0E21248C53D00FC7D17 /* CGMaths.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A218F912704C7300084A47 /* CGMathsConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF0EC1248C5FF00FC7D17 /* CGMathsConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A218FA12704C7300084A47 /* CGMathsTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A2154B126EEC7A00084A47 /* CGMathsTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A218FB12704C7300084A47 /* CGMathsUtilties.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF0ED1248C69500FC7D17 /* CGMathsUtilties.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A218FC12704C7300084A47 /* CGMatrix3x3.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF17C1248DD4B00FC7D17 /* CGMatrix3x3.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A218FD12704C7300084A47 /* CGMatrix4x4.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF1621248D68700FC7D17 /* CGMatrix4x4.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A218FE12704C7300084A47 /* CGOOBB.h in Headers */ = {isa = PBXBuildFile; fileRef = 073F06BF125DD668005F7C98 /* CGOOBB.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A218FF12704C7300084A47 /* CGPlane.h in Headers */ = {isa = PBXBuildFile; fileRef = 0793CD5F1267675200490A1B /* CGPlane.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2190012704C7300084A47 /* CGQuaternion.h in Headers */ = {isa = PBXBuildFile; fileRef = 078B0A9C12522D1E00227D49 /* CGQuaternion.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2190112704C7300084A47 /* CGSphere.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A8F5E01254A489009E62A5 /* CGSphere.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2190212704C7300084A47 /* CGVector2D.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF0EF1248C72700FC7D17 /* CGVector2D.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2190312704C7300084A47 /* CGVector3D.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF0F11248C89D00FC7D17 /* CGVector3D.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2190412704C7300084A47 /* CGVector4D.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF1631248D6B900FC7D17 /* CGVector4D.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2190512704C7300084A47 /* Compression.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF87D124BEB6300FC7D17 /* Compression.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2190612704C7300084A47 /* DeltaTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0799A7E312636065000BF77C /* DeltaTimer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2190712704C7300084A47 /* E3DCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A212EE126DEFF300084A47 /* E3DCamera.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2190812704C7300084A47 /* E3DCameraTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A212F3126DF7FB00084A47 /* E3DCameraTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2190912704C7300084A47 /* E3DColorComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A21256126DE4F500084A47 /* E3DColorComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2190B12704C7300084A47 /* E3DModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A212BE126DEC1600084A47 /* E3DModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2190C12704C7300084A47 /* E3DModelStatic.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A212BF126DEC1600084A47 /* E3DModelStatic.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2190D12704C7300084A47 /* E3DModelMorph.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A212C1126DEC1600084A47 /* E3DModelMorph.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2190E12704C7300084A47 /* E3DScene.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A2122B126DE42E00084A47 /* E3DScene.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2190F12704C7300084A47 /* E3DSceneNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A2124A126DE4D600084A47 /* E3DSceneNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2191012704C7300084A47 /* E3DSceneNodeGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A212B2126DEB4200084A47 /* E3DSceneNodeGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2191112704C7300084A47 /* E3DSceneNodeTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A2124C126DE4D600084A47 /* E3DSceneNodeTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2191212704C7300084A47 /* E3DScenes.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A21376126E167800084A47 /* E3DScenes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2191312704C7300084A47 /* E3DSceneTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A214F5126E2F4500084A47 /* E3DSceneTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2191912704C7300084A47 /* E3DTransformComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A21257126DE4F500084A47 /* E3DTransformComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2191A12704C7300084A47 /* Electric3D.h in Headers */ = {isa = PBXBuildFile; fileRef = 07126F6E12551E3700C94F40 /* Electric3D.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2191B12704C7300084A47 /* FPSTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0799A7E112635F9C000BF77C /* FPSTimer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2191C12704C7300084A47 /* GameTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FFC1E124E398A00FC7D17 /* GameTimer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2192112704C7300084A47 /* GLColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF2571249184500FC7D17 /* GLColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2192212704C7300084A47 /* GLColors.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF2591249184500FC7D17 /* GLColors.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2192312704C7300084A47 /* GLES1RenderEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF32F124A0D2700FC7D17 /* GLES1RenderEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2193012704C7300084A47 /* GLRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF48C124A433E00FC7D17 /* GLRenderer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2193712704C7300084A47 /* GLVertexComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF913124CB28300FC7D17 /* GLVertexComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2193812704C7300084A47 /* GLVertexs.h in Headers */ = {isa = PBXBuildFile; fileRef = 0799C0FC1256036400846A9C /* GLVertexs.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2193912704C7300084A47 /* GLVertexTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF914124CB32200FC7D17 /* GLVertexTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2193A12704C7300084A47 /* GLVertexUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 073F0278125C8238005F7C98 /* GLVertexUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2193B12704C7300084A47 /* GLView.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF32B124A0AA300FC7D17 /* GLView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2193D12704C7300084A47 /* gzip.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A2112B126DB41E00084A47 /* gzip.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2193E12704C7300084A47 /* IRenderEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF32E124A0C0C00FC7D17 /* IRenderEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2194012704C7300084A47 /* MAX3DSScene.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A21095126DAC9500084A47 /* MAX3DSScene.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2194112704C7300084A47 /* MAX3DSTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A21099126DAC9500084A47 /* MAX3DSTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2194212704C7300084A47 /* MAX3DSUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A2109A126DAC9500084A47 /* MAX3DSUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2194312704C7300084A47 /* MD2Model.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A2109D126DAC9500084A47 /* MD2Model.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2194512704C7300084A47 /* MD2Types.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A210A1126DAC9500084A47 /* MD2Types.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2194612704C7300084A47 /* MD3Types.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A210A3126DAC9500084A47 /* MD3Types.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2194812704C7300084A47 /* PVRPODScene.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A210A5126DAC9500084A47 /* PVRPODScene.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2194912704C7300084A47 /* PVRPODTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A210A9126DAC9500084A47 /* PVRPODTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2194A12704C7300084A47 /* PVRPODUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A210AA126DAC9500084A47 /* PVRPODUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2194B12704C7300084A47 /* RenderTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 077FF1CE12490B0F00FC7D17 /* RenderTimer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2194C12704C7300084A47 /* Timers.h in Headers */ = {isa = PBXBuildFile; fileRef = 0799C10C125604E700846A9C /* Timers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2194D12704C7300084A47 /* TimerTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 0799A7B512635503000BF77C /* TimerTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07A2194E12704C7300084A47 /* zip.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A21130126DB4AA00084A47 /* zip.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07A8F54D1253B1E3009E62A5 /* E3D_cone.md2 in Resources */ = {isa = PBXBuildFile; fileRef = 07A8F5491253B1E3009E62A5 /* E3D_cone.md2 */; };
 		07A8F54E1253B1E3009E62A5 /* E3D_sphere.md2 in Resources */ = {isa = PBXBuildFile; fileRef = 07A8F54A1253B1E3009E62A5 /* E3D_sphere.md2 */; };
 		07A8F54F1253B1E3009E62A5 /* E3D_cylinder.md2 in Resources */ = {isa = PBXBuildFile; fileRef = 07A8F54B1253B1E3009E62A5 /* E3D_cylinder.md2 */; };
 		07A8F5501253B1E3009E62A5 /* E3D_cube.md2 in Resources */ = {isa = PBXBuildFile; fileRef = 07A8F54C1253B1E3009E62A5 /* E3D_cube.md2 */; };
 		07A8F6251254D88A009E62A5 /* CGTestMathsAABB.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A8F6241254D88A009E62A5 /* CGTestMathsAABB.mm */; };
+		07B4891F1279BCF00014295F /* E3DManagers.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B4891E1279BCF00014295F /* E3DManagers.mm */; };
+		07B489201279BCF00014295F /* E3DManagers.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B4891D1279BCF00014295F /* E3DManagers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B489211279BCF00014295F /* E3DManagers.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B4891E1279BCF00014295F /* E3DManagers.mm */; };
+		07B489491279BDB50014295F /* E3DMeshStatic.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B4892E1279BDB50014295F /* E3DMeshStatic.mm */; };
+		07B4894A1279BDB50014295F /* E3DMeshMorph.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B489311279BDB50014295F /* E3DMeshMorph.mm */; };
+		07B4894B1279BDB50014295F /* E3DMeshManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B489341279BDB50014295F /* E3DMeshManager.mm */; };
+		07B4894C1279BDB50014295F /* MAX3DSModelConvertor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B489391279BDB50014295F /* MAX3DSModelConvertor.mm */; };
+		07B4894D1279BDB50014295F /* MD2ModelConvertor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B4893C1279BDB50014295F /* MD2ModelConvertor.mm */; };
+		07B4894E1279BDB50014295F /* PVRPODModelConvertor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B4893F1279BDB50014295F /* PVRPODModelConvertor.mm */; };
+		07B4894F1279BDB50014295F /* E3DVertWriter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B489481279BDB50014295F /* E3DVertWriter.mm */; };
+		07B489501279BDB50014295F /* E3DMesh.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B4892C1279BDB50014295F /* E3DMesh.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B489511279BDB50014295F /* E3DMeshStatic.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B4892D1279BDB50014295F /* E3DMeshStatic.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B489521279BDB50014295F /* E3DMeshStatic.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B4892E1279BDB50014295F /* E3DMeshStatic.mm */; };
+		07B489531279BDB50014295F /* E3DMeshTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B4892F1279BDB50014295F /* E3DMeshTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B489541279BDB50014295F /* E3DMeshMorph.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B489301279BDB50014295F /* E3DMeshMorph.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B489551279BDB50014295F /* E3DMeshMorph.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B489311279BDB50014295F /* E3DMeshMorph.mm */; };
+		07B489561279BDB50014295F /* E3DMeshes.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B489321279BDB50014295F /* E3DMeshes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B489571279BDB50014295F /* E3DMeshManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B489331279BDB50014295F /* E3DMeshManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B489581279BDB50014295F /* E3DMeshManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B489341279BDB50014295F /* E3DMeshManager.mm */; };
+		07B489591279BDB50014295F /* MAX3DSModelConvertor.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B489381279BDB50014295F /* MAX3DSModelConvertor.h */; };
+		07B4895A1279BDB50014295F /* MAX3DSModelConvertor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B489391279BDB50014295F /* MAX3DSModelConvertor.mm */; };
+		07B4895B1279BDB50014295F /* MD2ModelConvertor.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B4893B1279BDB50014295F /* MD2ModelConvertor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B4895C1279BDB50014295F /* MD2ModelConvertor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B4893C1279BDB50014295F /* MD2ModelConvertor.mm */; };
+		07B4895D1279BDB50014295F /* PVRPODModelConvertor.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B4893E1279BDB50014295F /* PVRPODModelConvertor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B4895E1279BDB50014295F /* PVRPODModelConvertor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B4893F1279BDB50014295F /* PVRPODModelConvertor.mm */; };
+		07B4895F1279BDB50014295F /* E3DConeVerts.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B489411279BDB50014295F /* E3DConeVerts.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B489601279BDB50014295F /* E3DCubeVerts.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B489421279BDB50014295F /* E3DCubeVerts.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B489611279BDB50014295F /* E3DCylinderVerts.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B489431279BDB50014295F /* E3DCylinderVerts.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B489621279BDB50014295F /* E3DVertShapes.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B489441279BDB50014295F /* E3DVertShapes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B489631279BDB50014295F /* E3DSphereVerts.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B489451279BDB50014295F /* E3DSphereVerts.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B489641279BDB50014295F /* E3DVertWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B489471279BDB50014295F /* E3DVertWriter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B489651279BDB50014295F /* E3DVertWriter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B489481279BDB50014295F /* E3DVertWriter.mm */; };
+		07B489AC1279C7820014295F /* E3DSpline.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B489A51279C7820014295F /* E3DSpline.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B489AD1279C7820014295F /* E3DSplineHermite.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B489A61279C7820014295F /* E3DSplineHermite.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B489AE1279C7820014295F /* E3DSplineHermite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B489A71279C7820014295F /* E3DSplineHermite.mm */; };
+		07B489AF1279C7820014295F /* E3DSplineTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B489A81279C7820014295F /* E3DSplineTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B489B01279C7820014295F /* E3DSplineManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B489A91279C7820014295F /* E3DSplineManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B489B11279C7820014295F /* E3DSplineManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B489AA1279C7820014295F /* E3DSplineManager.mm */; };
+		07B489B21279C7820014295F /* E3DSplines.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B489AB1279C7820014295F /* E3DSplines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B489B31279C7820014295F /* E3DSplineHermite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B489A71279C7820014295F /* E3DSplineHermite.mm */; };
+		07B489B41279C7820014295F /* E3DSplineManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B489AA1279C7820014295F /* E3DSplineManager.mm */; };
+		07B48AAE127AF0E50014295F /* E3DTexture.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B48AA4127AF0E40014295F /* E3DTexture.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B48AAF127AF0E50014295F /* E3DTexture.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B48AA5127AF0E50014295F /* E3DTexture.mm */; };
+		07B48AB0127AF0E50014295F /* E3DTextureManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B48AA6127AF0E50014295F /* E3DTextureManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B48AB1127AF0E50014295F /* E3DTextureManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B48AA7127AF0E50014295F /* E3DTextureManager.mm */; };
+		07B48AB2127AF0E50014295F /* E3DTextures.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B48AA8127AF0E50014295F /* E3DTextures.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B48AB3127AF0E50014295F /* GLBasicTextureLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B48AAA127AF0E50014295F /* GLBasicTextureLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B48AB4127AF0E50014295F /* GLBasicTextureLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B48AAB127AF0E50014295F /* GLBasicTextureLoader.mm */; };
+		07B48AB5127AF0E50014295F /* GLPVRTextureLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B48AAC127AF0E50014295F /* GLPVRTextureLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B48AB6127AF0E50014295F /* GLPVRTextureLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B48AAD127AF0E50014295F /* GLPVRTextureLoader.mm */; };
+		07B48AB7127AF0E50014295F /* E3DTexture.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B48AA5127AF0E50014295F /* E3DTexture.mm */; };
+		07B48AB8127AF0E50014295F /* E3DTextureManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B48AA7127AF0E50014295F /* E3DTextureManager.mm */; };
+		07B48AB9127AF0E50014295F /* GLBasicTextureLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B48AAB127AF0E50014295F /* GLBasicTextureLoader.mm */; };
+		07B48ABA127AF0E50014295F /* GLPVRTextureLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B48AAD127AF0E50014295F /* GLPVRTextureLoader.mm */; };
+		07B48AD2127AF29D0014295F /* E3DSprite.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B48ACD127AF29B0014295F /* E3DSprite.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B48AD3127AF29D0014295F /* E3DSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B48ACE127AF29B0014295F /* E3DSprite.mm */; };
+		07B48AD4127AF29D0014295F /* E3DSpriteManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B48ACF127AF29B0014295F /* E3DSpriteManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B48AD5127AF29D0014295F /* E3DSpriteManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B48AD0127AF29C0014295F /* E3DSpriteManager.mm */; };
+		07B48AD6127AF29D0014295F /* E3DSprites.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B48AD1127AF29D0014295F /* E3DSprites.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B48AD7127AF29D0014295F /* E3DSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B48ACE127AF29B0014295F /* E3DSprite.mm */; };
+		07B48AD8127AF29D0014295F /* E3DSpriteManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B48AD0127AF29C0014295F /* E3DSpriteManager.mm */; };
 		07ECE27F125A0AE10097D909 /* Box.3ds in Resources */ = {isa = PBXBuildFile; fileRef = 07ECE27E125A0AE10097D909 /* Box.3ds */; };
 		07ECE42C125A40720097D909 /* vertexpaintcube.3DS in Resources */ = {isa = PBXBuildFile; fileRef = 07ECE42B125A40720097D909 /* vertexpaintcube.3DS */; };
 		07FDED19125F760F002AACD9 /* SL_EX_house.POD in Resources */ = {isa = PBXBuildFile; fileRef = 07FDED18125F760F002AACD9 /* SL_EX_house.POD */; };
@@ -264,7 +266,6 @@
 		07126F6E12551E3700C94F40 /* Electric3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Electric3D.h; sourceTree = "<group>"; };
 		07126F7312551F0E00C94F40 /* libElectric3D.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libElectric3D.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		073F0278125C8238005F7C98 /* GLVertexUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLVertexUtility.h; sourceTree = "<group>"; };
-		073F02AE125C8787005F7C98 /* vertex_cube_indexed.POD */ = {isa = PBXFileReference; lastKnownFileType = file; name = vertex_cube_indexed.POD; path = ../../../../../../Desktop/vertex_cube_indexed.POD; sourceTree = SOURCE_ROOT; };
 		073F06BF125DD668005F7C98 /* CGOOBB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGOOBB.h; sourceTree = "<group>"; };
 		077FF0E21248C53D00FC7D17 /* CGMaths.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = CGMaths.h; sourceTree = "<group>"; };
 		077FF0EC1248C5FF00FC7D17 /* CGMathsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGMathsConstants.h; sourceTree = "<group>"; };
@@ -281,10 +282,6 @@
 		077FF2571249184500FC7D17 /* GLColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLColor.h; sourceTree = "<group>"; };
 		077FF2581249184500FC7D17 /* GLColor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLColor.mm; sourceTree = "<group>"; };
 		077FF2591249184500FC7D17 /* GLColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLColors.h; sourceTree = "<group>"; };
-		077FF2D41249265000FC7D17 /* GLBasicTextureLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLBasicTextureLoader.h; sourceTree = "<group>"; };
-		077FF2D51249265000FC7D17 /* GLBasicTextureLoader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLBasicTextureLoader.mm; sourceTree = "<group>"; };
-		077FF2D61249265000FC7D17 /* GLPVRTextureLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLPVRTextureLoader.h; sourceTree = "<group>"; };
-		077FF2D71249265000FC7D17 /* GLPVRTextureLoader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLPVRTextureLoader.mm; sourceTree = "<group>"; };
 		077FF32B124A0AA300FC7D17 /* GLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLView.h; sourceTree = "<group>"; };
 		077FF32C124A0AA300FC7D17 /* GLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLView.mm; sourceTree = "<group>"; };
 		077FF32E124A0C0C00FC7D17 /* IRenderEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRenderEngine.h; sourceTree = "<group>"; };
@@ -298,24 +295,8 @@
 		077FF885124BEC6500FC7D17 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		077FF913124CB28300FC7D17 /* GLVertexComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLVertexComponents.h; sourceTree = "<group>"; };
 		077FF914124CB32200FC7D17 /* GLVertexTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLVertexTypes.h; sourceTree = "<group>"; };
-		077FF92F124CB46500FC7D17 /* GLMeshFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMeshFactory.h; sourceTree = "<group>"; };
-		077FF930124CB46500FC7D17 /* GLMeshFactory.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLMeshFactory.mm; sourceTree = "<group>"; };
-		077FF932124CB49600FC7D17 /* GLMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMesh.h; sourceTree = "<group>"; };
-		077FF933124CB49600FC7D17 /* GLMeshStatic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMeshStatic.h; sourceTree = "<group>"; };
-		077FF934124CB49600FC7D17 /* GLMeshStatic.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLMeshStatic.mm; sourceTree = "<group>"; };
-		077FF935124CB49600FC7D17 /* GLMeshTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMeshTypes.h; sourceTree = "<group>"; };
-		077FF936124CB49600FC7D17 /* GLMeshVertexAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMeshVertexAnimation.h; sourceTree = "<group>"; };
-		077FF937124CB49600FC7D17 /* GLMeshVertexAnimation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLMeshVertexAnimation.mm; sourceTree = "<group>"; };
 		077FF957124CB85D00FC7D17 /* MD2StaticMeshTest.md2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = MD2StaticMeshTest.md2; sourceTree = "<group>"; };
 		077FF966124CBE6000FC7D17 /* CGAABB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGAABB.h; sourceTree = "<group>"; };
-		077FFA0E124CD26900FC7D17 /* GLTextureFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTextureFactory.h; sourceTree = "<group>"; };
-		077FFA0F124CD26900FC7D17 /* GLTextureFactory.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLTextureFactory.mm; sourceTree = "<group>"; };
-		077FFA16124CD70400FC7D17 /* GLTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTexture.h; sourceTree = "<group>"; };
-		077FFA17124CD70400FC7D17 /* GLTexture.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLTexture.mm; sourceTree = "<group>"; };
-		077FFA93124CE96900FC7D17 /* GLSpriteFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLSpriteFactory.h; sourceTree = "<group>"; };
-		077FFA94124CE96900FC7D17 /* GLSpriteFactory.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLSpriteFactory.mm; sourceTree = "<group>"; };
-		077FFA97124CEA7000FC7D17 /* GLSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLSprite.h; sourceTree = "<group>"; };
-		077FFA98124CEA7000FC7D17 /* GLSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLSprite.mm; sourceTree = "<group>"; };
 		077FFC1E124E398A00FC7D17 /* GameTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameTimer.h; sourceTree = "<group>"; };
 		077FFC1F124E398A00FC7D17 /* GameTimer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameTimer.mm; sourceTree = "<group>"; };
 		078B0121124E50FC00227D49 /* application_icon@2x~iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "application_icon@2x~iPhone.png"; sourceTree = "<group>"; };
@@ -336,8 +317,6 @@
 		078B040A1250A1F000227D49 /* SL_taffy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SL_taffy.png; sourceTree = "<group>"; };
 		078B040B1250A1F000227D49 /* SL_hinkle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SL_hinkle.png; sourceTree = "<group>"; };
 		078B040C1250A1F000227D49 /* SL_pickles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SL_pickles.png; sourceTree = "<group>"; };
-		078B0A9A125220CB00227D49 /* GLCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLCamera.h; sourceTree = "<group>"; };
-		078B0A9B125220CB00227D49 /* GLCamera.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLCamera.mm; sourceTree = "<group>"; };
 		078B0A9C12522D1E00227D49 /* CGQuaternion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGQuaternion.h; sourceTree = "<group>"; };
 		0793CD5F1267675200490A1B /* CGPlane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPlane.h; sourceTree = "<group>"; };
 		07990633125E088B004CCA19 /* SL_HL_clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SL_HL_clock.png; sourceTree = "<group>"; };
@@ -350,20 +329,8 @@
 		0799A7E212635F9C000BF77C /* FPSTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPSTimer.m; sourceTree = "<group>"; };
 		0799A7E312636065000BF77C /* DeltaTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeltaTimer.h; sourceTree = "<group>"; };
 		0799A7E412636065000BF77C /* DeltaTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeltaTimer.m; sourceTree = "<group>"; };
-		0799AC0A12649DAF000BF77C /* GLViewport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLViewport.h; sourceTree = "<group>"; };
-		0799AC2D1264A239000BF77C /* GLCameraUtilties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLCameraUtilties.h; sourceTree = "<group>"; };
 		0799C0FC1256036400846A9C /* GLVertexs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLVertexs.h; sourceTree = "<group>"; };
-		0799C109125603E300846A9C /* GLMeshes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMeshes.h; sourceTree = "<group>"; };
-		0799C10A1256043800846A9C /* GLTextures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTextures.h; sourceTree = "<group>"; };
-		0799C10B1256046B00846A9C /* GLSprites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLSprites.h; sourceTree = "<group>"; };
 		0799C10C125604E700846A9C /* Timers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timers.h; sourceTree = "<group>"; };
-		079CF89C126CA98A00E64CDC /* E3DSplines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DSplines.h; sourceTree = "<group>"; };
-		079CF89D126CA9A300E64CDC /* E3DSplineFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DSplineFactory.h; sourceTree = "<group>"; };
-		079CF89E126CA9A300E64CDC /* E3DSplineFactory.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = E3DSplineFactory.mm; sourceTree = "<group>"; };
-		079CF8A0126CA9FA00E64CDC /* E3DSplineHermite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DSplineHermite.h; sourceTree = "<group>"; };
-		079CF8A1126CA9FA00E64CDC /* E3DSplineHermite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = E3DSplineHermite.mm; sourceTree = "<group>"; };
-		079CF8AE126CBBE800E64CDC /* E3DSplineTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DSplineTypes.h; sourceTree = "<group>"; };
-		079CF8AF126CBBF200E64CDC /* E3DSpline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DSpline.h; sourceTree = "<group>"; };
 		079CF918126CC7DF00E64CDC /* SPLINE_2Points.3ds */ = {isa = PBXFileReference; lastKnownFileType = file; path = SPLINE_2Points.3ds; sourceTree = "<group>"; };
 		079CF91A126CC81100E64CDC /* TestSplines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSplines.h; sourceTree = "<group>"; };
 		079CF91B126CC83100E64CDC /* TestSplineLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSplineLoader.h; sourceTree = "<group>"; };
@@ -384,19 +351,6 @@
 		07A210A6126DAC9500084A47 /* PVRPODScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PVRPODScene.mm; sourceTree = "<group>"; };
 		07A210A9126DAC9500084A47 /* PVRPODTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVRPODTypes.h; sourceTree = "<group>"; };
 		07A210AA126DAC9500084A47 /* PVRPODUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVRPODUtility.h; sourceTree = "<group>"; };
-		07A210D3126DB10F00084A47 /* GLMeshCone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMeshCone.h; sourceTree = "<group>"; };
-		07A210D4126DB10F00084A47 /* GLMeshCube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMeshCube.h; sourceTree = "<group>"; };
-		07A210D5126DB10F00084A47 /* GLMeshCylinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMeshCylinder.h; sourceTree = "<group>"; };
-		07A210D6126DB10F00084A47 /* GLMeshShapes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMeshShapes.h; sourceTree = "<group>"; };
-		07A210D7126DB10F00084A47 /* GLMeshSphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMeshSphere.h; sourceTree = "<group>"; };
-		07A210DD126DB15C00084A47 /* GLMeshWriteHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMeshWriteHeader.h; sourceTree = "<group>"; };
-		07A210DE126DB15C00084A47 /* GLMeshWriteHeader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLMeshWriteHeader.mm; sourceTree = "<group>"; };
-		07A21108126DB2D400084A47 /* MAX3DSModelConvertor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAX3DSModelConvertor.h; sourceTree = "<group>"; };
-		07A21109126DB2D400084A47 /* MAX3DSModelConvertor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MAX3DSModelConvertor.mm; sourceTree = "<group>"; };
-		07A2110D126DB2DD00084A47 /* MD2ModelConvertor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD2ModelConvertor.h; sourceTree = "<group>"; };
-		07A2110E126DB2DD00084A47 /* MD2ModelConvertor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MD2ModelConvertor.mm; sourceTree = "<group>"; };
-		07A21112126DB2E700084A47 /* PVRPODModelConvertor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVRPODModelConvertor.h; sourceTree = "<group>"; };
-		07A21113126DB2E700084A47 /* PVRPODModelConvertor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PVRPODModelConvertor.mm; sourceTree = "<group>"; };
 		07A2112B126DB41E00084A47 /* gzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gzip.h; sourceTree = "<group>"; };
 		07A2112C126DB41E00084A47 /* gzip.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gzip.mm; sourceTree = "<group>"; };
 		07A21130126DB4AA00084A47 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
@@ -413,12 +367,11 @@
 		07A212BE126DEC1600084A47 /* E3DModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DModel.h; sourceTree = "<group>"; };
 		07A212BF126DEC1600084A47 /* E3DModelStatic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DModelStatic.h; sourceTree = "<group>"; };
 		07A212C0126DEC1600084A47 /* E3DModelStatic.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = E3DModelStatic.mm; sourceTree = "<group>"; };
-		07A212C1126DEC1600084A47 /* E3DModelVertexAnimated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DModelVertexAnimated.h; sourceTree = "<group>"; };
-		07A212C2126DEC1600084A47 /* E3DModelVertexAnimated.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = E3DModelVertexAnimated.mm; sourceTree = "<group>"; };
+		07A212C1126DEC1600084A47 /* E3DModelMorph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DModelMorph.h; sourceTree = "<group>"; };
+		07A212C2126DEC1600084A47 /* E3DModelMorph.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = E3DModelMorph.mm; sourceTree = "<group>"; };
 		07A212EE126DEFF300084A47 /* E3DCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DCamera.h; sourceTree = "<group>"; };
 		07A212EF126DEFF300084A47 /* E3DCamera.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = E3DCamera.mm; sourceTree = "<group>"; };
 		07A212F3126DF7FB00084A47 /* E3DCameraTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DCameraTypes.h; sourceTree = "<group>"; };
-		07A2136B126E12AE00084A47 /* E3DFactories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DFactories.h; sourceTree = "<group>"; };
 		07A21376126E167800084A47 /* E3DScenes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DScenes.h; sourceTree = "<group>"; };
 		07A21381126E176D00084A47 /* TestModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestModels.h; sourceTree = "<group>"; };
 		07A21383126E17A700084A47 /* TestMeshLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestMeshLoader.h; sourceTree = "<group>"; };
@@ -441,7 +394,6 @@
 		07A216D4126F19E500084A47 /* SPLINE_4Points.3ds */ = {isa = PBXFileReference; lastKnownFileType = file; path = SPLINE_4Points.3ds; sourceTree = "<group>"; };
 		07A21704126F208800084A47 /* TestSplinePlayback4Points.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSplinePlayback4Points.h; sourceTree = "<group>"; };
 		07A21705126F208800084A47 /* TestSplinePlayback4Points.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestSplinePlayback4Points.mm; sourceTree = "<group>"; };
-		07A8F4A512539F37009E62A5 /* GLCameras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLCameras.h; sourceTree = "<group>"; };
 		07A8F5491253B1E3009E62A5 /* E3D_cone.md2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = E3D_cone.md2; sourceTree = "<group>"; };
 		07A8F54A1253B1E3009E62A5 /* E3D_sphere.md2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = E3D_sphere.md2; sourceTree = "<group>"; };
 		07A8F54B1253B1E3009E62A5 /* E3D_cylinder.md2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = E3D_cylinder.md2; sourceTree = "<group>"; };
@@ -450,6 +402,51 @@
 		07A8F6231254D88A009E62A5 /* CGTestMathsAABB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGTestMathsAABB.h; sourceTree = "<group>"; };
 		07A8F6241254D88A009E62A5 /* CGTestMathsAABB.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CGTestMathsAABB.mm; sourceTree = "<group>"; };
 		07A8F6261254DA17009E62A5 /* CGTestMaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGTestMaths.h; sourceTree = "<group>"; };
+		07B4891D1279BCF00014295F /* E3DManagers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DManagers.h; sourceTree = "<group>"; };
+		07B4891E1279BCF00014295F /* E3DManagers.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = E3DManagers.mm; sourceTree = "<group>"; };
+		07B4892C1279BDB50014295F /* E3DMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DMesh.h; sourceTree = "<group>"; };
+		07B4892D1279BDB50014295F /* E3DMeshStatic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DMeshStatic.h; sourceTree = "<group>"; };
+		07B4892E1279BDB50014295F /* E3DMeshStatic.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = E3DMeshStatic.mm; sourceTree = "<group>"; };
+		07B4892F1279BDB50014295F /* E3DMeshTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DMeshTypes.h; sourceTree = "<group>"; };
+		07B489301279BDB50014295F /* E3DMeshMorph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DMeshMorph.h; sourceTree = "<group>"; };
+		07B489311279BDB50014295F /* E3DMeshMorph.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = E3DMeshMorph.mm; sourceTree = "<group>"; };
+		07B489321279BDB50014295F /* E3DMeshes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DMeshes.h; sourceTree = "<group>"; };
+		07B489331279BDB50014295F /* E3DMeshManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DMeshManager.h; sourceTree = "<group>"; };
+		07B489341279BDB50014295F /* E3DMeshManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = E3DMeshManager.mm; sourceTree = "<group>"; };
+		07B489381279BDB50014295F /* MAX3DSModelConvertor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAX3DSModelConvertor.h; sourceTree = "<group>"; };
+		07B489391279BDB50014295F /* MAX3DSModelConvertor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MAX3DSModelConvertor.mm; sourceTree = "<group>"; };
+		07B4893B1279BDB50014295F /* MD2ModelConvertor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD2ModelConvertor.h; sourceTree = "<group>"; };
+		07B4893C1279BDB50014295F /* MD2ModelConvertor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MD2ModelConvertor.mm; sourceTree = "<group>"; };
+		07B4893E1279BDB50014295F /* PVRPODModelConvertor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVRPODModelConvertor.h; sourceTree = "<group>"; };
+		07B4893F1279BDB50014295F /* PVRPODModelConvertor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PVRPODModelConvertor.mm; sourceTree = "<group>"; };
+		07B489411279BDB50014295F /* E3DConeVerts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DConeVerts.h; sourceTree = "<group>"; };
+		07B489421279BDB50014295F /* E3DCubeVerts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DCubeVerts.h; sourceTree = "<group>"; };
+		07B489431279BDB50014295F /* E3DCylinderVerts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DCylinderVerts.h; sourceTree = "<group>"; };
+		07B489441279BDB50014295F /* E3DVertShapes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DVertShapes.h; sourceTree = "<group>"; };
+		07B489451279BDB50014295F /* E3DSphereVerts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DSphereVerts.h; sourceTree = "<group>"; };
+		07B489471279BDB50014295F /* E3DVertWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DVertWriter.h; sourceTree = "<group>"; };
+		07B489481279BDB50014295F /* E3DVertWriter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = E3DVertWriter.mm; sourceTree = "<group>"; };
+		07B489A51279C7820014295F /* E3DSpline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DSpline.h; sourceTree = "<group>"; };
+		07B489A61279C7820014295F /* E3DSplineHermite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DSplineHermite.h; sourceTree = "<group>"; };
+		07B489A71279C7820014295F /* E3DSplineHermite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = E3DSplineHermite.mm; sourceTree = "<group>"; };
+		07B489A81279C7820014295F /* E3DSplineTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DSplineTypes.h; sourceTree = "<group>"; };
+		07B489A91279C7820014295F /* E3DSplineManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DSplineManager.h; sourceTree = "<group>"; };
+		07B489AA1279C7820014295F /* E3DSplineManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = E3DSplineManager.mm; sourceTree = "<group>"; };
+		07B489AB1279C7820014295F /* E3DSplines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DSplines.h; sourceTree = "<group>"; };
+		07B48AA4127AF0E40014295F /* E3DTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DTexture.h; sourceTree = "<group>"; };
+		07B48AA5127AF0E50014295F /* E3DTexture.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = E3DTexture.mm; sourceTree = "<group>"; };
+		07B48AA6127AF0E50014295F /* E3DTextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DTextureManager.h; sourceTree = "<group>"; };
+		07B48AA7127AF0E50014295F /* E3DTextureManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = E3DTextureManager.mm; sourceTree = "<group>"; };
+		07B48AA8127AF0E50014295F /* E3DTextures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DTextures.h; sourceTree = "<group>"; };
+		07B48AAA127AF0E50014295F /* GLBasicTextureLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLBasicTextureLoader.h; sourceTree = "<group>"; };
+		07B48AAB127AF0E50014295F /* GLBasicTextureLoader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLBasicTextureLoader.mm; sourceTree = "<group>"; };
+		07B48AAC127AF0E50014295F /* GLPVRTextureLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLPVRTextureLoader.h; sourceTree = "<group>"; };
+		07B48AAD127AF0E50014295F /* GLPVRTextureLoader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLPVRTextureLoader.mm; sourceTree = "<group>"; };
+		07B48ACD127AF29B0014295F /* E3DSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DSprite.h; sourceTree = "<group>"; };
+		07B48ACE127AF29B0014295F /* E3DSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = E3DSprite.mm; sourceTree = "<group>"; };
+		07B48ACF127AF29B0014295F /* E3DSpriteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DSpriteManager.h; sourceTree = "<group>"; };
+		07B48AD0127AF29C0014295F /* E3DSpriteManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = E3DSpriteManager.mm; sourceTree = "<group>"; };
+		07B48AD1127AF29D0014295F /* E3DSprites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E3DSprites.h; sourceTree = "<group>"; };
 		07ECE27E125A0AE10097D909 /* Box.3ds */ = {isa = PBXFileReference; lastKnownFileType = file; path = Box.3ds; sourceTree = "<group>"; };
 		07ECE42B125A40720097D909 /* vertexpaintcube.3DS */ = {isa = PBXFileReference; lastKnownFileType = file; path = vertexpaintcube.3DS; sourceTree = "<group>"; };
 		07FDED18125F760F002AACD9 /* SL_EX_house.POD */ = {isa = PBXFileReference; lastKnownFileType = file; path = SL_EX_house.POD; sourceTree = "<group>"; };
@@ -550,6 +547,7 @@
 		077FF0D71248B53A00FC7D17 /* Electric3D */ = {
 			isa = PBXGroup;
 			children = (
+				07B4891C1279BCCB0014295F /* Managers */,
 				077FF0D81248B54800FC7D17 /* Renderer */,
 				07A21217126DE3D500084A47 /* Scene */,
 				077FF0DA1248B57A00FC7D17 /* Utilities */,
@@ -574,15 +572,9 @@
 		077FF0DA1248B57A00FC7D17 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				07A2130C126E037F00084A47 /* Factories */,
 				079CF969126DA8E400E64CDC /* Containers */,
-				079CF87A126CA6F900E64CDC /* Splines */,
-				078B0A991252208700227D49 /* Camera */,
 				077FF912124CB26000FC7D17 /* Vertex */,
-				077FF910124CB21100FC7D17 /* Mesh */,
-				077FF2C7124925D700FC7D17 /* Textures */,
 				077FF87C124BEB3300FC7D17 /* Compression */,
-				077FFA92124CE93200FC7D17 /* Sprites */,
 				077FF2401249111200FC7D17 /* Colors */,
 				077FF0E11248C50F00FC7D17 /* Maths */,
 				077FF0E01248C4FA00FC7D17 /* Timers */,
@@ -645,29 +637,6 @@
 				077FF2581249184500FC7D17 /* GLColor.mm */,
 			);
 			path = Colors;
-			sourceTree = "<group>";
-		};
-		077FF2C7124925D700FC7D17 /* Textures */ = {
-			isa = PBXGroup;
-			children = (
-				0799C10A1256043800846A9C /* GLTextures.h */,
-				077FFA0E124CD26900FC7D17 /* GLTextureFactory.h */,
-				077FFA0F124CD26900FC7D17 /* GLTextureFactory.mm */,
-				077FFA11124CD5F000FC7D17 /* Containers */,
-				077FF2D31249265000FC7D17 /* Loaders */,
-			);
-			path = Textures;
-			sourceTree = "<group>";
-		};
-		077FF2D31249265000FC7D17 /* Loaders */ = {
-			isa = PBXGroup;
-			children = (
-				077FF2D41249265000FC7D17 /* GLBasicTextureLoader.h */,
-				077FF2D51249265000FC7D17 /* GLBasicTextureLoader.mm */,
-				077FF2D61249265000FC7D17 /* GLPVRTextureLoader.h */,
-				077FF2D71249265000FC7D17 /* GLPVRTextureLoader.mm */,
-			);
-			path = Loaders;
 			sourceTree = "<group>";
 		};
 		077FF35C124A1D8000FC7D17 /* Test */ = {
@@ -758,18 +727,6 @@
 			path = Compression;
 			sourceTree = "<group>";
 		};
-		077FF910124CB21100FC7D17 /* Mesh */ = {
-			isa = PBXGroup;
-			children = (
-				0799C109125603E300846A9C /* GLMeshes.h */,
-				077FF92F124CB46500FC7D17 /* GLMeshFactory.h */,
-				077FF930124CB46500FC7D17 /* GLMeshFactory.mm */,
-				077FF93A124CB4A400FC7D17 /* Containers */,
-				07A2108F126DAC5900084A47 /* Utilities */,
-			);
-			path = Mesh;
-			sourceTree = "<group>";
-		};
 		077FF912124CB26000FC7D17 /* Vertex */ = {
 			isa = PBXGroup;
 			children = (
@@ -779,48 +736,6 @@
 				077FF913124CB28300FC7D17 /* GLVertexComponents.h */,
 			);
 			path = Vertex;
-			sourceTree = "<group>";
-		};
-		077FF93A124CB4A400FC7D17 /* Containers */ = {
-			isa = PBXGroup;
-			children = (
-				077FF935124CB49600FC7D17 /* GLMeshTypes.h */,
-				077FF932124CB49600FC7D17 /* GLMesh.h */,
-				077FF933124CB49600FC7D17 /* GLMeshStatic.h */,
-				077FF934124CB49600FC7D17 /* GLMeshStatic.mm */,
-				077FF936124CB49600FC7D17 /* GLMeshVertexAnimation.h */,
-				077FF937124CB49600FC7D17 /* GLMeshVertexAnimation.mm */,
-			);
-			path = Containers;
-			sourceTree = "<group>";
-		};
-		077FFA11124CD5F000FC7D17 /* Containers */ = {
-			isa = PBXGroup;
-			children = (
-				077FFA16124CD70400FC7D17 /* GLTexture.h */,
-				077FFA17124CD70400FC7D17 /* GLTexture.mm */,
-			);
-			path = Containers;
-			sourceTree = "<group>";
-		};
-		077FFA92124CE93200FC7D17 /* Sprites */ = {
-			isa = PBXGroup;
-			children = (
-				0799C10B1256046B00846A9C /* GLSprites.h */,
-				077FFA93124CE96900FC7D17 /* GLSpriteFactory.h */,
-				077FFA94124CE96900FC7D17 /* GLSpriteFactory.mm */,
-				077FFA96124CEA4800FC7D17 /* Containers */,
-			);
-			path = Sprites;
-			sourceTree = "<group>";
-		};
-		077FFA96124CEA4800FC7D17 /* Containers */ = {
-			isa = PBXGroup;
-			children = (
-				077FFA97124CEA7000FC7D17 /* GLSprite.h */,
-				077FFA98124CEA7000FC7D17 /* GLSprite.mm */,
-			);
-			path = Containers;
 			sourceTree = "<group>";
 		};
 		078B0111124E50EE00227D49 /* Icons */ = {
@@ -837,18 +752,6 @@
 			name = Icons;
 			sourceTree = "<group>";
 		};
-		078B0A991252208700227D49 /* Camera */ = {
-			isa = PBXGroup;
-			children = (
-				07A8F4A512539F37009E62A5 /* GLCameras.h */,
-				0799AC2D1264A239000BF77C /* GLCameraUtilties.h */,
-				078B0A9A125220CB00227D49 /* GLCamera.h */,
-				078B0A9B125220CB00227D49 /* GLCamera.mm */,
-				0799AC0A12649DAF000BF77C /* GLViewport.h */,
-			);
-			path = Camera;
-			sourceTree = "<group>";
-		};
 		079908DD125E354E004CCA19 /* Multiple Mesh Test */ = {
 			isa = PBXGroup;
 			children = (
@@ -856,28 +759,6 @@
 				07990925125E3997004CCA19 /* SL_ghosts.POD */,
 			);
 			path = "Multiple Mesh Test";
-			sourceTree = "<group>";
-		};
-		079CF87A126CA6F900E64CDC /* Splines */ = {
-			isa = PBXGroup;
-			children = (
-				079CF89C126CA98A00E64CDC /* E3DSplines.h */,
-				079CF89D126CA9A300E64CDC /* E3DSplineFactory.h */,
-				079CF89E126CA9A300E64CDC /* E3DSplineFactory.mm */,
-				079CF89F126CA9D700E64CDC /* Containers */,
-			);
-			path = Splines;
-			sourceTree = "<group>";
-		};
-		079CF89F126CA9D700E64CDC /* Containers */ = {
-			isa = PBXGroup;
-			children = (
-				079CF8AE126CBBE800E64CDC /* E3DSplineTypes.h */,
-				079CF8AF126CBBF200E64CDC /* E3DSpline.h */,
-				079CF8A0126CA9FA00E64CDC /* E3DSplineHermite.h */,
-				079CF8A1126CA9FA00E64CDC /* E3DSplineHermite.mm */,
-			);
-			path = Containers;
 			sourceTree = "<group>";
 		};
 		079CF910126CC7C600E64CDC /* Splines */ = {
@@ -912,16 +793,6 @@
 				07A210A4126DAC9500084A47 /* PVRPOD */,
 			);
 			path = Containers;
-			sourceTree = "<group>";
-		};
-		07A2108F126DAC5900084A47 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				07A210C7126DB09400084A47 /* Convertors */,
-				07A210C9126DB0BE00084A47 /* Writers */,
-				07A210C8126DB0AE00084A47 /* Shapes */,
-			);
-			path = Utilities;
 			sourceTree = "<group>";
 		};
 		07A21091126DAC9500084A47 /* MAX3DS */ = {
@@ -971,64 +842,6 @@
 				07A210A6126DAC9500084A47 /* PVRPODScene.mm */,
 				07A210A9126DAC9500084A47 /* PVRPODTypes.h */,
 				07A210AA126DAC9500084A47 /* PVRPODUtility.h */,
-			);
-			path = PVRPOD;
-			sourceTree = "<group>";
-		};
-		07A210C7126DB09400084A47 /* Convertors */ = {
-			isa = PBXGroup;
-			children = (
-				07A21103126DB29000084A47 /* MAX3DS */,
-				07A21104126DB29B00084A47 /* MD2 */,
-				07A21105126DB2A600084A47 /* PVRPOD */,
-			);
-			path = Convertors;
-			sourceTree = "<group>";
-		};
-		07A210C8126DB0AE00084A47 /* Shapes */ = {
-			isa = PBXGroup;
-			children = (
-				07A210D3126DB10F00084A47 /* GLMeshCone.h */,
-				07A210D4126DB10F00084A47 /* GLMeshCube.h */,
-				07A210D5126DB10F00084A47 /* GLMeshCylinder.h */,
-				07A210D6126DB10F00084A47 /* GLMeshShapes.h */,
-				07A210D7126DB10F00084A47 /* GLMeshSphere.h */,
-			);
-			path = Shapes;
-			sourceTree = "<group>";
-		};
-		07A210C9126DB0BE00084A47 /* Writers */ = {
-			isa = PBXGroup;
-			children = (
-				07A210DD126DB15C00084A47 /* GLMeshWriteHeader.h */,
-				07A210DE126DB15C00084A47 /* GLMeshWriteHeader.mm */,
-			);
-			path = Writers;
-			sourceTree = "<group>";
-		};
-		07A21103126DB29000084A47 /* MAX3DS */ = {
-			isa = PBXGroup;
-			children = (
-				07A21108126DB2D400084A47 /* MAX3DSModelConvertor.h */,
-				07A21109126DB2D400084A47 /* MAX3DSModelConvertor.mm */,
-			);
-			path = MAX3DS;
-			sourceTree = "<group>";
-		};
-		07A21104126DB29B00084A47 /* MD2 */ = {
-			isa = PBXGroup;
-			children = (
-				07A2110D126DB2DD00084A47 /* MD2ModelConvertor.h */,
-				07A2110E126DB2DD00084A47 /* MD2ModelConvertor.mm */,
-			);
-			path = MD2;
-			sourceTree = "<group>";
-		};
-		07A21105126DB2A600084A47 /* PVRPOD */ = {
-			isa = PBXGroup;
-			children = (
-				07A21112126DB2E700084A47 /* PVRPODModelConvertor.h */,
-				07A21113126DB2E700084A47 /* PVRPODModelConvertor.mm */,
 			);
 			path = PVRPOD;
 			sourceTree = "<group>";
@@ -1117,18 +930,10 @@
 				07A212BE126DEC1600084A47 /* E3DModel.h */,
 				07A212BF126DEC1600084A47 /* E3DModelStatic.h */,
 				07A212C0126DEC1600084A47 /* E3DModelStatic.mm */,
-				07A212C1126DEC1600084A47 /* E3DModelVertexAnimated.h */,
-				07A212C2126DEC1600084A47 /* E3DModelVertexAnimated.mm */,
+				07A212C1126DEC1600084A47 /* E3DModelMorph.h */,
+				07A212C2126DEC1600084A47 /* E3DModelMorph.mm */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		07A2130C126E037F00084A47 /* Factories */ = {
-			isa = PBXGroup;
-			children = (
-				07A2136B126E12AE00084A47 /* E3DFactories.h */,
-			);
-			path = Factories;
 			sourceTree = "<group>";
 		};
 		07A21372126E151500084A47 /* Models */ = {
@@ -1176,6 +981,186 @@
 			path = Maths;
 			sourceTree = "<group>";
 		};
+		07B4891C1279BCCB0014295F /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				07B489221279BD880014295F /* Meshes */,
+				07B489A31279C7820014295F /* Splines */,
+				07B48ACB127AF29B0014295F /* Sprites */,
+				07B48AA2127AF0E40014295F /* Textures */,
+				07B4891D1279BCF00014295F /* E3DManagers.h */,
+				07B4891E1279BCF00014295F /* E3DManagers.mm */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		07B489221279BD880014295F /* Meshes */ = {
+			isa = PBXGroup;
+			children = (
+				07B4892B1279BDB50014295F /* Containers */,
+				07B489321279BDB50014295F /* E3DMeshes.h */,
+				07B489331279BDB50014295F /* E3DMeshManager.h */,
+				07B489341279BDB50014295F /* E3DMeshManager.mm */,
+				07B489351279BDB50014295F /* Utilities */,
+			);
+			path = Meshes;
+			sourceTree = "<group>";
+		};
+		07B4892B1279BDB50014295F /* Containers */ = {
+			isa = PBXGroup;
+			children = (
+				07B4892C1279BDB50014295F /* E3DMesh.h */,
+				07B4892D1279BDB50014295F /* E3DMeshStatic.h */,
+				07B4892E1279BDB50014295F /* E3DMeshStatic.mm */,
+				07B4892F1279BDB50014295F /* E3DMeshTypes.h */,
+				07B489301279BDB50014295F /* E3DMeshMorph.h */,
+				07B489311279BDB50014295F /* E3DMeshMorph.mm */,
+			);
+			path = Containers;
+			sourceTree = "<group>";
+		};
+		07B489351279BDB50014295F /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				07B489361279BDB50014295F /* Convertors */,
+				07B489401279BDB50014295F /* Shapes */,
+				07B489461279BDB50014295F /* Writers */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		07B489361279BDB50014295F /* Convertors */ = {
+			isa = PBXGroup;
+			children = (
+				07B489371279BDB50014295F /* MAX3DS */,
+				07B4893A1279BDB50014295F /* MD2 */,
+				07B4893D1279BDB50014295F /* PVRPOD */,
+			);
+			path = Convertors;
+			sourceTree = "<group>";
+		};
+		07B489371279BDB50014295F /* MAX3DS */ = {
+			isa = PBXGroup;
+			children = (
+				07B489381279BDB50014295F /* MAX3DSModelConvertor.h */,
+				07B489391279BDB50014295F /* MAX3DSModelConvertor.mm */,
+			);
+			path = MAX3DS;
+			sourceTree = "<group>";
+		};
+		07B4893A1279BDB50014295F /* MD2 */ = {
+			isa = PBXGroup;
+			children = (
+				07B4893B1279BDB50014295F /* MD2ModelConvertor.h */,
+				07B4893C1279BDB50014295F /* MD2ModelConvertor.mm */,
+			);
+			path = MD2;
+			sourceTree = "<group>";
+		};
+		07B4893D1279BDB50014295F /* PVRPOD */ = {
+			isa = PBXGroup;
+			children = (
+				07B4893E1279BDB50014295F /* PVRPODModelConvertor.h */,
+				07B4893F1279BDB50014295F /* PVRPODModelConvertor.mm */,
+			);
+			path = PVRPOD;
+			sourceTree = "<group>";
+		};
+		07B489401279BDB50014295F /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				07B489441279BDB50014295F /* E3DVertShapes.h */,
+				07B489411279BDB50014295F /* E3DConeVerts.h */,
+				07B489421279BDB50014295F /* E3DCubeVerts.h */,
+				07B489431279BDB50014295F /* E3DCylinderVerts.h */,
+				07B489451279BDB50014295F /* E3DSphereVerts.h */,
+			);
+			path = Shapes;
+			sourceTree = "<group>";
+		};
+		07B489461279BDB50014295F /* Writers */ = {
+			isa = PBXGroup;
+			children = (
+				07B489471279BDB50014295F /* E3DVertWriter.h */,
+				07B489481279BDB50014295F /* E3DVertWriter.mm */,
+			);
+			path = Writers;
+			sourceTree = "<group>";
+		};
+		07B489A31279C7820014295F /* Splines */ = {
+			isa = PBXGroup;
+			children = (
+				07B489A41279C7820014295F /* Containers */,
+				07B489A91279C7820014295F /* E3DSplineManager.h */,
+				07B489AA1279C7820014295F /* E3DSplineManager.mm */,
+				07B489AB1279C7820014295F /* E3DSplines.h */,
+			);
+			path = Splines;
+			sourceTree = "<group>";
+		};
+		07B489A41279C7820014295F /* Containers */ = {
+			isa = PBXGroup;
+			children = (
+				07B489A51279C7820014295F /* E3DSpline.h */,
+				07B489A61279C7820014295F /* E3DSplineHermite.h */,
+				07B489A71279C7820014295F /* E3DSplineHermite.mm */,
+				07B489A81279C7820014295F /* E3DSplineTypes.h */,
+			);
+			path = Containers;
+			sourceTree = "<group>";
+		};
+		07B48AA2127AF0E40014295F /* Textures */ = {
+			isa = PBXGroup;
+			children = (
+				07B48AA3127AF0E40014295F /* Containers */,
+				07B48AA6127AF0E50014295F /* E3DTextureManager.h */,
+				07B48AA7127AF0E50014295F /* E3DTextureManager.mm */,
+				07B48AA8127AF0E50014295F /* E3DTextures.h */,
+				07B48AA9127AF0E50014295F /* Loaders */,
+			);
+			path = Textures;
+			sourceTree = "<group>";
+		};
+		07B48AA3127AF0E40014295F /* Containers */ = {
+			isa = PBXGroup;
+			children = (
+				07B48AA4127AF0E40014295F /* E3DTexture.h */,
+				07B48AA5127AF0E50014295F /* E3DTexture.mm */,
+			);
+			path = Containers;
+			sourceTree = "<group>";
+		};
+		07B48AA9127AF0E50014295F /* Loaders */ = {
+			isa = PBXGroup;
+			children = (
+				07B48AAA127AF0E50014295F /* GLBasicTextureLoader.h */,
+				07B48AAB127AF0E50014295F /* GLBasicTextureLoader.mm */,
+				07B48AAC127AF0E50014295F /* GLPVRTextureLoader.h */,
+				07B48AAD127AF0E50014295F /* GLPVRTextureLoader.mm */,
+			);
+			path = Loaders;
+			sourceTree = "<group>";
+		};
+		07B48ACB127AF29B0014295F /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+				07B48ACC127AF29B0014295F /* Containers */,
+				07B48ACF127AF29B0014295F /* E3DSpriteManager.h */,
+				07B48AD0127AF29C0014295F /* E3DSpriteManager.mm */,
+				07B48AD1127AF29D0014295F /* E3DSprites.h */,
+			);
+			path = Sprites;
+			sourceTree = "<group>";
+		};
+		07B48ACC127AF29B0014295F /* Containers */ = {
+			isa = PBXGroup;
+			children = (
+				07B48ACD127AF29B0014295F /* E3DSprite.h */,
+				07B48ACE127AF29B0014295F /* E3DSprite.mm */,
+			);
+			path = Containers;
+			sourceTree = "<group>";
+		};
 		07ECE276125A0A5D0097D909 /* MAX3DS */ = {
 			isa = PBXGroup;
 			children = (
@@ -1195,7 +1180,6 @@
 				079908AF125E2E37004CCA19 /* SL_HL_clock_RGBA.POD */,
 				07990635125E0894004CCA19 /* SL_HL_clock_ARGB.POD */,
 				079E42C9125BA66400AFC765 /* vertex_cube.POD */,
-				073F02AE125C8787005F7C98 /* vertex_cube_indexed.POD */,
 			);
 			path = POD;
 			sourceTree = "<group>";
@@ -1278,90 +1262,93 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0799B16A12653221000BF77C /* GLCameraUtilties.h in Headers */,
-				0799B16B12653221000BF77C /* GLViewport.h in Headers */,
-				0799A7F312636173000BF77C /* DeltaTimer.h in Headers */,
-				0799A7F412636173000BF77C /* FPSTimer.h in Headers */,
-				0799A7BA1263588B000BF77C /* TimerTypes.h in Headers */,
-				07126F781255229400C94F40 /* CGAABB.h in Headers */,
-				07126F791255229400C94F40 /* CGMaths.h in Headers */,
-				07126F7A1255229400C94F40 /* CGMathsConstants.h in Headers */,
-				07126F7B1255229400C94F40 /* CGMathsUtilties.h in Headers */,
-				07126F7C1255229400C94F40 /* CGMatrix3x3.h in Headers */,
-				07126F7D1255229400C94F40 /* CGMatrix4x4.h in Headers */,
-				07126F7E1255229400C94F40 /* CGQuaternion.h in Headers */,
-				07126F7F1255229400C94F40 /* CGSphere.h in Headers */,
-				07126F801255229400C94F40 /* CGVector2D.h in Headers */,
-				07126F811255229400C94F40 /* CGVector3D.h in Headers */,
-				07126F821255229400C94F40 /* CGVector4D.h in Headers */,
-				07126F831255229400C94F40 /* Compression.h in Headers */,
-				07127070125522D500C94F40 /* GameTimer.h in Headers */,
-				0712709A125523D800C94F40 /* GLBasicTextureLoader.h in Headers */,
-				071270F11255246C00C94F40 /* GLCamera.h in Headers */,
-				071270F01255246C00C94F40 /* GLCameras.h in Headers */,
-				071270901255238300C94F40 /* GLColor.h in Headers */,
-				0712708F1255238300C94F40 /* GLColors.h in Headers */,
-				0712707D1255232200C94F40 /* GLES1RenderEngine.h in Headers */,
-				071270E71255243C00C94F40 /* GLMesh.h in Headers */,
-				0774F088125609A2006AC5BA /* GLMeshes.h in Headers */,
-				071270EC1255244900C94F40 /* GLMeshFactory.h in Headers */,
-				071270E81255243C00C94F40 /* GLMeshStatic.h in Headers */,
-				071270E61255243C00C94F40 /* GLMeshTypes.h in Headers */,
-				071270E91255243C00C94F40 /* GLMeshVertexAnimation.h in Headers */,
-				0712709B125523D800C94F40 /* GLPVRTextureLoader.h in Headers */,
-				07127074125522FD00C94F40 /* GLRenderer.h in Headers */,
-				07127094125523A600C94F40 /* GLSprite.h in Headers */,
-				071270921255239900C94F40 /* GLSpriteFactory.h in Headers */,
-				07127098125523CB00C94F40 /* GLTexture.h in Headers */,
-				07127096125523C000C94F40 /* GLTextureFactory.h in Headers */,
-				0774F089125609AE006AC5BA /* GLTextures.h in Headers */,
-				071270EF1255245A00C94F40 /* GLVertexComponents.h in Headers */,
-				0774F0FC12561017006AC5BA /* GLVertexs.h in Headers */,
-				071270EE1255245A00C94F40 /* GLVertexTypes.h in Headers */,
-				073F0279125C8238005F7C98 /* GLVertexUtility.h in Headers */,
-				07127073125522FD00C94F40 /* GLView.h in Headers */,
-				071270751255230200C94F40 /* IRenderEngine.h in Headers */,
-				0712706F125522D500C94F40 /* RenderTimer.h in Headers */,
-				0774F08B125609C7006AC5BA /* Timers.h in Headers */,
-				0774F08A125609B9006AC5BA /* GLSprites.h in Headers */,
-				07127072125522E800C94F40 /* Electric3D.h in Headers */,
-				073F06C0125DD668005F7C98 /* CGOOBB.h in Headers */,
-				07A210B3126DAC9500084A47 /* MAX3DSScene.h in Headers */,
-				07A210B7126DAC9500084A47 /* MAX3DSTypes.h in Headers */,
-				07A210B8126DAC9500084A47 /* MAX3DSUtility.h in Headers */,
-				07A210B9126DAC9500084A47 /* Anorms.h in Headers */,
-				07A210BA126DAC9500084A47 /* MD2Model.h in Headers */,
-				07A210BE126DAC9500084A47 /* MD2Types.h in Headers */,
-				07A210BF126DAC9500084A47 /* MD3Types.h in Headers */,
-				07A210C0126DAC9500084A47 /* PVRPODScene.h in Headers */,
-				07A210C4126DAC9500084A47 /* PVRPODTypes.h in Headers */,
-				07A210C5126DAC9500084A47 /* PVRPODUtility.h in Headers */,
-				07A210D8126DB10F00084A47 /* GLMeshCone.h in Headers */,
-				07A210D9126DB10F00084A47 /* GLMeshCube.h in Headers */,
-				07A210DA126DB10F00084A47 /* GLMeshCylinder.h in Headers */,
-				07A210DB126DB10F00084A47 /* GLMeshShapes.h in Headers */,
-				07A210DC126DB10F00084A47 /* GLMeshSphere.h in Headers */,
-				07A210E0126DB15C00084A47 /* GLMeshWriteHeader.h in Headers */,
-				07A2110B126DB2D400084A47 /* MAX3DSModelConvertor.h in Headers */,
-				07A21110126DB2DD00084A47 /* MD2ModelConvertor.h in Headers */,
-				07A21115126DB2E700084A47 /* PVRPODModelConvertor.h in Headers */,
-				07A2112E126DB41E00084A47 /* gzip.h in Headers */,
-				07A21133126DB4AA00084A47 /* zip.h in Headers */,
-				07A2122E126DE42E00084A47 /* E3DScene.h in Headers */,
-				07A2124D126DE4D600084A47 /* E3DSceneNode.h in Headers */,
-				07A2124F126DE4D600084A47 /* E3DSceneNodeTypes.h in Headers */,
-				07A21258126DE4F500084A47 /* E3DColorComponent.h in Headers */,
-				07A21259126DE4F500084A47 /* E3DTransformComponent.h in Headers */,
 				07A212B0126DEAC800084A47 /* E3DSceneNodeRoot.h in Headers */,
-				07A212B3126DEB4200084A47 /* E3DSceneNodeGroup.h in Headers */,
-				07A212C3126DEC1600084A47 /* E3DModel.h in Headers */,
-				07A212C4126DEC1600084A47 /* E3DModelStatic.h in Headers */,
-				07A212C6126DEC1600084A47 /* E3DModelVertexAnimated.h in Headers */,
-				07A212F1126DEFF300084A47 /* E3DCamera.h in Headers */,
-				07A212F4126DF7FB00084A47 /* E3DCameraTypes.h in Headers */,
-				07A2136C126E12AE00084A47 /* E3DFactories.h in Headers */,
-				07A21377126E167800084A47 /* E3DScenes.h in Headers */,
-				07A214F6126E2F4500084A47 /* E3DSceneTypes.h in Headers */,
+				07A218F612704C7300084A47 /* Anorms.h in Headers */,
+				07A218F712704C7300084A47 /* CGAABB.h in Headers */,
+				07A218F812704C7300084A47 /* CGMaths.h in Headers */,
+				07A218F912704C7300084A47 /* CGMathsConstants.h in Headers */,
+				07A218FA12704C7300084A47 /* CGMathsTypes.h in Headers */,
+				07A218FB12704C7300084A47 /* CGMathsUtilties.h in Headers */,
+				07A218FC12704C7300084A47 /* CGMatrix3x3.h in Headers */,
+				07A218FD12704C7300084A47 /* CGMatrix4x4.h in Headers */,
+				07A218FE12704C7300084A47 /* CGOOBB.h in Headers */,
+				07A218FF12704C7300084A47 /* CGPlane.h in Headers */,
+				07A2190012704C7300084A47 /* CGQuaternion.h in Headers */,
+				07A2190112704C7300084A47 /* CGSphere.h in Headers */,
+				07A2190212704C7300084A47 /* CGVector2D.h in Headers */,
+				07A2190312704C7300084A47 /* CGVector3D.h in Headers */,
+				07A2190412704C7300084A47 /* CGVector4D.h in Headers */,
+				07A2190512704C7300084A47 /* Compression.h in Headers */,
+				07A2190612704C7300084A47 /* DeltaTimer.h in Headers */,
+				07A2190712704C7300084A47 /* E3DCamera.h in Headers */,
+				07A2190812704C7300084A47 /* E3DCameraTypes.h in Headers */,
+				07A2190912704C7300084A47 /* E3DColorComponent.h in Headers */,
+				07A2190B12704C7300084A47 /* E3DModel.h in Headers */,
+				07A2190C12704C7300084A47 /* E3DModelStatic.h in Headers */,
+				07A2190D12704C7300084A47 /* E3DModelMorph.h in Headers */,
+				07A2190E12704C7300084A47 /* E3DScene.h in Headers */,
+				07A2190F12704C7300084A47 /* E3DSceneNode.h in Headers */,
+				07A2191012704C7300084A47 /* E3DSceneNodeGroup.h in Headers */,
+				07A2191112704C7300084A47 /* E3DSceneNodeTypes.h in Headers */,
+				07A2191212704C7300084A47 /* E3DScenes.h in Headers */,
+				07A2191312704C7300084A47 /* E3DSceneTypes.h in Headers */,
+				07A2191912704C7300084A47 /* E3DTransformComponent.h in Headers */,
+				07A2191A12704C7300084A47 /* Electric3D.h in Headers */,
+				07A2191B12704C7300084A47 /* FPSTimer.h in Headers */,
+				07A2191C12704C7300084A47 /* GameTimer.h in Headers */,
+				07A2192112704C7300084A47 /* GLColor.h in Headers */,
+				07A2192212704C7300084A47 /* GLColors.h in Headers */,
+				07A2192312704C7300084A47 /* GLES1RenderEngine.h in Headers */,
+				07A2193012704C7300084A47 /* GLRenderer.h in Headers */,
+				07A2193712704C7300084A47 /* GLVertexComponents.h in Headers */,
+				07A2193812704C7300084A47 /* GLVertexs.h in Headers */,
+				07A2193912704C7300084A47 /* GLVertexTypes.h in Headers */,
+				07A2193A12704C7300084A47 /* GLVertexUtility.h in Headers */,
+				07A2193B12704C7300084A47 /* GLView.h in Headers */,
+				07A2193D12704C7300084A47 /* gzip.h in Headers */,
+				07A2193E12704C7300084A47 /* IRenderEngine.h in Headers */,
+				07A2194012704C7300084A47 /* MAX3DSScene.h in Headers */,
+				07A2194112704C7300084A47 /* MAX3DSTypes.h in Headers */,
+				07A2194212704C7300084A47 /* MAX3DSUtility.h in Headers */,
+				07A2194312704C7300084A47 /* MD2Model.h in Headers */,
+				07A2194512704C7300084A47 /* MD2Types.h in Headers */,
+				07A2194612704C7300084A47 /* MD3Types.h in Headers */,
+				07A2194812704C7300084A47 /* PVRPODScene.h in Headers */,
+				07A2194912704C7300084A47 /* PVRPODTypes.h in Headers */,
+				07A2194A12704C7300084A47 /* PVRPODUtility.h in Headers */,
+				07A2194B12704C7300084A47 /* RenderTimer.h in Headers */,
+				07A2194C12704C7300084A47 /* Timers.h in Headers */,
+				07A2194D12704C7300084A47 /* TimerTypes.h in Headers */,
+				07A2194E12704C7300084A47 /* zip.h in Headers */,
+				07B489201279BCF00014295F /* E3DManagers.h in Headers */,
+				07B489501279BDB50014295F /* E3DMesh.h in Headers */,
+				07B489511279BDB50014295F /* E3DMeshStatic.h in Headers */,
+				07B489531279BDB50014295F /* E3DMeshTypes.h in Headers */,
+				07B489541279BDB50014295F /* E3DMeshMorph.h in Headers */,
+				07B489561279BDB50014295F /* E3DMeshes.h in Headers */,
+				07B489571279BDB50014295F /* E3DMeshManager.h in Headers */,
+				07B489591279BDB50014295F /* MAX3DSModelConvertor.h in Headers */,
+				07B4895B1279BDB50014295F /* MD2ModelConvertor.h in Headers */,
+				07B4895D1279BDB50014295F /* PVRPODModelConvertor.h in Headers */,
+				07B4895F1279BDB50014295F /* E3DConeVerts.h in Headers */,
+				07B489601279BDB50014295F /* E3DCubeVerts.h in Headers */,
+				07B489611279BDB50014295F /* E3DCylinderVerts.h in Headers */,
+				07B489621279BDB50014295F /* E3DVertShapes.h in Headers */,
+				07B489631279BDB50014295F /* E3DSphereVerts.h in Headers */,
+				07B489641279BDB50014295F /* E3DVertWriter.h in Headers */,
+				07B489AC1279C7820014295F /* E3DSpline.h in Headers */,
+				07B489AD1279C7820014295F /* E3DSplineHermite.h in Headers */,
+				07B489AF1279C7820014295F /* E3DSplineTypes.h in Headers */,
+				07B489B01279C7820014295F /* E3DSplineManager.h in Headers */,
+				07B489B21279C7820014295F /* E3DSplines.h in Headers */,
+				07B48AAE127AF0E50014295F /* E3DTexture.h in Headers */,
+				07B48AB0127AF0E50014295F /* E3DTextureManager.h in Headers */,
+				07B48AB2127AF0E50014295F /* E3DTextures.h in Headers */,
+				07B48AB3127AF0E50014295F /* GLBasicTextureLoader.h in Headers */,
+				07B48AB5127AF0E50014295F /* GLPVRTextureLoader.h in Headers */,
+				07B48AD2127AF29D0014295F /* E3DSprite.h in Headers */,
+				07B48AD4127AF29D0014295F /* E3DSpriteManager.h in Headers */,
+				07B48AD6127AF29D0014295F /* E3DSprites.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1471,7 +1458,6 @@
 				07ECE27F125A0AE10097D909 /* Box.3ds in Resources */,
 				07ECE42C125A40720097D909 /* vertexpaintcube.3DS in Resources */,
 				079E42CA125BA66400AFC765 /* vertex_cube.POD in Resources */,
-				073F02F2125C8E66005F7C98 /* vertex_cube_indexed.POD in Resources */,
 				07990634125E088B004CCA19 /* SL_HL_clock.png in Resources */,
 				07990636125E0894004CCA19 /* SL_HL_clock_ARGB.POD in Resources */,
 				079908B0125E2E37004CCA19 /* SL_HL_clock_RGBA.POD in Resources */,
@@ -1513,40 +1499,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				071270F31255247100C94F40 /* GLCamera.mm in Sources */,
 				0774F11912561CA5006AC5BA /* GameTimer.mm in Sources */,
-				0774F11A12561CA5006AC5BA /* GLBasicTextureLoader.mm in Sources */,
 				0774F11B12561CA5006AC5BA /* GLColor.mm in Sources */,
 				0774F11C12561CA5006AC5BA /* GLES1RenderEngine.mm in Sources */,
-				0774F11E12561CA5006AC5BA /* GLMeshFactory.mm in Sources */,
-				0774F11F12561CA5006AC5BA /* GLMeshStatic.mm in Sources */,
-				0774F12012561CA5006AC5BA /* GLMeshVertexAnimation.mm in Sources */,
-				0774F12612561CA5006AC5BA /* GLPVRTextureLoader.mm in Sources */,
 				0774F12712561CA5006AC5BA /* GLRenderer.mm in Sources */,
-				0774F12912561CA5006AC5BA /* GLSprite.mm in Sources */,
-				0774F12A12561CA5006AC5BA /* GLSpriteFactory.mm in Sources */,
-				0774F12B12561CA5006AC5BA /* GLTexture.mm in Sources */,
-				0774F12C12561CA5006AC5BA /* GLTextureFactory.mm in Sources */,
 				0774F12E12561CA5006AC5BA /* GLView.mm in Sources */,
 				0774F13112561CA5006AC5BA /* RenderTimer.mm in Sources */,
 				0799A7E51263606F000BF77C /* FPSTimer.m in Sources */,
 				0799A7E61263606F000BF77C /* DeltaTimer.m in Sources */,
-				079CF8BB126CC30800E64CDC /* E3DSplineFactory.mm in Sources */,
-				079CF8BC126CC30D00E64CDC /* E3DSplineHermite.mm in Sources */,
 				07A210B4126DAC9500084A47 /* MAX3DSScene.mm in Sources */,
 				07A210BB126DAC9500084A47 /* MD2Model.mm in Sources */,
 				07A210C1126DAC9500084A47 /* PVRPODScene.mm in Sources */,
-				07A210E1126DB15C00084A47 /* GLMeshWriteHeader.mm in Sources */,
-				07A2110C126DB2D400084A47 /* MAX3DSModelConvertor.mm in Sources */,
-				07A21111126DB2DD00084A47 /* MD2ModelConvertor.mm in Sources */,
-				07A21116126DB2E700084A47 /* PVRPODModelConvertor.mm in Sources */,
 				07A2112F126DB41E00084A47 /* gzip.mm in Sources */,
 				07A21134126DB4AA00084A47 /* zip.mm in Sources */,
 				07A2122F126DE42E00084A47 /* E3DScene.mm in Sources */,
 				07A2124E126DE4D600084A47 /* E3DSceneNode.mm in Sources */,
 				07A212C5126DEC1600084A47 /* E3DModelStatic.mm in Sources */,
-				07A212C7126DEC1600084A47 /* E3DModelVertexAnimated.mm in Sources */,
+				07A212C7126DEC1600084A47 /* E3DModelMorph.mm in Sources */,
 				07A212F2126DEFF300084A47 /* E3DCamera.mm in Sources */,
+				07B489211279BCF00014295F /* E3DManagers.mm in Sources */,
+				07B489521279BDB50014295F /* E3DMeshStatic.mm in Sources */,
+				07B489551279BDB50014295F /* E3DMeshMorph.mm in Sources */,
+				07B489581279BDB50014295F /* E3DMeshManager.mm in Sources */,
+				07B4895A1279BDB50014295F /* MAX3DSModelConvertor.mm in Sources */,
+				07B4895C1279BDB50014295F /* MD2ModelConvertor.mm in Sources */,
+				07B4895E1279BDB50014295F /* PVRPODModelConvertor.mm in Sources */,
+				07B489651279BDB50014295F /* E3DVertWriter.mm in Sources */,
+				07B489AE1279C7820014295F /* E3DSplineHermite.mm in Sources */,
+				07B489B11279C7820014295F /* E3DSplineManager.mm in Sources */,
+				07B48AAF127AF0E50014295F /* E3DTexture.mm in Sources */,
+				07B48AB1127AF0E50014295F /* E3DTextureManager.mm in Sources */,
+				07B48AB4127AF0E50014295F /* GLBasicTextureLoader.mm in Sources */,
+				07B48AB6127AF0E50014295F /* GLPVRTextureLoader.mm in Sources */,
+				07B48AD3127AF29D0014295F /* E3DSprite.mm in Sources */,
+				07B48AD5127AF29D0014295F /* E3DSpriteManager.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1559,39 +1545,23 @@
 				28C286E10D94DF7D0034E888 /* RootViewController.mm in Sources */,
 				077FF1D012490B0F00FC7D17 /* RenderTimer.mm in Sources */,
 				077FF25A1249184500FC7D17 /* GLColor.mm in Sources */,
-				077FF2DB1249265000FC7D17 /* GLBasicTextureLoader.mm in Sources */,
-				077FF2DC1249265000FC7D17 /* GLPVRTextureLoader.mm in Sources */,
 				077FF32D124A0AA300FC7D17 /* GLView.mm in Sources */,
 				077FF331124A0D2700FC7D17 /* GLES1RenderEngine.mm in Sources */,
 				077FF48E124A433E00FC7D17 /* GLRenderer.mm in Sources */,
-				077FF931124CB46500FC7D17 /* GLMeshFactory.mm in Sources */,
-				077FF938124CB49600FC7D17 /* GLMeshStatic.mm in Sources */,
-				077FF939124CB49600FC7D17 /* GLMeshVertexAnimation.mm in Sources */,
-				077FFA10124CD26900FC7D17 /* GLTextureFactory.mm in Sources */,
-				077FFA18124CD70400FC7D17 /* GLTexture.mm in Sources */,
-				077FFA95124CE96900FC7D17 /* GLSpriteFactory.mm in Sources */,
-				077FFA99124CEA7000FC7D17 /* GLSprite.mm in Sources */,
 				077FFC20124E398A00FC7D17 /* GameTimer.mm in Sources */,
-				078B0B95125259AF00227D49 /* GLCamera.mm in Sources */,
 				07A8F6251254D88A009E62A5 /* CGTestMathsAABB.mm in Sources */,
 				0799A7E71263606F000BF77C /* FPSTimer.m in Sources */,
 				0799A7E81263606F000BF77C /* DeltaTimer.m in Sources */,
-				079CF8BA126CC30500E64CDC /* E3DSplineFactory.mm in Sources */,
-				079CF8BD126CC30E00E64CDC /* E3DSplineHermite.mm in Sources */,
 				079CF91D126CC83100E64CDC /* TestSplineLoader.mm in Sources */,
 				07A210AD126DAC9500084A47 /* MAX3DSScene.mm in Sources */,
 				07A210AF126DAC9500084A47 /* MD2Model.mm in Sources */,
 				07A210B1126DAC9500084A47 /* PVRPODScene.mm in Sources */,
-				07A210DF126DB15C00084A47 /* GLMeshWriteHeader.mm in Sources */,
-				07A2110A126DB2D400084A47 /* MAX3DSModelConvertor.mm in Sources */,
-				07A2110F126DB2DD00084A47 /* MD2ModelConvertor.mm in Sources */,
-				07A21114126DB2E700084A47 /* PVRPODModelConvertor.mm in Sources */,
 				07A2112D126DB41E00084A47 /* gzip.mm in Sources */,
 				07A21132126DB4AA00084A47 /* zip.mm in Sources */,
 				07A21231126DE42E00084A47 /* E3DScene.mm in Sources */,
 				07A21250126DE4D600084A47 /* E3DSceneNode.mm in Sources */,
 				07A212C8126DEC1600084A47 /* E3DModelStatic.mm in Sources */,
-				07A212C9126DEC1600084A47 /* E3DModelVertexAnimated.mm in Sources */,
+				07A212C9126DEC1600084A47 /* E3DModelMorph.mm in Sources */,
 				07A212F0126DEFF300084A47 /* E3DCamera.mm in Sources */,
 				07A213A8126E206500084A47 /* TestMeshLoader.mm in Sources */,
 				07A213A9126E206A00084A47 /* TestMeshStatic.mm in Sources */,
@@ -1601,6 +1571,22 @@
 				07A215F0126F02CC00084A47 /* TestCameraTouch.mm in Sources */,
 				07A21630126F0ABA00084A47 /* TestSplinePlayback2Points.mm in Sources */,
 				07A21706126F208800084A47 /* TestSplinePlayback4Points.mm in Sources */,
+				07B4891F1279BCF00014295F /* E3DManagers.mm in Sources */,
+				07B489491279BDB50014295F /* E3DMeshStatic.mm in Sources */,
+				07B4894A1279BDB50014295F /* E3DMeshMorph.mm in Sources */,
+				07B4894B1279BDB50014295F /* E3DMeshManager.mm in Sources */,
+				07B4894C1279BDB50014295F /* MAX3DSModelConvertor.mm in Sources */,
+				07B4894D1279BDB50014295F /* MD2ModelConvertor.mm in Sources */,
+				07B4894E1279BDB50014295F /* PVRPODModelConvertor.mm in Sources */,
+				07B4894F1279BDB50014295F /* E3DVertWriter.mm in Sources */,
+				07B489B31279C7820014295F /* E3DSplineHermite.mm in Sources */,
+				07B489B41279C7820014295F /* E3DSplineManager.mm in Sources */,
+				07B48AB7127AF0E50014295F /* E3DTexture.mm in Sources */,
+				07B48AB8127AF0E50014295F /* E3DTextureManager.mm in Sources */,
+				07B48AB9127AF0E50014295F /* GLBasicTextureLoader.mm in Sources */,
+				07B48ABA127AF0E50014295F /* GLPVRTextureLoader.mm in Sources */,
+				07B48AD7127AF29D0014295F /* E3DSprite.mm in Sources */,
+				07B48AD8127AF29D0014295F /* E3DSpriteManager.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

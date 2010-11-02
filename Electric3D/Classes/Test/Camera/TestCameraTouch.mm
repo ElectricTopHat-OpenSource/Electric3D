@@ -140,9 +140,10 @@
 // ------------------------------------------
 - (void) initialization
 {	
-	scene = new E3D::E3DScene( @"Test Scene" );
+	managers	= new E3D::E3DManagers();
+	scene		= new E3D::E3DScene( @"Test Scene" );
 	
-	const GLMeshes::GLMesh * mesh = [[self renderer] factories]->meshes()->load( @"E3D_cube", @"md2" );
+	const E3D::E3DMesh * mesh = managers->meshes()->load( @"E3D_cube", @"md2" );
 	E3D::E3DSceneNode * model = new E3D::E3DModelStatic( @"Cube", mesh );
 	
 	scene->addChild( model );
@@ -172,12 +173,12 @@
 		{
 			E3D::E3DSceneNode * node = scene->child( 0 );
 			if ( ( node->type() == E3D::eE3DSceneNodeType_ModelStatic ) ||
-				( node->type() == E3D::eE3DSceneNodeType_ModelVertexAnimated ) )
+				( node->type() == E3D::eE3DSceneNodeType_ModelMorph ) )
 			{
 				E3D::E3DModel * model = (E3D::E3DModel*)node;
 				
-				[[self renderer] factories]->textures()->release( model->texture() );
-				[[self renderer] factories]->meshes()->release( model->mesh() );
+				managers->textures()->release( model->texture() );
+				managers->meshes()->release( model->mesh() );
 			}
 			
 			scene->removeChild( node );
@@ -186,6 +187,7 @@
 	}
 	
 	SAFE_DELETE( scene );
+	SAFE_DELETE( managers );
 }
 
 #pragma mark ---------------------------------------------------------

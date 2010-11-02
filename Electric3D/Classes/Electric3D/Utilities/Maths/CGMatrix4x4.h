@@ -131,6 +131,14 @@ namespace CGMaths
 	}
 	
 	// ---------------------------------------------------
+	// Make a CGMatrix4x4 Scale
+	// ---------------------------------------------------
+	inline void CGMatrix4x4SetScale( CGMatrix4x4 & _matrix, const CGVector3D & _scale )
+	{		
+		CGMatrix4x4SetScale( _matrix, _scale.x, _scale.y, _scale.z );
+	}
+	
+	// ---------------------------------------------------
 	// Negate a CGMatrix4x4
 	// ---------------------------------------------------
 	inline void CGMatrix4x4Negate( CGMatrix4x4 & _matrix )

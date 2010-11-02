@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-namespace E3D { class E3DSplineFactory; };
+namespace E3D { class E3DSplineManager; };
 
 @interface TestSplineLoader : UIView
 {
@@ -17,7 +17,7 @@ namespace E3D { class E3DSplineFactory; };
 	
 	NSInteger						state;
 	
-	E3D::E3DSplineFactory *		factory;
+	E3D::E3DSplineManager *		factory;
 }
 
 - (BOOL) canRotate;

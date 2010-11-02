@@ -13,12 +13,15 @@
 #import "E3DColorComponent.h"
 #import "E3DTransformComponent.h"
 
+namespace E3D { class E3DScene; };
+
 namespace E3D  
 {
 	class E3DSceneNode
 	: public E3DColorComponent
 	, public E3DTransformComponent
 	{
+		friend class E3DScene;
 #pragma mark ---------------------------------------------------------
 #pragma mark Constructor / Destructor
 #pragma mark ---------------------------------------------------------
@@ -36,22 +39,39 @@ namespace E3D
 #pragma mark ---------------------------------------------------------
 	public: // Functions
 		
-		virtual eE3DSceneNodeType type() const = 0;
+		virtual eE3DSceneNodeType		  type() const { return eE3DSceneNodeType_Unknown; };
 		
-		inline const NSString *	name() const { return m_name; };
-		inline const NSUInteger hash() const { return m_hash; };
+		virtual const BOOL			isGeometry() const { return FALSE; };
+		virtual const CGMaths::CGAABB	  aabb() const = 0;
+		virtual const CGMaths::CGSphere sphere() const = 0;
 		
-		inline BOOL isVisible() const		 { return !m_hidden && ( alpha() > 0.001f ); };
-		inline BOOL isHidden() const		 { return m_hidden; };
-		inline void setHidden( BOOL _hidden ){ m_hidden = _hidden; };
+		inline const NSString *	name() const						{ return m_name; };
+		inline const NSUInteger hash() const						{ return m_hash; };
 		
-		void addChild( E3DSceneNode * _child );
-		void removeChild( E3DSceneNode * _child );
-		void removeAllChildren();
+		inline BOOL isVisible() const								{ return !m_hidden && ( alpha() > 0.001f ); };
+		inline BOOL isHidden() const								{ return m_hidden; };
+		inline void setHidden( BOOL _hidden )						{ m_hidden = _hidden; };
 		
-		inline NSUInteger			numchildren() const			{ return m_children.size(); };
-		inline const sceneNodes &	children() const			{ return m_children; };
-		inline E3DSceneNode *		child( NSInteger _index )	{ return m_children[_index]; };
+		virtual void addChild( E3DSceneNode * _child );
+		virtual void removeChild( E3DSceneNode * _child );
+		virtual void removeAllChildren();
+		
+		inline NSUInteger			identifier() const				{ return m_identifier; };
+		inline void					setIdentifier(NSUInteger _id)	{ m_identifier = _id; };
+		
+		inline E3DScene *			scene()							{ return m_scene; };
+		inline const E3DScene *		scene() const					{ return m_scene; };
+		
+		inline E3DSceneNode *		parent()						{ return m_parent; };
+		inline const E3DSceneNode *	parent() const					{ return m_parent; };
+		
+		inline NSUInteger			numchildren() const				{ return m_children.size(); };
+		inline const sceneNodes &	children() const				{ return m_children; };
+		inline E3DSceneNode *		child( NSInteger _index )		{ return m_children[_index]; };
+		inline const E3DSceneNode *	child( NSInteger _index ) const	{ return m_children[_index]; };
+		
+		
+		
 		
 #pragma mark ---------------------------------------------------------
 #pragma mark === End Public Functions  ===
@@ -62,12 +82,15 @@ namespace E3D
 #pragma mark ---------------------------------------------------------
 	private: // Data
 		
-		NSString *	m_name;
-		NSInteger	m_hash;
+		NSString *		m_name;
+		NSUInteger		m_hash;
+		NSUInteger		m_identifier;
 		
-		sceneNodes	m_children;
+		E3DScene *		m_scene;
+		E3DSceneNode *	m_parent;
+		sceneNodes		m_children;
 		
-		BOOL		m_hidden;
+		BOOL			m_hidden;
 		
 #pragma mark ---------------------------------------------------------
 #pragma mark End Private Data

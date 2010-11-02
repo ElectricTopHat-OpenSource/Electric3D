@@ -18,7 +18,6 @@
 
 namespace GLRenderers	{ class IRenderEngine; };
 
-namespace E3D			{ class E3DFactories; };
 namespace E3D		{ class E3DScene; };
 
 #pragma mark ---------------------------------------------------------
@@ -37,12 +36,7 @@ namespace E3D		{ class E3DScene; };
 	
 	// GL Render
 	GLRenderers::IRenderEngine *	m_renderer;
-	
-	// Container classes
-	E3D::E3DFactories *				m_factories;
 }
-
-@property (nonatomic,readonly) E3D::E3DFactories *	factories;
 
 - (id) initWithLayer:(CAEAGLLayer*)_layer withClearColor:(UIColor*)_clearColor;
 
