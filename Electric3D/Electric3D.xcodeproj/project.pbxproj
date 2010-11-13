@@ -1614,7 +1614,7 @@
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include/Electric3D;
 				PRODUCT_NAME = Electric3D;
 				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/Electric3D;
-				SDKROOT = iphoneos3.2;
+				SDKROOT = iphoneos;
 				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = dynamic;
 			};
 			name = Debug;
@@ -1708,8 +1708,9 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PREBINDING = NO;
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;

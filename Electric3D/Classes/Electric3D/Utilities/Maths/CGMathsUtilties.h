@@ -276,7 +276,7 @@ namespace CGMaths
 	}
 	
 	// elastic easing out - exponentially decaying sine wave
-	float easeOutElastic( float _time, float _start, float _end, float _duration )
+	inline float easeOutElastic( float _time, float _start, float _end, float _duration )
 	{
 		if (_time == 0) 
 		{
@@ -296,7 +296,7 @@ namespace CGMaths
 	}
 	
 	// elastic easing in out - exponentially decaying sine wave
-	float easeInOutElastic( float _time, float _start, float _end, float _duration )
+	inline float easeInOutElastic( float _time, float _start, float _end, float _duration )
 	{
 		if (_time == 0) 
 		{
@@ -328,7 +328,7 @@ namespace CGMaths
 	}
 	
 	// bounce easing in - exponentially decaying parabolic bounce
-	float easeInBounce( float _time, float _start, float _end, float _duration )
+	inline float easeInBounce( float _time, float _start, float _end, float _duration )
 	{
 		float change	= ( _start - _end ); 
 		float value     = 0.0f;
@@ -356,7 +356,7 @@ namespace CGMaths
 	}
 	
 	// bounce easing out - exponentially decaying parabolic bounce
-	float easeOutBounce( float _time, float _start, float _end, float _duration )
+	inline float easeOutBounce( float _time, float _start, float _end, float _duration )
 	{
 		float change	= ( _start - _end ); 
 		if ((_time/=_duration) < (1.0f/2.75f)) 
@@ -381,7 +381,7 @@ namespace CGMaths
 	}
 	
 	// bounce easing in out - exponentially decaying parabolic bounce
-	float easeInOutBounce( float _time, float _start, float _end, float _duration )
+	inline float easeInOutBounce( float _time, float _start, float _end, float _duration )
 	{
 		float change	= ( _start - _end ); 
 		if ( _time < _duration/2.0f )

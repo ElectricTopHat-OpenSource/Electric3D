@@ -16,9 +16,9 @@ VERS=`pl < $SOURCE_ROOT/Electric3D-Info.plist | grep CFBundleVersion | sed -e 's
 libName="libElectric3D"
 sdkName="Electric3D"
 
-IPHONE_SDK=3.2
+IPHONE_SDK=4.2
 IPHONE_SDK_DEPLOYMENT=3.2
-IPHONESIM_SDK=3.2
+IPHONESIM_SDK=4.2
 
 PROJECT_HEADERS_PATH=$SOURCE_ROOT/Classes/Electric3D
 
